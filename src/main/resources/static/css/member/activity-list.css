@@ -1,0 +1,63 @@
+.activity-list {
+    width: 100%;
+}
+
+.info {
+    display: inline-block;
+    width: 100%;
+    /*margin-right: 10px;*/
+}
+
+.activity-item {
+    margin: 10px 50px 10px 10px;
+    border-bottom: 1px solid #0050B3;
+}
+
+.photo {
+    margin: 20px 10px 10px 10px;
+    float: left;
+    width: auto;
+    height: 200px;
+}
+
+.activity-title {
+    margin: 10px;
+    padding: 10px;
+    font: bold 24px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.activity-info {
+    color: #262626;
+    font-style: italic;
+}
+
+.introduction {
+    margin-right: 0;
+    width: 70%;
+    float: left;
+}
+
+.detail {
+    margin-top: 40px;
+    margin-right: 20px;
+    display: inline-block;
+    color: #0050B3;
+    float: right;
+    margin-bottom: 10px;
+}
+
+/*#page{*/
+/*margin: 30px 10px 20px 10px;*/
+/*width: 100%;*/
+/*text-align: center;*/
+/*}*/
+
+/*.page-item{*/
+/*margin-left: 10px;*/
+/*margin-right: 10px;*/
+/*color: #0050B3;*/
+/*}*/
+
+
+
+

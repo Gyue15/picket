@@ -1,0 +1,53 @@
+#c, #sc {
+    background: white;
+    border: 1px solid #8c8c8c;
+    /*margin: 2%;*/
+}
+
+#graph, #s-graph {
+    width: 960px;
+    height: 540px;
+    /*background: black;*/
+    margin: 1% auto;
+}
+
+#select-tip, #seats{
+    display: inline;
+}
+
+.step-bar {
+    width: 80%;
+    height: 38px;
+    margin: 1% auto 4% auto;
+}
+
+.step-bar-item {
+    float: left;
+    width: 20%;
+    height: 38px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.larger {
+    width: 90px;
+    font-size: 16px;
+    float: left;
+    padding-left: 0;
+    text-align: left;
+    margin-right: 0;
+}
+
+.largest {
+    width: 200px;
+    font-size: 16px;
+    float: left;
+    padding-left: 0;
+    text-align: left;
+    margin-right: 0;
+}
+
+.tip {
+    width: 80%;
+    margin: 5% auto 2% auto;
+}

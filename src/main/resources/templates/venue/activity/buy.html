@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/venue/buy.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="body" class="col-md-10">
+        <div class="tip">
+            <blockquote id="buy-tip" class="layui-elem-quote">选择座位后点击确认购票即可完成购买。输入会员邮箱可获得会员优惠。</blockquote>
+        </div>
+
+        <div id="graph">
+            <canvas id="c"></canvas>
+        </div>
+        <div id="step-bar" class="step-bar">
+
+            <div class="layui-form step-bar-item">
+                <label class="layui-form-label larger">选择区域</label>
+                <div id="area-type" class="layui-input-block">
+                    <select name="type" lay-verify="required">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="step-bar-item" style="margin-left: 80px; float: left">
+                <input type="email" id="email-input" name="venueName" required lay-verify="required"
+                       placeholder="请输入会员邮箱" autocomplete="off" class="layui-input">
+            </div>
+
+            <div class="step-bar-item" style="width: 160px; float: left">
+                <button class="layui-btn layui-btn-normal" onclick="checkMember()">会员优惠</button>
+            </div>
+
+            <div id="total-price" class="step-bar-item"
+                 style="float: left; width: 200px; text-align: right; padding: 8px; font-size: 16px; display: none">
+
+            </div>
+
+            <div class="step-bar-item" style="float: right; margin-right: 0; width: 120px">
+                <button class="layui-btn layui-btn-normal" onclick="confirmBuy()" style="float: right; margin-right: 0">确认购票
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/venue/public/header.js"></script>
+<script type="text/javascript" src="/js/venue/public/navigation.js"></script>
+<script type="text/javascript" src="/js/venue/activity/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/lib/fabric.min.js"></script>
+<script type="text/javascript" src="/js/venue/public/canvas.js"></script>
+<script type="text/javascript" src="/js/venue/activity/buy.js"></script>
+</body>
+</html>

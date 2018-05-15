@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/venue/info.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-2">
+        <div id="left-nav"></div>
+    </div>
+
+    <div id="body" class="col-md-8 right-part">
+        <div class="body-container" style="margin-top: 20px">
+            <blockquote id="tip" class="layui-elem-quote layui-quote-nm" style="display: none">信息审核中</blockquote>
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆名称：</p>
+                <div class="step-bar-item" style="float: left" style="display:none">
+                    <input type="text" id="venue-name-input" name="venueName" required lay-verify="required"
+                           autocomplete="off" class="layui-input"/>
+                </div>
+                <p class="after-text able" id="venue-name" ></p>
+                <p class="after-text able check" id="venue-name-check"></p>
+                <a id="edit-name" class="after-text edit-img-container" style="cursor: pointer"
+                   onclick="editInfo('venueName', 'venue-name-input', this, 'venue-name')">
+                    <img class="edit-img" src="/image/edit.png"/>
+                </a>
+                </p>
+            </div>
+
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆编码：</p>
+                <p class="after-text able" id="venue-code"></p>
+                </p>
+            </div>
+
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">联系方式：</p>
+                <div class="step-bar-item" style="float: left" style="display:none">
+                    <input type="text" id="venue-email-input" name="venueName" required lay-verify="required"
+                           autocomplete="off" class="layui-input"/>
+                </div>
+                <p class="after-text able" id="venue-email"></p>
+                <p class="after-text able check" id="venue-email-check" ></p>
+                <a id="edit-email" class="after-text edit-img-container" onclick="editInfo('email', 'venue-email-input', this, 'venue-email')">
+                    <img class="edit-img" src="/image/edit.png"/>
+                </a>
+                </p>
+            </div>
+
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆地点：</p>
+                <div class="step-bar-item" style="float: left" style="display:none">
+                    <input type="text" id="venue-location-input" name="venueName" required lay-verify="required"
+                           autocomplete="off" class="layui-input"/>
+                </div>
+                <p class="after-text able" id="venue-location"></p>
+                <p class="after-text able check" id="venue-location-check" ></p>
+                <a id="edit-location" class="after-text edit-img-container" onclick="editInfo('location', 'venue-location-input', this, 'venue-location')">
+                    <img class="edit-img" src="/image/edit.png"/>
+                </a>
+                </p>
+            </div>
+
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆描述：</p>
+                <div class="layui-input-block"  style="display: none">
+                    <textarea id="venue-detail-input" name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+                <a id="edit-detail" class="after-text edit-img-container" onclick="editInfo('detail', 'venue-detail-input', this, 'venue-detail')">
+                    <img class="edit-img" src="/image/edit.png"/>
+                </a>
+                <p class="after-text able" id="venue-detail"></p>
+                </p>
+            </div>
+
+            <div class="body-item"
+                 style="float: right; margin-right: 0; width: 120px; border: none; margin-top: 2%; padding: 0">
+                <button id="confirm-btn" class="layui-btn layui-btn-normal" onclick="confirmEdit()"
+                        style="float: right; margin-right: 0">提交修改
+                </button>
+            </div>
+
+        </div>
+        <!--<div id="page"></div>-->
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/venue/public/header.js"></script>
+<script type="text/javascript" src="/js/venue/public/navigation.js"></script>
+<script type="text/javascript" src="/js/public/page.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/venue/center/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/venue/center/info.js"></script>
+</body>
+</html>

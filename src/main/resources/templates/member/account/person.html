@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/person-center.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-2">
+        <div id="left-nav"></div>
+    </div>
+
+    <div id="body" class="col-md-8 right-part">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+
+            <div class="col-md-8" style="margin-top: 20px">
+                <div class="body-item">
+                    <p class="item-content">
+                    <p class="before-text">昵称：</p>
+                    <div class="step-bar-item" style="float: left; margin-right: 5px; display: none">
+                        <input type="text" id="username-input" name="username" required lay-verify="required"
+                               autocomplete="off" class="layui-input"/>
+                    </div>
+                    <p class="after-text" id="name"></p>
+                    <a id="edit-name" class="after-text" style="cursor: pointer"
+                       onclick="editInfo('username', 'username-input', this, 'name')">
+                        <img class="edit-img" src="/image/edit.png"/>
+                    </a>
+                    </p>
+                </div>
+
+                <div class="body-item">
+                    <p class="item-content">
+                    <p class="before-text">邮箱：</p>
+                    <p class="after-text" id="email"></p>
+                    </p>
+                </div>
+
+                <div class="body-item">
+                    <p class="item-content">
+                    <p class="before-text">会员等级：</p>
+                    <p class="after-text" id="level"></p>
+                    <p class="after-text" id="level-detail"></p>
+                    </p>
+                </div>
+
+                <div class="body-item">
+                    <p class="item-content">
+                    <p class="before-text">会员积分：</p>
+                    <p class="after-text" id="point">1000</p>
+                    <p class="after-text" id="point-detail">距下一级还剩9000点积分，每消费1元可获10点积分</p>
+                    </p>
+                </div>
+                <!--<div class="body-item2">-->
+                <div class="body-item2" style="margin-top: 10%">
+                    <button class="layui-btn layui-btn-normal" style="float: left" onclick="getVoucher()">兑换优惠券</button>
+                    <button class="layui-btn layui-btn-normal" onclick="changePassword()">修改密码</button>
+                    <button class="layui-btn layui-btn-danger" style="float: right" onclick="abolish()">停止账号</button>
+                    <button id="confirm-btn" class="layui-btn layui-btn-normal layui-btn-disabled" style="float: right"
+                            onclick="confirmEdit()">确认修改
+                    </button>
+                </div>
+                <!--</div>-->
+            </div>
+
+            <div class="col-md-2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/member/public/header.js"></script>
+<script type="text/javascript" src="/js/member/public/navigation.js"></script>
+<script type="text/javascript" src="/js/member/account/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/member/account/person.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/manager/check.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-2">
+        <div id="left-nav"></div>
+    </div>
+
+    <div id="body" class="col-md-8 right-part">
+
+        <div id="content" style="margin-top: 7%">
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆名称：</p>
+                <p class="after-text able" id="venue-name">123</p>
+                </p>
+            </div>
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆编码：</p>
+                <p class="after-text able" id="venue-code">123</p>
+                </p>
+            </div>
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆邮箱：</p>
+                <p class="after-text able" id="venue-email">123</p>
+                </p>
+            </div>
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆地址：</p>
+                <p class="after-text able" id="venue-location">123</p>
+                </p>
+            </div>
+            <div class="body-item">
+                <p class="item-content">
+                <p class="before-text able">场馆描述：</p>
+                <br>
+                <p class="after-text able" id="venue-detail">这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁这是一个简洁打错了是简介</p>
+                </p>
+            </div>
+        </div>
+
+        <div class="step-bar" style="margin-right: 1%;">
+            <div class="body-item" style="width: 40%; float: right; margin-right: 10%; margin-top: 0; padding: 0; border: none">
+                <button id="warn-btn" class="layui-btn layui-btn-danger" onclick="checkResult('NOT_ALLOW')"
+                        style="float: right; margin-right: 0">不予通过
+                </button>
+                <button id="allow-btn" class="layui-btn layui-btn-normal" onclick="checkResult('ALLOW')"
+                        style="float: right; margin-right: 5%">批准通过
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/manager/public/header.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/public/page.js"></script>
+<script type="text/javascript" src="/js/manager/public/navigation.js"></script>
+<script type="text/javascript" src="/js/manager/check/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/manager/check/modifyDetail.js"></script>
+
+</body>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/venue/publish.css">
+    <!--<link rel="stylesheet" type="text/css" href="/css/venue/sign-up.css">-->
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="body" class="col-md-10">
+        <div class="tip">
+            <blockquote class="layui-elem-quote">请填写活动基本信息。</blockquote>
+        </div>
+        <div class="step-holder layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label larger">活动名称</label>
+                <div class="layui-input-block">
+                    <input type="text" id="activityName" name="venueName" required lay-verify="required"
+                           placeholder="请输入活动名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label larger">活动类型</label>
+                <div class="layui-input-block">
+                    <select id="activity-type" name="type" lay-verify="required">
+                        <option value="其他">其他</option>
+                        <option value="舞蹈">舞蹈</option>
+                        <option value="运动会">运动会</option>
+                        <option value="演唱会">演唱会</option>
+                        <option value="综艺晚会">综艺晚会</option>
+                        <option value="舞台剧">舞台剧</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label larger">活动时间</label>
+                <div class="layui-input-block">
+                    <input type="text" id="time-picker" class="input-time-picker" placeholder="选择时间范围（提前30～120天）"/>
+                    <i id="ok-icon" class="ok-icon"
+                       style="margin-left: 2%; font-size: 36px; color: #52c41a; display: none">&#xe8b6;</i>
+                    <i id="wrong-icon" class="ok-icon"
+                       style="margin-left: 2%; font-size: 36px; color: #d81e06; display: none">&#xe60e;</i>
+                    <button class="layui-btn layui-btn-normal time-picker-btn" id="verifyTime" onclick="validateTime()">
+                        验证时间
+                    </button>
+                </div>
+            </div>
+
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label larger">活动描述</label>
+                <div class="layui-input-block">
+                    <textarea id="description" name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <button type="button" class="layui-btn  layui-btn-normal" id="upload-btn" style="float: left">
+                    <i class="layui-icon">&#xe67c;</i>上传活动海报
+                </button>
+                <div id="upload-ok" style="height: 38px; font-size: 16px; float: left; display: none">
+                    <i class="ok-icon"
+                       style="margin-left: 2%; font-size: 36px; color: #52c41a; float: left">&#xe8b6;</i>
+                    <div style="width: 300px; padding: 8px; margin-left: 1%">
+                        上传成功
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tip">
+            <blockquote class="layui-elem-quote">请制订座位价格分布。选中一组座位并填写单价后点击制定价格即可。最多可制定5个价格区域。</blockquote>
+        </div>
+
+        <div id="step-bar" class="step-bar">
+            <div class="layui-form step-bar-item">
+                <label class="layui-form-label larger">选择区域</label>
+                <div id="area-type" class="layui-input-block">
+                    <select name="type" lay-verify="required">
+                        <option value="0">A区域</option>
+                        <option value="1">B区域</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="step-bar-item" style="margin-left: 80px">
+                <input type="text" id="price-input" name="venueName" required lay-verify="required"
+                       placeholder="请输入单价" autocomplete="off" class="layui-input">
+            </div>
+
+            <div class="step-bar-item">
+                <button class="layui-btn layui-btn-normal" onclick="setPrice()">制定价格</button>
+            </div>
+        </div>
+
+        <div id="graph">
+            <canvas id="c"></canvas>
+        </div>
+
+        <div class="step-holder layui-form">
+            <button class="layui-btn layui-btn-normal layui-btn-fluid" onclick="uploadData()">提交活动</button>
+        </div>
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/venue/public/header.js"></script>
+<script type="text/javascript" src="/js/venue/public/navigation.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/lib/fabric.min.js"></script>
+<script type="text/javascript" src="/js/venue/public/canvas.js"></script>
+<script type="text/javascript" src="/js/venue/activity/activitySeat.js"></script>
+<script type="text/javascript" src="/js/venue/activity/publish.js"></script>
+</body>
+</html>

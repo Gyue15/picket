@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/data-center.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-2">
+        <div id="left-nav"></div>
+    </div>
+
+    <div id="body" class="col-md-8 right-part">
+
+        <div class="layui-form" style="width: 80%; margin: 5% auto 0 auto">
+            <label class="layui-form-label" style="width: 100px;">订单类型</label>
+            <div id="area-type" class="layui-input-block">
+                <select name="type" lay-verify="required" lay-filter="test">
+                    <option value="PAYED_AND_UNCHECK">未检票</option>
+                    <option value="PAYED_AND_CHECKED">已检票</option>
+                    <option value="UN_PAYED">未支付</option>
+                    <option value="CANCLED">取消支付</option>
+                    <option value="UNSUBSCRIBE">已退订</option>
+                    <option value="OFF_LINE">线下购票</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="o-container" style="margin-top: 30px"></div>
+
+        <div id="page"></div>
+
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/member/public/header.js"></script>
+<script type="text/javascript" src="/js/member/public/navigation.js"></script>
+<script type="text/javascript" src="/js/member/statistic/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/public/page.js"></script>
+<script type="text/javascript" src="/js/member/statistic/order.js"></script>
+</body>
+</html>

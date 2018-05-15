@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/activity-detail.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/comment.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="body" class="col-md-10">
+        <div id="activity-detail"></div>
+
+        <div class="layui-form" style="width: 80%; margin: 1% auto 0 auto; height: 200px">
+            <hr>
+            <div class="fill-comment-tip">
+                你可以在此填写评论
+            </div>
+            <textarea id="comment-post" name="comment" placeholder="请输入内容" class="layui-textarea"
+                      style="margin: 2% auto"></textarea>
+            <button class="layui-btn layui-btn-normal" onclick="postComment()" style="float: right">
+                发表评论
+            </button>
+        </div>
+
+        <div class="comment-item">
+            <div class="comment-tips">
+                以下为用户评论：
+            </div>
+            <hr>
+        </div>
+        <div id="comment"></div>
+        <div id="page"></div>
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/public/page.js"></script>
+<script type="text/javascript" src="/js/member/public/header.js"></script>
+<script type="text/javascript" src="/js/member/public/navigation.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/member/activity/activityDetail.js"></script>
+<script type="text/javascript" src="/js/member/activity/comment.js"></script>
+</body>
+</html>

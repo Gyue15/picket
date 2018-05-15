@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/venue/statistic.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-2">
+        <div id="left-nav"></div>
+    </div>
+
+    <div id="body" class="col-md-8 right-part">
+
+        <div class="layui-form">
+            <div class="layui-form-item" style="width: 80%; margin: 3% auto 0 auto">
+                <input id="search-input" type="text" name="title" required lay-verify="required" placeholder="请输入订单号"
+                       autocomplete="off"
+                       class="layui-input" style="float: left; width: 79%"/>
+                <button id="search-btn" class="layui-btn layui-btn-normal"
+                        style="float: left; margin-left: 1%; width: 20%" onclick="searchOrder()">搜索
+                </button>
+            </div>
+
+        </div>
+
+        <div id="order-container"></div>
+
+        <div id="page"></div>
+
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/lib/echarts.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/js/venue/public/header.js"></script>
+<script type="text/javascript" src="/js/venue/public/navigation.js"></script>
+<script type="text/javascript" src="/js/public/page.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/venue/statistic/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/venue/statistic/order.js"></script>
+</body>
+</html>

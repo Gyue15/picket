@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/data-center.css">
+</head>
+<body>
+<div id="header"></div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-2">
+        <div id="left-nav"></div>
+    </div>
+
+
+    <div id="body" class="col-md-8 right-part">
+        <div class="order-container">
+            <div id="order-id" class="order-detail-title"></div>
+            <div id="activity-name" class="order-detail-item"></div>
+            <div id="venue-name" class="order-detail-item"></div>
+            <div id="order-state" class="order-detail-item"></div>
+            <div id="place-time" class="order-detail-item"></div>
+            <div id="seat-list" class="order-detail-item"></div>
+            <div id="begin-time" class="order-detail-item"></div>
+            <div id="order-value" class="order-detail-item"></div>
+        </div>
+        <div style="width:80%; margin: 0 auto">
+            <button id="pay-btn" class="layui-btn layui-btn-normal layui-btn-disabled"
+                    style="float: left; width: 20%; margin-right: 20px" onclick="payOrder()">去支付
+            </button>
+            <button id="return-btn" class="layui-btn layui-btn-normal"
+                    style="float: right; width: 20%" onclick="{window.location.href='/member/order'}">返回
+            </button>
+
+            <button id="cancel-btn" class="layui-btn layui-btn-warm layui-btn-disabled" data-toggle="tooltip"
+                    data-placement="left" title="演出开始3日内不可退订，7日内可退订50%，30日内可退订70%，更长时间将全额退款"
+                    style="float: right; width: 20%; margin-right: 20px" onclick="cancelOrder()">
+                退订
+            </button>
+
+            <!--<div class="tooltip">-->
+            <!--<span class="tooltiptext">演出开始3日内不可退订，7日内可退订50%，30日内可退订70%，更长时间将全额退款</span>-->
+            <!--</div>-->
+            <!--<div id="cancel-tip"-->
+            <!--style="float: left; width: 50%; margin-right: 20px; font-size: 12px; padding-top: 10px; display: none">-->
+            <!--演出开始3日内不可退订，7日内可退订50%，30日内可退订70%，更长时间将全额退款-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/member/public/header.js"></script>
+<script type="text/javascript" src="/js/member/public/navigation.js"></script>
+<script type="text/javascript" src="/js/member/statistic/leftNavigation.js"></script>
+<script type="text/javascript" src="/js/public/footer.js"></script>
+<script type="text/javascript" src="/js/member/statistic/orderDetail.js"></script>
+</body>
+</html>
