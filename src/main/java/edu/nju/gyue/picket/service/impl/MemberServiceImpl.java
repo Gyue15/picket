@@ -208,8 +208,16 @@ public class MemberServiceImpl implements MemberService {
     }
 
     private Member verifyMemberEntity(String email, String password) {
-        Member member = memberRepository.findByEmailAndPassword(email, password);
-        verifyMember(member);
+        //Member member = memberRepository.findByEmailAndPassword(email, password);
+    	Member member = memberRepository.findOne(email);
+    	if (member == null) {
+    		verifyMember(member);
+    	} else {
+    		if ( ! member.getPassword().equals(password)) {
+    			member = null;
+    			throw new BadRequestException("密码输入错误");
+    		}
+    	}
         return member;
     }
 
