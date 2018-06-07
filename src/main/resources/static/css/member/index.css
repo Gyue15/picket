@@ -1,0 +1,295 @@
+@charset "UTF-8";
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #FFC53D;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    background: #E8E8E8;
+    width: 100%;
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+#header {
+    width: 100%;
+    background: #002766;
+    height: 52px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+#picket {
+    /*list-style: none;*/
+    font-family: AmericanTypewriter;
+    font-size: 26px;
+    color: #FFC53D;
+    float: left;
+    margin: 10px 10px 10px 10px;
+}
+
+.header-item {
+    /*font-family: STSongti-SC-Regular;*/
+    font-size: 16px;
+    color: #FAFAFA;
+    float: right;
+    margin: 15px 10px 10px 10px;
+    text-align: center;
+}
+
+#check-input, #m-search-input {
+    font-size: 16px;
+    float: right;
+    height: 30px;
+    margin: 13px 0 10px 10px;
+    border: none;
+    padding: 2px 5px;
+}
+
+#check, #m-search {
+    display: block;
+    border: 2px solid #FFC53D;
+    width: 60px;
+    height: 30px;
+    margin: 13px 10px 10px 0;
+}
+
+.y-line {
+    border-left: 2px solid #ffd666;
+    float: right;
+    width: 2px;
+    height: 32px;
+    margin-top: 11px;
+}
+
+#navigation {
+    background-color: white;
+    width: 100%;
+    height: 52px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.50);
+}
+
+.navigation-item {
+    /*font-family: STSongti-SC-Regular;*/
+    font-size: 16px;
+    color: #262626;
+}
+
+#left-nav {
+    margin: 36px 30px 36px 20px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.50);
+    /*width: 90%;*/
+    min-height: 80vh;
+    padding: 0;
+}
+
+.left-nav-item {
+    display: block;
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    float: right;
+}
+
+.left-nav-inner {
+    margin: 0;
+    float: right;
+    padding: 10px;
+    display: inline;
+    height: inherit;
+    width: inherit;
+}
+
+.nav-a {
+    /*font-family: STSongti-SC-Regular;*/
+    font-size: 16px;
+    color: #262626;
+}
+
+.active {
+    border-right: 5px solid #1890FF;
+}
+
+#body {
+    /*margin: 30px;*/
+    margin-top: 36px;
+    margin-bottom: 36px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.50);
+    /*width: 90%;*/
+    min-height: 80vh;
+}
+
+.right-part {
+    height: 80vh;
+    overflow: auto;
+}
+
+#footer {
+    background-color: white;
+    height: 52px;
+    width: 100%;
+    overflow: auto;
+}
+
+#copy-right {
+    text-align: center;
+    line-height: 52px;
+    font-family: Times-Roman;
+    font-size: 16px;
+}
+
+#page {
+    margin: 30px 10px 20px 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.page-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #0050B3;
+    cursor: pointer;
+}
+
+.page-active {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #0050B3;
+    cursor: pointer;
+}
+
+.page-disactive {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #262626;
+}
+
+.page-num {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #262626;
+}
+
+.active-navigation {
+    border-bottom: 5px solid #1890FF;
+}
+
+.index-background {
+	position: absolute;
+	top: 5px;
+	z-index: -10;
+    background: url("../../image/background.jpg") no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    filter: blur(5px);
+    
+    width: 100%;
+    height: 100%;
+}
+
+.index-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.center-container {
+    height: 100%;
+    width: 100%;
+    /*background-color: #8c8c8c;*/
+    overflow: hidden;
+}
+
+.center-welcome {
+	margin-top: 260px;
+    text-align: center;
+}
+
+.welcome-title {
+    /*font-family: AmericanTypewriter bold;*/
+    font-size: 70px;
+    color: #002766;
+}
+
+.center-btn-group {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.index-btn {
+    margin: 3%;
+    width: 15%;
+    background-color: #0050B3;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 571657 */
+    src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot');
+    src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont') format('svg');
+}
+
+.ok-icon {
+    font-family: iconfont;
+    font-style: normal;
+}
+
+.alert-tip {
+    margin: 5% auto;
+    font-size: 16px;
+    text-align: center;
+}
+
+.higher {
+    width: 40%;
+    margin-top: 15%;
+}
+
+.manager-btn {
+    width: 100%;
+    margin: 1% auto;
+}
