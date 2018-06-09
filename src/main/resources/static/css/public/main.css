@@ -28,7 +28,8 @@ a:active {
 body {
   overflow-x: hidden;
   background: #eae7dc;
-  font-family: "Helvetica Neue","PingFang SC", "Roobert", "HYQiHei", "Microsoft YaHei";
+  font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei";
+  height: 100%;
 }
 
 ul {
@@ -52,6 +53,10 @@ ul {
   color: #e85a4f;
   float: left;
   margin: 10px 10px 10px 10px;
+}
+
+.col-md-2 {
+  height: 80vh;
 }
 
 .header-item {
@@ -108,16 +113,20 @@ ul {
 }
 
 #left-nav {
-  margin: 36px 30px 36px 20px;
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
+  margin: 36px 30px 0px 20px;
+  border: 1px solid rgba(62, 62, 62, 0.2);
   /*width: 90%;*/
-  min-height: 80vh;
   padding: 0;
+  height: calc(100% - 37px);
+}
+
+#left-nav ul {
+  height: 100%;
 }
 
 .left-nav-item {
   display: block;
-  margin-top: 80px;
+  margin-top: 60px;
   width: 100%;
   text-align: center;
   float: right;
