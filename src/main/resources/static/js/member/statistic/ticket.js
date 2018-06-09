@@ -1,95 +1,93 @@
-let nowPage = 1;
-let maxPage = 1;
-
-let pageSize = 2;
-
 $(function () {
-    $.get("/api/members/tickets-page-numbers", {
-        "email": sessionStorage.getItem("memberEmail"),
-        "page-size": pageSize
-    }).done(function (data) {
-        maxPage = data - 0;
-    }).done(function () {
-        updateList();
-        updatePageNum();
-    });
+    updateList();
 });
 
 function displayList(data) {
-    console.log(1, data);
-    let voucher = "";
-    for (let i = 0; i < data.length; i++) {
-        let nowDate = new Date();
-        let ticketClass = '';
+//    console.log(1, data);
+//    let voucher = "";
+//    for (let i = 0; i < data.length; i++) {
+//        let nowDate = new Date();
+//        let ticketClass = '';
+//        if (nowDate.getTime() <= data[i].beginTime + 60 * 60 * 1000) {
+//            ticketClass = "ticket-able";
+//        } else {
+//            ticketClass = "ticket-disable";
+//        }
+//        let date = new Date(data[i].beginTime);
+//        voucher += `<div class="row">
+//            <div class="col-md-2">
+//            </div>
+//            <div class="ticket-item col-md-8 ${ticketClass}">
+//                <p class="ticket-title able">${data[i].activityName}</p>
+//                <p class="ticket-info able">${data[i].venueName} ${data[i].seat}</p>
+//                <p class="ticket-info able">开始时间 ${date.Format("yyyy-MM-dd hh:mm:ss")}</p>
+//                <p class="ticket-info able">检票码 ${data[i].ticketCode}</p>
+//                <p class="ticket-info able">已检票： ${data[i].checked ? '是' : '否'}</p>
+//            </div>
+//            <div class="col-md-2">
+//            </div>
+//        </div>`;
+//    }
+//    for (let i = pageSize - data.length; i > 0; i--) {
+//        voucher += "<div class=\"ticket-item ticket-hidden\"></div>";
+//    }
+//    $("#t-container").empty().append(voucher);
+	var formatData = new Array();
+	
+	for (var i=0; i<data.length; i++) {
+		var nowDate = new Date();
+        var isAble;
         if (nowDate.getTime() <= data[i].beginTime + 60 * 60 * 1000) {
-            ticketClass = "ticket-able";
+        	isAble = true;
         } else {
-            ticketClass = "ticket-disable";
+        	isAble = false;
         }
-        let date = new Date(data[i].beginTime);
-        voucher += `<div class="row">
-            <div class="col-md-2">
-            </div>
-            <div class="ticket-item col-md-8 ${ticketClass}">
-                <p class="ticket-title able">${data[i].activityName}</p>
-                <p class="ticket-info able">${data[i].venueName} ${data[i].seat}</p>
-                <p class="ticket-info able">开始时间 ${date.Format("yyyy-MM-dd hh:mm:ss")}</p>
-                <p class="ticket-info able">检票码 ${data[i].ticketCode}</p>
-                <p class="ticket-info able">已检票： ${data[i].checked ? '是' : '否'}</p>
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>`;
-    }
-    for (let i = pageSize - data.length; i > 0; i--) {
-        voucher += "<div class=\"ticket-item ticket-hidden\"></div>";
-    }
-
-    $("#t-container").empty().append(voucher);
-}
-
-function turnPage(turnNum) {
-    turnNum = turnNum - 0;
-    if (nowPage + turnNum <= 0 || nowPage + turnNum > maxPage) {
-        return;
-    }
-    nowPage = nowPage + turnNum;
-    updateList();
-    updatePageNum();
+        var date = new Date(data[i].beginTime);
+        formatData.push({
+        	'aname' : `${data[i].activityName}`,
+        	'position' : `${data[i].venueName} ${data[i].seat}`,
+        	'stime' : `开始时间 ${date.Format("yyyy-MM-dd hh:mm:ss")}`,
+        	'tcode' : `检票码 ${data[i].ticketCode}`,
+        	'hasChecked' : `已检票： ${data[i].checked ? '是' : '否'}`,
+        	'isAble' : `已过期： ${isAble ? '否' : '是'}`
+        });
+	}
+    $("#t-container").bootstrapTable({
+    	showHeader : false,
+    	showFooter : false,
+    	pagination : true,
+    	pageSize : 4,
+    	pageList : [4],
+    	buttonsAlign : "right",
+    	classes : "table table-no-bordered table-hover",
+    	columns : [{
+    		field : 'aname',
+    	}, {
+    		field : 'position'
+    	}, {
+    		field : 'stime'
+    	}, {
+    		field : 'tcode'
+    	}, {
+    		field : 'hasChecked',
+    		title : '已检票'
+    	}, {
+    		field : 'isAble',
+    		title : '已过期'
+    	}],
+    	data : formatData,
+    });
 }
 
 function updateList() {
     $.get("/api/members/tickets", {
-        "email": sessionStorage.getItem("memberEmail"),
-        "page": nowPage,
-        "page-size": pageSize
+        "email": sessionStorage.getItem("memberEmail")
     }).done(function (data) {
         console.log(data);
         displayList(data);
     }).fail(function (e) {
         alertWindow(e.responseText);
     });
-}
-
-function updatePageNum() {
-    $("#pageNum").text(`${nowPage}/${maxPage}`);
-
-    if (nowPage > 1) {
-        $("#before").addClass("page-active");
-        $("#before").removeClass("page-disactive");
-    } else {
-        $("#before").addClass("page-disactive");
-        $("#before").removeClass("page-active");
-    }
-
-    if (nowPage < maxPage) {
-        $("#after").addClass("page-active");
-        $("#after").removeClass("page-disactive");
-    } else {
-        $("#after").addClass("page-disactive");
-        $("#after").removeClass("page-active");
-    }
-
 }
 
 Date.prototype.Format = function (fmt) { //author: meizz

@@ -187,8 +187,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<TicketModel> getTicketList(String email, Integer page, Integer pageSize) {
-        Pageable pageable = new PageRequest(page - 1, pageSize, Sort.Direction.DESC, "ticketId");
+    public List<TicketModel> getTicketList(String email) {
+    	int pageSize = ticketRepository.countByMember_EmailAndBeginTimeAfter(email, new Date())==0 ? 1 : ticketRepository.countByMember_EmailAndBeginTimeAfter(email, new Date());
+        Pageable pageable = new PageRequest(0, pageSize, Sort.Direction.DESC, "ticketId");
         Page<Ticket> ticketPage = ticketRepository.findByMember_EmailAndBeginTimeAfter(email, new Date(), pageable);
         return ticketPage.getContent().stream().map(ticket -> {
             TicketModel ticketModel = new TicketModel();
