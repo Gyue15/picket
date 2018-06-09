@@ -173,7 +173,8 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<VoucherModel> getVoucherList(String email) {
-        Pageable pageable = new PageRequest(0, voucherRepository.countByMember_EmailAndIsUsedAndLeastDateAfter(email, false, new Date()), Sort.Direction.ASC, "leastDate");
+    	int pageSize = voucherRepository.countByMember_EmailAndIsUsedAndLeastDateAfter(email, false, new Date())==0 ? 1 : voucherRepository.countByMember_EmailAndIsUsedAndLeastDateAfter(email, false, new Date());
+        Pageable pageable = new PageRequest(0, pageSize, Sort.Direction.ASC, "leastDate");
         Page<Voucher> voucherPage = voucherRepository.findByMember_EmailAndIsUsedAndLeastDateAfter(email, false, new
                 Date(), pageable);
         return transferComponent.toVoucherModelList(voucherPage.getContent());

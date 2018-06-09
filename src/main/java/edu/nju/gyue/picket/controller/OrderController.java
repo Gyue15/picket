@@ -40,7 +40,7 @@ public class OrderController {
         System.out.println("id: " + id + ", userType: " + userType + ", page: " + pageNum + ", pageSize: " + pageSize);
         switch (userType) {
             case MEMBER:
-                return orderService.getMemberOrderList(id, pageNum, pageSize, orderState);
+                return orderService.getMemberOrderList(id, orderState);
             case VENUE:
                 return orderService.getVenueOrderList(id, pageNum, pageSize);
             default:

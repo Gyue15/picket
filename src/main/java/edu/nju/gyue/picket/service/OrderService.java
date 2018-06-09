@@ -9,7 +9,7 @@ public interface OrderService {
 
     String checkTicket(String ticketCode, String venueCode);
 
-    List<OrderModel> getMemberOrderList(String email, Integer pageNum, Integer pageSize, OrderState orderState);
+    List<OrderModel> getMemberOrderList(String email, OrderState orderState);
 
     List<OrderModel> getVenueOrderList(String venueCode, Integer pageNum, Integer pageSize);
 

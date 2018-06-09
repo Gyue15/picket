@@ -1,5 +1,8 @@
 // 基于准备好的dom，初始化echarts实例
-let myChart = echarts.init(document.getElementById('statistic-chart'), "light");
+//let myChart = echarts.init(document.getElementById('statistic-chart'), "light");
+let chart1 = echarts.init(document.getElementById('consume-type-chart'), "light");
+let chart2 = echarts.init(document.getElementById('consume-statistic-chart'), "light");
+let chart3 = echarts.init(document.getElementById('order-statistic-chart'), "light");
 
 let consumeType = [], consumeTypeMap = [];
 
@@ -34,30 +37,34 @@ $(function () {
 });
 
 function initChart() {
-    $("#chart-nav p").each(function () {
-        let id = this.id;
-        this.onclick = function () {
-            $("#chart-nav p").each(function () {
-                if (this.id === id) {
-                    $(this).addClass("chart-active");
-                } else {
-                    $(this).removeClass("chart-active");
-                }
-            });
-            setChart(id);
-        };
-    });
-    $("#consume-type").trigger("click");
+//    $("#chart-nav p").each(function () {
+//        let id = this.id;
+//        this.onclick = function () {
+//            $("#chart-nav p").each(function () {
+//                if (this.id === id) {
+//                    $(this).addClass("chart-active");
+//                } else {
+//                    $(this).removeClass("chart-active");
+//                }
+//            });
+//            setChart(id);
+//        };
+//    });
+//    $("#consume-type").trigger("click");
+	chart1.setOption(getChartOption("consume-type"), true);
+	chart2.setOption(getChartOption("consume-statistic"), true);
+	chart3.setOption(getChartOption("order-statistic"), true);
 }
 
-function setChart(chartId) {
+function getChartOption(chartId) {
     if (chartId === "consume-type") {
-        consumeTypeChart();
+        return consumeTypeChart();
     } else if (chartId === "consume-statistic") {
-        consumeStatisticChart();
+        return consumeStatisticChart();
     } else if (chartId === "order-statistic") {
-        orderStatisticChart();
+        return orderStatisticChart();
     }
+    return undefined;
 }
 
 function consumeTypeChart() {
@@ -98,10 +105,11 @@ function consumeTypeChart() {
         ]
     };
 
+    return option;
 // 使用刚指定的配置项和数据显示图表。
 //     myChart.clear();
 //     console.log("1111111");
-    myChart.setOption(option, true);
+//    myChart.setOption(option, true);
 }
 
 function consumeStatisticChart() {
@@ -133,9 +141,10 @@ function consumeStatisticChart() {
             smooth: true
         }]
     };
+    return option;
     // myChart.clear();
     // console.log("2222222222");
-    myChart.setOption(option, true);
+//    myChart.setOption(option, true);
 }
 
 function orderStatisticChart() {
@@ -186,6 +195,7 @@ function orderStatisticChart() {
             }
         ]
     };
+    return option;
     // console.log("3333333333");
-    myChart.setOption(option, true);
+//    myChart.setOption(option, true);
 }

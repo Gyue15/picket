@@ -69,8 +69,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderModel> getMemberOrderList(String email, Integer pageNum, Integer pageSize, OrderState orderState) {
-        Pageable pageable = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "placeDate");
+    public List<OrderModel> getMemberOrderList(String email, OrderState orderState) {
+    	int pageSize = orderRepository.countByMember_EmailAndOrderState(email, orderState)==0 ? 1 : orderRepository.countByMember_EmailAndOrderState(email, orderState);
+        Pageable pageable = new PageRequest(0, pageSize, Sort.Direction.DESC, "placeDate");
         Page<ActivityOrder> orderPage = orderRepository.findByMember_EmailAndOrderState(email, pageable, orderState);
         return transferComponent.toOrderModelList(orderPage.getContent());
     }
