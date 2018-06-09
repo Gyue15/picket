@@ -1,286 +1,305 @@
 @import "variables";
 
 @font-face {
-    font-family: "HYQiHei";
-    src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff");
+  font-family: "HYQiHei";
+  src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff");
 }
 
-@font-face {
-    font-family: "PingFang SC";
-    src: url(https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Regular.ttf) format("truetype");
-}
+// @font-face {
+//   font-family: "PingFang SC";
+//   src: url(https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Regular.ttf) format("truetype");
+// }
 
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
-    color: #FFC53D;
+  text-decoration: none;
+  color: #FFC53D;
 }
 
 a:active {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 body {
-    overflow-x: hidden;
-    background: $secondary-color-light;
-    font-family: "Helvetica Neue","PingFang SC", "Roobert", "HYQiHei", "Microsoft YaHei"
+  overflow-x: hidden;
+  background: $secondary-color-light;
+  font-family: "Helvetica Neue", "HYQiHei", "PingFang SC", "Roobert", "Microsoft YaHei"
 }
 
 ul {
-    list-style: none;
-}
-
-#header {
-    width: 100%;
-    height: 52px;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    overflow-y: hidden;
-    overflow-x: auto;
+  list-style: none;
 }
 
 #picket {
-    /*list-style: none;*/
-    font-family: AmericanTypewriter;
-    font-size: 26px;
-    color: $primary-color;
-    float: left;
-    margin: 10px 10px 10px 10px;
-}
-
-.header-item {
-    /*font-family: STSongti-SC-Regular;*/
-    font-size: 16px;
-    color: $black-color;
-    float: right;
-    margin: 15px 10px 10px 10px;
-    text-align: center;
+  /*list-style: none;*/
+  font-family: AmericanTypewriter;
+  font-size: 26px;
+  color: $primary-color;
+  float: left;
+  margin: 10px 10px 10px 10px;
 }
 
 #check-input, #m-search-input {
-    font-size: 16px;
-    float: right;
-    height: 30px;
-    margin: 13px 0 10px 10px;
-    border: none;
-    padding: 2px 5px;
-    background: $secondary-color-light;
-    border: 1px solid rgba(62, 62, 62, 0.2);
+  font-size: 16px;
+  float: right;
+  height: 30px;
+  margin: 13px 0 10px 10px;
+  border: none;
+  padding: 2px 5px;
+  background: $secondary-color-light;
+  border: 1px solid rgba(62, 62, 62, 0.2);
 }
 
 #check, #m-search {
-    display: block;
-    border: 2px solid #FFC53D;
-    width: 60px;
-    height: 30px;
-    margin: 13px 10px 10px 0;
+  display: block;
+  border: 2px solid #FFC53D;
+  width: 60px;
+  height: 30px;
+  margin: 13px 10px 10px 0;
 }
 
 .y-line {
-    border-left: 2px solid #ffd666;
-    float: right;
-    width: 2px;
-    height: 32px;
-    margin-top: 11px;
+  border-left: 2px solid #ffd666;
+  float: right;
+  width: 2px;
+  height: 32px;
+  margin-top: 11px;
 }
 
 #navigation {
-    background-color: $secondary-color-light;
-    width: 100%;
-    height: 52px;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
+  background-color: $secondary-color-light;
+  width: 100%;
+  height: 52px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .navigation-item {
-    /*font-family: STSongti-SC-Regular;*/
-    font-size: 16px;
-    color: $black-color;
+  /*font-family: STSongti-SC-Regular;*/
+  font-size: 16px;
+  color: $black-color;
 }
 
 #left-nav {
-    margin: 36px 30px 36px 20px;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.50);
-    /*width: 90%;*/
-    min-height: 80vh;
-    padding: 0;
+  margin: 36px 30px 36px 20px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.50);
+  /*width: 90%;*/
+  min-height: 80vh;
+  padding: 0;
 }
 
 .left-nav-item {
-    display: block;
-    margin-top: 80px;
-    width: 100%;
-    text-align: center;
-    float: right;
+  display: block;
+  margin-top: 80px;
+  width: 100%;
+  text-align: center;
+  float: right;
 }
 
 .left-nav-inner {
-    margin: 0;
-    float: right;
-    padding: 10px;
-    display: inline;
-    height: inherit;
-    width: inherit;
+  margin: 0;
+  float: right;
+  padding: 10px;
+  display: inline;
+  height: inherit;
+  width: inherit;
 }
 
 .nav-a {
-    /*font-family: STSongti-SC-Regular;*/
-    font-size: 16px;
-    color: $black-color;
+  /*font-family: STSongti-SC-Regular;*/
+  font-size: 16px;
+  color: $black-color;
 }
 
 .active {
-    border-right: 5px solid $primary-color;
+  border-right: 5px solid $primary-color;
 }
 
 #body {
-    /*margin: 30px;*/
-    margin-top: 36px;
-    margin-bottom: 36px;
-    /*width: 90%;*/
-    min-height: 80vh;
+  /*margin: 30px;*/
+  margin-top: 36px;
+  margin-bottom: 36px;
+  /*width: 90%;*/
+  min-height: 80vh;
 }
 
 .right-part {
-    height: 80vh;
-    overflow: auto;
+  height: 80vh;
+  overflow: auto;
 }
 
 #footer {
-    height: 52px;
-    width: 100%;
-    overflow: auto;
+  height: 52px;
+  width: 100%;
+  overflow: auto;
 }
 
 #copy-right {
-    text-align: center;
-    line-height: 52px;
-    font-family: Times-Roman;
-    font-size: 16px;
+  text-align: center;
+  line-height: 52px;
+  font-family: Times-Roman;
+  font-size: 16px;
 }
 
 #page {
-    margin: 30px 10px 20px 10px;
-    width: 100%;
-    text-align: center;
+  margin: 30px 10px 20px 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .page-item {
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #0050B3;
-    cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #0050B3;
+  cursor: pointer;
 }
 
 .page-active {
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #0050B3;
-    cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #0050B3;
+  cursor: pointer;
 }
 
 .page-disactive {
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #262626;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #262626;
 }
 
 .page-num {
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #262626;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #262626;
 }
 
 .active-navigation {
-    border-bottom: 5px solid #e98074;
+  border-bottom: 5px solid #e98074;
 }
 
 .index-background {
-    background-image: url("../../image/background.jpg");
-    background-size: 100% auto;
+  background-image: url("../../image/background.jpg");
+  background-size: 100% auto;
 }
 
 .index-footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }
 
 .center-container {
-    width: 60%;
-    margin: 20% auto;
-    /*background-color: #8c8c8c;*/
+  width: 60%;
+  margin: 20% auto;
+  /*background-color: #8c8c8c;*/
 }
 
 .center-welcome {
-    text-align: center;
+  text-align: center;
 }
 
 .welcome-title {
-    /*font-family: AmericanTypewriter bold;*/
-    font-size: 48px;
-    color: #faad14;
+  /*font-family: AmericanTypewriter bold;*/
+  font-size: 48px;
+  color: #faad14;
 }
 
 .center-btn-group {
-    margin-top: 2%;
-    text-align: center;
+  margin-top: 2%;
+  text-align: center;
 }
 
 .index-btn {
-    margin: 3%;
-    width: 15%;
-    background-color: #0050B3;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 10px;
+  margin: 3%;
+  width: 15%;
+  background-color: #0050B3;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
 }
 
 @font-face {
-    font-family: 'iconfont';  /* project id 571657 */
-    src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot');
-    src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff') format('woff'),
-    url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 571657 */
+  src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot');
+  src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont') format('svg');
 }
 
 .ok-icon {
-    font-family: iconfont;
-    font-style: normal;
+  font-family: iconfont;
+  font-style: normal;
 }
 
 .alert-tip {
-    margin: 5% auto;
-    font-size: 16px;
-    text-align: center;
+  margin: 5% auto;
+  font-size: 16px;
+  text-align: center;
 }
 
 .higher {
-    width: 40%;
-    margin-top: 15%;
+  width: 40%;
+  margin-top: 15%;
 }
 
 .manager-btn {
-    width: 100%;
-    margin: 1% auto;
+  width: 100%;
+  margin: 1% auto;
+}
+
+#header {
+  width: 100%;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background-color: $transparent-grey;
+}
+
+.header-item {
+ font-size: 13px;
+ margin-top: 8px;
+ text-align: center;
+ color: $grey-color;
+}
+
+.left-header-containner {
+  float: left;
+  margin-left: 10%; 
+}
+
+.right-header-containner {
+  float: right;
+  margin-right: 10%; 
+}
+
+.left-item {
+  float: left;
+  margin-right: 20px;
+}
+
+.right-item {
+  float: right;
+  margin-left: 20px;
 }
