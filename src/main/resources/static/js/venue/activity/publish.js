@@ -48,7 +48,7 @@ $(function () {
             ,url: '/api/activities/upload' //上传接口
             ,done: function(res){
                 photoUrl = res.url;
-                let photo = `<img src=${photoUrl} style="height: 100px;width: auto"/>`;
+                let photo = `<img src=/showpic/${photoUrl} style="height: 100px;width: auto"/>`;
                 $("#upload-ok").css("display", "");
                 $("#upload-btn").addClass("layui-btn-disabled").after(photo);
                 console.log(photoUrl);
@@ -85,7 +85,7 @@ function uploadData() {
     let activityName = $("#activityName").val();
     let activityType = $("#activity-type").val();
     let description = $("#description").val();
-    if (!activityType || !activityType || !description || seatMap.size === 0 || !hasLoad) {
+    if (!activityType || !activityName || !description || seatMap.size === 0) {
         alertWindow("请将信息填写完整");
         return;
     }
@@ -123,7 +123,7 @@ function publish(activityName, activityType, description) {
         endTime: max,
         description: description,
         seatMapString: map2Str(seatMap),
-        photoUrl: photoUrl,
+        photoUrl: '1',
         venueCode: sessionStorage.getItem("venueCode")
     }).done(function (data) {
         alertWindowCtrl("发布成功<br>活动编号：" + data, "/venue/activity");

@@ -19,7 +19,7 @@ function displayList(data) {
     for (let i = 0; i < data.length; i++) {
         let activity = `<li class=\"activity-item\">
                             <div class=\"info\">
-                                <img class=\"photo\" src=\"${data[i].photo}\"/>
+                                <img class=\"photo\" src="/showpic/${data[i].photo}"/>
                                 <h3 class=\"activity-title\">${data[i].name}</h3>
                                 <p class=\"activity-info\">${data[i].activityType}</p></p>
                                 <p class=\"activity-info\">${data[i].venueName}</p>

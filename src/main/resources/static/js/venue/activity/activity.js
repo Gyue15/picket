@@ -92,7 +92,7 @@ function activityList(data) {
     if (this.location.href === "http://localhost:8080/venue/activity") {
         return `<li class="activity-item">
                     <div class="info">
-                        <img class="photo" src="${data.photo}"/>
+                        <img class="photo" src="/showpic/${data.photo}"/>
                         <h3 class="activity-title">${data.name}</h3>
                         <p class="activity-info">${data.activityType}</p></p>
                         <p class="activity-info">${data.dateString}</p>
@@ -103,7 +103,7 @@ function activityList(data) {
     } else {
         return `<li class=\"activity-item\">
                     <div class=\"info\">
-                         <img class=\"photo\" src=\"${data.photo}\"/>
+                         <img class=\"photo\" src="/showpic/${data.photo}"/>
                          <h3 class=\"activity-title\">${data.name}</h3>
                          <p class=\"activity-info\">${data.activityType}</p></p>
                          <p class=\"activity-info\">${data.dateString}</p>

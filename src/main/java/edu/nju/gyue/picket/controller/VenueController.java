@@ -56,10 +56,8 @@ public class VenueController {
     @PostMapping("/sign-up")
     public VenueModel signUp(String venueName, String location, String email, String password, String description,
                              String areaGraph, String seatGraphList) {
-        String areaGraphUrl = FileUtil.saveFile(areaGraph, FilePathConfig.AREA_GRAPH_PATH);
-        String seatGraphUrl = FileUtil.saveFile(seatGraphList, FilePathConfig.SEAT_GRAPH_PATH);
-
-        return venueService.signUp(venueName, location, email, password, description, areaGraphUrl, seatGraphUrl);
+        System.out.println(areaGraph + " " + seatGraphList);
+        return venueService.signUp(venueName, location, email, password, description, areaGraph, seatGraphList);
     }
 
     /**
@@ -120,7 +118,7 @@ public class VenueController {
     public Map<String, String> getAreaGraph(@RequestParam("venue-code") String venueCode) {
         String areaGraphUrl = venueService.getAreaGraphUrl(venueCode);
         Map<String, String> map = new HashMap<>();
-        map.put("data", FileUtil.readFile(areaGraphUrl));
+        map.put("data", areaGraphUrl);
         return map;
     }
 
@@ -133,7 +131,7 @@ public class VenueController {
     @GetMapping("/seats")
     public List<SeatGraphModel> getSeats(@RequestParam("venue-code") String venueCode) {
         String seatGraphUrl = venueService.getSeatGraphUrl(venueCode);
-        return JSON.parseArray(FileUtil.readFile(seatGraphUrl), SeatGraphModel.class);
+        return JSON.parseArray(seatGraphUrl, SeatGraphModel.class);
     }
 
     /**

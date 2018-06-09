@@ -38,6 +38,7 @@ public class FileUtil {
         return fileUrl;
     }
 
+/*
     public static String saveFile(String content, String path) {
         String filePath = path + "/" + System.currentTimeMillis() + Param.JSON_SUFFIX;
         File file = new File(filePath);
@@ -77,7 +78,7 @@ public class FileUtil {
         }
         return sb.toString();
     }
-
+*/
 //    public static String testSeatList() throws IOException {
 //        File file = new File("/Users/gyue/Pictures/MyPicture/graph/test");
 //        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));

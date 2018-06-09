@@ -39,7 +39,7 @@ function initActivityDetail(activityModel) {
 
     let activityDetail =
         `<div class="upper">
-        <img class="detail-photo" src=${activityModel.photo}/>
+        <img class="detail-photo" src=\"/showpic/${activityModel.photo}\"/>
         <div class="detail-container">
 
             <h3 class="detail-title">${activityModel.name}</h3>
