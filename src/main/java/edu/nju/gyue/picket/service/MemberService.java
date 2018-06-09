@@ -34,7 +34,7 @@ public interface MemberService {
 
     void changeVoucher(String email, Long voucherTypeId, Integer num);
 
-    List<VoucherModel> getVoucherList(String email, Integer page, Integer pageSize);
+    List<VoucherModel> getVoucherList(String email);
 
     Integer getVouchersPageNum(String email, Integer pageSize);
 
