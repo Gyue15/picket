@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/activity-list.css">
+</head>
+
+<body>
+<div id="header">
+    <div class="left-header-containner">
+        <div class="header-item left-item">Hi，欢迎来到Picket</div>
+        <div class="header-item left-item">登录</div>
+        <div class="header-item left-item">注册</div>
+    </div>
+    <div class="right-header-containner">
+        <div class="header-item right-item">个人中心</div>
+    </div>
+</div>
+
+<div id="site-name-bar">
+    <div id="site-name">Picket</div>
+    <div id="search-bar">
+        <input id="search-bar-input" type="text"/>
+        <button id="search-bar-button">搜索</button>
+    </div>
+</div>
+
+<div id="header-menu">
+    <div class="header-menu-item">戏曲</div>
+    <div class="header-menu-item">体育</div>
+    <div class="header-menu-item">亲子</div>
+    <div class="header-menu-item">摇滚</div>
+    <div class="header-menu-item">舞蹈</div>
+</div>
+
+<div class="layui-carousel" id="activity-gallery">
+    <div carousel-item>
+        <div>条目1</div>
+        <div>条目2</div>
+        <div>条目3</div>
+        <div>条目4</div>
+        <div>条目5</div>
+    </div>
+</div>
+
+<div id="navigation" class="row"></div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="body" class="col-md-10">
+        <ul class="activity-list"></ul>
+        <div id="page"></div>
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<!--<script type="text/javascript" src="/js/member/public/header.js"></script>-->
+<!--<script type="text/javascript" src="/js/member/public/navigation.js"></script>-->
+<!--<script type="text/javascript" src="/js/public/page.js"></script>-->
+<!--<script type="text/javascript" src="/js/public/footer.js"></script>-->
+<script type="text/javascript" src="/js/member/activity/activity-new.js"></script>
+</body>

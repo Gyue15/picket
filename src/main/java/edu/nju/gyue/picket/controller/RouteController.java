@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class RouteController {
 
+    @RequestMapping("test")
+    public String test() {
+        return "/member/activity/activity-new";
+    }
+
     @RequestMapping("venue/")
     public String venueIndex() {
         return "/venue/index";

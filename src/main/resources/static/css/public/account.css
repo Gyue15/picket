@@ -28,7 +28,7 @@ a:active {
 body {
   overflow-x: hidden;
   background: #eae7dc;
-  font-family: "Helvetica Neue","PingFang SC", "Roobert", "HYQiHei", "Microsoft YaHei";
+  font-family: "Helvetica Neue", "PingFang SC", "Roobert", "HYQiHei", "Microsoft YaHei";
 }
 
 ul {
@@ -52,15 +52,6 @@ ul {
   color: #e85a4f;
   float: left;
   margin: 10px 10px 10px 10px;
-}
-
-.header-item {
-  /*font-family: STSongti-SC-Regular;*/
-  font-size: 16px;
-  color: #2c3e50;
-  float: right;
-  margin: 15px 10px 10px 10px;
-  text-align: center;
 }
 
 #check-input, #m-search-input {
@@ -104,7 +95,7 @@ ul {
 .navigation-item {
   /*font-family: STSongti-SC-Regular;*/
   font-size: 16px;
-  color: #3e3e3e;
+  color: #2c3e50;
 }
 
 #left-nav {
@@ -135,7 +126,7 @@ ul {
 .nav-a {
   /*font-family: STSongti-SC-Regular;*/
   font-size: 16px;
-  color: #3e3e3e;
+  color: #2c3e50;
 }
 
 .active {
@@ -279,6 +270,10 @@ ul {
 .manager-btn {
   width: 100%;
   margin: 1% auto;
+}
+
+.left-item {
+  float: left;
 }
 
 .input {
