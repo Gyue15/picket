@@ -91,19 +91,22 @@ ul {
 }
 
 #left-nav {
-  margin: 36px 30px 36px 20px;
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.50);
-  /*width: 90%;*/
-  min-height: 80vh;
-  padding: 0;
+    margin: 36px 30px 0px 20px;
+    border: 1px solid $transparent-grey;
+    /*width: 90%;*/
+    padding: 0;
+    height: calc(100% - 37px);
+    ul {
+        height: 100%;
+    }
 }
 
 .left-nav-item {
-  display: block;
-  margin-top: 80px;
-  width: 100%;
-  text-align: center;
-  float: right;
+    display: block;
+    margin-top: 60px;
+    width: 100%;
+    text-align: center;
+    float: right;
 }
 
 .left-nav-inner {
