@@ -1,82 +1,53 @@
-let nowPage = 1;
-let maxPage = 1;
-
-$(function () {
-    $.get("/api/members/vouchers-page-numbers", {
-        "email": sessionStorage.getItem("memberEmail"),
-        "page-size": 5
-    }).done(function (data) {
-        maxPage = data - 0;
-    }).done(function () {
-        updateList();
-        updatePageNum();
-    });
+$(function() {
+	updateList();
 });
 
+
 function displayList(data) {
-    let voucher = "";
-    for (let i = 0; i < data.length; i++) {
-        let date = new Date(data[i].leastDate);
-        voucher += `<div class="row">
-            <div class="col-md-2">
-            </div>
-            <div class="voucher-item col-md-8 voucher-able">
-                <p class="voucher-title able">满${data[i].leastMoney}减${data[i].discountMoney}</p>
-                <p class="voucher-time able">有效期至：${date.Format("yyyy-MM-dd hh:mm:ss")}</p>
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>`;
-    }
-    for (let i = 5 - data.length; i > 0; i--) {
-        voucher += "<div class=\"voucher-item voucher-hidden\"></div>";
-    }
-
-    $("#v-container").empty().append(voucher);
-}
-
-function turnPage(turnNum) {
-    turnNum = turnNum - 0;
-    if (nowPage + turnNum <= 0 || nowPage + turnNum > maxPage) {
-        return;
-    }
-    nowPage = nowPage + turnNum;
-    updateList();
-    updatePageNum();
+	var formatData = new Array();
+	for (var i=0; i<data.length; i++) {
+		var date = new Date(data[i].leastDate);
+		formatData.push({
+			'content' : `满${data[i].leastMoney}减${data[i].discountMoney}`,
+			'time' : `有效期至：${date.Format("yyyy-MM-dd hh:mm:ss")}`
+		});
+	}
+    $("#v-container").bootstrapTable({
+    	showHeader : false,
+    	showFooter : false,
+    	pagination : true,
+    	pageSize : 10,
+    	pageList : [10],
+    	buttonsAlign : "right",
+    	classes : "table table-no-bordered table-hover",
+    	columns : [{
+    		field : 'content',
+			cellStyle : function cellStyle(value, row, index, field) {
+				return {
+					css: {"color": "#FFC53D", "font-size": "25px"}
+				};
+			}
+    	}, {
+    		field : 'time',
+    		cellStyle : function cellStyle(value, row, index, field) {
+    			return {
+    				css: {"color": "#FFC53D", "padding-left":"300px", "font-size": "15px"}
+    			};
+    		}
+    	}],
+    	data : formatData,
+    });
 }
 
 function updateList() {
     $.get("/api/members/vouchers", {
-        "email": sessionStorage.getItem("memberEmail"),
-        "page": nowPage,
-        "page-size": 5
+        "email": sessionStorage.getItem("memberEmail")
     }).done(function (data) {
         console.log(data);
         displayList(data);
     }).fail(function (e) {
         alertWindow(e.responseText);
     });
-}
-
-function updatePageNum() {
-    $("#pageNum").text(`${nowPage}/${maxPage}`);
-
-    if (nowPage > 1) {
-        $("#before").addClass("page-active");
-        $("#before").removeClass("page-disactive");
-    } else {
-        $("#before").addClass("page-disactive");
-        $("#before").removeClass("page-active");
-    }
-
-    if (nowPage < maxPage) {
-        $("#after").addClass("page-active");
-        $("#after").removeClass("page-disactive");
-    } else {
-        $("#after").addClass("page-disactive");
-        $("#after").removeClass("page-active");
-    }
-
 }
 
 Date.prototype.Format = function (fmt) { //author: meizz

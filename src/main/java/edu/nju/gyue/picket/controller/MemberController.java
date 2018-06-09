@@ -97,14 +97,8 @@ public class MemberController {
     }
 
     @GetMapping("/vouchers")
-    public List<VoucherModel> getVoucherList(@RequestParam String email, @RequestParam Integer page, @RequestParam
-            ("page-size") Integer pageSize) {
-        return memberService.getVoucherList(email, page, pageSize);
-    }
-
-    @GetMapping("/vouchers-page-numbers")
-    public Integer getVouchersPageNum(@RequestParam String email, @RequestParam("page-size") Integer pageSize) {
-        return memberService.getVouchersPageNum(email, pageSize);
+    public List<VoucherModel> getVoucherList(@RequestParam String email) {
+        return memberService.getVoucherList(email);
     }
 
     @GetMapping("/tickets")

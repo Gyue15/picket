@@ -21,9 +21,17 @@ function updateMemberDate() {
     $("#name").text(memberData.username);
     $("#email").text(memberData.email);
     $("#level").text(memberData.level);
-    $("#level-detail").text(`购票时可获得${discount}折优惠（会员等级优惠在优惠券使用之前计算）`);
+    var levelParent = $($("#level").parent().get(0));
+    levelParent.attr("title", `购票时可获得${discount}折优惠（会员等级优惠在优惠券使用之前计算）`);
+    levelParent.attr("data-toggle", "tooltip");
+    levelParent.attr("data-placement", "top");
+    levelParent.tooltip();
     $("#point").text(memberData.point);
-    $("#point-detail").text(`距下一级还剩${nextPoint}点积分，每消费1元可获得10点积分`);
+    var pointParent = $($("#point").parent().get(0));
+    pointParent.attr("title", `距下一级还剩${nextPoint}点积分，每消费1元可获得10点积分`);
+    pointParent.attr("data-toggle", "tooltip");
+    pointParent.attr("data-placement", "top");
+    pointParent.tooltip();
 }
 
 function editInfo(attr, inputId, obj, beforeId) {

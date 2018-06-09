@@ -3,12 +3,27 @@ $(function () {
         `<ul>
                 <li class="left-nav-item">
                     <div class="left-nav-inner">
-                        <a id="my-member" class="nav-a" href="/member/person">我的会员</a>
+                        <a id="my-member" class="nav-a" href="/member/person">我的账号</a>
                     </div>
                 </li>
                 <li class="left-nav-item">
                     <div class="left-nav-inner">
                         <a id="voucher" class="nav-a" href="/member/voucher">优惠券</a>
+                    </div>
+                </li>
+                <li class="left-nav-item">
+                    <div class="left-nav-inner">
+                        <a id="my-ticket" class="nav-a" href="/member/ticket">我的??</a>
+                    </div>
+                </li>
+                <li class="left-nav-item">
+                    <div class="left-nav-inner">
+                        <a id="my-order" class="nav-a" href="/member/order">我的订单</a>
+                    </div>
+                </li>
+                <li class="left-nav-item">
+                    <div class="left-nav-inner">
+                        <a id="my-statistic" class="nav-a" href="/member/statistic">我的消费</a>
                     </div>
                 </li>
             </ul>`;

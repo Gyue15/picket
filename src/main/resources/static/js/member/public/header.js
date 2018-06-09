@@ -22,7 +22,7 @@ function updateHeader() {
                     <a id="signUp" class="header-item" onclick="logout()" style="cursor: pointer">登出</a>
                 </li>
                 <li>
-                    <p id="login" class="header-item">欢迎，${sessionStorage.getItem("username")}</p>
+                    <a id="login" class="header-item" href="/member/person">欢迎，${sessionStorage.getItem("username")}</p>
                 </li>
                 <li>
                     <div class="y-line"></div>
