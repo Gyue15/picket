@@ -23,7 +23,7 @@ $(function () {
             $("#cancel-tip").css("display", "");
         }
         if (data.orignState === "UN_PAYED") {
-            $("#pay-btn").removeClass("layui-btn-disabled");
+            $("#pay-btn").removeClass("layui-btn-disabled").css("display", "inline-block");
             lock = data.lock;
         }
 
