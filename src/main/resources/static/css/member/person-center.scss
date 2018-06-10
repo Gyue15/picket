@@ -34,7 +34,7 @@
 .after-text {
     float: left;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 10px;   
 }
 
 .body-item2 {
@@ -71,7 +71,11 @@
 }
 
 .bootstrap-table {
-	margin: 40px;
+    margin: 40px;
+    #v-container td{
+        color: $black-color;
+        font-size: 16px;
+    }
 }
 
 .able {
@@ -91,8 +95,6 @@
         overflow-y: hidden;
     }
 }
-
-
 
 .label-bar {
  width: 100%;
