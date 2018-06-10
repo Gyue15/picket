@@ -104,6 +104,18 @@ public class ActivityController {
     }
 
     /**
+     * 获得首页活动的list
+     *
+     * @return 活动的list
+     */
+    @GetMapping("/homepage")
+    public List<ActivityModel> getHomePageActivityList(@RequestParam("keyword") String keyWord,
+                                                  @RequestParam("num") Integer activityNum) {
+        List<ActivityModel> list = activityService.getActivityListForHomepage(keyWord, activityNum);
+        return list;
+    }
+
+    /**
      * 获得活动详情
      *
      * @param activityId 活动编号
