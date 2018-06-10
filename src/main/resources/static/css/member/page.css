@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.page-item .page-link {
+	background-color : transparent;
+	border : 0px;
+	border-radius: 50% 50% 50% 50%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.pagination>.page-pre>a:hover, .pagination>.page-next>a:hover {
+	background-color: #eae7dc; 
+	cursor: pointer;
+}
+
+.pagination>.active>a {
+	background-color: #bfb795; 
+}
+.pagination>.active>a:hover {
+	background-color: #d1cbb4;
+	cursor: pointer;
+}
