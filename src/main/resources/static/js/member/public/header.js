@@ -30,7 +30,7 @@ function updateHeader() {
         </div>
         <div class="right-header-container">
             <a class="header-item right-item pointer" href="/member/person">个人中心</a>
-            <a class="header-item right-item pointer" href="/member/tickets">我的订单</a>
+            <a class="header-item right-item pointer" href="/member/order">我的订单</a>
         </div>
     </div>`;
     }
@@ -53,9 +53,69 @@ function updateHeader() {
     $("#header").empty().append(header + subHeader);
 }
 
-function login() {
-    let email = $("#email").val();
-    let password = $("#password").val();
+function member_login() {
+	layer.open({
+        type: 0,
+        title: '登录',
+        area: ['400px', '280px'],
+        content:
+        	`<div id="loginPanel">
+	            <div class='label-bar input-group'>
+	                <span class="input-group-addon">邮箱</span>
+	                <input id="account_login" class="input" type="email"/>
+	            </div>
+	            <div class='label-bar input-group'>
+	                <span class="input-group-addon">密码</span>
+	                <input id="password_login" class="input" type="password"/>
+	            </div>
+            </div>`,
+        btn: ['登录', '取消'],
+        yes: function (index) {
+        	postLogin(index);
+        },
+        btn2: function (index) {
+            layer.close(index);
+        }
+    });
+}
+
+function member_register() {
+	layer.open({
+        type: 0,
+        title: '注册',
+        area: ['400px', '280px'],
+        content:
+        	`<div id="registerPanel">
+	            <div class='label-bar input-group'>
+	                <span class="input-group-addon">邮箱</span>
+	                <input id="account_register" class="input" type="email"/>
+	            </div>
+	            <div class='label-bar input-group'>
+	                <span class="input-group-addon">用户名</span>
+	                <input id="username_register" class="input" type="text"/>
+	            </div>
+	        	<div class='label-bar input-group'>
+	        		<span class="input-group-addon">密码</span>
+	        		<input id="password_register" class="input" type="password"/>
+	        	</div>
+	            <div class='label-bar input-group'>
+	                <span class="input-group-addon">确认密码</span>
+	                <input id="repeat_password_register" class="input" type="password"/>
+	            </div>
+            </div>`,
+        btn: ['注册', '取消'],
+        yes: function (index) {
+        	postRegister(index);
+        },
+        btn2: function (index) {
+            layer.close(index);
+        }
+    });
+}
+
+function postLogin() {
+	let email = $("#account_login").val();
+    let password = $("#password_login").val();
     $.post("/api/members/login", {
         "email": email,
         "password": password
@@ -70,11 +130,11 @@ function login() {
     });
 }
 
-function signUp() {
-    let username = $("#username").val();
-    let email = $("#email").val();
-    let password = $("#password").val();
-    let repeat = $("#repeat").val();
+function postRegister() {
+    let email = $("#account_register").val();
+    let username = $("#username_register").val();
+    let password = $("#password_register").val();
+    let repeat = $("#repeat_password_register").val();
     if (!(username && email && password && repeat)) {
         alertWindow("请将信息填写完整");
         return;
@@ -93,6 +153,7 @@ function signUp() {
         alertWindow(e.responseText);
     })
 }
+
 
 function changeHeader(data) {
     sessionStorage.setItem("username", data.username);
