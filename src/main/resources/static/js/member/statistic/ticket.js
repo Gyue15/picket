@@ -46,14 +46,14 @@ function displayList(data) {
         formatData.push({
         	'aname' : `${data[i].activityName}`,
         	'position' : `${data[i].venueName} ${data[i].seat}`,
-        	'stime' : `开始时间 ${date.Format("yyyy-MM-dd hh:mm:ss")}`,
-        	'tcode' : `检票码 ${data[i].ticketCode}`,
-        	'hasChecked' : `已检票： ${data[i].checked ? '是' : '否'}`,
-        	'isAble' : `已过期： ${isAble ? '否' : '是'}`
+        	'stime' : `${date.Format("yyyy-MM-dd hh:mm:ss")}`,
+        	'tcode' : `${data[i].ticketCode}`,
+        	'hasChecked' : `${data[i].checked ? '是' : '否'}`,
+        	'isAble' : `${isAble ? '否' : '是'}`
         });
 	}
     $("#t-container").bootstrapTable({
-    	showHeader : false,
+    	showHeader : true,
     	showFooter : false,
     	pagination : true,
     	pageSize : 4,
@@ -62,12 +62,16 @@ function displayList(data) {
     	classes : "table table-no-bordered table-hover",
     	columns : [{
     		field : 'aname',
+    		title : '活动'
     	}, {
-    		field : 'position'
+    		field : 'position',
+    		title : '地点'
     	}, {
-    		field : 'stime'
+    		field : 'stime',
+    		title : '开始时间'
     	}, {
-    		field : 'tcode'
+    		field : 'tcode',
+    		title : '检票码'
     	}, {
     		field : 'hasChecked',
     		title : '已检票'

@@ -55,12 +55,6 @@
     float: left;
 }
 
-.order-detail {
-    margin: 24px 15px;
-    font-size: 16px;
-    float: right;
-}
-
 .order-disable {
     margin: 4% auto;
     width: 80%;
@@ -68,9 +62,11 @@
 }
 
 .order-detail {
+    margin: 24px 15px;
     margin: 2.5%;
     font-size: 16px;
     float: right;
+    border: 1px solid rgba(150, 150, 150, 0.5);
 }
 
 #statistic-chart {
@@ -162,5 +158,10 @@
     margin: 4% auto;
 }
 
-
-
+.table {
+	display: table;
+}
+.table td {
+	text-align: left;
+	vertical-align: middle !important;
+}
