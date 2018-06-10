@@ -102,9 +102,8 @@ public class MemberController {
     }
 
     @GetMapping("/tickets")
-    public List<TicketModel> getTicketList(@RequestParam String email, @RequestParam Integer page, @RequestParam
-            ("page-size") Integer pageSize) {
-        return memberService.getTicketList(email, page, pageSize);
+    public List<TicketModel> getTicketList(@RequestParam String email) {
+        return memberService.getTicketList(email);
     }
 
     @GetMapping("/tickets-page-numbers")

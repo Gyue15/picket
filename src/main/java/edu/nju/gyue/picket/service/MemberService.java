@@ -38,7 +38,7 @@ public interface MemberService {
 
     Integer getVouchersPageNum(String email, Integer pageSize);
 
-    List<TicketModel> getTicketList(String email, Integer page, Integer pageSize);
+    List<TicketModel> getTicketList(String email);
 
     Integer getTicketPageNum(String email, Integer pageSize);
 }
