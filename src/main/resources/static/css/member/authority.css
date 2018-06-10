@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+#loginButton:hover, #registerButton:hover {
+	cursor: pointer;
+}
+
+.label-bar {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.layui-layer-content {
+  overflow: hidden !important;
+}
+
+.label-bar label {
+  width: 130px;
+  text-align: right;
+  margin-right: 20px;
+}
