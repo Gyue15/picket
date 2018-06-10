@@ -1,29 +1,39 @@
 @font-face {
   font-family: "HYQiHei";
-  src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff"); }
+  src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff");
+}
+
 @font-face {
   font-family: "PingFang SC";
-  src: url("../../font/PingFang-SC.woff") format("woff"); }
+  src: url("../../font/PingFang-SC-Regular.woff") format("woff"), url("../../font/PingFang-SC-bold.woff") format("woff");
+}
+
 a:link {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:visited {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:hover {
   text-decoration: none;
-  color: #FFC53D; }
+  color: #FFC53D;
+}
 
 a:active {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 body {
   overflow-x: hidden;
   background: #eae7dc;
-  font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei"; }
+  font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei";
+}
 
 ul {
-  list-style: none; }
+  list-style: none;
+}
 
 #picket {
   /*list-style: none;*/
@@ -31,7 +41,8 @@ ul {
   font-size: 26px;
   color: #e85a4f;
   float: left;
-  margin: 10px 10px 10px 10px; }
+  margin: 10px 10px 10px 10px;
+}
 
 #check-input,
 #m-search-input {
@@ -42,7 +53,8 @@ ul {
   border: none;
   padding: 2px 5px;
   background: #eae7dc;
-  border: 1px solid rgba(62, 62, 62, 0.2); }
+  border: 1px solid rgba(62, 62, 62, 0.2);
+}
 
 #check,
 #m-search {
@@ -50,14 +62,16 @@ ul {
   border: 2px solid #FFC53D;
   width: 60px;
   height: 30px;
-  margin: 13px 10px 10px 0; }
+  margin: 13px 10px 10px 0;
+}
 
 .y-line {
   border-left: 2px solid #ffd666;
   float: right;
   width: 2px;
   height: 32px;
-  margin-top: 11px; }
+  margin-top: 11px;
+}
 
 #navigation {
   background-color: #f4f7f6;
@@ -67,111 +81,141 @@ ul {
   padding: 0;
   top: 0;
   overflow-x: auto;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+}
 
 .navigation-item {
   /*font-family: STSongti-SC-Regular;*/
   font-size: 16px;
-  color: #2c3e50; }
+  color: #2c3e50;
+}
 
 #left-nav {
   margin: 36px 30px 0px 20px;
-  border: 1px solid rgba(62, 62, 62, 0.2);
+  border: 1.2px solid rgba(62, 62, 62, 0.2);
+  border-top: 3px solid #e85a4f;
   /*width: 90%;*/
   padding: 0;
-  height: calc(100% - 37px); }
-  #left-nav ul {
-    height: 100%; }
+  height: calc(100% - 37px);
+}
+
+#left-nav ul {
+  height: 100%;
+}
 
 .col-md-2 {
-  height: 80vh; }
+  height: 80vh;
+}
 
 .left-nav-item {
   display: block;
   margin-top: 60px;
   width: 100%;
   text-align: center;
-  float: right; }
+  float: right;
+}
 
 .left-nav-inner {
   margin: 0;
   float: right;
   display: inline;
   height: inherit;
-  width: inherit; }
-  .left-nav-inner:hover {
-    border-right: 5px solid #e85a4f; }
+  width: inherit;
+}
+
+.left-nav-inner:hover {
+  border-right: 5px solid #e85a4f;
+}
 
 .nav-a {
   /*font-family: STSongti-SC-Regular;*/
   font-size: 16px;
+  font-weight: 550;
+  display: block;
   color: #2c3e50;
-  width: calc(100%);
-  text-align: center; }
+  width: 100%;
+  text-align: center;
+}
 
 .active {
-  border-bottom: 5px solid #e85a4f; }
-  .active.left-nav-inner {
-    border-bottom: none;
-    border-right: 5px solid #e85a4f; }
-  .active.tab-pane {
-    border-bottom: none; }
+  border-bottom: 5px solid #e85a4f;
+}
+
+.active.left-nav-inner {
+  border-bottom: none;
+  border-right: 5px solid #e85a4f;
+}
+
+.active.tab-pane {
+  border-bottom: none;
+}
 
 #body {
   /*margin: 30px;*/
   margin-top: 36px;
   margin-bottom: 36px;
   /*width: 90%;*/
-  min-height: 80vh; }
+  min-height: 80vh;
+}
 
 .right-part {
   height: 80vh;
-  border: 1.2px solid rgba(62, 62, 62, 0.2); }
+  border: 0.8px solid rgba(62, 62, 62, 0.2);
+}
 
 #footer {
   height: 52px;
   width: 100%;
-  overflow: auto; }
+  overflow: auto;
+}
 
 #copy-right {
   text-align: center;
   line-height: 52px;
   font-family: Times-Roman;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 #page {
   margin: 30px 10px 20px 10px;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
 .page-item {
   margin-left: 10px;
   margin-right: 10px;
   color: #0050B3;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .page-active {
   margin-left: 10px;
   margin-right: 10px;
   color: #0050B3;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .page-disactive {
   margin-left: 10px;
   margin-right: 10px;
-  color: #262626; }
+  color: #262626;
+}
 
 .page-num {
   margin-left: 10px;
   margin-right: 10px;
-  color: #262626; }
+  color: #262626;
+}
 
 .active-navigation {
-  border-bottom: 5px solid #e98074; }
+  border-bottom: 5px solid #e98074;
+}
 
 .index-background {
   background-image: url("../../image/background.jpg");
-  background-size: 100% auto; }
+  background-size: 100% auto;
+}
 
 .index-footer {
   position: absolute;
@@ -179,24 +223,29 @@ ul {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  text-align: center; }
+  text-align: center;
+}
 
 .center-container {
   width: 60%;
   margin: 20% auto;
-  /*background-color: #8c8c8c;*/ }
+  /*background-color: #8c8c8c;*/
+}
 
 .center-welcome {
-  text-align: center; }
+  text-align: center;
+}
 
 .welcome-title {
   /*font-family: AmericanTypewriter bold;*/
   font-size: 48px;
-  color: #faad14; }
+  color: #faad14;
+}
 
 .center-btn-group {
   margin-top: 2%;
-  text-align: center; }
+  text-align: center;
+}
 
 .index-btn {
   margin: 3%;
@@ -209,29 +258,36 @@ ul {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 @font-face {
   font-family: 'iconfont';
   /* project id 571657 */
   src: url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot");
-  src: url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff") format("woff"), url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf") format("truetype"), url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont") format("svg"); }
+  src: url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff") format("woff"), url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf") format("truetype"), url("//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont") format("svg");
+}
+
 .ok-icon {
   font-family: iconfont;
-  font-style: normal; }
+  font-style: normal;
+}
 
 .alert-tip {
   margin: 5% auto;
   font-size: 16px;
-  text-align: center; }
+  text-align: center;
+}
 
 .higher {
   width: 40%;
-  margin-top: 15%; }
+  margin-top: 15%;
+}
 
 .manager-btn {
   width: 100%;
-  margin: 1% auto; }
+  margin: 1% auto;
+}
 
 #header {
   width: 100%;
@@ -241,34 +297,41 @@ ul {
   top: 0;
   overflow-y: hidden;
   overflow-x: auto;
-  background-color: rgba(62, 62, 62, 0.2); }
+  background-color: rgba(62, 62, 62, 0.2);
+}
 
 .header-item {
   font-size: 13px;
   margin-top: 5px;
   text-align: center;
-  color: #f4f7f6; }
+  color: #f4f7f6;
+}
 
 .left-header-container {
   float: left;
-  margin-left: 10%; }
+  margin-left: 10%;
+}
 
 .right-header-container {
   float: right;
-  margin-right: 10%; }
+  margin-right: 10%;
+}
 
 .left-item {
   float: left;
-  margin-right: 20px; }
+  margin-right: 20px;
+}
 
 .right-item {
   float: right;
-  margin-left: 20px; }
+  margin-left: 20px;
+}
 
 #site-name-bar {
   width: 80%;
   margin: 1% auto;
-  height: 60px; }
+  height: 60px;
+}
 
 #site-name {
   font-size: 42px;
@@ -276,12 +339,14 @@ ul {
   color: #e85a4f;
   width: 40%;
   float: left;
-  margin-top: 5px; }
+  margin-top: 5px;
+}
 
 #search-bar {
   float: right;
   width: 60%;
-  height: 100%; }
+  height: 100%;
+}
 
 #search-bar-input {
   height: 75%;
@@ -292,7 +357,8 @@ ul {
   border: 3px solid #e85a4f;
   box-sizing: border-box;
   background-color: #f4f7f6;
-  padding: 5px; }
+  padding: 5px;
+}
 
 #search-bar-button {
   height: 75%;
@@ -302,14 +368,16 @@ ul {
   font-size: 18px;
   border: none;
   background-color: #e85a4f;
-  color: white; }
+  color: white;
+}
 
 #header-menu {
   height: 48px;
   width: 100%;
   margin: auto;
   background-color: #e85a4f;
-  padding-left: 10%; }
+  padding-left: 10%;
+}
 
 .header-menu-item {
   font-family: "Helvetica Neue";
@@ -319,34 +387,39 @@ ul {
   margin-right: 30px;
   color: #f4f7f6;
   cursor: pointer;
-  display: block; }
+  display: block;
+}
 
 .display-img-container {
   width: 16%;
   height: auto;
   float: left;
-  margin: 0 2%; }
+  margin: 0 2%;
+}
 
 .display-img {
   width: 100%;
-  height: auto; }
+  height: auto;
+}
 
 .display-img-description {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #2c3e50; }
+  color: #2c3e50;
+}
 
 .display-img-price {
   float: left;
   margin-right: 5px;
   margin-top: 2px;
-  color: #8e8d8a; }
+  color: #8e8d8a;
+}
 
 .heavy {
   font-weight: 900;
   margin-top: 2px;
-  color: #2c3e50; }
-
+  color: #2c3e50;
+}
 /*# sourceMappingURL=main.css.map */
