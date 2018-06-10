@@ -69,7 +69,7 @@ function displayList(domElement, data) {
     	}, {
     		field : 'detail',
     		formatter : function formatter(value, row, index) {
-    			return "<button class='btn default-btn order-detail' href='/member/order/detail?orderId=" + row.id + "'>查看详情</button>";
+    			return "<a class='order-detail' style='padding:10px;' href='/member/order/detail?orderId=" + row.id + "'>查看详情</a>";
     		}
     	}],
     	data : formatData,

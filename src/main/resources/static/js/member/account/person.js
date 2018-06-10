@@ -6,11 +6,11 @@ $(function () {
     }).done(function (data) {
         memberData = data;
 
-        updateMemberDate();
+        updateMemberData();
     });
 });
 
-function updateMemberDate() {
+function updateMemberData() {
     let nextPoint = 0, discount;
     if (memberData.level < 10) {
         nextPoint = (memberData.level + 1) * 5000 - memberData.point;
@@ -29,6 +29,16 @@ function updateMemberDate() {
     $("#point").text(memberData.point);
     var pointParent = $($("#point").parent().get(0));
     pointParent.attr("title", `距下一级还剩${nextPoint}点积分，每消费1元可获得10点积分`);
+    pointParent.attr("data-toggle", "tooltip");
+    pointParent.attr("data-placement", "top");
+    pointParent.tooltip();
+    var pointParent = $($("#email").parent().get(0));
+    pointParent.attr("title", "邮箱在注册后不可更改");
+    pointParent.attr("data-toggle", "tooltip");
+    pointParent.attr("data-placement", "top");
+    pointParent.tooltip();
+    var pointParent = $($("#name").parent().get(0));
+    pointParent.attr("title", "昵称会出现在评论中");
     pointParent.attr("data-toggle", "tooltip");
     pointParent.attr("data-placement", "top");
     pointParent.tooltip();
@@ -52,7 +62,7 @@ function onEnter(attr, inputId, obj, beforeId) {
         $(`#${inputId}`).parent().css("display", "none");
         memberData[attr] = $(`#${inputId}`).val();
         $("#confirm-btn").removeClass("layui-btn-disabled");
-        updateMemberDate();
+        updateMemberData();
     }
 }
 
@@ -89,18 +99,19 @@ function displayVoucher() {
     layer.open({
         type: 0,
         title: '填充信息',
-        area: ['400px', '240px'],
+        area: ['420px', '240px'],
         content:
-            `<div class="layer-bar">
-                <p class="layer-tip">填写购买张数</p>
-                <input id="num" class="layer-input" type="number"  min="1" max="20"/>
-            </div>
-            <div class="layer-bar">
-                <p class="layer-tip">选择优惠券类型</p>
+            `<div class="label-bar">
+                <label>选择优惠券类型</label>
                 <select id="voucher-type" name="price-type" class="layer-select">
                     ${select}
                 </select>
-            </div>`,
+            </div>
+            <div class="label-bar">
+                <label>填写购买张数</label>
+                <input id="num" class="layer-input" type="number"  min="1" max="20"/>
+            </div>
+            `,
         btn: ['确认兑换', '取消'],
         yes: function (index) {
             changeVoucher();
@@ -158,24 +169,23 @@ function changePassword() {
     layer.open({
         type: 0,
         title: '填充信息',
-        area: ['400px', '240px'],
+        area: ['400px', '280px'],
         content:
-            `<div class="layer-bar">
-                <p class="layer-tip">旧密码</p>
-                <input id="old-password" class="layer-input" type="password"/>
+            `<div class='label-bar'>
+                <label>当前密码</label>
+                <input id="old-password" class="input" type="password"/>
             </div>
-            <div class="layer-bar">
-                <p class="layer-tip">新密码</p>
-                <input id="new-password" class="layer-input" type="password"/>
+            <div class='label-bar'>
+                <label>新密码</label>
+                <input id="new-password" class="input" type="password"/>
             </div>
-            <div class="layer-bar">
-                <p class="layer-tip">确认新密码</p>
-                <input id="repeat-password" class="layer-input" type="password"/>
+            <div class='label-bar'>
+                <label>确认新密码</label>
+                <input id="repeat-password" class="input" type="password"/>
             </div>`,
         btn: ['确认', '取消'],
         yes: function (index) {
-            postChangePassword();
-            layer.close(index);
+            postChangePassword(index);
         },
         btn2: function (index) {
             layer.close(index);
@@ -183,7 +193,7 @@ function changePassword() {
     });
 }
 
-function postChangePassword() {
+function postChangePassword(index) {
     let old = $("#old-password").val();
     let newPassword = $("#new-password").val();
     let repeat = $("#repeat-password").val();
@@ -201,8 +211,10 @@ function postChangePassword() {
         newPassword: newPassword,
         oldPassword: old
     }).done(function () {
+        layer.close(index);
         alertWindowCtrl("修改成功", "/member/person");
     }).fail(function (e) {
         alertWindow(e.responseText);
-    })
+    });
+    
 }

@@ -3,6 +3,10 @@
   width: auto;
 }
 
+#info-container {
+  margin-left: 32px;
+}
+
 .body-item {
   margin-top: 40px;
   width: 100%;
@@ -80,30 +84,28 @@
   background-color: white;
 }
 
-.layer-tip {
-  float: left;
-  width: 40%;
-  height: 28px;
+.layui-layer-dialog.layui-layer .layui-layer-content {
+  overflow-y: hidden;
 }
 
-.layer-input {
-  margin-left: 10px;
-  float: left;
-  width: 200px;
-  height: 28px;
+.label-bar {
+  width: 100%;
+  margin-bottom: 24px;
 }
 
-.layer-select {
-  margin-left: 10px;
-  float: left;
+.label-bar label {
+  width: 130px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.label-bar .layer-select {
   height: 28px;
   border: 1px #8c8c8c solid;
-  width: 200px;
+  width: 220px;
 }
 
-.layer-bar {
-  width: 100%;
-  height: 28px;
-  margin: 10px;
+.label-bar #num {
+  width: 220px;
 }
 /*# sourceMappingURL=person-center.css.map */

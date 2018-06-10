@@ -35,5 +35,7 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
             ".venue_code WHERE (v.venue_name REGEXP ?1 OR a.activity_name REGEXP ?2 OR a.description REGEXP ?3 OR a" +
             ".activity_type REGEXP ?4) AND a.begin_date > ?5")
     List<Activity> search(String key1, String key2, String key3, String key4, Date allowDate);
+
+    List<Activity> findByActivityTypeContaining(String activityType);
 }
 
