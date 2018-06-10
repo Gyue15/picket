@@ -18,7 +18,7 @@ function updateHeader() {
         <div class="right-header-container">
             <div class="header-item right-item pointer" onclick="logout()">登出</div>
             <a class="header-item right-item pointer" href="/member/person">个人中心</a>
-            <a class="header-item right-item pointer" href="/member/tickets">我的订单</a>
+            <a class="header-item right-item pointer" href="/member/order">我的订单</a>
         </div>
     </div>`;
     } else {
