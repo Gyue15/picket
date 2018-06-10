@@ -19,7 +19,7 @@ a:active {
 
 body {
   overflow-x: hidden;
-  background: #eae7dc;
+  background: #f4f7f6;
   font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei"; }
 
 ul {
@@ -122,7 +122,8 @@ ul {
   margin-top: 36px;
   margin-bottom: 36px;
   /*width: 90%;*/
-  min-height: 80vh; }
+  min-height: 80vh;
+  background-color: #f4f7f6; }
 
 .right-part {
   height: 80vh;
@@ -267,12 +268,11 @@ ul {
 
 #site-name-bar {
   width: 80%;
-  margin: 1% auto;
+  margin: 3% auto 1% auto;
   height: 60px; }
 
 #site-name {
   font-size: 42px;
-  font-family: "Helvetica Neue";
   color: #e85a4f;
   width: 40%;
   float: left;
@@ -312,7 +312,7 @@ ul {
   padding-left: 10%; }
 
 .header-menu-item {
-  font-family: "Helvetica Neue";
+  font-weight: lighter;
   font-size: 18px;
   float: left;
   margin-top: 10px;
@@ -320,33 +320,5 @@ ul {
   color: #f4f7f6;
   cursor: pointer;
   display: block; }
-
-.display-img-container {
-  width: 16%;
-  height: auto;
-  float: left;
-  margin: 0 2%; }
-
-.display-img {
-  width: 100%;
-  height: auto; }
-
-.display-img-description {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: #2c3e50; }
-
-.display-img-price {
-  float: left;
-  margin-right: 5px;
-  margin-top: 2px;
-  color: #8e8d8a; }
-
-.heavy {
-  font-weight: 900;
-  margin-top: 2px;
-  color: #2c3e50; }
 
 /*# sourceMappingURL=main.css.map */

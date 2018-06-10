@@ -29,7 +29,7 @@ a:active {
 
 body {
   overflow-x: hidden;
-  background: $secondary-color-light;
+  background: $white-color;
   font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei"
 }
 
@@ -151,6 +151,7 @@ ul {
   margin-bottom: 36px;
   /*width: 90%;*/
   min-height: 80vh;
+  background-color: $white-color;
 }
 
 .right-part {
@@ -324,13 +325,12 @@ ul {
 
 #site-name-bar {
   width: 80%;
-  margin: 1% auto;
+  margin: 3% auto 1% auto;
   height: 60px;
 }
 
 #site-name {
   font-size: 42px;
-  font-family: "Helvetica Neue";
   color: $primary-color;
   width: 40%;
   float: left;
@@ -375,7 +375,7 @@ ul {
 }
 
 .header-menu-item {
-  font-family: "Helvetica Neue";
+  font-weight: lighter;
   font-size: 18px;
   float: left;
   margin-top: 10px;
@@ -383,38 +383,5 @@ ul {
   color: $white-color;
   cursor: pointer;
   display: block;
-}
-
-.display-img-container {
-  width: 16%;
-  height: auto;
-  float: left;
-  margin: 0 2%;
-}
-
-.display-img {
-  width: 100%;
-  height: auto;
-}
-
-.display-img-description {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: $black-color;
-}
-
-.display-img-price {
-  float: left;
-  margin-right: 5px;
-  margin-top: 2px;
-  color: $grey-color;
-}
-
-.heavy {
-  font-weight: 900;
-  margin-top: 2px;
-  color: $black-color;
 }
 

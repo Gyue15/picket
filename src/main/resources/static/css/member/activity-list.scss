@@ -1,81 +1,198 @@
 @import "../public/variables";
 
 @font-face {
-    font-family: "HYQiHei";
-    src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff");
-  }
+  font-family: "HYQiHei";
+  src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff");
+}
 
 .activity-list {
-    width: 100%;
+  width: 100%;
 }
 
 .info {
-    display: inline-block;
-    width: 100%;
-    /*margin-right: 10px;*/
+  display: inline-block;
+  width: 100%;
+  /*margin-right: 10px;*/
 }
 
 .activity-item {
-    margin: 10px 50px 10px 10px;
-    border-bottom: 1px solid #0050B3;
+  margin: 10px 50px 10px 10px;
+  border-bottom: 1px solid #0050B3;
 }
 
 .photo {
-    margin: 20px 10px 10px 10px;
-    float: left;
-    width: auto;
-    height: 200px;
+  margin: 20px 10px 10px 10px;
+  float: left;
+  width: auto;
+  height: 200px;
 }
 
 .activity-title {
-    margin: 10px;
-    padding: 10px;
-    font: bold 24px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 10px;
+  padding: 10px;
+  font: bold 24px/1.5 Helvetica, Verdana, sans-serif;
 }
 
 .activity-info {
-    color: #262626;
-    font-style: italic;
+  color: #262626;
+  font-style: italic;
 }
 
 .introduction {
-    margin-right: 0;
-    width: 70%;
-    float: left;
+  margin-right: 0;
+  width: 70%;
+  float: left;
 }
 
 .detail {
-    margin-top: 40px;
-    margin-right: 20px;
-    display: inline-block;
-    color: #0050B3;
-    float: right;
-    margin-bottom: 10px;
+  margin-top: 40px;
+  margin-right: 20px;
+  display: inline-block;
+  color: #0050B3;
+  float: right;
+  margin-bottom: 10px;
 }
 
-#activity-gallery{
-    width:80%;
-    margin: 10px auto;
+#activity-gallery {
+  width: 80%;
+  margin: 10px auto;
 }
 
-#activity-tab{
-    width: 80%;
-    margin: auto;
-    box-shadow: 0 0 0 0;
-    // color: $white-color;
+#activity-tab {
+  width: 80%;
+  margin: auto;
+  box-shadow: 0 0 0 0;
+  // color: $white-color;
+  height: 0;
+  padding-bottom: 26%;
 }
 
 .tab-title {
-    background-color: $white-color; 
+  background-color: $white-color;
 }
 
-#activity-tab-title{
-    background-color: $white-color;
-}
+//#activity-tab-title {
+//  background-color: $white-color;
+//}
 
 .layui-tab-title .layui-this {
-    color: $white-color;
-    background-color: $primary-color; 
+  color: $white-color;
+  background-color: $primary-color;
+}
+
+.layui-tab-title li {
+  background-color: $white-color;
+}
+
+.display-img-container {
+  width: 18%;
+  height: auto;
+  float: left;
+  margin: 0 1%;
+}
+
+.display-img {
+  width: 100%;
+  height: auto;
+}
+
+.display-img-description {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: $black-color;
+}
+
+.display-img-price {
+  float: left;
+  margin-right: 5px;
+  margin-top: 2px;
+  color: $grey-color;
+}
+
+.heavy {
+  font-weight: 900;
+  margin-top: 2px;
+  color: $primary-color;
+}
+
+.activity-floor {
+  width: 80%;
+  height: 0;
+  padding: 10px 10px 30% 10px;
+  //padding-bottom: 50%;
+  margin: auto;
+}
+
+.floor-header {
+  font-size: 24px;
+  margin-top: 1%;
+}
+
+.main-activity {
+  margin: 1%;
+  width: 23%;
+  float: left;
+  position: relative;
+}
+
+.main-img{
+  width: 100%;
+  height: auto;
+}
+
+.sub-img{
+  width: 14%;
+  margin: 0 2% 2% 0;
+  float: left;
+}
+
+.sub-activity{
+  width: 73%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: left;
+  height: 0;
+  padding-bottom: 15%;
+}
+
+.sub-img-description{
+  float: left;
+  width: 14%;
+  margin: 0 2% 2% 0;
+}
+
+.text {
+  padding-bottom: 10px;
+  background-color: $primary-color;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 60%;
+  opacity: 0.8;
+}
+
+.sub-row{
+  width: 100%;
+  height: 0;
+  padding-bottom: 23%;
+}
+
+.sub-img-title {
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+.sub-img-date {
+  color: $grey-color;
+  margin: 5px 0;
+}
+
+.sub-img-venue {
+  margin-bottom: 4px;
 }
 
 
