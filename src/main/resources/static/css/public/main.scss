@@ -5,10 +5,10 @@
   src: url(https://static-raventech.raventech.cn/ravenshop-cdn/static1068/fonts/HYQiHei-60S.0520643.woff) format("woff");
 }
 
-// @font-face {
-//   font-family: "PingFang SC";
-//   src: url(https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Regular.ttf) format("truetype");
-// }
+@font-face {
+  font-family: "PingFang SC";
+  src: url('../../font/PingFang-SC.woff') format("woff");
+}
 
 a:link {
   text-decoration: none;
@@ -30,7 +30,7 @@ a:active {
 body {
   overflow-x: hidden;
   background: $secondary-color-light;
-  font-family: "Helvetica Neue", "HYQiHei", "PingFang SC", "Roobert", "Microsoft YaHei"
+  font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei"
 }
 
 ul {
@@ -101,6 +101,10 @@ ul {
     }
 }
 
+.col-md-2 {
+  height: 80vh;
+}
+
 .left-nav-item {
     display: block;
     margin-top: 60px;
@@ -125,7 +129,7 @@ ul {
 }
 
 .active {
-  border-right: 5px solid $primary-color;
+  border-bottom: 5px solid $primary-color;
 }
 
 #body {
