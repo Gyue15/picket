@@ -9,7 +9,6 @@
 //   font-family: "PingFang SC";
 //   src: url(https://raw.githubusercontent.com/zongren/font/master/PingFang-SC-Regular.ttf) format("truetype");
 // }
-
 a:link {
   text-decoration: none;
 }
@@ -29,7 +28,7 @@ a:active {
 
 body {
   overflow-x: hidden;
-  background: $secondary-color-light;
+  background: $white-color;
   font-family: "Helvetica Neue", "HYQiHei", "PingFang SC", "Roobert", "Microsoft YaHei"
 }
 
@@ -46,7 +45,8 @@ ul {
   margin: 10px 10px 10px 10px;
 }
 
-#check-input, #m-search-input {
+#check-input,
+#m-search-input {
   font-size: 16px;
   float: right;
   height: 30px;
@@ -57,7 +57,8 @@ ul {
   border: 1px solid rgba(62, 62, 62, 0.2);
 }
 
-#check, #m-search {
+#check,
+#m-search {
   display: block;
   border: 2px solid #FFC53D;
   width: 60px;
@@ -74,7 +75,7 @@ ul {
 }
 
 #navigation {
-  background-color: $secondary-color-light;
+  background-color: $white-color;
   width: 100%;
   height: 52px;
   margin: 0;
@@ -91,31 +92,28 @@ ul {
 }
 
 #left-nav {
-    margin: 36px 30px 0px 20px;
-    border: 1px solid $transparent-grey;
-    /*width: 90%;*/
-    padding: 0;
-    height: calc(100% - 37px);
-    ul {
-        height: 100%;
-    }
+  margin: 36px 30px 0px 20px;
+  border: 1px solid $transparent-grey;
+  /*width: 90%;*/
+  padding: 0;
+  height: calc(100% - 37px);
+  ul {
+    height: 100%;
+  }
 }
 
 .left-nav-item {
-    display: block;
-    margin-top: 60px;
-    width: 100%;
-    text-align: center;
-    float: right;
+  display: block;
+  margin-top: 60px;
+  width: 100%;
+  text-align: center;
+  float: right;
 }
 
 .left-nav-inner {
   margin: 0;
-  float: right;
   padding: 10px;
   display: inline;
-  height: inherit;
-  width: inherit;
 }
 
 .nav-a {
@@ -240,12 +238,10 @@ ul {
 }
 
 @font-face {
-  font-family: 'iconfont';  /* project id 571657 */
+  font-family: 'iconfont';
+  /* project id 571657 */
   src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot');
-  src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.woff') format('woff'), url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.ttf') format('truetype'), url('//at.alicdn.com/t/font_571657_6wqsd96zxfg8pvi.svg#iconfont') format('svg');
 }
 
 .ok-icon {
@@ -271,7 +267,7 @@ ul {
 
 #header {
   width: 100%;
-  height: 32px;
+  height: 28px;
   margin: 0;
   padding: 0;
   top: 0;
@@ -281,20 +277,20 @@ ul {
 }
 
 .header-item {
- font-size: 13px;
- margin-top: 8px;
- text-align: center;
- color: $grey-color;
+  font-size: 13px;
+  margin-top: 5px;
+  text-align: center;
+  color: $white-color;
 }
 
-.left-header-containner {
+.left-header-container {
   float: left;
-  margin-left: 10%; 
+  margin-left: 10%;
 }
 
-.right-header-containner {
+.right-header-container {
   float: right;
-  margin-right: 10%; 
+  margin-right: 10%;
 }
 
 .left-item {
@@ -306,3 +302,100 @@ ul {
   float: right;
   margin-left: 20px;
 }
+
+#site-name-bar {
+  width: 80%;
+  margin: 1% auto;
+  height: 60px;
+}
+
+#site-name {
+  font-size: 42px;
+  font-family: "Helvetica Neue";
+  color: $primary-color;
+  width: 40%;
+  float: left;
+  margin-top: 5px;
+}
+
+#search-bar {
+  float: right;
+  width: 60%;
+  height: 100%;
+}
+
+#search-bar-input {
+  height: 75%;
+  width: 80%;
+  float: left;
+  margin-top: 1%;
+  font-size: 18px;
+  border: 3px solid $primary-color;
+  box-sizing: border-box;
+  background-color: $white-color;
+  padding: 5px;
+}
+
+#search-bar-button {
+  height: 75%;
+  width: 20%;
+  float: left;
+  margin-top: 1%;
+  font-size: 18px;
+  border: none;
+  background-color: $primary-color;
+  color: white;
+}
+
+#header-menu {
+  height: 48px;
+  width: 100%;
+  margin: auto;
+  background-color: $primary-color;
+  padding-left: 10%;
+}
+
+.header-menu-item {
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  float: left;
+  margin-top: 10px;
+  margin-right: 30px;
+  color: $white-color;
+  cursor: pointer;
+  display: block;
+}
+
+.display-img-container {
+  width: 16%;
+  height: auto;
+  float: left;
+  margin: 0 2%;
+}
+
+.display-img {
+  width: 100%;
+  height: auto;
+}
+
+.display-img-description {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: $black-color;
+}
+
+.display-img-price {
+  float: left;
+  margin-right: 5px;
+  margin-top: 2px;
+  color: $grey-color;
+}
+
+.heavy {
+  font-weight: 900;
+  margin-top: 2px;
+  color: $black-color;
+}
+
