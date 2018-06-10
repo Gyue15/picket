@@ -13,10 +13,10 @@ function updateHeader() {
     if (sessionStorage.getItem("memberIsLogin")) {
         header = `<div id="inner-header">
         <div class="left-header-container">
-            <div class="header-item left-item">Hi，欢迎来到Picket</div>
-            <div class="header-item left-item pointer" onclick="logout()">登出</div>
+            <div class="header-item left-item">Hi ${sessionStorage.getItem("username")}，欢迎来到Picket</div>
         </div>
         <div class="right-header-container">
+            <div class="header-item right-item pointer" onclick="logout()">登出</div>
             <a class="header-item right-item pointer" href="/member/person">个人中心</a>
             <a class="header-item right-item pointer" href="/member/tickets">我的订单</a>
         </div>
@@ -25,12 +25,10 @@ function updateHeader() {
         header = `<div id="inner-header">
         <div class="left-header-container">
             <div class="header-item left-item">Hi，欢迎来到Picket</div>
-            <div class="header-item left-item pointer" id="loginButton" onclick="member_login()">登录</div>
-            <div class="header-item left-item pointer" id="registerButton" onclick="member_register()"">注册</div>
         </div>
         <div class="right-header-container">
-            <a class="header-item right-item pointer" href="/member/person">个人中心</a>
-            <a class="header-item right-item pointer" href="/member/order">我的订单</a>
+            <div class="header-item right-item pointer" id="registerButton" onclick="member_register()"">注册</div>
+            <div class="header-item right-item pointer" id="loginButton" onclick="member_login()">登录</div>
         </div>
     </div>`;
     }
@@ -121,7 +119,7 @@ function postLogin(index) {
         "password": password
     }).done(function (data) {
         changeHeader(data);
-        window.location.href = "/member/activity";
+        window.location.href = "/";
         // alertWindow("用户名或密码错误");
     }).fail(function (xhr) {
         alertWindow(xhr.responseText);
@@ -167,7 +165,7 @@ function logout() {
     sessionStorage.removeItem("memberEmail");
     sessionStorage.removeItem("memberIsLogin");
     updateHeader();
-    window.location.href = "/member/"
+    window.location.href = "/"
 }
 
 function searchActivity() {
