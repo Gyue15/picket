@@ -218,6 +218,29 @@ public class ActivityServiceImpl implements ActivityService {
         return transferComponent.toActivityModelList(activityList);
     }
 
+    @Override
+    public List<ActivityModel> getActivityListForHomepage(String keyWord, int activityNum) {
+        List<Activity> activityList;
+
+        if (keyWord.equals("最近热门")) {
+            activityList = activityRepository.findHotOrderActivity();
+        } else if (keyWord.equals("猜你喜欢")) {
+            activityList = activityRepository.findRandomActivity();
+        } else if (keyWord.equals("最新演出")) {
+            activityList = activityRepository.findRecentActivity();
+        } else {
+            activityList = activityRepository.findHotCommentActivity();
+        }
+        if (activityNum < 0) {
+            activityNum = 10;
+        }
+        if (activityNum > activityList.size()) {
+            activityNum = activityList.size();
+        }
+
+        return transferComponent.toActivityModelList(activityList.subList(0, activityNum));
+    }
+
     private ActivityModel setSeatsMap(ActivityModel activityModel) {
         List<SeatPrice> seatPriceList = seatPriceRepository.findByActivity_ActivityIdAndSold(activityModel
                 .getActivityId(), false);

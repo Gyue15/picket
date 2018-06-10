@@ -122,7 +122,7 @@
   height: 0;
   padding: 10px 10px 30% 10px;
   //padding-bottom: 50%;
-  margin: auto;
+  margin: 2% auto 0 auto;
 }
 
 .floor-header {
@@ -163,17 +163,6 @@
   margin: 0 2% 2% 0;
 }
 
-.text {
-  padding-bottom: 10px;
-  background-color: $primary-color;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 60%;
-  opacity: 0.8;
-}
-
 .sub-row{
   width: 100%;
   height: 0;
@@ -195,6 +184,41 @@
   margin-bottom: 4px;
 }
 
+hr {
+  width: 80%;
+  margin: auto;
+}
+
+.text {
+  padding: 20px;
+  background-color: $primary-color;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 60%;
+  opacity: 0.9;
+}
+
+.main-title {
+  color: $white-color;
+  font-size: 16px;
+  margin-bottom: 10%;
+}
+
+.main-price {
+  float: left;
+  color: $white-color;
+  text-align: end;
+  margin-top: 5%;
+}
+
+.main-heavy {
+  font-size: 28px;
+  font-weight: 500;
+  margin-right: 5px;
+  margin-top: 0;
+}
 
 
 
