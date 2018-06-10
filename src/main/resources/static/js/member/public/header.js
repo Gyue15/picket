@@ -113,7 +113,7 @@ function member_register() {
     });
 }
 
-function postLogin() {
+function postLogin(index) {
 	let email = $("#account_login").val();
     let password = $("#password_login").val();
     $.post("/api/members/login", {
@@ -121,7 +121,6 @@ function postLogin() {
         "password": password
     }).done(function (data) {
         changeHeader(data);
-        console.log(data);
         window.location.href = "/member/activity";
         // alertWindow("用户名或密码错误");
     }).fail(function (xhr) {
@@ -130,7 +129,7 @@ function postLogin() {
     });
 }
 
-function postRegister() {
+function postRegister(index) {
     let email = $("#account_register").val();
     let username = $("#username_register").val();
     let password = $("#password_register").val();
