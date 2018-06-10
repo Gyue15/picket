@@ -1,5 +1,5 @@
 $(function () {
-    let high = document.body.clientWidth * 0.8 / 3;
+    let high = document.body.clientWidth * 0.8 / 2.5;
     layui.use('carousel', function(){
         let carousel = layui.carousel;
         //建造实例
