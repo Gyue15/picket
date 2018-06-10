@@ -212,6 +212,12 @@ public class ActivityServiceImpl implements ActivityService {
                 allowDate));
     }
 
+    @Override
+    public List<ActivityModel> getTypeActivity(String activityType) {
+        List<Activity> activityList = activityRepository.findByActivityTypeContaining(activityType);
+        return transferComponent.toActivityModelList(activityList);
+    }
+
     private ActivityModel setSeatsMap(ActivityModel activityModel) {
         List<SeatPrice> seatPriceList = seatPriceRepository.findByActivity_ActivityIdAndSold(activityModel
                 .getActivityId(), false);

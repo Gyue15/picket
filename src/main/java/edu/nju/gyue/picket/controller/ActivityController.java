@@ -87,6 +87,23 @@ public class ActivityController {
     }
 
     /**
+     * 获得活动的list
+     *
+     * @param activityType 演出类型
+     * @return 活动的list
+     */
+    @GetMapping("/type")
+    public List<ActivityModel> getTypeActivityList(@RequestParam("type") String activityType,
+                                                   @RequestParam("num") Integer activityNum) {
+        List<ActivityModel> list = activityService.getTypeActivity(activityType);
+        if ((activityNum < 0) || (activityNum > list.size())) {
+            return list;
+        } else {
+            return list.subList(0, activityNum);
+        }
+    }
+
+    /**
      * 获得活动详情
      *
      * @param activityId 活动编号
