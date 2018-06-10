@@ -1,56 +1,56 @@
 $(function () {
-    if (!sessionStorage.getItem("memberIsLogin")
-        && this.location.href !== "http://localhost:8080/member/"
-        && this.location.href !== "http://localhost:8080/member/login"
-        && this.location.href !== "http://localhost:8080/member/signUp") {
-        window.location.href = "/member/";
-    }
+    // if (!sessionStorage.getItem("memberIsLogin")
+    //     && this.location.href !== "http://localhost:8080/member/"
+    //     && this.location.href !== "http://localhost:8080/member/login"
+    //     && this.location.href !== "http://localhost:8080/member/signUp") {
+    //     window.location.href = "/member/";
+    // }
     updateHeader();
 });
 
 function updateHeader() {
     let header = "";
     if (sessionStorage.getItem("memberIsLogin")) {
-        header = `<ul>
-                <li>
-                    <a id="picket" href="/member/">Picket</a>
-                </li>
-                <li>
-                     <a id="another-enter" class="header-item" href="/venue/">场馆入口</a>
-                </li>
-                <li>
-                    <a id="signUp" class="header-item" onclick="logout()" style="cursor: pointer">登出</a>
-                </li>
-                <li>
-                    <a id="login" class="header-item" href="/member/person">欢迎，${sessionStorage.getItem("username")}</p>
-                </li>
-                <li>
-                    <div class="y-line"></div>
-                </li>
-                <li>
-                    <a id="m-search" class="header-item" style="cursor: pointer" onclick="searchActivity()">搜索</a>
-                </li>
-                <li>
-                    <input id="m-search-input" type="text" placeholder="请输入关键词"/>
-                </li>
-            </ul>`;
+        header = `<div id="inner-header">
+        <div class="left-header-container">
+            <div class="header-item left-item">Hi，欢迎来到Picket</div>
+            <div class="header-item left-item pointer" onclick="logout()">登出</div>
+        </div>
+        <div class="right-header-container">
+            <a class="header-item right-item pointer" href="/member/person">个人中心</a>
+            <a class="header-item right-item pointer" href="/member/tickets">我的订单</a>
+        </div>
+    </div>`;
     } else {
-        header = `<ul>
-                <li>
-                    <a id="picket" href="/member/">Picket</a>
-                </li>
-                <li>
-                     <a id="another-enter" class="header-item" href="/venue/activity">场馆入口</a>
-                </li>
-                <li>
-                    <a id="signUp" class="header-item" href="/member/signUp">注册</a>
-                </li>
-                <li>
-                    <a id="login" class="header-item" href="/member/login">登录</a>
-                </li>
-            </ul>`;
+        header = `<div id="inner-header">
+        <div class="left-header-container">
+            <div class="header-item left-item">Hi，欢迎来到Picket</div>
+            <div class="header-item left-item pointer" onclick="login()">登录</div>
+            <div class="header-item left-item pointer" onclick="signUp()">注册</div>
+        </div>
+        <div class="right-header-container">
+            <a class="header-item right-item pointer" href="/member/person">个人中心</a>
+            <a class="header-item right-item pointer" href="/member/tickets">我的订单</a>
+        </div>
+    </div>`;
     }
-    $("#header").empty().append(header);
+    let subHeader = `<div id="site-name-bar">
+        <div id="site-name">Picket</div>
+        <div id="search-bar">
+            <input id="search-bar-input" type="text"/>
+            <button id="search-bar-button">搜索</button>
+        </div>
+    </div>
+
+    <div id="header-menu">
+        <div class="header-menu-item">演唱会</div>
+        <div class="header-menu-item">音乐会</div>
+        <div class="header-menu-item">歌剧</div>
+        <div class="header-menu-item">话剧</div>
+        <div class="header-menu-item">戏剧</div>
+    </div>`;
+
+    $("#header").empty().append(header + subHeader);
 }
 
 function login() {
@@ -111,7 +111,7 @@ function logout() {
 }
 
 function searchActivity() {
-    let keyword = $("#search-input").val();
+    let keyword = $("#search-bar-input").val();
     if (!keyword) {
         alertWindow("请输入关键词");
         return;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class RouteController {
 
-    @RequestMapping("test")
+    @RequestMapping
     public String test() {
         return "/member/activity/activity-new";
     }
