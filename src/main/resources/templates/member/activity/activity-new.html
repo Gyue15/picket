@@ -14,49 +14,26 @@
 
 <body>
 <div id="header">
-    <div class="left-header-container">
-        <div class="header-item left-item">Hi，欢迎来到Picket</div>
-        <div class="header-item left-item" id="loginButton" onclick="member_login()">登录</div>
-        <div class="header-item left-item" id="registerButton" onclick="member_register()">注册</div>
-    </div>
-    <div class="right-header-container">
-        <div class="header-item right-item">个人中心</div>
-    </div>
-</div>
 
-<div id="site-name-bar">
-    <div id="site-name">Picket</div>
-    <div id="search-bar">
-        <input id="search-bar-input" type="text"/>
-        <button id="search-bar-button">搜索</button>
-    </div>
-</div>
-
-<div id="header-menu">
-    <div class="header-menu-item">演唱会</div>
-    <div class="header-menu-item">音乐会</div>
-    <div class="header-menu-item">歌剧</div>
-    <div class="header-menu-item">话剧</div>
-    <div class="header-menu-item">戏剧</div>
 </div>
 
 <div class="layui-carousel" id="activity-gallery">
     <div carousel-item>
-        <img src="headpic/15.jpg"/>
-        <img src="headpic/16.jpg"/>
-        <img src="headpic/17.jpg"/>
-        <img src="headpic/18.jpg"/>
-        <img src="headpic/19.jpg"/>
-        <img src="headpic/20.jpg"/>
-        <img src="headpic/22.jpg"/>
+        <img class="pointer" src="headpic/15.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
+        <img class="pointer" src="headpic/16.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
+        <img class="pointer" src="headpic/17.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
+        <img class="pointer" src="headpic/18.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
+        <img class="pointer" src="headpic/19.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
+        <img class="pointer" src="headpic/20.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
+        <img class="pointer" src="headpic/22.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
     </div>
 </div>
 
 <div id="activity-tab" class="layui-tab">
     <ul id="activity-tab-title" class="layui-tab-title">
         <li class="layui-this tab-title">猜你喜欢</li>
-        <li class="tab-title">今日推荐</li>
-        <li class="tab-title">近期上映</li>
+        <li class="tab-title">最近热门</li>
+        <li class="tab-title">最新演出</li>
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
@@ -101,6 +78,7 @@
     </div>
 </div>
 
+<hr>
 
 <div class="activity-floor">
     <div class="floor-header">演唱会</div>
@@ -110,6 +88,9 @@
         <div class="main-activity">
             <img class="main-img" src="/showpic/14.jpg"/>
             <div class="text">
+                <p class="main-title">台湾果陀剧场《最后14堂星期二的课》</p>
+                <p class="main-price main-heavy">100</p>
+                <p class="main-price">元起</p>
             </div>
         </div>
 
@@ -174,6 +155,8 @@
         </div>
     </div>
 </div>
+
+<hr>
 
 <div class="activity-floor">
     <div class="floor-header">音乐会</div>
@@ -249,6 +232,8 @@
     </div>
 </div>
 
+<hr>
+
 <div class="activity-floor">
     <div class="floor-header">歌剧</div>
 
@@ -321,6 +306,8 @@
         </div>
     </div>
 </div>
+
+<hr>
 
 <div class="activity-floor">
     <div class="floor-header">话剧</div>
@@ -395,6 +382,8 @@
 
     </div>
 </div>
+
+<hr>
 
 <div class="activity-floor">
     <div class="floor-header">戏剧</div>
@@ -476,7 +465,7 @@
 <script type='text/javascript' src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script type='text/javascript' src='/layui/layui.all.js'></script>
 <script type="text/javascript" src="/js/public/util.js"></script>
-<!--<script type="text/javascript" src="/js/member/public/header.js"></script>-->
+<script type="text/javascript" src="/js/member/public/header.js"></script>
 <!--<script type="text/javascript" src="/js/member/public/navigation.js"></script>-->
 <!--<script type="text/javascript" src="/js/public/page.js"></script>-->
 <!--<script type="text/javascript" src="/js/public/footer.js"></script>-->

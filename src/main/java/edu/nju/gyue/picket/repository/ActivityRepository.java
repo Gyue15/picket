@@ -37,5 +37,23 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     List<Activity> search(String key1, String key2, String key3, String key4, Date allowDate);
 
     List<Activity> findByActivityTypeContaining(String activityType);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a LEFT JOIN" +
+            "(SELECT c.activity_id AS act_id, COUNT(*) AS com_num FROM comment AS c GROUP BY c.activity_id) AS cc " +
+            " ON a.activity_id = cc.act_id" +
+            " ORDER BY cc.com_num DESC")
+    List<Activity> findHotCommentActivity();
+
+    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a LEFT JOIN " +
+            "(SELECT o.activity_id AS act_id, SUM(o.seat_num) AS com_num FROM activity_order AS o GROUP BY o.activity_id) AS oo " +
+            "ON a.activity_id = oo.act_id " +
+            "ORDER BY oo.com_num DESC")
+    List<Activity> findHotOrderActivity();
+
+    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.begin_date DESC")
+    List<Activity> findRecentActivity();
+
+    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.description DESC")
+    List<Activity> findRandomActivity();
 }
 

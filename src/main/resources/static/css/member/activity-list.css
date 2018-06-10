@@ -94,7 +94,7 @@
   width: 80%;
   height: 0;
   padding: 10px 10px 30% 10px;
-  margin: auto; }
+  margin: 2% auto 0 auto; }
 
 .floor-header {
   font-size: 24px;
@@ -128,16 +128,6 @@
   width: 14%;
   margin: 0 2% 2% 0; }
 
-.text {
-  padding-bottom: 10px;
-  background-color: #e85a4f;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 60%;
-  opacity: 0.8; }
-
 .sub-row {
   width: 100%;
   height: 0;
@@ -154,5 +144,36 @@
 
 .sub-img-venue {
   margin-bottom: 4px; }
+
+hr {
+  width: 80%;
+  margin: auto; }
+
+.text {
+  padding: 20px;
+  background-color: #e85a4f;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 60%;
+  opacity: 0.9; }
+
+.main-title {
+  color: #f4f7f6;
+  font-size: 16px;
+  margin-bottom: 10%; }
+
+.main-price {
+  float: left;
+  color: #f4f7f6;
+  text-align: end;
+  margin-top: 5%; }
+
+.main-heavy {
+  font-size: 28px;
+  font-weight: 500;
+  margin-right: 5px;
+  margin-top: 0; }
 
 /*# sourceMappingURL=activity-list.css.map */

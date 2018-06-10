@@ -39,4 +39,6 @@ public interface ActivityService {
     List<ActivityModel> search(String keyword);
 
     List<ActivityModel> getTypeActivity(String activityType);
+
+    List<ActivityModel> getActivityListForHomepage(String keyWord, int activityNum);
 }
