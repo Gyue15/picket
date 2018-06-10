@@ -19,19 +19,14 @@ function displayList(data) {
     	pageSize : 10,
     	pageList : [10],
     	buttonsAlign : "right",
-    	classes : "table table-no-bordered table-hover",
+    	classes : "table table-no-bordered table-hover table-striped",
     	columns : [{
-    		field : 'content',
-			cellStyle : function cellStyle(value, row, index, field) {
-				return {
-					css: {"color": "#FFC53D", "font-size": "25px"}
-				};
-			}
+    		field : 'content'	
     	}, {
     		field : 'time',
     		cellStyle : function cellStyle(value, row, index, field) {
     			return {
-    				css: {"color": "#FFC53D", "padding-left":"300px", "font-size": "15px"}
+    				css: {"padding-left":"300px"}
     			};
     		}
     	}],

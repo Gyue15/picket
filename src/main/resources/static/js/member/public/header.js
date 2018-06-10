@@ -25,8 +25,8 @@ function updateHeader() {
         header = `<div id="inner-header">
         <div class="left-header-container">
             <div class="header-item left-item">Hi，欢迎来到Picket</div>
-            <div class="header-item left-item pointer" onclick="login()">登录</div>
-            <div class="header-item left-item pointer" onclick="signUp()">注册</div>
+            <div class="header-item left-item pointer" id="loginButton" onclick="member_login()">登录</div>
+            <div class="header-item left-item pointer" id="registerButton" onclick="member_register()"">注册</div>
         </div>
         <div class="right-header-container">
             <a class="header-item right-item pointer" href="/member/person">个人中心</a>
