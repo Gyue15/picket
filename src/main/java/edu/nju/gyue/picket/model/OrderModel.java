@@ -2,6 +2,8 @@ package edu.nju.gyue.picket.model;
 
 import edu.nju.gyue.picket.configuration.param.OrderState;
 
+import java.util.List;
+
 public class OrderModel {
 
     private String activityId;
@@ -27,6 +29,10 @@ public class OrderModel {
     private OrderState orignState;
 
     private Boolean lock;
+
+    private List<String> seatNameList;
+
+    private List<Double> seatPriceList;
 
     public Boolean getCanCancel() {
         return canCancel;
@@ -122,6 +128,22 @@ public class OrderModel {
 
     public void setActivityId(String activityId) {
         this.activityId = activityId;
+    }
+
+    public List<String> getSeatNameList() {
+        return seatNameList;
+    }
+
+    public void setSeatNameList(List<String> seatNameList) {
+        this.seatNameList = seatNameList;
+    }
+
+    public List<Double> getSeatPriceList() {
+        return seatPriceList;
+    }
+
+    public void setSeatPriceList(List<Double> seatPriceList) {
+        this.seatPriceList = seatPriceList;
     }
 
     @Override

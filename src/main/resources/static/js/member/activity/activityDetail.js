@@ -140,7 +140,11 @@ function buyNow() {
         email: sessionStorage.getItem("memberEmail"),
         venueCode: venueCode
     }).done(function (data) {
-        window.location.href = `/member/activity/purchase/pay?lock=false&signature=${data.orderId}`;
+        if (data.orderId !== "wrong") {
+            window.location.href = `/member/activity/purchase/pay?lock=false&signature=${data.orderId}`;
+        } else {
+            alertWindow("余座不足");
+        }
     }).fail(function (e) {
         alertWindow(e.responseText);
     });
