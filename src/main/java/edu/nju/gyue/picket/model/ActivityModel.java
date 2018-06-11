@@ -23,6 +23,8 @@ public class ActivityModel {
 
     private String email;
 
+    private Double minPrice;
+
     /**
      * 这里应为剩余座位的对应表，可以不精确
      */
@@ -114,6 +116,14 @@ public class ActivityModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Double getMinPrice() {
+        return minPrice;
+    }
+
+    public void setMinPrice(Double minPrice) {
+        this.minPrice = minPrice;
     }
 
     @Override

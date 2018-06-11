@@ -55,5 +55,6 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.description DESC")
     List<Activity> findRandomActivity();
+
 }
 

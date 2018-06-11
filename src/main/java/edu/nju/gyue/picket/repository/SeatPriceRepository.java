@@ -25,4 +25,7 @@ public interface SeatPriceRepository extends JpaRepository<SeatPrice, String> {
     @Transactional
     @Query("update SeatPrice as sp set sp.sold = true where sp.seatPriceId in :seatPriceIds")
     void lockSeats(@Param("seatPriceIds") List<String> seatPriceIds);
+
+    @Query(nativeQuery = true, value ="SELECT MIN(s.price) from seat_price as s WHERE s.activity_id = ?1")
+    Double findMinPrice(Long activityId);
 }

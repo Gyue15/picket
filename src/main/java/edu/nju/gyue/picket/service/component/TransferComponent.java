@@ -5,7 +5,9 @@ import edu.nju.gyue.picket.configuration.param.OrderState;
 import edu.nju.gyue.picket.entity.*;
 import edu.nju.gyue.picket.exception.ResourceNotFoundException;
 import edu.nju.gyue.picket.model.*;
+import edu.nju.gyue.picket.repository.SeatPriceRepository;
 import edu.nju.gyue.picket.util.DateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,6 +17,13 @@ import java.util.stream.Collectors;
 
 @Component
 public class TransferComponent {
+
+    private SeatPriceRepository seatPriceRepository;
+
+    @Autowired
+    public TransferComponent(SeatPriceRepository seatPriceRepository) {
+        this.seatPriceRepository = seatPriceRepository;
+    }
 
     public SeatPrice toEntity(SeatPriceModel seatPriceModel, Activity activity, Venue venue) {
         SeatPrice seatPrice = new SeatPrice();
@@ -125,6 +134,7 @@ public class TransferComponent {
         activityModel.setVenueName(activity.getVenue().getVenueName());
         activityModel.setLocation(activity.getVenue().getLocation());
         activityModel.setEmail(activity.getVenue().getEmail());
+        activityModel.setMinPrice(seatPriceRepository.findMinPrice(activity.getActivityId()));
         return activityModel;
     }
 

@@ -9,6 +9,13 @@ $(function () {
         }).fail(function (e) {
         alertWindow(e.responseText);
     });
+    let hotActivityList = $.get("/api/activities/homepage", {
+        keyword: "最近热门",
+        num: 5
+    });
+    $.when(hotActivityList).done(function (data) {
+        updateHotActivity(data);
+    })
 });
 
 function initActivityDetail(activityModel) {
@@ -148,4 +155,24 @@ function buyNow() {
     }).fail(function (e) {
         alertWindow(e.responseText);
     });
+}
+
+function updateHotActivity(data) {
+
+    let tab = ``;
+
+    for (let i = 0; i < data.length; i++) {
+        tab += `<li class="single-sidebar" style="margin-top: 15px">
+                        <img class="sub-img pointer" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'" src="/showpic/${data[i].photo}" style="width: 50%;float: left;border-radius: 10px;">
+                        <div class="sub-img-description" style="float: left;width: 45%;">
+                            <p class="sub-img-title" style="width: 100%;height: 0;padding-bottom: 30%;">${data[i].name}</p>
+                            <p class="sub-img-date" style="width: 100%;height: 0;padding-bottom: 30%;color: #8e8d8a;">${data[i].dateString}</p>
+                            <p class="sub-img-venue" style="width: 100%;height: 0;padding-bottom: 30%;">${data[i].venueName}</p>
+                            <p class="display-img-price heavy" style="font-weight: 900;margin-top: 40%;color: #e85a4f;">100元</p>
+                            <p class="display-img-price" style="float: left;margin-right: 5px;margin-top: 40%;color: #8e8d8a;">起</p>
+                        </div>
+                    </li>`;
+    }
+
+    $("#hot-activity").append(tab);
 }
