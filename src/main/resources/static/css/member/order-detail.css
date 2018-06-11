@@ -24,4 +24,15 @@
   width: 400px;
   vertical-align: middle;
 }
+
+#desc-container .left {
+  width: 30%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+#desc-container .right {
+  width: 60%;
+  text-align: left;
+}
 /*# sourceMappingURL=order-detail.css.map */

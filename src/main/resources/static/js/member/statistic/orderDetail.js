@@ -17,10 +17,9 @@ $(function () {
         $("#place-time").text(`下单时间：${data.placeDateString}`);
         $("#seat-list").text(`订购座位：${seatString}`);
         $("#begin-time").text(`演出开始时间：${data.beginDateString}`);
-        $("#order-value").text(`订单金额：${data.orderValue}`);
-        console.log(data.canCancel);
+        $("#order-value").text(`订单金额：${data.orderValue} 元`);
         if (data.canCancel) {
-            $("#cancel-btn").removeClass("layui-btn-disabled");
+            $("#cancel-btn").removeClass("layui-btn-disabled").css("display", "inline-block");
             $("#cancel-tip").css("display", "");
         }
         if (data.orderState === "UN_PAYED") {
