@@ -64,7 +64,7 @@ $(function () {
     layui.use('carousel', function () {
         let carousel = layui.carousel;
         //建造实例
-        carousel.render({
+        let obj = carousel.render({
             elem: '#activity-gallery'
             , width: '80%' //设置容器宽度
             , arrow: 'always' //始终显示箭头
@@ -72,15 +72,15 @@ $(function () {
             //,anim: 'updown' //切换动画方式
         });
 
-        window.onresize=function(){
+        window.onresize = function () {
             high = document.body.clientWidth * 0.8 / 2.5;
-            carousel.render({
+            let options = {
                 elem: '#activity-gallery'
-                , width: '80%' //设置容器宽度
-                , arrow: 'always' //始终显示箭头
+                , width: '80%'
+                , arrow: 'always'
                 , height: high
-                //,anim: 'updown' //切换动画方式
-            });
+            };
+            obj.reload(options);
         }
     });
     layui.use('element', function () {
@@ -147,7 +147,7 @@ function updateType(type, isReverse, data) {
                     <p class="display-img-price">起</p>
                 </div>`;
     }
-    subOne +=`</div></div>`;
+    subOne += `</div></div>`;
 
     if (isReverse) {
         main = subOne + main;
