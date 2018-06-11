@@ -98,7 +98,7 @@ function updateTab(tabId, data) {
                 <img class="display-img pointer" src="/showpic/${data[i].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'"/>
                 <div class="display-img-description">${data[i].name}</div>
                 <div class="display-img-price">票价：</div>
-                <div class="display-img-price heavy">100元</div>
+                <div class="display-img-price heavy">${data[i].minPrice}元</div>
                 <div class="display-img-price">起</div>
             </div>`;
     }
@@ -117,7 +117,7 @@ function updateType(type, isReverse, data) {
             <img class="main-img pointer" src="/showpic/${data[0].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[0].activityId}'"/>
             <div class="text" style="background-color: ${bgColor}">
                 <p class="main-title">${data[0].name}</p>
-                <p class="main-price main-heavy">100</p>
+                <p class="main-price main-heavy">${data[0].minPrice}</p>
                 <p class="main-price">元起</p>
             </div>
         </div>`;
@@ -130,7 +130,7 @@ function updateType(type, isReverse, data) {
                     <p class="sub-img-title">${data[i].name}</p>
                     <p class="sub-img-date">${data[i].dateString}</p>
                     <p class="sub-img-venue">${data[i].venueName}</p>
-                    <p class="display-img-price heavy">100元</p>
+                    <p class="display-img-price heavy">${data[i].minPrice}元</p>
                     <p class="display-img-price">起</p>
                 </div>`;
     }
@@ -143,7 +143,7 @@ function updateType(type, isReverse, data) {
                     <p class="sub-img-title">${data[i].name}</p>
                     <p class="sub-img-date">${data[i].dateString}</p>
                     <p class="sub-img-venue">${data[i].venueName}</p>
-                    <p class="display-img-price heavy">100元</p>
+                    <p class="display-img-price heavy">${data[i].minPrice}元</p>
                     <p class="display-img-price">起</p>
                 </div>`;
     }
