@@ -1,6 +1,5 @@
 #activity-detail {
     display: inline-block;
-    margin: 2%;
     overflow: auto;
 }
 
@@ -28,7 +27,6 @@
 
 .detail-item {
     font-size: 18px;
-    margin-left: 5%;
     margin-top: 3%;
     width: 100%;
     min-height: 36px;
