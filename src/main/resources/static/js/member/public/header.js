@@ -28,10 +28,6 @@ function updateHeader() {
             <div class="header-item left-item pointer" id="loginButton" onclick="member_login()">登录</div>
             <div class="header-item left-item pointer" id="registerButton" onclick="member_register()"">注册</div>
         </div>
-        <div class="right-header-container">
-            <a class="header-item right-item pointer" href="/member/person">个人中心</a>
-            <a class="header-item right-item pointer" href="/member/order">我的订单</a>
-        </div>
     </div>`;
     }
     let subHeader = `<div id="site-name-bar">
@@ -43,11 +39,12 @@ function updateHeader() {
     </div>
 
     <div id="header-menu">
-        <div class="header-menu-item">演唱会</div>
-        <div class="header-menu-item">音乐会</div>
-        <div class="header-menu-item">歌剧</div>
-        <div class="header-menu-item">话剧</div>
-        <div class="header-menu-item">戏剧</div>
+        <a class="header-menu-item" href='/member/activity?type=演唱会'>演唱会</a>
+        <a class="header-menu-item" href='/member/activity?type=音乐会'>音乐会</a>
+        <a class="header-menu-item" href='/member/activity?type=话剧'>话剧</a>
+        <a class="header-menu-item" href='/member/activity?type=海外'>海外</a>
+        <a class="header-menu-item" href='/member/activity?type=乐团'>乐团</a>
+        <a class="header-menu-item" href='/member/activity?type=戏剧歌剧'>戏剧歌剧</a>
     </div>`;
 
     $("#header").empty().append(header + subHeader);
