@@ -3,35 +3,6 @@ $(function () {
 });
 
 function displayList(data) {
-//    console.log(1, data);
-//    let voucher = "";
-//    for (let i = 0; i < data.length; i++) {
-//        let nowDate = new Date();
-//        let ticketClass = '';
-//        if (nowDate.getTime() <= data[i].beginTime + 60 * 60 * 1000) {
-//            ticketClass = "ticket-able";
-//        } else {
-//            ticketClass = "ticket-disable";
-//        }
-//        let date = new Date(data[i].beginTime);
-//        voucher += `<div class="row">
-//            <div class="col-md-2">
-//            </div>
-//            <div class="ticket-item col-md-8 ${ticketClass}">
-//                <p class="ticket-title able">${data[i].activityName}</p>
-//                <p class="ticket-info able">${data[i].venueName} ${data[i].seat}</p>
-//                <p class="ticket-info able">开始时间 ${date.Format("yyyy-MM-dd hh:mm:ss")}</p>
-//                <p class="ticket-info able">检票码 ${data[i].ticketCode}</p>
-//                <p class="ticket-info able">已检票： ${data[i].checked ? '是' : '否'}</p>
-//            </div>
-//            <div class="col-md-2">
-//            </div>
-//        </div>`;
-//    }
-//    for (let i = pageSize - data.length; i > 0; i--) {
-//        voucher += "<div class=\"ticket-item ticket-hidden\"></div>";
-//    }
-//    $("#t-container").empty().append(voucher);
 	var formatData = new Array();
 	
 	for (var i=0; i<data.length; i++) {

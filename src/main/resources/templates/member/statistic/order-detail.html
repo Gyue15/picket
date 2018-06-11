@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/css/public/main.css">
     <link rel="stylesheet" type="text/css" href="/css/member/data-center.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/order-detail.css">
 </head>
 <body>
 <div id="header"></div>
@@ -16,21 +17,19 @@
     <div class="col-md-1">
     </div>
 
-    <div class="col-md-2">
-        <div id="left-nav"></div>
-    </div>
-
-
-    <div id="body" class="col-md-8 right-part">
+    <div id="body" class="col-md-10 right-part">
         <div class="order-container">
-            <div id="order-id" class="order-detail-title"></div>
-            <div id="activity-name" class="order-detail-item"></div>
-            <div id="venue-name" class="order-detail-item"></div>
-            <div id="order-state" class="order-detail-item"></div>
-            <div id="place-time" class="order-detail-item"></div>
-            <div id="seat-list" class="order-detail-item"></div>
-            <div id="begin-time" class="order-detail-item"></div>
-            <div id="order-value" class="order-detail-item"></div>
+            <div id="activity-pic-container"><img id="activity-pic"/></div>
+                <div id="desc-container">
+                <div id="order-id" class="order-detail-title"></div>
+                <div id="activity-name" class="order-detail-item"></div>
+                <div id="venue-name" class="order-detail-item"></div>
+                <div id="order-state" class="order-detail-item"></div>
+                <div id="place-time" class="order-detail-item"></div>
+                <div id="seat-list" class="order-detail-item"></div>
+                <div id="begin-time" class="order-detail-item"></div>
+                <div id="order-value" class="order-detail-item"></div>
+            </div>
         </div>
         <div style="width:80%; height: 38px; margin-bottom: 20px">
             <button id="pay-btn" class="layui-btn layui-btn-normal layui-btn-disabled"

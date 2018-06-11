@@ -1,0 +1,31 @@
+.order-container {
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 500px;
+  width: 90%;
+  .order-detail-item {
+    margin: 16px;
+    width: 80%;
+  }
+  vertical-align: middle
+}
+
+#activity-pic-container {
+  display: inline-block;
+  margin-top:20px;
+  margin-left:30px;
+  // width: 300px;
+  // height: 400px;
+  // #activity-pic {
+  //   width: 300px;
+  //   height: 400px;
+  // }
+  vertical-align: middle;
+}
+
+#desc-container {
+  display: inline-block;
+  margin-left: 50px;
+  width: 400px;
+  vertical-align: middle;
+}
