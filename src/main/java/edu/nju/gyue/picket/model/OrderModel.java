@@ -4,6 +4,8 @@ import edu.nju.gyue.picket.configuration.param.OrderState;
 
 public class OrderModel {
 
+    private String activityId;
+
     private String activityName;
 
     private String orderId;
@@ -114,9 +116,17 @@ public class OrderModel {
         this.lock = lock;
     }
 
+    public String getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(String activityId) {
+        this.activityId = activityId;
+    }
+
     @Override
     public String toString() {
-        return "OrderModel{" + "activityName='" + activityName + '\'' + ", orderId='" + orderId + '\'' + ", " +
+        return "OrderModel{" + "activityId='" + activityId + '\'' + ", activityName='" + activityName + '\'' + ", orderId='" + orderId + '\'' + ", " +
                 "placeDateString='" + placeDateString + '\'' + ", beginDateString='" + beginDateString + '\'' + ", "
                 + "orderValue=" + orderValue + ", orderState='" + orderState + '\'' + ", venueName='" + venueName +
                 '\'' + ", canCancel=" + canCancel + ", seats=" + seats + '}';
