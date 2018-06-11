@@ -112,7 +112,7 @@ ul {
 
 .left-nav-item {
   display: block;
-  margin-top: 60px;
+  margin-top: 40px;
   width: 100%;
   text-align: center;
   float: right;
@@ -122,8 +122,11 @@ ul {
   margin: 0;
   float: right;
   display: inline;
-  height: inherit;
+  height: 50px;
   width: inherit;
+  &.active {
+    background-color: white;
+  }
   &:hover {
     border-right: 5px solid $primary-color;
   }
@@ -131,6 +134,7 @@ ul {
 
 .nav-a {
   /*font-family: STSongti-SC-Regular;*/
+  margin-top: 12px;
   font-size: 16px;
   font-weight: 550;
   display: block;
@@ -305,7 +309,8 @@ ul {
 
 .header-item {
   font-size: 13px;
-  margin-top: 5px;
+  margin-top:5px;
+  height: 24.5px;
   text-align: center;
   color: $black-color;
 }

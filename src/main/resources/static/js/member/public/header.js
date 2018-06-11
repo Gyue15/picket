@@ -17,8 +17,8 @@ function updateHeader() {
         </div>
         <div class="right-header-container">
             <div class="header-item right-item pointer" onclick="logout()">登出</div>
-            <a class="header-item right-item pointer" href="/member/person">个人中心</a>
-            <a class="header-item right-item pointer" href="/member/order">我的订单</a>
+            <a class="header-item right-item pointer" href="/member/person" id="person-header">个人中心</a>
+            <a class="header-item right-item pointer" href="/member/order" id="order-header">我的订单</a>
         </div>
     </div>`;
     } else {
@@ -50,6 +50,12 @@ function updateHeader() {
     </div>`;
 
     $("#header").empty().append(header + subHeader);
+    if (this.location.href.match('.*/member/order.*')) {
+        $("#order-header").css("border-bottom", "3px solid #e98074");
+    } 
+    else if (this.location.href.match('.*/member/person.*')) {
+        $("#person-header").css("border-bottom", "3px solid #e98074");
+    }
 }
 
 function member_login() {
