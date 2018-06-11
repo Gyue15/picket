@@ -28,4 +28,13 @@
   margin-left: 50px;
   width: 400px;
   vertical-align: middle;
+  .left {
+    width: 30%;
+    text-align: right;
+    margin-right: 10px;
+  }
+  .right {
+    width: 60%;
+    text-align: left;
+  }
 }

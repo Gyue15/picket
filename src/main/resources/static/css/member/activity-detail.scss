@@ -1,0 +1,109 @@
+@import "../public/variables";
+
+#activity-detail {
+    display: inline-block;
+    overflow: auto;
+}
+
+.detail-photo {
+    display: inline-block;
+    width: 30%;
+    height: auto;
+    margin: 2% 0 2% 7%;
+    float: left;
+}
+
+.detail-container {
+    overflow: hidden;
+    float: left;
+    margin: 2%;
+    width: 52%;
+}
+
+.detail-title {
+    font-size: 36px;
+    margin-bottom: 3%;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.detail-item {
+    font-size: 18px;
+    margin-top: 3%;
+    width: 100%;
+    min-height: 36px;
+}
+
+.lower {
+    width: 80%;
+    margin: 5% auto;
+}
+
+.lower-tip {
+    font-size: 18px;
+}
+
+.lower-detail {
+    font-size: 16px;
+    width: 95%;
+}
+
+
+.button-container {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.purchase-btn {
+    margin: 2% 4%;
+    width: 20%;
+    background-color: #0050B3; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.long {
+    width: 200px;
+}
+
+.layer-tip {
+    float: left;
+    width: 40%;
+    height: 28px;
+}
+
+.layer-input {
+    margin-left: 10px;
+    float: left;
+    width: 150px;
+    height: 28px;
+}
+
+.layer-select {
+    margin-left: 10px;
+    float: left;
+    height: 28px;
+    border: 1px #8c8c8c solid;
+    width: 150px;
+}
+
+.layer-bar {
+    width: 100%;
+    height: 28px;
+    margin: 10px;
+}
+
+.showlogin {
+    color: #1e9fff;
+    cursor: pointer;
+    &:hove {
+        color: $select-color;
+    }
+}

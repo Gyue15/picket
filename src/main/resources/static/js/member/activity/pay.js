@@ -38,7 +38,8 @@ $(function () {
             layui.form.on('select(voucher)', function (data) {
                 voucherId = data.value - 0;
                 console.log(voucherId);
-                $("#pay-value").text(`原价${orignMoney}元，优惠价：${orignMoney * memberDiscount - discount.get(voucherId)}元`);
+                $("#pay-value").text(`原价${orignMoney}元，优惠价：
+                    ${orignMoney * memberDiscount - (discount.get(voucherId)?discount.get(voucherId):0)}元`);
             });
         });
         $("#pay-value").text(`原价${data.money}元，优惠价：${data.money * data.memberDiscount}元`);

@@ -8,12 +8,12 @@ $(function () {
             </li>
             <li class="left-nav-item">
                 <div class="left-nav-inner">
-                    <a id="voucher" class="nav-a" href="/member/voucher">优惠券</a>
+                    <a id="voucher" class="nav-a" href="/member/person/voucher">优惠券</a>
                 </div>
             </li>
             <li class="left-nav-item">
                 <div class="left-nav-inner">
-                    <a id="my-statistic" class="nav-a" href="/member/statistic">我的消费</a>
+                    <a id="my-statistic" class="nav-a" href="/member/person/statistic">我的消费</a>
                 </div>
             </li>
         </ul>`;

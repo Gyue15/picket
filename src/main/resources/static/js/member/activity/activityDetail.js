@@ -51,7 +51,7 @@ function initActivityDetail(activityModel) {
                             </div>
                             <div style="background: 0 0 #e6e6e6;font-size: 18px;margin-top: 5%;padding: 15px;">
                                 本演出支持在线选座，不如试试？
-                                <a class="showlogin" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}" style="color: #1E9FFF;text-decoration: none;">选座下单</a>
+                                <a class="showlogin" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}">选座下单</a>
                             </div>
                             <div class="detail-item">
                                 <p class="before-text">演出场馆：${activityModel.venueName}</p>

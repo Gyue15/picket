@@ -113,7 +113,7 @@ public class RouteController {
         return "/member/account/person";
     }
 
-    @RequestMapping("member/voucher")
+    @RequestMapping("member/person/voucher")
     public String memberVoucher() {
         return "/member/account/voucher";
     }
@@ -143,7 +143,7 @@ public class RouteController {
         return "/member/statistic/order-detail";
     }
 
-    @RequestMapping("member/statistic")
+    @RequestMapping("member/person/statistic")
     public String memberStatistic() {
         return "/member/statistic/statistic";
     }
