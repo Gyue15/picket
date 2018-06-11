@@ -191,6 +191,7 @@ public class TransferComponent {
         orderModel.setVenueName(activityOrder.getVenue().getVenueName());
         orderModel.setOrignState(activityOrder.getOrderState());
         orderModel.setLock(activityOrder.getUnitPrice() != null);
+        orderModel.setActivityId(String.valueOf(activityOrder.getActivity().getActivityId()));
         return orderModel;
     }
 
