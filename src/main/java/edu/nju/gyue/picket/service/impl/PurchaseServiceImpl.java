@@ -87,10 +87,30 @@ public class PurchaseServiceImpl implements PurchaseService {
         Venue venue = findVenue(venueCode);
         Activity activity = findActivity(activityId);
 
-        ActivityOrder activityOrder = fillPlaceOrder(num, num * unitPrice, venue, OrderType.NOT_SELECT, unitPrice,
-                member, activity, null);
 
+        List<SeatPrice> seatPriceList = seatPriceRepository.findByActivity_ActivityIdAndSoldAndPrice(activityId, false, unitPrice);
+        if (seatPriceList.size() < num) {
+            return "wrong";
+        }
+
+
+        List<String> seatPriceIds = new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            seatPriceIds.add(seatPriceList.get(i).getSeatPriceId());
+        }
+        seatPriceList = seatPriceList.subList(0, num);
+        lockSeat(seatPriceList);
+        seatPriceRepository.flush();
+
+        ActivityOrder activityOrder = fillPlaceOrder(num, num * unitPrice, venue, OrderType.SELECTED, null,
+                member, activity, seatPriceList);
         activityOrder = orderRepository.saveAndFlush(activityOrder);
+
+        for (int i = 0; i < seatPriceList.size(); i++) {
+            SeatPrice seatPrice = seatPriceList.get(i);
+            seatPrice.setActivityOrder(activityOrder);
+            seatPriceRepository.saveAndFlush(seatPrice);
+        }
 
         return activityOrder.getOrderId().toString();
     }
@@ -299,6 +319,17 @@ public class PurchaseServiceImpl implements PurchaseService {
         seatPriceRepository.save(seatPriceList);
         seatPriceRepository.flush();
         return seatPriceList;
+    }
+
+    private synchronized void lockSeat(List<SeatPrice> seatPriceList) {
+        for (SeatPrice seatPrice : seatPriceList) {
+            if (seatPrice.getSold()) {
+                throw new BadRequestException("座位已被占用");
+            }
+            seatPrice.setSold(true);
+        }
+        seatPriceRepository.save(seatPriceList);
+        seatPriceRepository.flush();
     }
 
     private PayAccount findPayAccount(String payAccountId, String payPassword, PayMethod payMethod) {

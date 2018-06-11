@@ -192,22 +192,24 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Override
     public List<ActivityModel> search(String keyword) {
-        List<Term> termList = DicAnalysis.parse(keyword).getTerms();
+        List<Term> termList = DicAnalysis.parse("1234").getTerms();
         List<String> keys = new ArrayList<>();
         for (Term term : termList) {
-            if (Param.isKey(term.getNatureStr())) {
-                keys.add(term.getName());
+            //if (Param.isKey(term.getNatureStr())) {
+            keys.add(term.getName());
+            //}
+        }
+        String keyStr = "()";
+        if (keys.size() > 0) {
+            StringBuilder key = new StringBuilder("(");
+            for (String s : keys) {
+                key.append(s).append("|");
             }
+            int lastIndex = key.lastIndexOf("|");
+            key.delete(lastIndex, lastIndex + 1).append(")");
+            keyStr = key.toString();
         }
-        StringBuilder key = new StringBuilder("(");
-        for (String s : keys) {
-            key.append(s).append("|");
-        }
-        int lastIndex = key.lastIndexOf("|");
-        key.delete(lastIndex, lastIndex + 1).append(")");
-        String keyStr = key.toString();
         Date allowDate = DateUtil.getSpecifiedDayAfter(new Date(), 14);
-        System.out.println(keyStr);
         return transferComponent.toActivityModelList(activityRepository.search(keyStr, keyStr, keyStr, keyStr,
                 allowDate));
     }
@@ -264,4 +266,5 @@ public class ActivityServiceImpl implements ActivityService {
         System.out.println(seatPriceMap);
         return activityModel;
     }
+
 }

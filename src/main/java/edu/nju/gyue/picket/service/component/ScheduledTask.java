@@ -43,7 +43,6 @@ public class ScheduledTask {
 
     @Scheduled(cron = "0 * * * * ?")
     public void updateOrder() {
-        System.out.println("111111111111111");
         List<ActivityOrder> activityOrderList = orderRepository.findByOrderState(OrderState.UN_PAYED);
         activityOrderList.forEach(activityOrder -> {
             if (System.currentTimeMillis() - activityOrder.getPlaceDate().getTime() > Param.FIVE_MINS) {
@@ -54,6 +53,7 @@ public class ScheduledTask {
         orderRepository.flush();
     }
 
+    /*
     @Scheduled(cron = "0 * * * * ?")
     public void allocateTickets() {
 
@@ -62,6 +62,7 @@ public class ScheduledTask {
 
         List<ActivityOrder> activityOrderList = orderRepository.findByOrderType(OrderType.NOT_SELECT);
         activityOrderList.forEach(order -> {
+
             if (!order.getOrderState().equals(OrderState.PAYED_AND_UNCHECK) || order.getBeginDate().getTime() - time
                     > Param.TWO_WEEK) {
                 return;
@@ -111,7 +112,7 @@ public class ScheduledTask {
         orderRepository.save(activityOrderList);
 
     }
-
+*/
     private Ticket generateTicket(SeatPrice seatPrice, ActivityOrder activityOrder) {
         Ticket ticket = new Ticket();
         ticket.setVenueName(activityOrder.getVenue().getVenueName());

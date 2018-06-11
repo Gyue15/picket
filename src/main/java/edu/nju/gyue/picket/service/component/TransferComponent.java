@@ -8,6 +8,7 @@ import edu.nju.gyue.picket.model.*;
 import edu.nju.gyue.picket.util.DateUtil;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -192,6 +193,15 @@ public class TransferComponent {
         orderModel.setOrignState(activityOrder.getOrderState());
         orderModel.setLock(activityOrder.getUnitPrice() != null);
         orderModel.setActivityId(String.valueOf(activityOrder.getActivity().getActivityId()));
+        List<SeatPrice> list = activityOrder.getSeatPriceList();
+        List<String> seatNameList = new ArrayList<>();
+        List<Double> seatPriceList = new ArrayList<>();
+        for (SeatPrice seatPrice: list) {
+            seatNameList.add(seatPrice.getAreaName() + " " + seatPrice.getSeatRow() + "排" + seatPrice.getSeatColumn() + "座");
+            seatPriceList.add(seatPrice.getPrice());
+        }
+        orderModel.setSeatNameList(seatNameList);
+        orderModel.setSeatPriceList(seatPriceList);
         return orderModel;
     }
 
