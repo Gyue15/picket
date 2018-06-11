@@ -308,6 +308,10 @@ ul {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
+blockquote.layui-elem-quote {
+  border-left-color: #e98074;
+}
+
 .header-item {
   font-size: 13px;
   margin-top: 5px;
