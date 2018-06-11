@@ -71,10 +71,22 @@ $(function () {
             , height: high
             //,anim: 'updown' //切换动画方式
         });
+
+        window.onresize=function(){
+            high = document.body.clientWidth * 0.8 / 2.5;
+            carousel.render({
+                elem: '#activity-gallery'
+                , width: '80%' //设置容器宽度
+                , arrow: 'always' //始终显示箭头
+                , height: high
+                //,anim: 'updown' //切换动画方式
+            });
+        }
     });
     layui.use('element', function () {
         // let element = layui.element;
     });
+
 });
 
 function updateTab(tabId, data) {
