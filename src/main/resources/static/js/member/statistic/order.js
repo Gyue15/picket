@@ -23,28 +23,14 @@ function updateList(domElement, state) {
 }
 
 function displayList(domElement, data) {
-//    for (let i = 0; i < data.length; i++) {
-//        content +=
-//            `<div class="order-item">
-//                <p class="order-title able">${data[i].activityName}</p>
-//                <p class="order-info able">${data[i].venueName}</p>
-//                <p class="order-info able">${data[i].placeDateString} 下单</p>
-//                <p class="order-info able">${data[i].orderState}</p>
-//                <a class="order-detail able" href="/member/order/detail?orderId=${data[i].orderId}">查看详情>></a>
-//            </div>`;
-//    }
-//    for (let i = 5 - data.length; i > 0; i--) {
-//        content += `<div class="order-disable"></div>`;
-//    }
-
 	var formatData = new Array();
 	for (var i=0; i<data.length; i++) {
 		formatData.push({
 			'id' : `${data[i].orderId}`,
+			'pic': `<img src="/showpic/${data[i].activityId}.jpg" height="80" width="60"/>`,
 			'aname' : `${data[i].activityName}`,
 			'vname' : `${data[i].venueName}`,
-			'date' : `${data[i].placeDateString} 下单`,
-			'ostate' : `${data[i].orderState}`
+			'date' : `${data[i].placeDateString} 下单`
 		});
 	}
 	$(domElement).bootstrapTable({
@@ -59,13 +45,13 @@ function displayList(domElement, data) {
     		field : 'id',
     		visible : false
     	}, {
+			field: 'pic'
+		}, {
     		field : 'aname'
     	}, {
     		field : 'vname'
     	}, {
     		field : 'date'
-    	}, {
-    		field : 'ostate'
     	}, {
     		field : 'detail',
     		formatter : function formatter(value, row, index) {
