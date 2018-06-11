@@ -37,8 +37,8 @@ function displayList(domElement, data) {
     	showHeader : false,
     	showFooter : false,
     	pagination : true,
-    	pageSize : 10,
-    	pageList : [10],
+    	pageSize : 5,
+    	pageList : [5],
     	buttonsAlign : "right",
     	classes : "table table-no-bordered table-hover",
     	columns : [{

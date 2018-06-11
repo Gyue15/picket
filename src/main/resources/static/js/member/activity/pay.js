@@ -5,6 +5,8 @@ let orignMoney, memberDiscount;
 
 let discount = new Map();
 
+let confirmed = false;
+
 $(function () {
     $.get("/api/activities/place-date", {
         "order-id": getUrlParam("signature")
@@ -74,26 +76,29 @@ function initLayui(data) {
 }
 
 function pay() {
-    let payId = $("#payId").val();
-    let password  =$("#payPassword").val();
+    if (!confirmed) {
+        confirmed = true;
+        let payId = $("#payId").val();
+        let password  =$("#payPassword").val();
 
-    if (!payId || !password) {
-        alertWindow("请填写支付账号和密码");
-        return;
+        if (!payId || !password) {
+            alertWindow("请填写支付账号和密码");
+            return;
+        }
+
+        $.post("/api/activities/pay-order", {
+            orderId: getUrlParam("signature"),
+            payMethod: payMethod,
+            payId: payId,
+            password: password,
+            email: sessionStorage.getItem("memberEmail"),
+            voucherId: voucherId
+        }).done(function () {
+            alertWindowCtrl("购买成功", "/member/order")
+        }).fail(function (e) {
+            alertWindow(e.responseText);
+        })
     }
-
-    $.post("/api/activities/pay-order", {
-        orderId: getUrlParam("signature"),
-        payMethod: payMethod,
-        payId: payId,
-        password: password,
-        email: sessionStorage.getItem("memberEmail"),
-        voucherId: voucherId
-    }).done(function () {
-        alertWindowCtrl("购买成功", "/member/order")
-    }).fail(function (e) {
-        alertWindow(e.responseText);
-    })
 }
 
 let flag = false;

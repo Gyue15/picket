@@ -355,11 +355,14 @@ blockquote.layui-elem-quote {
 }
 
 #site-name {
-  font-size: 42px;
-  color: #e85a4f;
+  font-size: 40px;
   width: 40%;
   float: left;
-  margin-top: 5px;
+  font-weight: bold;
+}
+
+#site-name a {
+  color: #e85a4f;
 }
 
 #search-bar {
@@ -501,13 +504,13 @@ blockquote.layui-elem-quote {
   margin-bottom: 24px;
 }
 
-.layui-layer-content {
-  overflow: hidden !important;
-}
-
 .label-bar label {
   width: 130px;
   text-align: right;
   margin-right: 20px;
+}
+
+.layui-layer-content {
+  overflow: hidden !important;
 }
 /*# sourceMappingURL=main.css.map */

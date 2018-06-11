@@ -33,7 +33,7 @@ function updateHeader() {
     </div>`;
     }
     let subHeader = `<div id="site-name-bar">
-        <div id="site-name">Picket</div>
+        <div id="site-name"><a href="/">Picket</a></div>
         <div id="search-bar">
             <input id="search-bar-input" type="text"/>
             <button id="search-bar-button">搜索</button>
@@ -56,6 +56,14 @@ function updateHeader() {
     else if (this.location.href.match('.*/member/person.*')) {
         $("#person-header").css("border-bottom", "3px solid #e98074");
     }
+    
+    var searchBarInput = document.getElementById("search-bar-input");
+    searchBarInput.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            searchActivity();
+        }
+    });
 }
 
 function member_login() {
@@ -67,11 +75,11 @@ function member_login() {
         	`<div id="loginPanel">
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">邮箱</span>
-	                <input id="account_login" class="input" type="email"/>
+	                <input id="account_login_email" class="input" type="email" name="email"/>
 	            </div>
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">密码</span>
-	                <input id="password_login" class="input" type="password"/>
+	                <input id="password_login" class="input" type="password" name="password"/>
 	            </div>
             </div>`,
         btn: ['登录', '取消'],
@@ -80,6 +88,20 @@ function member_login() {
         },
         btn2: function (index) {
             layer.close(index);
+        }
+    });
+    var emailInput = document.getElementById("account_login_email");
+    emailInput.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementsByClassName("layui-layer-btn0")[0].click();
+        }
+    });
+    var pwInput = document.getElementById("password_login");
+    pwInput.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementsByClassName("layui-layer-btn0")[0].click();
         }
     });
 }
@@ -119,7 +141,7 @@ function member_register() {
 }
 
 function postLogin(index) {
-	let email = $("#account_login").val();
+	let email = $("#account_login_email").val();
     let password = $("#password_login").val();
     $.post("/api/members/login", {
         "email": email,

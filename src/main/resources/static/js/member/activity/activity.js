@@ -17,15 +17,15 @@ $(function () {
 function displayList(data) {
     $("#body ul").empty();
     for (let i = 0; i < data.length; i++) {
-        let activity = `<li class=\"activity-item\">
-                            <div class=\"info\">
-                                <img class=\"photo\" src=\"/showpic/${data[i].photo}\"/>
-                                <h3 class=\"activity-title\">${data[i].name}</h3>
-                                <p class=\"activity-info\">${data[i].activityType}</p></p>
-                                <p class=\"activity-info\">${data[i].venueName}</p>
-                                <p class=\"activity-info\">${data[i].dateString}</p>
-                                <p class=\"introduction\">简介：<br>${data[i].description}</p>
-                                <a id=\"${data[i].activityId}\" class=\"detail\" href=\"/member/activity/detail?activityId=${data[i].activityId}\">查看详情>></a>
+        let activity = `<li class="activity-item">
+                            <div class="info">
+                                <img class="photo" src="/showpic/${data[i].photo}"/>
+                                <h3 class="activity-title"><a href="/member/activity/detail?activityId=${data[i].activityId}">${data[i].name}</a></h3>
+                                <p class="activity-info">${data[i].activityType}</p></p>
+                                <p class="activity-info">${data[i].venueName}</p>
+                                <p class="activity-info">${data[i].dateString}</p>
+                                <p class="introduction">简介：<br>${data[i].description}</p>
+                                <a id="${data[i].activityId}" class="detail" href="/member/activity/detail?activityId=${data[i].activityId}">查看详情>></a>
                             </div>
                         </li>`;
         $("#body ul").append(activity);
