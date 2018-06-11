@@ -8,7 +8,7 @@ $(function () {
             initActivityDetail(activityModel);
         }).fail(function (e) {
         alertWindow(e.responseText);
-    })
+    });
 });
 
 function initActivityDetail(activityModel) {
@@ -37,51 +37,47 @@ function initActivityDetail(activityModel) {
 
     priceMap = priceMap + `</tboy></table>`;
 
-    let activityDetail =
-        `<div class="upper">
-        <img class="detail-photo" src=\"/showpic/${activityModel.photo}\"/>
-        <div class="detail-container">
+    let newActivityDetail = `
+                        <div class ="row"><div class="col-sm-4">
+                            <div style="">
+                                <img src="/showpic/${activityModel.photo}" style="width:  100%;">
+                            </div>
+                        </div>
 
-            <h3 class="detail-title">${activityModel.name}</h3>
+                        <div class="col-sm-8">
+                            <h2 class="order-id">${activityModel.name}</h2>
+                            <div style="font-size: 20px;margin-top: 2%;">
+                                <ins>¥ 200.0 起</ins>
+                            </div>
+                            <div style="background: 0 0 #e6e6e6;font-size: 18px;margin-top: 5%;padding: 15px;">
+                                本演出支持在线选座，不如试试？
+                                <a class="showlogin" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}" style="color: #1E9FFF;text-decoration: none;">选座下单</a>
+                            </div>
+                            <div class="detail-item">
+                                <p class="before-text">演出场馆：${activityModel.venueName}</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="before-text">演出时间：${activityModel.dateString}</p>
+                            </div>
+                                     
+                            <div class="detail-item">
+                                <p class="before-text">演出介绍：</p>
+                                <p class="lower-detail">${activityModel.description}</p>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <p class="before-text">演出价格：</p>
+                                <div class="price-map">${priceMap}</div>
+                            </div>
+                            <div style="margin-top: 10%;">
+                                <button class="layui-btn layui-btn-normal" onclick="purchaseNow()" style="float: right">立即购买</button>
+                                <button class="layui-btn layui-btn-normal" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}" style="float: right; margin-right: 20px">选座购买</button>
+                            </div>
 
-            <div class="detail-item">
-                <p class="before-text">演出类型：${activityModel.activityType}</p>
-            </div>
+                        </div>
+                </div>`;
 
-            <div class="detail-item">
-                <p class="before-text">演出时间：${activityModel.dateString}</p>
-            </div>
-            
-            <div class="detail-item">
-                <p class="before-text">演出地点：${activityModel.location} ${activityModel.venueName}</p>
-            </div>
-            
-            <div class="detail-item">
-                <p class="before-text">联系方式：${activityModel.email}</p>
-            </div>
-
-            <div class="detail-item">
-                <p class="before-text">演出价格：</p>
-                <div class="price-map">
-                    ${priceMap}
-                </div>
-            </div>
-            <div class="detail-item">
-                <p class="lower-tip">演出介绍：</p>
-                <p class="lower-detail">${activityModel.description}</p>
-            </div>
-        </div>
-        </div>
-        <div class="lower" style="margin: 1% auto">
-            <button class="layui-btn layui-btn-normal" 
-            onclick="purchaseNow()" 
-            style="float: right">立即购买</button>
-            <button class="layui-btn layui-btn-normal" 
-            onclick="{location.href='/member/activity/purchase?activityId=${activityId}&venueCode=${activityModel.venueCode}'}" 
-            style="float: right; margin-right: 20px">选座购买</button>
-        </div>`;
-
-    $("#activity-detail").append(activityDetail);
+    $("#activity-detail").append(newActivityDetail);
 
 
     console.log(activityModel);

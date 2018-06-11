@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/css/public/main.css">
     <link rel="stylesheet" type="text/css" href="/css/member/activity-detail.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/activity-list.css">
     <link rel="stylesheet" type="text/css" href="/css/member/comment.css">
 </head>
 <body>
@@ -17,28 +18,46 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div id="body" class="col-md-10">
-        <div id="activity-detail"></div>
+            <div class="row">
+                <div  id="activity-detail" class="col-md-9">
+                </div>
 
-        <div class="layui-form" style="width: 80%; margin: 1% auto 0 auto; height: 200px">
-            <hr>
-            <div class="fill-comment-tip">
-                你可以在此填写评论
+                <div id="tody-hot" class="col-md-3">
+                    <h2 class="order-id">今日热门</h2>
+                    <div class="single-sidebar" style="margin-top: 15px">
+                        <img class="sub-img pointer" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'" src="/showpic/11.jpg" style="width: 50%;float: left;border-radius: 10px;">
+                        <div class="sub-img-description" style="float: left;width: 45%;">
+                            <p class="sub-img-title" style="width: 100%;height: 0;padding-bottom: 30%;">xxxxxx演出2018</p>
+                            <p class="sub-img-date" style="width: 100%;height: 0;padding-bottom: 30%;color: #8e8d8a;">2018.09.09 13:00</p>
+                            <p class="sub-img-venue" style="width: 100%;height: 0;padding-bottom: 30%;">南京先谢谢谢谢谢谢大剧院</p>
+                            <p class="display-img-price heavy" style="font-weight: 900;margin-top: 40%;color: #e85a4f;">100元</p>
+                            <p class="display-img-price" style="float: left;margin-right: 5px;margin-top: 40%;color: #8e8d8a;">起</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <textarea id="comment-post" name="comment" placeholder="请输入内容" class="layui-textarea"
-                      style="margin: 2% auto"></textarea>
-            <button class="layui-btn layui-btn-normal" onclick="postComment()" style="float: right">
-                发表评论
-            </button>
-        </div>
 
-        <div class="comment-item">
-            <div class="comment-tips">
-                以下为用户评论：
+        <div class="col-md-9">
+            <div class="layui-form" style="height: 200px;margin-top:  5%;">
+                <hr>
+                <div class="fill-comment-tip">
+                    你可以在此填写评论
+                </div>
+                <textarea class="layui-textarea" id="comment-post" name="comment" placeholder="请输入内容" style="margin: 2% auto"></textarea>
+                <button class="layui-btn layui-btn-normal" onclick="postComment()" style="float: right">
+                    发表评论
+                </button>
             </div>
-            <hr>
+
+            <div class="comment-item">
+                <div class="comment-tips">
+                    以下为用户评论：
+                </div>
+                <hr>
+            </div>
+            <div id="comment"><div style="font-size: 16px;">暂时没有评论哦</div></div>
+            <div id="page"></div>
         </div>
-        <div id="comment"></div>
-        <div id="page"></div>
     </div>
 </div>
 
@@ -51,7 +70,7 @@
 <script type="text/javascript" src="/js/public/page.js"></script>
 <script type="text/javascript" src="/js/member/public/header.js"></script>
 <script type="text/javascript" src="/js/public/footer.js"></script>
-<script type="text/javascript" src="/js/member/activity/activityDetail.js"></script>
+<script type="text/javascript" src="/js/member/activity/activityDetail.js">
 <script type="text/javascript" src="/js/member/activity/comment.js"></script>
 </body>
 </html>

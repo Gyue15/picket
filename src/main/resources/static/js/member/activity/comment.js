@@ -17,7 +17,7 @@ $(function () {
 
 function displayList(data) {
     if (data.length === 0) {
-        $("#comment").empty().append(`<div style="font-size: 16px; width: 80%; margin: 1% auto">暂时没有评论哦</div>`);
+        $("#comment").empty().append(`<div style="font-size: 16px; margin: 1% auto">暂时没有评论哦</div>`);
         return;
     }
 
