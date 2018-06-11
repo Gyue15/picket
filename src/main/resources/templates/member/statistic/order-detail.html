@@ -32,9 +32,9 @@
             <div id="begin-time" class="order-detail-item"></div>
             <div id="order-value" class="order-detail-item"></div>
         </div>
-        <div style="width:80%; margin: 0 auto">
+        <div style="width:80%; height: 38px; margin-bottom: 20px">
             <button id="pay-btn" class="layui-btn layui-btn-normal layui-btn-disabled"
-                    style="float: left; width: 20%; margin-right: 20px" onclick="payOrder()">去支付
+                    style="float: left; width: 20%; margin-right: 20px; display: none;" onclick="payOrder()">去支付
             </button>
             <button id="return-btn" class="layui-btn layui-btn-normal"
                     style="float: right; width: 20%" onclick="{window.location.href='/member/order'}">返回
@@ -65,7 +65,6 @@
 <script type="text/javascript" src="/js/public/util.js"></script>
 <script type="text/javascript" src="/js/member/public/header.js"></script>
 <script type="text/javascript" src="/js/member/public/ticketsLeftNavigation.js"></script>
-<script type="text/javascript" src="/js/public/footer.js"></script>
 <script type="text/javascript" src="/js/member/statistic/orderDetail.js"></script>
 </body>
 </html>
