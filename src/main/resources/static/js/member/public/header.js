@@ -41,11 +41,12 @@ function updateHeader() {
     </div>
 
     <div id="header-menu">
-        <div class="header-menu-item">演唱会</div>
-        <div class="header-menu-item">音乐会</div>
-        <div class="header-menu-item">歌剧</div>
-        <div class="header-menu-item">话剧</div>
-        <div class="header-menu-item">戏剧</div>
+        <a class="header-menu-item" href='/member/activity?type=演唱会'>演唱会</a>
+        <a class="header-menu-item" href='/member/activity?type=音乐会'>音乐会</a>
+        <a class="header-menu-item" href='/member/activity?type=话剧'>话剧</a>
+        <a class="header-menu-item" href='/member/activity?type=海外'>海外</a>
+        <a class="header-menu-item" href='/member/activity?type=乐团'>乐团</a>
+        <a class="header-menu-item" href='/member/activity?type=戏剧歌剧'>戏剧歌剧</a>
     </div>`;
 
     $("#header").empty().append(header + subHeader);

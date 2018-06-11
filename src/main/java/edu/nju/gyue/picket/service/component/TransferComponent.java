@@ -117,7 +117,7 @@ public class TransferComponent {
         activityModel.setVenueCode(activity.getVenue().getVenueCode());
         activityModel.setActivityId(activity.getActivityId());
         activityModel.setActivityType(activity.getActivityType());
-        activityModel.setDateString(DateUtil.formatDate(activity.getBeginDate(), activity.getEndDate()));
+        activityModel.setDateString(DateUtil.formatDate(activity.getBeginDate()));
         activityModel.setDescription(activity.getDescription());
         activityModel.setName(activity.getActivityName());
         activityModel.setPhoto(activity.getPhotoUrl());

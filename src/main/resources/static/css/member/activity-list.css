@@ -136,14 +136,19 @@
 .sub-img-title {
   width: 100%;
   height: 0;
-  padding-bottom: 60%; }
+  padding-bottom: 50%; }
 
 .sub-img-date {
   color: #8e8d8a;
-  margin: 5px 0; }
+  width: 100%;
+  height: 0;
+  padding-bottom: 35%; }
 
 .sub-img-venue {
-  margin-bottom: 4px; }
+  margin-bottom: 4px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 30%; }
 
 hr {
   width: 80%;
@@ -151,7 +156,7 @@ hr {
 
 .text {
   padding: 20px;
-  background-color: #e85a4f;
+  background-color: #db7093;
   position: absolute;
   left: 0;
   bottom: 0;
