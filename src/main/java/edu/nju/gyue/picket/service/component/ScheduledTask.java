@@ -43,10 +43,10 @@ public class ScheduledTask {
 
     @Scheduled(cron = "0 * * * * ?")
     public void updateOrder() {
-        List<ActivityOrder> activityOrderList = orderRepository.findByOrderState(OrderState.UN_PAYED);
+        List<ActivityOrder> activityOrderList = orderRepository.findByOrderState(OrderState.UN_PAID);
         activityOrderList.forEach(activityOrder -> {
             if (System.currentTimeMillis() - activityOrder.getPlaceDate().getTime() > Param.FIVE_MINS) {
-                activityOrder.setOrderState(OrderState.CANCLED);
+                activityOrder.setOrderState(OrderState.CANCELLED);
             }
         });
         orderRepository.save(activityOrderList);
@@ -63,7 +63,7 @@ public class ScheduledTask {
         List<ActivityOrder> activityOrderList = orderRepository.findByOrderType(OrderType.NOT_SELECT);
         activityOrderList.forEach(order -> {
 
-            if (!order.getOrderState().equals(OrderState.PAYED_AND_UNCHECK) || order.getBeginDate().getTime() - time
+            if (!order.getOrderState().equals(OrderState.PAID_AND_UNCHECK) || order.getBeginDate().getTime() - time
                     > Param.TWO_WEEK) {
                 return;
             }

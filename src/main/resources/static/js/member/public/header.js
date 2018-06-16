@@ -75,11 +75,11 @@ function member_login() {
         	`<div id="loginPanel">
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">邮箱</span>
-	                <input id="account_login_email" class="input" type="email" name="email"/>
+	                <input id="account_login_email" class="input" type="email" name="email" required autocomplete="email"/>
 	            </div>
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">密码</span>
-	                <input id="password_login" class="input" type="password" name="password"/>
+	                <input id="password_login" class="input" type="password" required name="password"/>
 	            </div>
             </div>`,
         btn: ['登录', '取消'],

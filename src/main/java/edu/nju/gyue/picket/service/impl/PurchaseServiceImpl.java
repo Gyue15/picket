@@ -202,9 +202,9 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         // member
         payAccount.setMoney(payAccount.getMoney() - price);
-        activityOrder.setOrderState(OrderState.PAYED_AND_UNCHECK);
+        activityOrder.setOrderState(OrderState.PAID);
         activityOrder.setOrderValue(price);
-        activityOrder.setIsPayed(true);
+        activityOrder.setIsPaid(true);
         activityOrder.setPayAccountId(payId);
         int point = member.getPoint() + (int) (price * Param.MONEY_PER_POINT);
         int level = MemberUtil.getMemberLevel(point);
@@ -261,7 +261,7 @@ public class PurchaseServiceImpl implements PurchaseService {
             seatPrice.setActivityOrder(null);
         });
         activityOrder.setSeatPriceList(new ArrayList<>());
-        activityOrder.setOrderState(OrderState.CANCLED);
+        activityOrder.setOrderState(OrderState.CANCELLED);
 
         orderRepository.save(activityOrder);
         seatPriceRepository.save(seatPriceList);
@@ -295,9 +295,9 @@ public class PurchaseServiceImpl implements PurchaseService {
         activityOrder.setVenue(venue);
         activityOrder.setOrderType(orderType);
         activityOrder.setUnitPrice(unitPrice);
-        activityOrder.setOrderState(OrderState.UN_PAYED);
+        activityOrder.setOrderState(OrderState.UN_PAID);
         activityOrder.setBeginDate(activity.getBeginDate());
-        activityOrder.setIsPayed(false);
+        activityOrder.setIsPaid(false);
         activityOrder.setMember(member);
         activityOrder.setActivity(activity);
         activityOrder.setPayAccountId(null);
@@ -360,11 +360,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     private ActivityOrder findOrder(String orderId) {
         ActivityOrder activityOrder = orderRepository.findOne(Long.parseLong(orderId));
-        if (activityOrder.getIsPayed()) {
+        if (activityOrder.getIsPaid()) {
             throw new BadRequestException("订单已经支付");
-        }
-        if (activityOrder.getOrderState().equals(OrderState.OFF_LINE)) {
-            throw new BadRequestException("线下订单请线下支付");
         }
         return activityOrder;
     }

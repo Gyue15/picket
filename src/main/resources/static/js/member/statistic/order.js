@@ -1,14 +1,11 @@
 $(function () {
-	updateList($("#unchecked-table"), "PAYED_AND_UNCHECK");
-	updateList($("#checked-table"), "PAYED_AND_CHECKED");
-	updateList($("#unpayed-table"), "UN_PAYED");
-	updateList($("#cancled-table"), "CANCLED");
-	updateList($("#unsubscribe-table"), "UNSUBSCRIBE");
-	updateList($("#offline-table"), "OFF_LINE");
+	updateList($("#paid-table"), "PAID");
+	updateList($("#unpaid-table"), "UN_PAID");
+	updateList($("#cancelled-table"), "CANCELLED");
 });
 
 function updateList(domElement, state) {
-    $("#page").css("display", "");
+	$("#page").css("display", "");
     $.get("/api/orders", {
         "user-type": "MEMBER",
         "id": sessionStorage.getItem("memberEmail"),
