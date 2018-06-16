@@ -37,7 +37,7 @@ public class ActivityOrder {
 
     private String payAccountId;
 
-    private Boolean isPayed;
+    private Boolean isPaid;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "member_email")
@@ -153,12 +153,12 @@ public class ActivityOrder {
         this.activity = activity;
     }
 
-    public Boolean getIsPayed() {
-        return isPayed;
+    public Boolean getIsPaid() {
+        return isPaid;
     }
 
-    public void setIsPayed(Boolean isPayed) {
-        this.isPayed = isPayed;
+    public void setIsPaid(Boolean isPaid) {
+        this.isPaid = isPaid;
     }
 
     public List<SeatPrice> getSeatPriceList() {
@@ -181,7 +181,7 @@ public class ActivityOrder {
     public String toString() {
         return "ActivityOrder{" + "orderId=" + orderId + ", orderValue=" + orderValue + ", placeDate=" + placeDate +
                 ", beginDate=" + beginDate + ", orderType=" + orderType + ", orderState=" + orderState + ", seatNum="
-                + seatNum + ", unitPrice=" + unitPrice + ", payAccountId='" + payAccountId + '\'' + ", isPayed=" +
-                isPayed + '}';
+                + seatNum + ", unitPrice=" + unitPrice + ", payAccountId='" + payAccountId + '\'' + ", isPaid=" +
+                isPaid + '}';
     }
 }

@@ -5,31 +5,18 @@ public enum OrderState {
     /**
      * 未支付
      */
-    UN_PAYED("未支付"),
+    UN_PAID("未支付"),
     /**
-     * 取消支付
+     * 取消支付或退订
      */
-    CANCLED("已取消"),
+    CANCELLED("已取消"),
+
+    PAYED_AND_UNMAIL("待发货"),
 
     /**
-     * 已支付，未检票（已完成）
+     * 已支付
      */
-    PAYED_AND_UNCHECK("已完成"),
-
-    /**
-     * 已支付，已检票（已完成）
-     */
-    PAYED_AND_CHECKED("已完成"),
-
-    /**
-     * 已退订
-     */
-    UNSUBSCRIBE("已退订"),
-
-    /**
-     * 线下购票
-     */
-    OFF_LINE("线下购票");
+    PAID("已支付");
 
     private String s;
 

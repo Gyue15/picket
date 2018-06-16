@@ -92,6 +92,9 @@ public class TransferComponent {
         if (memberModel.getValidateTime() != null) {
             member.setValidateTime(memberModel.getValidateTime());
         }
+        if (memberModel.getMailaddress() != null) {
+            member.setMailaddress(memberModel.getMailaddress());
+        }
         return member;
     }
 
@@ -107,6 +110,7 @@ public class TransferComponent {
         memberModel.setValid(member.getValid());
         memberModel.setEmail(member.getEmail());
         memberModel.setPoint(member.getPoint());
+        memberModel.setMailaddress(member.getMailaddress());
         return memberModel;
     }
 
@@ -193,7 +197,7 @@ public class TransferComponent {
         orderModel.setActivityName(activityOrder.getActivity().getActivityName());
         orderModel.setBeginDateString(DateUtil.formatDate(activityOrder.getBeginDate()));
         orderModel.setCanCancel(activityOrder.getBeginDate().getTime() > DateUtil.getSpecifiedDayAfter(new Date(), 3).getTime
-                () && activityOrder.getOrderState().equals(OrderState.PAYED_AND_UNCHECK));
+                () && activityOrder.getOrderState().equals(OrderState.PAID));
         orderModel.setOrderId(longToString(activityOrder.getOrderId(), 7));
         orderModel.setOrderValue(activityOrder.getOrderValue());
         orderModel.setOrderState(activityOrder.getOrderState().getString());

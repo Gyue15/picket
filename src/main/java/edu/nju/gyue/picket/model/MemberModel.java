@@ -18,6 +18,8 @@ public class MemberModel {
 
     private String token;
 
+    private String mailaddress;
+
     public String getUsername() {
         return username;
     }
@@ -72,6 +74,14 @@ public class MemberModel {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getMailaddress() {
+        return mailaddress;
+    }
+
+    public void setMailaddress(String mailaddress) {
+        this.mailaddress = mailaddress;
     }
 
     @Override

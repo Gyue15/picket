@@ -22,6 +22,8 @@ public class Member {
 
     private Integer point;
 
+    private String mailaddress;
+
     @Enumerated(EnumType.STRING)
     private MemberState valid;
 
@@ -136,5 +138,13 @@ public class Member {
 
     public void setSignDate(Date signDate) {
         this.signDate = signDate;
+    }
+
+    public String getMailaddress() {
+        return mailaddress;
+    }
+
+    public void setMailaddress(String mailaddress) {
+        this.mailaddress = mailaddress;
     }
 }

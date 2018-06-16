@@ -19,51 +19,23 @@
 
 		<div id="body" class="col-md-8 right-part">
 
-			<!-- 
-			<div class="layui-form" style="width: 80%; margin: 5% auto 0 auto">
-				<label class="layui-form-label" style="width: 100px;">订单类型</label>
-				<div id="area-type" class="layui-input-block">
-					<select name="type" lay-verify="required" lay-filter="test">
-						<option value="PAYED_AND_UNCHECK">未检票</option>
-						<option value="PAYED_AND_CHECKED">已检票</option>
-						<option value="UN_PAYED">未支付</option>
-						<option value="CANCLED">取消支付</option>
-						<option value="UNSUBSCRIBE">已退订</option>
-						<option value="OFF_LINE">线下购票</option>
-					</select>
-				</div>
-			</div>
-			-->
-
 			<ul class="nav nav-tabs" role="tablist" style="margin-top:10px">
 				<li role="presentation" class="active">
-					<a href="#unchecked" aria-controls="unchecked" role="tab" data-toggle="tab">未检票</a>
+					<a href="#paid" aria-controls="paid" role="tab" data-toggle="tab">已支付</a>
 				</li>
 				<li role="presentation">
-					<a href="#checked" aria-controls="checked" role="tab" data-toggle="tab">已检票</a>
+					<a href="#unpaid" aria-controls="unpaid" role="tab" data-toggle="tab">未支付</a>
 				</li>
 				<li role="presentation">
-					<a href="#unpayed" aria-controls="unpayed" role="tab" data-toggle="tab">未支付</a>
-				</li>
-				<li role="presentation">
-					<a href="#cancled" aria-controls="cancled" role="tab" data-toggle="tab">取消支付</a>
-				</li>
-				<li role="presentation">
-					<a href="#unsubscribe" aria-controls="unsubscribe" role="tab" data-toggle="tab">已退订</a>
-				</li>
-				<li role="presentation">
-					<a href="#offline" aria-controls="offline" role="tab" data-toggle="tab">线下购票</a>
+					<a href="#cancelled" aria-controls="cancelled" role="tab" data-toggle="tab">已取消</a>
 				</li>
 			</ul>
 
 			<!-- Tab panes -->
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="unchecked"><div id="unchecked-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="checked"><div id="checked-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="unpayed"><div id="unpayed-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="cancled"><div id="cancled-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="unsubscribe"><div id="unsubscribe-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="offline"><div id="offline-table"></div></div>
+				<div role="tabpanel" class="tab-pane active" id="paid"><div id="paid-table"></div></div>
+				<div role="tabpanel" class="tab-pane" id="unpaid"><div id="unpaid-table"></div></div>
+				<div role="tabpanel" class="tab-pane" id="cancelled"><div id="cancelled-table"></div></div>
 			</div>
 
 		</div>

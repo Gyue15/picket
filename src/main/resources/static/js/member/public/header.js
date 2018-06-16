@@ -13,7 +13,7 @@ function updateHeader() {
     if (sessionStorage.getItem("memberIsLogin")) {
         header = `<div id="inner-header">
         <div class="left-header-container">
-            <div class="header-item left-item">Hi ${sessionStorage.getItem("username")}，欢迎来到Picket</div>
+            <div class="header-item left-item">Hi ${sessionStorage.getItem("username")}，欢迎来到<a href="/">Picket</a></div>
         </div>
         <div class="right-header-container">
             <div class="header-item right-item pointer" onclick="logout()">登出</div>
@@ -75,11 +75,11 @@ function member_login() {
         	`<div id="loginPanel">
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">邮箱</span>
-	                <input id="account_login_email" class="input" type="email" name="email"/>
+	                <input id="account_login_email" class="input" type="email" name="email" required autocomplete="email"/>
 	            </div>
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">密码</span>
-	                <input id="password_login" class="input" type="password" name="password"/>
+	                <input id="password_login" class="input" type="password" required name="password"/>
 	            </div>
             </div>`,
         btn: ['登录', '取消'],
