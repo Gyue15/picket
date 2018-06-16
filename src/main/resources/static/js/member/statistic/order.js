@@ -1,6 +1,10 @@
 $(function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	updateList($("#paid-table"), "PAID_AND_UNMAIL");
+=======
+	updateList($("#paid-table"), "PAID");
+>>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
 =======
 	updateList($("#paid-table"), "PAID");
 >>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51

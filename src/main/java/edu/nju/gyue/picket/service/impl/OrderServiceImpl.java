@@ -64,6 +64,10 @@ public class OrderServiceImpl implements OrderService {
         }
         ticket.setIsUsed(true);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        ticket.getActivityOrder().setOrderState(OrderState.PAID);
+>>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
 =======
         ticket.getActivityOrder().setOrderState(OrderState.PAID);
 >>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
@@ -113,7 +117,11 @@ public class OrderServiceImpl implements OrderService {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!activityOrder.getOrderState().equals(OrderState.PAID_AND_UNMAIL)) {
+=======
+        if (!activityOrder.getOrderState().equals(OrderState.PAID)) {
+>>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
 =======
         if (!activityOrder.getOrderState().equals(OrderState.PAID)) {
 >>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51

@@ -198,7 +198,11 @@ public class TransferComponent {
         orderModel.setBeginDateString(DateUtil.formatDate(activityOrder.getBeginDate()));
         orderModel.setCanCancel(activityOrder.getBeginDate().getTime() > DateUtil.getSpecifiedDayAfter(new Date(), 3).getTime
 <<<<<<< HEAD
+<<<<<<< HEAD
                 () && activityOrder.getOrderState().equals(OrderState.PAID_AND_UNMAIL));
+=======
+                () && activityOrder.getOrderState().equals(OrderState.PAID));
+>>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
 =======
                 () && activityOrder.getOrderState().equals(OrderState.PAID));
 >>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
