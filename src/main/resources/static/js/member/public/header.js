@@ -13,7 +13,7 @@ function updateHeader() {
     if (sessionStorage.getItem("memberIsLogin")) {
         header = `<div id="inner-header">
         <div class="left-header-container">
-            <div class="header-item left-item">Hi ${sessionStorage.getItem("username")}，欢迎来到Picket</div>
+            <div class="header-item left-item">Hi ${sessionStorage.getItem("username")}，欢迎来到<a href="/">Picket</a></div>
         </div>
         <div class="right-header-container">
             <div class="header-item right-item pointer" onclick="logout()">登出</div>
