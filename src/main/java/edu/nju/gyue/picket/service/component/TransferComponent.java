@@ -197,7 +197,11 @@ public class TransferComponent {
         orderModel.setActivityName(activityOrder.getActivity().getActivityName());
         orderModel.setBeginDateString(DateUtil.formatDate(activityOrder.getBeginDate()));
         orderModel.setCanCancel(activityOrder.getBeginDate().getTime() > DateUtil.getSpecifiedDayAfter(new Date(), 3).getTime
+<<<<<<< HEAD
                 () && activityOrder.getOrderState().equals(OrderState.PAID_AND_UNMAIL));
+=======
+                () && activityOrder.getOrderState().equals(OrderState.PAID));
+>>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
         orderModel.setOrderId(longToString(activityOrder.getOrderId(), 7));
         orderModel.setOrderValue(activityOrder.getOrderValue());
         orderModel.setOrderState(activityOrder.getOrderState().getString());
