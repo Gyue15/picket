@@ -202,15 +202,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         // member
         payAccount.setMoney(payAccount.getMoney() - price);
-<<<<<<< HEAD
-<<<<<<< HEAD
         activityOrder.setOrderState(OrderState.PAID_AND_UNMAIL);
-=======
-        activityOrder.setOrderState(OrderState.PAID);
->>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
-=======
-        activityOrder.setOrderState(OrderState.PAID);
->>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
         activityOrder.setOrderValue(price);
         activityOrder.setIsPaid(true);
         activityOrder.setPayAccountId(payId);

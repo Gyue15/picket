@@ -63,14 +63,7 @@ public class OrderServiceImpl implements OrderService {
             throw new BadRequestException("该票已经使用过了");
         }
         ticket.setIsUsed(true);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        ticket.getActivityOrder().setOrderState(OrderState.PAID);
->>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
-=======
-        ticket.getActivityOrder().setOrderState(OrderState.PAID);
->>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
+        ticket.getActivityOrder().setOrderState(OrderState.PAID_AND_MAIL);
         ticketRepository.saveAndFlush(ticket);
         return ticket.getActivityName();
     }
@@ -116,15 +109,7 @@ public class OrderServiceImpl implements OrderService {
             throw new BadRequestException("订单编号错误");
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!activityOrder.getOrderState().equals(OrderState.PAID_AND_UNMAIL)) {
-=======
-        if (!activityOrder.getOrderState().equals(OrderState.PAID)) {
->>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
-=======
-        if (!activityOrder.getOrderState().equals(OrderState.PAID)) {
->>>>>>> 11a383bb01d3dbe5ce6769dcc64bd5dad7a16a51
             throw new BadRequestException("该订单无法退订");
         }
 
