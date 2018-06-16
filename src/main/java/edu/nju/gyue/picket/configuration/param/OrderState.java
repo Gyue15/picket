@@ -11,12 +11,12 @@ public enum OrderState {
      */
     CANCELLED("已取消"),
 
-    PAYED_AND_UNMAIL("待发货"),
+    PAID_AND_UNMAIL("待发货"),
 
     /**
      * 已支付
      */
-    PAID("已支付");
+    PAID_AND_MAIL("已发货");
 
     private String s;
 

@@ -1,5 +1,5 @@
 $(function () {
-	updateList($("#paid-table"), "PAID");
+	updateList($("#paid-table"), "PAID_AND_UNMAIL");
 	updateList($("#unpaid-table"), "UN_PAID");
 	updateList($("#cancelled-table"), "CANCELLED");
 });

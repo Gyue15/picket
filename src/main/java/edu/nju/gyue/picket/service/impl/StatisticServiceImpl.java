@@ -158,8 +158,8 @@ public class StatisticServiceImpl implements StatisticService {
     private void fillChart(List<String> chartX, List<Double> chartY, UserType userType, String id) {
         List<ActivityOrder> activityOrderList;
         List<OrderState> orderStateList = new ArrayList<>();
-        orderStateList.add(OrderState.PAID_AND_UNCHECK);
-        orderStateList.add(OrderState.PAID_AND_CHECKED);
+        orderStateList.add(OrderState.PAID_AND_UNMAIL);
+        orderStateList.add(OrderState.PAID_AND_MAIL);
         double percent;
         switch (userType) {
             case MABAGER:
