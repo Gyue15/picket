@@ -23,6 +23,15 @@
 	width: 80px;
 }
 
+#registerPanel input, #loginPanel input {
+	border: 1px groove rgba(50, 50, 50, 0.25);
+	border-left: 0px;
+	border-right: 0px;
+}
+#loginPanel input {
+	padding-bottom: 1px;
+}
+
 .label-bar {
   width: 100%;
   margin-bottom: 24px;
