@@ -121,6 +121,9 @@
 .floor-header {
   font-size: 24px;
   margin-top: 1%;
+  width: 100%;
+  height: 33px;
+  //float: left;
 }
 
 .main-activity {
@@ -130,7 +133,7 @@
   position: relative;
 }
 
-.main-img{
+.main-img {
   width: 100%;
   height: auto;
 }
@@ -170,6 +173,100 @@ hr {
   margin-right: 5px;
   margin-top: 0;
 }
+
+#photo-list {
+  width: 80%;
+  overflow: auto;
+  margin: 2% auto;
+}
+
+.card {
+  width: 47%;
+  position: relative;
+  margin: 5% 0;
+  cursor: pointer;
+}
+
+.card-container {
+  width: 100%;
+  overflow: auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.card-img-container {
+  width: 35%;
+  float: left;
+}
+
+.card-img {
+  width: 90%;
+  height: auto;
+  margin: 5px;
+}
+
+.card-text {
+  width: 90%;
+  height: 95%;
+  float: right;
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  padding-left: 30%;
+  border: 1px solid $transparent-grey;
+  z-index: -1;
+}
+
+.card-text-title {
+  font-size: 20px;
+  margin: 5% 0 10% 0;
+}
+
+.card-text-description {
+  width: 95%;
+  height: 18%;
+  margin-bottom: 5%;
+}
+
+.card-ticket-state-container {
+  height: 15%;
+}
+
+.card-ticket-state {
+  float: left;
+  font-size: 16px;
+  color: $primary-color;
+  margin-right: 2%;
+}
+
+.card-text-date {
+  color: $grey-color;
+  margin-bottom: 2%;
+}
+
+.card-text-location {
+  float: left;
+}
+
+.card-text-price {
+  float: right;
+  font-size: 26px;
+  color: $primary-color;
+}
+
+.card-sub-price {
+  float: right;
+  margin-right: 5%;
+  margin-top: 8px;
+  color: $grey-color;
+}
+
 
 
 

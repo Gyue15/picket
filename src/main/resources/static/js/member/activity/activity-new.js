@@ -69,7 +69,7 @@ $(function () {
             , width: '80%' //设置容器宽度
             , arrow: 'always' //始终显示箭头
             , height: high
-            //,anim: 'updown' //切换动画方式
+            // , full: true
         });
 
         window.onresize = function () {
@@ -109,7 +109,10 @@ function updateTab(tabId, data) {
 function updateType(type, isReverse, data) {
 
     let header = `<hr><div class="activity-floor">
-    <div class="floor-header">${type}</div>
+    <div class="floor-header">
+    <div style="float: left; width: 30%;">${type}</div>
+    <a class="pointer" style="float: right; font-size: 16px; width: 30%; text-align: right;" href='/member/activity?type=${type}'>更多>></a>
+    </div>
     <div class="floor-container">`;
 
     let main = `

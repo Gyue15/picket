@@ -32,7 +32,9 @@ function updateHeader() {
         </div>
     </div>`;
     }
-    let subHeader = `<div id="site-name-bar">
+    let subHeader = `
+    <hr style="width: 100%">
+    <div id="site-name-bar">
         <div id="site-name"><a href="/">Picket</a></div>
         <div id="search-bar">
             <input id="search-bar-input" type="text"/>
@@ -41,6 +43,7 @@ function updateHeader() {
     </div>
 
     <div id="header-menu">
+        <a class="header-menu-item" href='/'>首页</a>
         <a class="header-menu-item" href='/member/activity?type=演唱会'>演唱会</a>
         <a class="header-menu-item" href='/member/activity?type=音乐会'>音乐会</a>
         <a class="header-menu-item" href='/member/activity?type=话剧'>话剧</a>
@@ -57,13 +60,24 @@ function updateHeader() {
         $("#person-header").css("border-bottom", "3px solid #e98074");
     }
     
-    var searchBarInput = document.getElementById("search-bar-input");
+    let searchBarInput = document.getElementById("search-bar-input");
     searchBarInput.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
             searchActivity();
         }
     });
+
+    // let href = this.location.href.split("?")[0];
+    // $("#header-menu").find("a").each(function () {
+    //     console.log(this.href);
+    //     if (this.href === href) {
+    //         $(this).addClass("header-item-select");
+    //     } else {
+    //         $(this).removeClass("header-item-select");
+    //
+    //     }
+    // });
 }
 
 function member_login() {

@@ -2,10 +2,9 @@ let nowPage = 1;
 let maxPage = 1;
 
 $(function () {
-    $.get("/api/activities/page-numbers", {
-        "activity": "MEMBER_ACTIVITY",
-        "id": sessionStorage.getItem("memberEmail"),
-        "page-size": 5
+    $.get("/api/activities/type", {
+        "type": getUrlParam("type"),
+        "num": 10
     }).done(function (data) {
         maxPage = data - 0;
     }).done(function () {
@@ -15,21 +14,35 @@ $(function () {
 });
 
 function displayList(data) {
-    $("#body ul").empty();
-    for (let i = 0; i < data.length; i++) {
-        let activity = `<li class="activity-item">
-                            <div class="info">
-                                <img class="photo" src="/showpic/${data[i].photo}"/>
-                                <h3 class="activity-title"><a href="/member/activity/detail?activityId=${data[i].activityId}">${data[i].name}</a></h3>
-                                <p class="activity-info">${data[i].activityType}</p></p>
-                                <p class="activity-info">${data[i].venueName}</p>
-                                <p class="activity-info">${data[i].dateString}</p>
-                                <p class="introduction">简介：<br>${data[i].description}</p>
-                                <a id="${data[i].activityId}" class="detail" href="/member/activity/detail?activityId=${data[i].activityId}">查看详情>></a>
-                            </div>
-                        </li>`;
-        $("#body ul").append(activity);
+    let activity = ``;
+
+    let i;
+    for (i = 0; i < data.length; i++) {
+        activity += `${i % 2 === 0 ? '<div class="card-container">' : ''}`;
+        activity += `<div class="card ${i % 2 === 0 ? 'left' : 'right'}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'">
+        <div class="card-img-container">
+            <img class="card-img" src="/showpic/${data[i].photo}"/>
+        </div>
+        <div class="card-text">
+            <p class="card-text-title">${data[i].name}</p>
+            <p class="card-text-description">
+                简介：${data[i].description.substring(0, 30)}...</p>
+            <div class="card-ticket-state-container">
+                <p class="card-ticket-state">售票中</p>
+                <p class="card-ticket-state">可选座</p>
+            </div>
+            <p class="card-text-date">${data[i].dateString}</p>
+            <div style="width: 100%; height: 10%;">
+                <p class="card-text-location">${data[i].venueName}</p>
+                <p class="card-sub-price">元起</p>
+                <p class="card-text-price">${data[i].minPrice}</p>
+            </div>
+        </div>
+    </div>`;
+        activity += `${i % 2 === 0 ? '' : '</div>'}`;
     }
+
+    $("#photo-list").append(activity);
 }
 
 function turnPage(turnNum) {

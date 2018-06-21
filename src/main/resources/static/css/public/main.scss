@@ -303,8 +303,8 @@ ul {
   top: 0;
   overflow-y: hidden;
   overflow-x: auto;
-  background-color: white;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  background-color: $white-color;
+  //box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
 }
 
 blockquote.layui-elem-quote {
@@ -375,7 +375,7 @@ blockquote.layui-elem-quote {
   float: left;
   margin-top: 1%;
   font-size: 18px;
-  border: 3px solid $primary-color;
+  border: 2px solid $primary-color;
   box-sizing: border-box;
   background-color: $white-color;
   padding: 5px;
@@ -404,11 +404,19 @@ blockquote.layui-elem-quote {
   font-weight: lighter;
   font-size: 18px;
   float: left;
-  margin-top: 10px;
-  margin-right: 30px;
+  //margin-top: 10px;
+  //margin-right: 30px;
   color: $white-color;
   cursor: pointer;
   display: block;
+  width: auto;
+  height: 48px;
+  text-align: left;
+  padding: 10px 30px 10px 0;
+}
+
+.header-item-select{
+  background-color: $primary-color-light;
 }
 
 .sub-img-title {
