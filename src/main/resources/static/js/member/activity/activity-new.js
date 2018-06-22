@@ -113,7 +113,7 @@ function updateType(type, isReverse, data) {
     <div style="float: left; width: 30%;">${type}</div>
     <a class="pointer" style="float: right; font-size: 16px; width: 30%; text-align: right;" href='/member/activity?type=${type}'>更多>></a>
     </div>
-    <div class="floor-container">`;
+    <div class="floor-container ${isReverse?'right':'left'}">`;
 
     let main = `
         <div class="main-activity">
@@ -152,11 +152,7 @@ function updateType(type, isReverse, data) {
     }
     subOne += `</div></div>`;
 
-    if (isReverse) {
-        main = subOne + main;
-    } else {
-        main = main + subOne;
-    }
+    main = main + subOne;
 
     return header + main + `</div></div>`;
 

@@ -33,7 +33,6 @@ function updateHeader() {
     </div>`;
     }
     let subHeader = `
-    <hr style="width: 100%">
     <div id="site-name-bar">
         <div id="site-name"><a href="/">Picket</a></div>
         <div id="search-bar">

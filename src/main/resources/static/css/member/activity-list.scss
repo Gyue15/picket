@@ -116,6 +116,50 @@
   padding: 10px 10px 30% 10px;
   //padding-bottom: 50%;
   margin: 2% auto 0 auto;
+  .floor-container {
+    display: flex;
+    width: 100%; 
+    flex-wrap: wrap;   
+    .main-activity {
+      width: 23%;
+      order: 0;
+    }
+    .sub-activity {
+      order: 1;
+      padding: 0;
+    }
+    &.right {
+      .main-activity {
+        order: 2;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .activity-floor {
+    .sub-activity {
+      .sub-img-venue {
+        display: none;
+      }
+      .sub-img-date {
+        display: none;
+      }
+      .display-img-price {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .activity-floor {
+    .sub-activity {
+      .sub-img-title {
+        display: none;
+      }
+    }
+  }
 }
 
 .floor-header {

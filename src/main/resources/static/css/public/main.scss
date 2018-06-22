@@ -305,6 +305,7 @@ ul {
   overflow-x: auto;
   background-color: $white-color;
   //box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  border-bottom: 1px solid $transparent-grey;
 }
 
 blockquote.layui-elem-quote {
