@@ -1,27 +1,26 @@
 let nowPage = 1;
 let maxPage = 1;
 
+let timeSelector = Number.MAX_VALUE;
+let typeSelector = 'default';
+let activityDate;
+
 $(function () {
-    $.get("/api/activities/type", {
-        "type": getUrlParam("type"),
-        "num": 10
-    }).done(function (data) {
-        maxPage = data - 0;
-    }).done(function () {
-        updateList();
-        updatePageNum();
-    });
+    // TODO 获得最大页码
+    updateList();
+    updatePageNum();
 });
 
 function displayList(data) {
+
     let activity = ``;
 
     let i;
     for (i = 0; i < data.length; i++) {
         activity += `${i % 2 === 0 ? '<div class="card-container">' : ''}`;
-        activity += `<div class="card ${i % 2 === 0 ? 'left' : 'right'}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'">
+        activity += `<div class="card ${i % 2 === 0 ? 'left' : 'right'}">
         <div class="card-img-container">
-            <img class="card-img" src="/showpic/${data[i].photo}"/>
+            <img class="card-img" src="/showpic/${data[i].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'"/>
         </div>
         <div class="card-text">
             <p class="card-text-title">${data[i].name}</p>
@@ -42,7 +41,7 @@ function displayList(data) {
         activity += `${i % 2 === 0 ? '' : '</div>'}`;
     }
 
-    $("#photo-list").append(activity);
+    $("#photo-list").empty().append(activity);
 }
 
 function turnPage(turnNum) {
@@ -56,14 +55,14 @@ function turnPage(turnNum) {
 }
 
 function updateList() {
-    $.get("/api/activities", {
-        "activity": "MEMBER_ACTIVITY",
-        "id": sessionStorage.getItem("memberEmail"),
-        "page": nowPage,
-        "page-size": 5
+    $.get("/api/activities/type", {
+        "type": getUrlParam("type"),
+        "num": 10
     }).done(function (data) {
-        console.log(data);
-        displayList(data);
+        activityDate = data;
+        timeSelect(timeSelector);
+        typeSelect(typeSelector);
+        displayList(activityDate);
     }).fail(function (e) {
         alertWindow(e.responseText);
     });
@@ -88,4 +87,56 @@ function updatePageNum() {
         $("#after").removeClass("page-active");
     }
 
+}
+
+function timeSelect(type) {
+    switch(type) {
+        case Number.MAX_VALUE:
+            $("#time-selector-0").addClass("selector-active");
+            $("#time-selector-1").removeClass("selector-active");
+            $("#time-selector-2").removeClass("selector-active");
+            $("#time-selector-3").removeClass("selector-active");
+            break;
+        case 7:
+            $("#time-selector-0").removeClass("selector-active");
+            $("#time-selector-1").addClass("selector-active");
+            $("#time-selector-2").removeClass("selector-active");
+            $("#time-selector-3").removeClass("selector-active");
+            break;
+        case 30:
+            $("#time-selector-0").removeClass("selector-active");
+            $("#time-selector-1").removeClass("selector-active");
+            $("#time-selector-2").addClass("selector-active");
+            $("#time-selector-3").removeClass("selector-active");
+            break;
+        case 'weekend':
+            $("#time-selector-0").removeClass("selector-active");
+            $("#time-selector-1").removeClass("selector-active");
+            $("#time-selector-2").removeClass("selector-active");
+            $("#time-selector-3").addClass("selector-active");
+            break;
+    }
+    timeSelector = type;
+}
+
+function typeSelect(type) {
+    switch (type) {
+        case 'default':
+            $("#type-selector-0").addClass("selector-active");
+            $("#type-selector-1").removeClass("selector-active");
+            $("#type-selector-2").removeClass("selector-active");
+            break;
+        case 'date':
+            $("#type-selector-0").removeClass("selector-active");
+            $("#type-selector-1").addClass("selector-active");
+            $("#type-selector-2").removeClass("selector-active");
+            break;
+        case 'discount':
+            $("#type-selector-0").removeClass("selector-active");
+            $("#type-selector-1").removeClass("selector-active");
+            $("#type-selector-2").addClass("selector-active");
+            break;
+
+    }
+    typeSelector = type;
 }

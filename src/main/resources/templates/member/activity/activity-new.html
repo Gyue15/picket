@@ -7,6 +7,7 @@
     <title>Picket-您的票务专家</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/stack-img.css">
     <link rel="stylesheet" type="text/css" href="/css/public/main.css">
     <link rel="stylesheet" type="text/css" href="/css/member/activity-list.css">
     <link rel="stylesheet" type="text/css" href="/css/member/authority.css">
@@ -17,28 +18,59 @@
 
 </div>
 
-<div class="layui-carousel" id="activity-gallery">
-    <div carousel-item>
-        <img class="pointer" src="headpic/15.jpg" onclick="window.location.href='/member/activity/detail?activityId=15'"/>
-        <img class="pointer" src="headpic/16.jpg" onclick="window.location.href='/member/activity/detail?activityId=16'"/>
-        <img class="pointer" src="headpic/17.jpg" onclick="window.location.href='/member/activity/detail?activityId=17'"/>
-        <img class="pointer" src="headpic/18.jpg" onclick="window.location.href='/member/activity/detail?activityId=18'"/>
-        <img class="pointer" src="headpic/19.jpg" onclick="window.location.href='/member/activity/detail?activityId=19'"/>
-        <img class="pointer" src="headpic/20.jpg" onclick="window.location.href='/member/activity/detail?activityId=20'"/>
-        <img class="pointer" src="headpic/22.jpg" onclick="window.location.href='/member/activity/detail?activityId=22'"/>
-    </div>
-</div>
+<div class="box">
 
-<div id="activity-tab" class="layui-tab">
-    <ul id="activity-tab-title" class="layui-tab-title">
-        <li class="layui-this tab-title">猜你喜欢</li>
-        <li class="tab-title">最近热门</li>
-        <li class="tab-title">最新演出</li>
-    </ul>
-    <div class="layui-tab-content">
-        <div id="content-one" class="layui-tab-item layui-show"></div>
-        <div id="content-two" class="layui-tab-item"></div>
-        <div id="content-three" class="layui-tab-item"></div>
+    <div class="list">
+        <ul>
+            <li class="p7">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=15">
+                    <img class="stack-img" src="headpic/15.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="p6">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=16">
+                    <img class="stack-img" src="headpic/16.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="p5">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=17">
+                    <img class="stack-img" src="headpic/17.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="p4">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=18">
+                    <img class="stack-img" src="headpic/18.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="p3">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=19">
+                    <img class="stack-img" src="headpic/19.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="p2">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=20">
+                    <img class="stack-img" src="headpic/20.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="p1">
+                <a class="stack-img-a" href="/member/activity/detail?activityId=22">
+                    <img class="stack-img" src="headpic/22.jpg" alt=""/>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <a class="prev stack-btn"><</a>
+    <a class="next stack-btn">></a>
+
+    <div class="buttons">
+        <a class="stack-img-a"><span class="blue"></span></a>
+        <a class="stack-img-a"><span></span></a>
+        <a class="stack-img-a"><span></span></a>
+        <a class="stack-img-a"><span></span></a>
+        <a class="stack-img-a"><span></span></a>
+        <a class="stack-img-a"><span></span></a>
+        <a class="stack-img-a"><span></span></a>
     </div>
 </div>
 
@@ -55,4 +87,5 @@
 <!--<script type="text/javascript" src="/js/public/page.js"></script>-->
 <!--<script type="text/javascript" src="/js/public/footer.js"></script>-->
 <script type="text/javascript" src="/js/member/activity/activity-new.js"></script>
+<script type="text/javascript" src="/js/member/activity/stack-img.js"></script>
 </body>

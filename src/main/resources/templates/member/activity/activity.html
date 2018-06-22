@@ -12,7 +12,20 @@
 <body>
 <div id="header"></div>
 
-<div id="selector"></div>
+<div id="selector">
+    <div id="time-selector">
+        <p class="selector-tip">按时间：</p>
+        <p id="time-selector-0" class="selector-item" onclick="timeSelect(Number.MAX_VALUE)">全部时间</p>
+        <p id="time-selector-1" class="selector-item" onclick="timeSelect(7)">一周内</p>
+        <p id="time-selector-2" class="selector-item" onclick="timeSelect(30)">一月内</p>
+        <p id="time-selector-3" class="selector-item" onclick="timeSelect('weekend')">本周末</p>
+    </div>
+    <div id="type-selector">
+        <p id="type-selector-0" class="selector-item" onclick="typeSelect('default')">按热度</p>
+        <p id="type-selector-1" class="selector-item" onclick="typeSelect('date')">按时间</p>
+        <p id="type-selector-2" class="selector-item" onclick="typeSelect('discount')">按折扣</p>
+    </div>
+</div>
 
 <div id="photo-list"></div>
 

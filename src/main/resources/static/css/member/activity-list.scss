@@ -228,7 +228,6 @@ hr {
   width: 47%;
   position: relative;
   margin: 5% 0;
-  cursor: pointer;
 }
 
 .card-container {
@@ -253,6 +252,7 @@ hr {
   width: 90%;
   height: auto;
   margin: 5px;
+  cursor: pointer;
 }
 
 .card-text {
@@ -309,6 +309,42 @@ hr {
   margin-right: 5%;
   margin-top: 8px;
   color: $grey-color;
+}
+
+#selector {
+  width: 80%;
+  margin: 2% auto 0 auto;
+  overflow: auto;
+}
+
+#time-selector, #type-selector {
+  width: 100%;
+  border: 1px solid $transparent-grey;
+  overflow: auto;
+  margin: 1% auto 0 auto;
+}
+
+.selector-tip, .selector-item {
+  float: left;
+  width: 8%;
+  margin: 2% 1%;
+  font-size: 16px;
+}
+
+.selector-item {
+  cursor: pointer;
+}
+
+.selector-item:hover {
+  color: $primary-color-light;
+}
+
+.selector-active {
+  color: $primary-color;
+}
+
+.selector-active:hover {
+  color: $primary-color;
 }
 
 
