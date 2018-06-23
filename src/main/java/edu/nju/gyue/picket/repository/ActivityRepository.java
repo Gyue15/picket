@@ -1,6 +1,10 @@
 package edu.nju.gyue.picket.repository;
 
 import edu.nju.gyue.picket.entity.Activity;
+import edu.nju.gyue.picket.model.ActivityModel;
+import edu.nju.gyue.picket.util.DateUtil;
+import org.ansj.domain.Term;
+import org.ansj.splitWord.analysis.DicAnalysis;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,6 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -52,6 +57,8 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.begin_date DESC")
     List<Activity> findRecentActivity();
+
+
 
     @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.description DESC")
     List<Activity> findRandomActivity();

@@ -20,10 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/api/activities", produces = "application/json;charset=UTF-8")
@@ -87,6 +84,52 @@ public class ActivityController {
     }
 
     /**
+     * 通用的活动列表API
+     * keyword: 搜索关键词 不是搜索就不传
+     * type: 演出类型 可以不传
+     * sort: 排序类型 目前可以传 time / hot，也可以不传
+     * sorttype: 目前不用传
+     * filter: todo...
+     */
+    @GetMapping("/list-numbers")
+    public Integer getPerfectActivityList(@RequestParam(value = "keyword", defaultValue = "") String keyWord,
+                                                      @RequestParam(value = "type", defaultValue = "") String type,
+                                                      @RequestParam(value = "sort", defaultValue = "time") String sort,
+                                                      @RequestParam(value = "sorttype", defaultValue = "desc") String sortType,
+                                                      @RequestParam(value = "filter", defaultValue = "") String filter,
+                                                      @RequestParam(value = "pagesize", defaultValue = "10") Integer pageSize) {
+
+        List<ActivityModel> list = activityService.getPerfectActivityList(keyWord, type, sort, sortType, filter);
+        int pageNum = (list.size() + pageSize - 1) / pageSize;
+        return pageNum;
+    }
+
+    /**
+     * 通用的活动列表API
+     * keyword: 搜索关键词 不是搜索就不传
+     * type: 演出类型 可以不传
+     * sort: 排序类型 目前可以传 time / hot，也可以不传
+     * sorttype: 目前不用传
+     * filter: todo...
+     */
+    @GetMapping("/list")
+    public List<ActivityModel> getPerfectActivityList(@RequestParam(value = "keyword", defaultValue = "") String keyWord,
+                                                      @RequestParam(value = "type", defaultValue = "") String type,
+                                                      @RequestParam(value = "sort", defaultValue = "time") String sort,
+                                                      @RequestParam(value = "sorttype", defaultValue = "desc") String sortType,
+                                                      @RequestParam(value = "filter", defaultValue = "") String filter,
+                                                      @RequestParam(value = "pagesize", defaultValue = "10") Integer pageSize,
+                                                      @RequestParam(value = "pagenum", defaultValue = "1") Integer pageNum) {
+
+        List<ActivityModel> list = activityService.getPerfectActivityList(keyWord, type, sort, sortType, filter);
+        int fromIndex = (pageNum - 1) * pageSize;
+        int toIndex = pageNum * pageSize;
+        if (toIndex > list.size()) toIndex = list.size();
+        if (fromIndex > (list.size() - 1)) return new ArrayList<>();
+        return list.subList(fromIndex, toIndex);
+    }
+
+    /**
      * 获得活动的list
      *
      * @param activityType 演出类型
@@ -94,7 +137,7 @@ public class ActivityController {
      */
     @GetMapping("/type")
     public List<ActivityModel> getTypeActivityList(@RequestParam("type") String activityType,
-                                                   @RequestParam("num") Integer activityNum) {
+                                                   @RequestParam(value = "num", defaultValue = "1") Integer activityNum) {
         List<ActivityModel> list = activityService.getTypeActivity(activityType);
         if ((activityNum < 0) || (activityNum > list.size())) {
             return list;
@@ -110,7 +153,7 @@ public class ActivityController {
      */
     @GetMapping("/homepage")
     public List<ActivityModel> getHomePageActivityList(@RequestParam("keyword") String keyWord,
-                                                  @RequestParam("num") Integer activityNum) {
+                                                  @RequestParam(value = "num", defaultValue = "1") Integer activityNum) {
         List<ActivityModel> list = activityService.getActivityListForHomepage(keyWord, activityNum);
         return list;
     }
@@ -204,12 +247,6 @@ public class ActivityController {
     @PostMapping("/post-comment")
     public void postComment(Long activityId, String email, String comment) {
         activityService.postComment(activityId, email, comment);
-    }
-
-    @GetMapping("/search")
-    public List<ActivityModel> search(@RequestParam String keyword) throws UnsupportedEncodingException {
-        System.out.println(keyword);
-        return activityService.search(keyword);
     }
 
 }

@@ -118,4 +118,15 @@ public class Activity {
     public void setCommentList(List<Comment> commentList) {
         this.commentList = commentList;
     }
+
+    /*
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() == Activity.class) {
+            return this.activityId.equals(((Activity) obj).getActivityId());
+        } else {
+            return false;
+        }
+    }
+    */
 }

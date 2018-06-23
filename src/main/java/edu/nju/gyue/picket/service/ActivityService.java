@@ -1,5 +1,6 @@
 package edu.nju.gyue.picket.service;
 
+import edu.nju.gyue.picket.entity.Activity;
 import edu.nju.gyue.picket.model.ActivityModel;
 import edu.nju.gyue.picket.model.CommentModel;
 import edu.nju.gyue.picket.model.SeatPriceModel;
@@ -36,9 +37,11 @@ public interface ActivityService {
 
     void postComment(Long activityId, String email, String comment);
 
-    List<ActivityModel> search(String keyword);
+    List<Activity> search(String keyword);
 
     List<ActivityModel> getTypeActivity(String activityType);
 
     List<ActivityModel> getActivityListForHomepage(String keyWord, int activityNum);
+
+    List<ActivityModel> getPerfectActivityList(String keyWord, String type, String sort, String sortType, String filter);
 }

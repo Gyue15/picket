@@ -30,6 +30,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
@@ -46,6 +47,8 @@ public class ActivityServiceImpl implements ActivityService {
     private final MemberService memberService;
 
     private final TransferComponent transferComponent;
+
+    private static Map<String, List<ActivityModel>> cacheMap = new ConcurrentHashMap<>();
 
     @Autowired
     public ActivityServiceImpl(ActivityRepository activityRepository, SeatPriceRepository seatPriceRepository,
@@ -191,8 +194,8 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public List<ActivityModel> search(String keyword) {
-        List<Term> termList = DicAnalysis.parse("1234").getTerms();
+    public List<Activity> search(String keyword) {
+        List<Term> termList = DicAnalysis.parse(keyword).getTerms();
         List<String> keys = new ArrayList<>();
         for (Term term : termList) {
             //if (Param.isKey(term.getNatureStr())) {
@@ -209,9 +212,8 @@ public class ActivityServiceImpl implements ActivityService {
             key.delete(lastIndex, lastIndex + 1).append(")");
             keyStr = key.toString();
         }
-        Date allowDate = DateUtil.getSpecifiedDayAfter(new Date(), 14);
-        return transferComponent.toActivityModelList(activityRepository.search(keyStr, keyStr, keyStr, keyStr,
-                allowDate));
+        Date allowDate = new Date();
+        return activityRepository.search(keyStr, keyStr, keyStr, keyStr,allowDate);
     }
 
     @Override
@@ -241,6 +243,45 @@ public class ActivityServiceImpl implements ActivityService {
         }
 
         return transferComponent.toActivityModelList(activityList.subList(0, activityNum));
+    }
+
+    @Override
+    public List<ActivityModel> getPerfectActivityList(String keyWord, String type, String sort, String sortType, String filter) {
+
+        String hashString = keyWord + "+" + type + "+" + sort + "+" + sortType + "+" + filter;
+        if (cacheMap.containsKey(hashString)) {
+            return cacheMap.get(hashString);
+        } else {
+            List<Activity> list = null;
+
+            if (sort.equals("time")) {
+                list = activityRepository.findRecentActivity();
+            }
+            if (sort.equals("hot")) {
+                list = activityRepository.findHotCommentActivity();
+            }
+
+            if (keyWord.length() != 0) {
+                List<Activity> tempList = search(keyWord);
+                if (list == null) {
+                    list = tempList;
+                } else {
+                    list.retainAll(tempList);
+                }
+            }
+
+            if (type.length() != 0) {
+                List<Activity> tempList = activityRepository.findByActivityTypeContaining(type);
+                if (list == null) {
+                    list = tempList;
+                } else {
+                    list.retainAll(tempList);
+                }
+            }
+            List<ActivityModel> resultList = transferComponent.toActivityModelList(list);
+            cacheMap.put(hashString, resultList);
+            return resultList;
+        }
     }
 
     private ActivityModel setSeatsMap(ActivityModel activityModel) {
