@@ -60,29 +60,6 @@ $(function () {
 });
 
 $(function () {
-    let high = document.body.clientWidth * 0.8 / 2.5;
-    layui.use('carousel', function () {
-        let carousel = layui.carousel;
-        //建造实例
-        let obj = carousel.render({
-            elem: '#activity-gallery'
-            , width: '80%' //设置容器宽度
-            , arrow: 'always' //始终显示箭头
-            , height: high
-            // , full: true
-        });
-
-        window.onresize = function () {
-            high = document.body.clientWidth * 0.8 / 2.5;
-            let options = {
-                elem: '#activity-gallery'
-                , width: '80%'
-                , arrow: 'always'
-                , height: high
-            };
-            obj.reload(options);
-        }
-    });
     layui.use('element', function () {
         // let element = layui.element;
     });

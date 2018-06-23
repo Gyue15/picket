@@ -20,7 +20,7 @@ function previmg() {
     //i是元素的索引，从0开始
     //e为当前处理的元素
     //each循环，当前处理的元素移除所有的class，然后添加数组索引i的class
-    $("li").each(function (i, e) {
+    $(".list").find("li").each(function (i, e) {
         $(e).removeClass().addClass(cArr[i]);
     });
     index--;
@@ -34,7 +34,7 @@ function previmg() {
 function nextimg() {
     cArr.push(cArr[0]);
     cArr.shift();
-    $("li").each(function (i, e) {
+    $(".list").find("li").each(function (i, e) {
         $(e).removeClass().addClass(cArr[i]);
     });
     index++;
@@ -59,7 +59,7 @@ $a.each(function () {
              */
             let newarr = cArr.splice(0, b);
             cArr = $.merge(cArr, newarr);
-            $("li").each(function (i, e) {
+            $(".list").find("li").each(function (i, e) {
                 $(e).removeClass().addClass(cArr[i]);
             });
             index = myindex;
@@ -76,7 +76,7 @@ $a.each(function () {
             let oldarr = cArr.splice(0, -b);
             cArr = $.merge(cArr, oldarr);
             cArr.reverse();
-            $("li").each(function (i, e) {
+            $(".list").find("li").each(function (i, e) {
                 $(e).removeClass().addClass(cArr[i]);
             });
             index = myindex;
