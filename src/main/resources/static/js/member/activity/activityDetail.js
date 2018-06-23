@@ -61,7 +61,7 @@ function initActivityDetail(activityModel) {
                                 <a class="showlogin" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}">选座下单</a>
                             </div>
                             <div class="detail-item">
-                                <p class="before-text">演出场馆：${activityModel.venueName}</p>
+                                <p class="before-text">演出场馆：${activityModel.venueName}  <a href="javascript:void(0)" onclick="openMap('${activityModel.venueName}')"><> 查看位置 </a></p>
                             </div>
                             <div class="detail-item">
                                 <p class="before-text">演出时间：${activityModel.dateString}</p>
@@ -128,6 +128,28 @@ function purchaseNow() {
     }).fail(function (e) {
         alertWindow(e.responseText)
     });
+}
+
+function openMap(venueName) {
+    layer.open({
+        title: '场馆位置',
+        type: 0, 
+        area: ['540px'],
+        content: '<div id="map-container" style="width:500px;height:356px;"></div>',
+        btn: []
+    }); 
+    var map = new BMap.Map("map-container");    
+    // 创建地址解析器实例     
+    var myGeo = new BMap.Geocoder();      
+    // 将地址解析结果显示在地图上，并调整地图视野    
+    myGeo.getPoint(venueName, function(point){      
+        if (point) {      
+            map.centerAndZoom(point, 16);      
+            map.addOverlay(new BMap.Marker(point));      
+        }      
+    }, 
+    "全国");
+    map.enableScrollWheelZoom();
 }
 
 function buyNow() {
