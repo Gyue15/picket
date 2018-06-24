@@ -1,20 +1,10 @@
-let notifications = [
-    {
-        id: 20,
-        name: "陈慧娴［Priscilla－ism］巡回演唱会"
-    },
-    {
-        id: 12,
-        name: "Vini Vici At LINX"
-    },
-];
+let firstTimeRender = true;
+let notifications = [];
 
 $(function () {
-    // }
     addGlobalCSS();
     updateHeader();
-    setUpWebSocket();  
-    updateNotification(notifications);  
+    setUpWebSocket();   
 });
 
 function addGlobalCSS() {
@@ -104,34 +94,40 @@ function updateHeader() {
 
 /* 从服务器端取通知 */
 function setUpWebSocket() {
-    const head = document.getElementsByTagName('head')[0];
-    // if (head) {
-    //   const sockJs = document.createElement('script');
-    //   sockJs.setAttribute('src', '/webjars/sockjs-client/sockjs.min.js');
-    //   head.appendChild(sockJs);
+    const socket = new WebSocket('ws://localhost:8080/notification');
+    socket.addEventListener('open', function (event) {
+        socket.send(localStorage.getItem('memberEmail'));
+    });
+    
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+        if (JSON.parse(event.data)) {
+            updateNotification(JSON.parse(event.data));
+            console.log("update");
+        } else {
+            console.log(typeof event.data);
+        }
+    });
 
-    //   const stomp = document.createElement('script');
-    //   stomp.setAttribute('src', '/webjars/stomp-websocket/stomp.min.js');
-    //   head.appendChild(stomp);     
-    // }
-    // const socket = new SockJS('/tickets');
-    // stompClient = Stomp.over(socket);
-    // stompClient.connect({}, function (frame) {
-    //     setConnected(true);
-    //     console.log('Connected: ' + frame);
-    //     stompClient.subscribe(`/notification/${localStorage.getItem("memberEmail")}`, function (eventData) {
-    //         updateNotification(JSON.parse(eventData.body).content);
-    //     });
-    // });
+    window.addEventListener('close', function() {
+        socket.close();
+    })
+
 }
 
 function updateNotification(activityNameList) {
     notifications = activityNameList;
     // TODO: 修改通知图标
+    if (!firstTimeRender) {
+        document.styleSheets[0].deleteRule(0);
+    } else {
+        firstTimeRender = false;
+    }
     if (notifications.length > 0) {
         document.styleSheets[0].insertRule(`#notification-header:after { content: "${notifications.length}"; color: #e85a4f; font-size: 5px; position: absolute; top: 2px;}`, 0);
     } else {
-
+        document.styleSheets[0].insertRule(`#notification-header:after { content: ""; color: #e85a4f; font-size: 5px; position: absolute; top: 2px;}`, 0);
     }
 }
 

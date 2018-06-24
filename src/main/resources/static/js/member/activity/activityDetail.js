@@ -1,15 +1,20 @@
 let activityId = getUrlParam("activityId");
+let email = localStorage.getItem("memberEmail");
 let venueCode;
 let isSubscribed = false;
 
 $(function () {
-    $.get("/api/activities/" + getUrlParam("activityId"))
-        .done(function (activityModel) {
-            venueCode = activityModel.venueCode;
-            initActivityDetail(activityModel);
-        }).fail(function (e) {
-        alertWindow(e.responseText);
-    });
+    $.post("/api/activities/is-subscribe", { activityId, email }).done (function(data) {
+        isSubscribed = data;
+        $.get("/api/activities/" + getUrlParam("activityId"))
+            .done(function (activityModel) {
+                venueCode = activityModel.venueCode;
+                initActivityDetail(activityModel);
+            }).fail(function (e) {
+            alertWindow(e.responseText);
+        });
+    }
+    )
     let hotActivityList = $.get("/api/activities/homepage", {
         keyword: "最近热门",
         num: 5
@@ -51,8 +56,11 @@ function initActivityDetail(activityModel) {
 
     // 加上票务订阅
 
-    if (!hasTicket) {
+    if (!hasTicket && !isSubscribed) {
         priceMap = priceMap + `<div id="subscribe-container"><button class="layui-btn" id="subscribe" onclick="subscribe()" style="float:right;">在有票的时候通知我</button></div>`;
+    }
+    else if(isSubscribed) {
+        priceMap = priceMap + `<div id="subscribe-container"><button class="layui-btn" id="subscribe" onclick="subscribe()" style="float:right;">已关注</button></div>`;
     }
     let newActivityDetail = `
                         <div class ="row"><div class="col-sm-4">
@@ -211,5 +219,13 @@ function updateHotActivity(data) {
 
 function subscribe() {
     // 订阅并修改订阅按钮状态
-    $("#subscribe").addClass("layui-btn-disabled").text("已关注");
+    if (!isSubscribed) {
+        $.post("/api/activities/subscribe", { activityId, email }).done(function(){
+            $("#subscribe").text("已关注");
+        })
+    } else {
+        $.post("/api/activities/cancel-subscribe", { activityId, email }).done(function(){
+            $("#subscribe").text("已取消关注");
+        })
+    }   
 }
