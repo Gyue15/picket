@@ -55,12 +55,23 @@
 .tab-title {
   background-color: white; }
 
+li.tab-title {
+  border-bottom: 1px solid rgba(62, 62, 62, 0.2); }
+
+.layui-tab-title {
+  border-bottom: 1px solid rgba(62, 62, 62, 0.2);
+  height: 41px; }
+
 .layui-tab-title .layui-this {
   color: white;
-  background-color: #e85a4f; }
+  background-color: #e85a4f;
+  border: none; }
 
 .layui-tab-title li {
   background-color: white; }
+
+.layui-tab-title .layui-this:after {
+  border: none; }
 
 .display-img-container {
   width: 18%;
@@ -70,8 +81,7 @@
 
 .display-img {
   width: 90%;
-  height: auto;
-  margin-left: 5%; }
+  height: auto; }
 
 .display-img-description {
   width: 100%;
@@ -201,7 +211,8 @@ hr {
   left: 8%;
   padding-left: 30%;
   border: 1px solid rgba(62, 62, 62, 0.2);
-  z-index: -1; }
+  z-index: -1;
+  border-radius: 4px; }
 
 .card-text-title {
   font-size: 20px;
@@ -248,7 +259,17 @@ hr {
   width: 100%;
   border: 1px solid rgba(62, 62, 62, 0.2);
   overflow: auto;
-  margin: 1% auto 0 auto; }
+  margin: 1% auto 0 auto;
+  border-radius: 4px; }
+
+#no-data-tip {
+  width: 80%;
+  border: 1px solid rgba(62, 62, 62, 0.2);
+  margin: 5% auto;
+  padding: 4% 0;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 4px; }
 
 .selector-tip, .selector-item {
   float: left;
