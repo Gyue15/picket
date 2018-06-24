@@ -4,7 +4,7 @@ let venueDataCheck;
 
 $(function () {
     $.post("/api/venues/messages", {
-        venueCode: sessionStorage.getItem("venueCode")
+        venueCode: localStorage.getItem("venueCode")
     }).done(function (data) {
         if (data.needDisplay) {
             console.log(data);
@@ -16,7 +16,7 @@ $(function () {
     });
 
     $.get("/api/venues/", {
-        "venue-code": sessionStorage.getItem("venueCode")
+        "venue-code": localStorage.getItem("venueCode")
     }).done(function (data) {
         venueData = data;
         changeData(data);
@@ -49,7 +49,7 @@ function changeData(data) {
         $("#confirm-btn").parent().css("display", "none");
         $("#tip").css("display", "");
         $.get("/api/venues/check", {
-            "venue-code": sessionStorage.getItem("venueCode")
+            "venue-code": localStorage.getItem("venueCode")
         }).done(function (data) {
             venueDataCheck = data;
             displayCheck();

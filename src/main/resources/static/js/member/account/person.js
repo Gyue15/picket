@@ -2,7 +2,7 @@ let memberData;
 
 $(function () {
     $.get("/api/members", {
-        email: sessionStorage.getItem("memberEmail")
+        email: localStorage.getItem("memberEmail")
     }).done(function (data) {
         memberData = data;
 
@@ -79,7 +79,7 @@ let voucherTypes;
 function getVoucher() {
 
     $.get("/api/members/voucher-types", {
-        email: sessionStorage.getItem("memberEmail")
+        email: localStorage.getItem("memberEmail")
     }).done(function (data) {
         voucherTypes = data;
         displayVoucher();
@@ -131,7 +131,7 @@ function changeVoucher() {
         return;
     }
     $.post("/api/members/change-vouchers", {
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         voucherTypeId: voucherTypeId,
         num: num
     }).done(function () {
@@ -151,7 +151,7 @@ function abolish() {
         btn: ['确认', '取消'],
         yes: function (index) {
             $.post("/api/members/abolish", {
-                email: sessionStorage.getItem("memberEmail")
+                email: localStorage.getItem("memberEmail")
             }).done(function () {
                 layer.close(index);
                 logout();
@@ -207,7 +207,7 @@ function postChangePassword(index) {
     }
     console.log(old, newPassword, repeat);
     $.post("/api/members/change-password", {
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         newPassword: newPassword,
         oldPassword: old
     }).done(function () {

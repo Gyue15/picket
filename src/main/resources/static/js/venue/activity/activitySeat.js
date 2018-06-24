@@ -11,7 +11,7 @@ let colorMap = [];
 
 function initSeat() {
     $.get("/api/venues/seats", {
-        "venue-code": sessionStorage.getItem("venueCode")
+        "venue-code": localStorage.getItem("venueCode")
     }).done(function (data) {
         console.log(data);
         let selector = `<select name="type" lay-verify="required" lay-filter="test">`;
@@ -80,7 +80,7 @@ function saveData() {
     let objects = canvas.getObjects();
     for (let i = 0; i < objects.length; i++) {
         if (objects[i].price) {
-            seatMap.set(`${sessionStorage.getItem("venueCode")}|${objects[i].areaCode}|${objects[i].row}|${objects[i].column}|${objects[i].areaName}`,
+            seatMap.set(`${localStorage.getItem("venueCode")}|${objects[i].areaCode}|${objects[i].row}|${objects[i].column}|${objects[i].areaName}`,
                 objects[i].price);
         }
     }

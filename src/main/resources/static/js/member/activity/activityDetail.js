@@ -1,5 +1,6 @@
 let activityId = getUrlParam("activityId");
 let venueCode;
+let isSubscribed = false;
 
 $(function () {
     $.get("/api/activities/" + getUrlParam("activityId"))
@@ -38,12 +39,21 @@ function initActivityDetail(activityModel) {
             <tbody>`;
 
     // 加上tbody
+    let hasTicket = false;
     for (let i = 0; i < keys.length; i++) {
         priceMap = priceMap + `<tr><td>${keys[i]}</td><td>${mapObj[keys[i]]}</td></tr>`;
+        if (mapObj[keys[i]] > 0) {
+            hasTicket = true;
+        }
     }
 
-    priceMap = priceMap + `</tboy></table>`;
+    priceMap = priceMap + `</tbody></table>`;
 
+    // 加上票务订阅
+
+    if (!hasTicket) {
+        priceMap = priceMap + `<div id="subscribe-container"><button class="layui-btn" id="subscribe" onclick="subscribe()" style="float:right;">在有票的时候通知我</button></div>`;
+    }
     let newActivityDetail = `
                         <div class ="row"><div class="col-sm-4">
                             <div style="">
@@ -61,7 +71,7 @@ function initActivityDetail(activityModel) {
                                 <a class="showlogin" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}">选座下单</a>
                             </div>
                             <div class="detail-item">
-                                <p class="before-text">演出场馆：${activityModel.venueName}  <a href="javascript:void(0)" onclick="openMap('${activityModel.venueName}')"><> 查看位置 </a></p>
+                                <p class="before-text">演出场馆：${activityModel.venueName}  <a href="javascript:void(0)" onclick="openMap('${activityModel.venueName}')"><i class="fas fa-map-marker-alt"></i> 查看位置 </a></p>
                             </div>
                             <div class="detail-item">
                                 <p class="before-text">演出时间：${activityModel.dateString}</p>
@@ -166,7 +176,7 @@ function buyNow() {
         activityId: activityId,
         unitPrice: price,
         num: num,
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         venueCode: venueCode
     }).done(function (data) {
         if (data.orderId !== "wrong") {
@@ -197,4 +207,9 @@ function updateHotActivity(data) {
     }
 
     $("#hot-activity").append(tab);
+}
+
+function subscribe() {
+    // 订阅并修改订阅按钮状态
+    $("#subscribe").addClass("layui-btn-disabled").text("已关注");
 }

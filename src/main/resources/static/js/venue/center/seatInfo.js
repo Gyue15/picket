@@ -7,11 +7,11 @@ $(function () {
     canvas.setWidth(canvas.getWidth() * zoom);
     canvas.setHeight(canvas.getHeight() * zoom);
     let getArea = $.get("/api/venues/area-graphs", {
-        "venue-code": sessionStorage.getItem("venueCode")
+        "venue-code": localStorage.getItem("venueCode")
     });
 
     let getSeat = $.get("/api/venues/seats", {
-        "venue-code": sessionStorage.getItem("venueCode")
+        "venue-code": localStorage.getItem("venueCode")
     });
 
     $.when(getArea, getSeat).done(function (data1, data2) {

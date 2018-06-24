@@ -65,7 +65,7 @@ function validateTime() {
     $.post("/api/activities/validate", {
         fromDate: min,
         toDate: max,
-        venueCode: sessionStorage.getItem("venueCode")
+        venueCode: localStorage.getItem("venueCode")
     }).done(function (date) {
         if (date) {
             $("#ok-icon").css("display", "");
@@ -94,7 +94,7 @@ function uploadData() {
         $.post("/api/activities/validate", {
             fromDate: min,
             toDate: max,
-            venueCode: sessionStorage.getItem("venueCode")
+            venueCode: localStorage.getItem("venueCode")
         }).done(function (date) {
             if (date) {
                 $("#ok-icon").css("display", "");
@@ -124,7 +124,7 @@ function publish(activityName, activityType, description) {
         description: description,
         seatMapString: map2Str(seatMap),
         photoUrl: '1',
-        venueCode: sessionStorage.getItem("venueCode")
+        venueCode: localStorage.getItem("venueCode")
     }).done(function (data) {
         alertWindowCtrl("发布成功<br>活动编号：" + data, "/venue/activity");
     }).fail(function (e) {

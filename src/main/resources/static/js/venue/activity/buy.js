@@ -11,11 +11,11 @@ let colorMap = new Map();
 
 $(function () {
     let loadSeatGraph = $.get("/api/venues/seats", {
-        "venue-code": sessionStorage.getItem("venueCode")
+        "venue-code": localStorage.getItem("venueCode")
     });
 
     let loadSeatPrice = $.get("/api/activities/seat-prices", {
-        "venue-code": sessionStorage.getItem("venueCode"),
+        "venue-code": localStorage.getItem("venueCode"),
         "activity-id": getUrlParam("activityId")
     });
 
@@ -69,7 +69,7 @@ function initGraph(data1, data2) {
 
 function setColor(data, object) {
     // console.log("setColor: " + data);
-    let seatId = `${sessionStorage.getItem("venueCode")}|${object.areaCode}|${object.row}|${object.column}`;
+    let seatId = `${localStorage.getItem("venueCode")}|${object.areaCode}|${object.row}|${object.column}`;
     let seatInfo = judge(seatId, data);
     if (seatInfo) {
         // object.set({stroke: colors[colorMap.get(seatInfo.price)], price: seatInfo.price});
@@ -178,14 +178,14 @@ function confirmBuy() {
     let objects = canvas.getActiveObjects();
     let seatIdList = [];
     objects.map(function (object) {
-        seatIdList.push({seatId: `${sessionStorage.getItem("venueCode")}|${object.areaCode}|${object.row}|${object.column}|${getUrlParam("activityId")}`});
+        seatIdList.push({seatId: `${localStorage.getItem("venueCode")}|${object.areaCode}|${object.row}|${object.column}|${getUrlParam("activityId")}`});
     });
 
     $.post("/api/activities/place-order/off-line", {
         activityId: getUrlParam("activityId"),
         seatIdListString: JSON.stringify(seatIdList),
         email: $("#email-input").val(),
-        venueCode: sessionStorage.getItem("venueCode")
+        venueCode: localStorage.getItem("venueCode")
     }).done(function (data) {
 
         console.log("success", data.orderId);
