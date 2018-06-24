@@ -249,4 +249,23 @@ public class ActivityController {
         activityService.postComment(activityId, email, comment);
     }
 
+    @PostMapping("/subscribe")
+    public void subscribe(Long activityId, String email) {
+        
+    }
+
+    @PostMapping("/cancel-subscribe")
+    public void cancelSubscribe(Long activityId, String email) {
+
+    }
+
+    /**
+     *
+     * @return  0:未订阅   1:已订阅
+     */
+    @PostMapping("/is-subscribe")
+    public Integer isSubscribe(Long activityId, String email) {
+        return 0;
+    }
+
 }
