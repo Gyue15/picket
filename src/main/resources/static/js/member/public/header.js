@@ -1,10 +1,4 @@
 $(function () {
-    // if (!sessionStorage.getItem("memberIsLogin")
-    //     && this.location.href !== "http://localhost:8080/member/"
-    //     && this.location.href !== "http://localhost:8080/member/login"
-    //     && this.location.href !== "http://localhost:8080/member/signUp") {
-    //     window.location.href = "/member/";
-    // }
     updateHeader();
 });
 
@@ -37,7 +31,7 @@ function updateHeader() {
         <div id="site-name"><a href="/">Picket</a></div>
         <div id="search-bar">
             <input id="search-bar-input" type="text"/>
-            <button id="search-bar-button">搜索</button>
+            <button id="search-bar-button" onclick="searchActivity()">搜索</button>
         </div>
     </div>
 
@@ -216,5 +210,5 @@ function searchActivity() {
         alertWindow("请输入关键词");
         return;
     }
-    window.location.href = `/member/activity/search?keyword=${keyword}`;
+    window.location.href = `/member/activity?keyword=${keyword}`;
 }

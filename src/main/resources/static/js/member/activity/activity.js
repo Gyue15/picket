@@ -22,7 +22,7 @@ $(function () {
         sorttype: sorttype,
         sort: sort
     }).done(function (data) {
-        maxPage = data;
+        maxPage = Math.max(data, 1);
         updateList();
         updatePageNum();
     }).fail(function (e) {
@@ -39,7 +39,7 @@ function updatePage() {
         sorttype: sorttype,
         sort: sort
     }).done(function (data) {
-        maxPage = data;
+        maxPage = Math.max(data, 1);
         updateList();
         updatePageNum();
     }).fail(function (e) {
@@ -47,8 +47,18 @@ function updatePage() {
     });
 }
 
+function noData() {
+    $("#no-data-tip").css("display", "");
+
+}
+
 function displayList(data) {
 
+    if (data.length === 0) {
+        return noData();
+    }
+
+    $("#no-data-tip").css("display", "none");
     let activity = ``;
 
     let i;
@@ -113,19 +123,15 @@ function updatePageNum() {
     $("#pageNum").text(`${nowPage}/${maxPage}`);
 
     if (nowPage > 1) {
-        $("#before").addClass("page-active");
-        $("#before").removeClass("page-disactive");
+        $("#before").addClass("page-pointer").removeClass("dispointer");
     } else {
-        $("#before").addClass("page-disactive");
-        $("#before").removeClass("page-active");
+        $("#before").addClass("dispointer").removeClass("page-pointer");
     }
 
     if (nowPage < maxPage) {
-        $("#after").addClass("page-active");
-        $("#after").removeClass("page-disactive");
+        $("#after").addClass("page-pointer").removeClass("dispointer");
     } else {
-        $("#after").addClass("page-disactive");
-        $("#after").removeClass("page-active");
+        $("#after").addClass("dispointer").removeClass("page-pointer");
     }
 
 }
@@ -137,7 +143,7 @@ function updateFilter(type) {
 
 function changeFilter(type) {
     switch(type) {
-        case Number.MAX_VALUE:
+        case 'all':
             $("#time-selector-0").addClass("selector-active");
             $("#time-selector-1").removeClass("selector-active");
             $("#time-selector-2").removeClass("selector-active");

@@ -11,6 +11,15 @@
   url('../../font/PingFang-SC-bold.woff') format("woff");
 }
 
+@font-face {
+  font-family: 'iconfont';  /* project id 571657 */
+  src: url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.eot');
+  src: url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.woff') format('woff'),
+  url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.svg#iconfont') format('svg');
+}
+
 
 a:link {
   text-decoration: none;
@@ -183,35 +192,23 @@ ul {
 }
 
 #page {
-  margin: 30px 10px 20px 10px;
-  width: 100%;
+  float: left;
+  clear: left;
+  position: relative;
+  left: 50%;
   text-align: center;
 }
 
 .page-item {
-  margin-left: 10px;
-  margin-right: 10px;
-  color: #0050B3;
-  cursor: pointer;
-}
-
-.page-active {
-  margin-left: 10px;
-  margin-right: 10px;
-  color: #0050B3;
-  cursor: pointer;
-}
-
-.page-disactive {
-  margin-left: 10px;
-  margin-right: 10px;
-  color: #262626;
+  float: left;
+  position: relative;
+  right: 50%;
+  margin: 10px;
 }
 
 .page-num {
-  margin-left: 10px;
-  margin-right: 10px;
-  color: #262626;
+  cursor: default;
+  margin-top: 12px;
 }
 
 .active-navigation {
@@ -320,11 +317,22 @@ blockquote.layui-elem-quote {
   color: $black-color;
 }
 
+.page-pointer {
+  cursor: pointer;
+  &:hover {
+    color: $select-color;
+  }
+}
+
 .pointer {
   cursor: pointer;
   &:hover {
-    color: $primary-color;
+    color: $select-color;
   }
+}
+
+.dispointer {
+  cursor: default;
 }
 
 .left-header-container {
@@ -518,5 +526,20 @@ blockquote.layui-elem-quote {
 
 .layui-layer-content {
   overflow: hidden !important;
+}
+
+#no-data-tip {
+  width: 80%;
+  border: 1px solid $transparent-grey;
+  margin: 5% auto;
+  padding: 4% 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sad-icon {
+  font-family: iconfont;
+  font-size: 50px;
+  font-style: normal;
 }
 
