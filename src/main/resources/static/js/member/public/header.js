@@ -1,6 +1,34 @@
+let notifications = [
+    {
+        id: 20,
+        name: "陈慧娴［Priscilla－ism］巡回演唱会"
+    },
+    {
+        id: 12,
+        name: "Vini Vici At LINX"
+    },
+];
+
 $(function () {
+    // }
+    addGlobalCSS();
     updateHeader();
+    setUpWebSocket();  
+    updateNotification(notifications);  
 });
+
+function addGlobalCSS() {
+    // 为所有页面统一添加fontawesome的css支持
+    let head = document.getElementsByTagName('head')[0];
+    if (head) {
+      let styleLink = document.createElement('link');
+      styleLink.setAttribute('rel', 'stylesheet');
+      styleLink.setAttribute('href', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css');
+      styleLink.setAttribute('integrity', 'sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt');
+      styleLink.setAttribute('crossorigin', 'anonymous');
+      head.appendChild(styleLink);
+    }
+}
 
 function updateHeader() {
     let header = "";
@@ -13,6 +41,7 @@ function updateHeader() {
             <div class="header-item right-item pointer" onclick="logout()">登出</div>
             <a class="header-item right-item pointer" href="/member/person" id="person-header">个人中心</a>
             <a class="header-item right-item pointer" href="/member/order" id="order-header">我的订单</a>
+            <a class="header-item right-item pointer" href="javascript:void(0);" id="notification-header" onclick="openNotification()"><i class="far fa-bell"></i></a>
         </div>
     </div>`;
     } else {
@@ -73,6 +102,39 @@ function updateHeader() {
     // });
 }
 
+/* 从服务器端取通知 */
+function setUpWebSocket() {
+    const head = document.getElementsByTagName('head')[0];
+    // if (head) {
+    //   const sockJs = document.createElement('script');
+    //   sockJs.setAttribute('src', '/webjars/sockjs-client/sockjs.min.js');
+    //   head.appendChild(sockJs);
+
+    //   const stomp = document.createElement('script');
+    //   stomp.setAttribute('src', '/webjars/stomp-websocket/stomp.min.js');
+    //   head.appendChild(stomp);     
+    // }
+    // const socket = new SockJS('/tickets');
+    // stompClient = Stomp.over(socket);
+    // stompClient.connect({}, function (frame) {
+    //     setConnected(true);
+    //     console.log('Connected: ' + frame);
+    //     stompClient.subscribe(`/notification/${sessionStorage.getItem("memberEmail")}`, function (eventData) {
+    //         updateNotification(JSON.parse(eventData.body).content);
+    //     });
+    // });
+}
+
+function updateNotification(activityNameList) {
+    notifications = activityNameList;
+    // TODO: 修改通知图标
+    if (notifications.length > 0) {
+        document.styleSheets[0].insertRule(`#notification-header:after { content: "${notifications.length}"; color: #e85a4f; font-size: 5px; position: absolute; top: 2px;}`, 0);
+    } else {
+
+    }
+}
+
 function member_login() {
 	layer.open({
         type: 0,
@@ -111,6 +173,21 @@ function member_login() {
             document.getElementsByClassName("layui-layer-btn0")[0].click();
         }
     });
+}
+
+function openNotification() {
+    layer.open({
+        type: 0,
+        title: '我关注的活动',
+        content: `${(function(){
+            let result = '';
+            let i;
+            for (i = 0; i < notifications.length; i = i + 1) {
+                result = result + `<div class="notification-item">你关注的 <a href="/member/activity/detail?activityId=${notifications[i].id}">${notifications[i].name}</a> 现在有票啦！</div>`
+            }
+            return result;
+        })()}`
+    })
 }
 
 function member_register() {
