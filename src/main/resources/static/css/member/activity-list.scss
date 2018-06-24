@@ -92,8 +92,9 @@
 }
 
 .display-img {
-  width: 100%;
+  width: 90%;
   height: auto;
+  margin: auto;
 }
 
 .display-img-description {
@@ -102,6 +103,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   color: $black-color;
+  font-size: 18px;
+  margin: 5px 0;
 }
 
 .heavy {
