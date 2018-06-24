@@ -74,13 +74,13 @@ li.tab-title {
   border: none; }
 
 .display-img-container {
-  width: 18%;
+  width: 16%;
   height: auto;
   float: left;
-  margin: 0 1%; }
+  margin: 0 2%; }
 
 .display-img {
-  width: 90%;
+  width: 100%;
   height: auto; }
 
 .display-img-description {
@@ -208,15 +208,19 @@ hr {
   float: right;
   position: absolute;
   top: 20%;
-  left: 8%;
+  left: 6%;
   padding-left: 30%;
   border: 1px solid rgba(62, 62, 62, 0.2);
   z-index: -1;
   border-radius: 4px; }
 
 .card-text-title {
+  width: 100%;
   font-size: 20px;
-  margin: 5% 0 10% 0; }
+  margin: 5% 0 10% 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 5%; }
 
 .card-text-description {
   width: 95%;
