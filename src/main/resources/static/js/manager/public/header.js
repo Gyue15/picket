@@ -1,5 +1,5 @@
 $(function () {
-    if (!sessionStorage.getItem("managerIsLogin")
+    if (!localStorage.getItem("managerIsLogin")
         && this.location.href !== "http://localhost:8080/manager/") {
         window.location.href = "/manager/";
     }
@@ -8,7 +8,7 @@ $(function () {
 
 function updateHeader() {
     let header = "";
-    if (sessionStorage.getItem("managerIsLogin")) {
+    if (localStorage.getItem("managerIsLogin")) {
         header = `<ul>
                 <li>
                     <a id="picket" href="/manager/">Picket</a>
@@ -17,7 +17,7 @@ function updateHeader() {
                     <a id="signUp" class="header-item" onclick="logout()" style="cursor: pointer">登出</a>
                 </li>
                 <li>
-                    <p id="login" class="header-item">欢迎，${sessionStorage.getItem("managerName")}</p>
+                    <p id="login" class="header-item">欢迎，${localStorage.getItem("managerName")}</p>
                 </li>
             </ul>`;
     } else {
@@ -37,8 +37,8 @@ function login() {
         "managerId": managerId,
         "password": password
     }).done(function (data) {
-        sessionStorage.setItem("managerIsLogin", true);
-        sessionStorage.setItem("managerName", data.managerId);
+        localStorage.setItem("managerIsLogin", true);
+        localStorage.setItem("managerName", data.managerId);
         window.location.href = "/manager/addVenue";
     }).fail(function (xhr) {
         alertWindow(xhr.responseText);
@@ -47,7 +47,7 @@ function login() {
 }
 
 function logout() {
-    sessionStorage.removeItem("managerIsLogin");
-    sessionStorage.removeItem("managerName");
+    localStorage.removeItem("managerIsLogin");
+    localStorage.removeItem("managerName");
     window.location.href = "/manager/";
 }

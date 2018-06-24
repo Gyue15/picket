@@ -56,7 +56,7 @@ function displayList(data) {
 
 function updateList() {
     $.get("/api/members/tickets", {
-        "email": sessionStorage.getItem("memberEmail")
+        "email": localStorage.getItem("memberEmail")
     }).done(function (data) {
         console.log(data);
         displayList(data);

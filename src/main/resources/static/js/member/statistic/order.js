@@ -8,7 +8,7 @@ function updateList(domElement, state) {
 	$("#page").css("display", "");
     $.get("/api/orders", {
         "user-type": "MEMBER",
-        "id": sessionStorage.getItem("memberEmail"),
+        "id": localStorage.getItem("memberEmail"),
         "order-state": state,
         "page": 0,
         "page-size": 0

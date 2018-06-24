@@ -4,7 +4,7 @@ let maxPage = 1;
 $(function () {
     $.get("/api/orders/page-numbers", {
         "user-type": "VENUE",
-        "id": sessionStorage.getItem("venueCode"),
+        "id": localStorage.getItem("venueCode"),
         "page-size": 5,
         "order-state": null
     }).done(function (data) {
@@ -19,7 +19,7 @@ function updateList() {
     $("#page").css("display", "");
     $.get("/api/orders", {
         "user-type": "VENUE",
-        "id": sessionStorage.getItem("venueCode"),
+        "id": localStorage.getItem("venueCode"),
         "page": nowPage,
         "page-size": 5,
         "order-state": null

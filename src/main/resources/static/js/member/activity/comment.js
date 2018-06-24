@@ -94,7 +94,7 @@ function postComment() {
     }
     $.post("/api/activities/post-comment", {
         activityId: activityId,
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         comment: comment
     }).done(function () {
         alertWindowCtrl("发布成功", `/member/activity/detail?activityId=${activityId}`);

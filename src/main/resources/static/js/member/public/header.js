@@ -32,10 +32,10 @@ function addGlobalCSS() {
 
 function updateHeader() {
     let header = "";
-    if (sessionStorage.getItem("memberIsLogin")) {
+    if (localStorage.getItem("memberIsLogin")) {
         header = `<div id="inner-header">
         <div class="left-header-container">
-            <div class="header-item left-item">Hi ${sessionStorage.getItem("username")}，欢迎来到<a href="/">Picket</a></div>
+            <div class="header-item left-item">Hi ${localStorage.getItem("username")}，欢迎来到<a href="/">Picket</a></div>
         </div>
         <div class="right-header-container">
             <div class="header-item right-item pointer" onclick="logout()">登出</div>
@@ -119,7 +119,7 @@ function setUpWebSocket() {
     // stompClient.connect({}, function (frame) {
     //     setConnected(true);
     //     console.log('Connected: ' + frame);
-    //     stompClient.subscribe(`/notification/${sessionStorage.getItem("memberEmail")}`, function (eventData) {
+    //     stompClient.subscribe(`/notification/${localStorage.getItem("memberEmail")}`, function (eventData) {
     //         updateNotification(JSON.parse(eventData.body).content);
     //     });
     // });
@@ -266,17 +266,17 @@ function postRegister(index) {
 
 
 function changeHeader(data) {
-    sessionStorage.setItem("username", data.username);
-    sessionStorage.setItem("memberEmail", data.email);
-    sessionStorage.setItem("memberIsLogin", true);
+    localStorage.setItem("username", data.username);
+    localStorage.setItem("memberEmail", data.email);
+    localStorage.setItem("memberIsLogin", true);
     // alert(localStorage.getItem("username") + " "  +localStorage.getItem("signature"));
     updateHeader();
 }
 
 function logout() {
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("memberEmail");
-    sessionStorage.removeItem("memberIsLogin");
+    localStorage.removeItem("username");
+    localStorage.removeItem("memberEmail");
+    localStorage.removeItem("memberIsLogin");
     updateHeader();
     window.location.href = "/"
 }

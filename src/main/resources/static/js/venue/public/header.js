@@ -1,5 +1,5 @@
 $(function () {
-    if (!sessionStorage.getItem("venueIsLogin")
+    if (!localStorage.getItem("venueIsLogin")
         && this.location.href !== "http://localhost:8080/venue/"
         && this.location.href !== "http://localhost:8080/venue/login"
         && this.location.href !== "http://localhost:8080/venue/signUp") {
@@ -13,7 +13,7 @@ function updateHeader() {
     $("a:hover").css("color", "#FFC53D");
 
     let header = "";
-    if (sessionStorage.getItem("venueIsLogin")) {
+    if (localStorage.getItem("venueIsLogin")) {
         header = `<ul>
                 <li>
                     <a id="picket" href="/venue/activity">Picket</a>
@@ -25,7 +25,7 @@ function updateHeader() {
                     <a id="signUp" class="header-item" onclick="logout()" style="cursor: pointer">登出</a>
                 </li>
                 <li>
-                    <p id="welcome" class="header-item">欢迎，${sessionStorage.venueName}</p>
+                    <p id="welcome" class="header-item">欢迎，${localStorage.venueName}</p>
                 </li>
                 <li>
                     <div class="y-line"></div>
@@ -77,17 +77,17 @@ function login() {
 }
 
 function changeHeader(data) {
-    sessionStorage.setItem("venueName", data["venueName"]);
-    sessionStorage.setItem("venueCode", data["venueCode"]);
-    sessionStorage.setItem("venueIsLogin", true);
+    localStorage.setItem("venueName", data["venueName"]);
+    localStorage.setItem("venueCode", data["venueCode"]);
+    localStorage.setItem("venueIsLogin", true);
     // alert(localStorage.getItem("username") + " "  +localStorage.getItem("signature"));
     updateHeader();
 }
 
 function logout() {
-    sessionStorage.removeItem("venueName");
-    sessionStorage.removeItem("venueCode");
-    sessionStorage.removeItem("venueIsLogin");
+    localStorage.removeItem("venueName");
+    localStorage.removeItem("venueCode");
+    localStorage.removeItem("venueIsLogin");
     updateHeader();
     window.location.href = "/venue/";
 }
@@ -96,7 +96,7 @@ function check() {
     let ticketCode = $("#check-input").val();
     $.post("/api/orders/check", {
         ticketCode: ticketCode,
-        venueCode: sessionStorage.getItem("venueCode")
+        venueCode: localStorage.getItem("venueCode")
     }).done(function (data) {
         if (data.message === "success") {
             alertWindowBigger(`<div class='alert-tip'><strong>检票成功！</strong><br><br>演出：${data.activityName}<br>取票码：${ticketCode}</div>`);

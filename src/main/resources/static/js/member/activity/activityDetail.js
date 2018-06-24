@@ -176,7 +176,7 @@ function buyNow() {
         activityId: activityId,
         unitPrice: price,
         num: num,
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         venueCode: venueCode
     }).done(function (data) {
         if (data.orderId !== "wrong") {

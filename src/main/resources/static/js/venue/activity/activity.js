@@ -13,7 +13,7 @@ $(function () {
 
     $.get("/api/activities/page-numbers", {
         "activity": activityType,
-        "id": sessionStorage.getItem("venueCode"),
+        "id": localStorage.getItem("venueCode"),
         "page-size": 3
     }).done(function (data) {
         maxPage = data - 0;
@@ -50,7 +50,7 @@ function turnPage(turnNum) {
 function updateList() {
     $.get("/api/activities", {
         "activity": activityType,
-        "id": sessionStorage.getItem("venueCode"),
+        "id": localStorage.getItem("venueCode"),
         "page": nowPage,
         "page-size": 3
     }).done(function (data) {

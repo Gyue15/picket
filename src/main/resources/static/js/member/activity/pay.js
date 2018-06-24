@@ -21,7 +21,7 @@ $(function () {
 
 $(function () {
     $.get("/api/activities/pay-messages", {
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         signature: getUrlParam("signature")
     }).done(function (data) {
         memberDiscount = data.memberDiscount;
@@ -91,7 +91,7 @@ function pay() {
             payMethod: payMethod,
             payId: payId,
             password: password,
-            email: sessionStorage.getItem("memberEmail"),
+            email: localStorage.getItem("memberEmail"),
             voucherId: voucherId
         }).done(function () {
             alertWindowCtrl("购买成功", "/member/order")
@@ -106,7 +106,7 @@ let flag = false;
 function unPay() {
     $.post("/api/activities/pay-cancel", {
         orderId: getUrlParam("signature"),
-        email: sessionStorage.getItem("email")
+        email: localStorage.getItem("email")
     }).done(function () {
         flag = true;
         window.location.href = "/member/activity";
@@ -121,7 +121,7 @@ function unPay() {
 //     }
 //     $.post("/api/activities/pay-cancel", {
 //         orderId: getUrlParam("signature"),
-//         email: sessionStorage.getItem("email")
+//         email: localStorage.getItem("email")
 //     }).done(function () {
 //         alert("支付取消！");
 //         // window.location.href = "/member/activity";

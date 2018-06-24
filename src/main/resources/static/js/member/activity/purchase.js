@@ -257,7 +257,7 @@ function confirmBuy() {
     $.post("/api/activities/place-order/select", {
         activityId: getUrlParam("activityId"),
         seatIdListString: JSON.stringify(seatIdList),
-        email: sessionStorage.getItem("memberEmail"),
+        email: localStorage.getItem("memberEmail"),
         venueCode: getUrlParam("venueCode")
     }).done(function (data) {
         window.location.href = `/member/activity/purchase/pay?/member/activity/purchase/pay?lock=true&signature=${data.orderId}`;

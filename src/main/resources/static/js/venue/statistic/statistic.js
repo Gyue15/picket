@@ -5,7 +5,7 @@ let incomeX, incomeY = [], orderType, orderMap = [];
 
 $(function () {
     $.get("/api/statistics/venues", {
-        "venue-code": sessionStorage.getItem("venueCode")
+        "venue-code": localStorage.getItem("venueCode")
     }).done(function (data) {
         incomeX = data.incomeX;
         incomeY = data.incomeY.map(function (object) {

@@ -13,7 +13,7 @@ let orderType = [], orderTypeMap = [];
 
 $(function() {
 	$.get("/api/statistics/members", {
-		"email" : sessionStorage.getItem("memberEmail")
+		"email" : localStorage.getItem("memberEmail")
 	}).done(function(data) {
 		consumeType = Object.keys(data.consumeType);
 		consumeType.map(function(item) {
