@@ -1,15 +1,51 @@
 let nowPage = 1;
 let maxPage = 1;
+let pageSize = 10;
 
-let timeSelector = Number.MAX_VALUE;
-let typeSelector = 'default';
 let activityDate;
 
+let keyword, type, sort, sorttype, filter;
+
+
 $(function () {
-    // TODO 获得最大页码
-    updateList();
-    updatePageNum();
+    keyword = getUrlParam("keyword") || "";
+    type = getUrlParam("type") || "";
+    sort = getUrlParam("sort") || "hot";
+    filter = getUrlParam("filter") || "all";
+    nowPage = getUrlParam("page") || 1;
+    sorttype = getUrlParam("sorttype") || "desc";
+
+    $.get("/api/activities/list-numbers", {
+        keyword: keyword,
+        type: type,
+        filter: filter,
+        sorttype: sorttype,
+        sort: sort
+    }).done(function (data) {
+        maxPage = data;
+        updateList();
+        updatePageNum();
+    }).fail(function (e) {
+        alertWindow(e.responseText);
+    });
 });
+
+function updatePage() {
+    nowPage = 1;
+    $.get("/api/activities/list-numbers", {
+        keyword: keyword,
+        type: type,
+        filter: filter,
+        sorttype: sorttype,
+        sort: sort
+    }).done(function (data) {
+        maxPage = data;
+        updateList();
+        updatePageNum();
+    }).fail(function (e) {
+        alertWindow(e.responseText);
+    });
+}
 
 function displayList(data) {
 
@@ -55,13 +91,18 @@ function turnPage(turnNum) {
 }
 
 function updateList() {
-    $.get("/api/activities/type", {
-        "type": getUrlParam("type"),
-        "num": 10
+    $.get("/api/activities/list", {
+        keyword: keyword,
+        type: type,
+        filter: filter,
+        sorttype: sorttype,
+        sort: sort,
+        pagesize: pageSize,
+        pagenum: Math.min(nowPage, maxPage)
     }).done(function (data) {
         activityDate = data;
-        timeSelect(timeSelector);
-        typeSelect(typeSelector);
+        changeFilter(filter);
+        changeSort(sort);
         displayList(activityDate);
     }).fail(function (e) {
         alertWindow(e.responseText);
@@ -89,7 +130,12 @@ function updatePageNum() {
 
 }
 
-function timeSelect(type) {
+function updateFilter(type) {
+    changeFilter(type);
+    updatePage();
+}
+
+function changeFilter(type) {
     switch(type) {
         case Number.MAX_VALUE:
             $("#time-selector-0").addClass("selector-active");
@@ -116,27 +162,32 @@ function timeSelect(type) {
             $("#time-selector-3").addClass("selector-active");
             break;
     }
-    timeSelector = type;
+    filter = type;
 }
 
-function typeSelect(type) {
+function updateSort(type) {
+    changeSort(type);
+    updatePage();
+}
+
+function changeSort(type) {
     switch (type) {
-        case 'default':
+        case 'hot':
             $("#type-selector-0").addClass("selector-active");
             $("#type-selector-1").removeClass("selector-active");
             $("#type-selector-2").removeClass("selector-active");
             break;
-        case 'date':
+        case 'time':
             $("#type-selector-0").removeClass("selector-active");
             $("#type-selector-1").addClass("selector-active");
             $("#type-selector-2").removeClass("selector-active");
             break;
-        case 'discount':
+        case 'price':
             $("#type-selector-0").removeClass("selector-active");
             $("#type-selector-1").removeClass("selector-active");
             $("#type-selector-2").addClass("selector-active");
             break;
 
     }
-    typeSelector = type;
+    sort = type;
 }
