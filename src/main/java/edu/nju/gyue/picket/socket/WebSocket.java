@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -72,7 +74,10 @@ public class WebSocket {
         System.out.println("Message from client:" + message);
         webSocketMap.put(message, session);
         try {
-            String json = JSON.toJSONString(new Notification());
+            List<Notification> notificationList = new ArrayList<>();
+            notificationList.add(new Notification());
+            notificationList.add(new Notification());
+            String json = JSON.toJSONString(notificationList);
             sendMessage(session, json);
         } catch (IOException e) {
             e.printStackTrace();
