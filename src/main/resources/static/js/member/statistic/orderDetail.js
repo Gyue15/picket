@@ -15,8 +15,8 @@ $(function () {
         $("#activity-name").html(`相关演出：<a href=/member/activity/detail?activityId=${data.activityId}>${data.activityName}</a>`);
         $("#venue-name").text(`相关场馆：${data.venueName}`);
         $("#order-state").text(`订单状态：${data.orderState}`);
-        $("#place-time").text(`下单时间：${data.placeDateString}`);
-        $("#seat-num").html(`订购座位：${seatString} <a id="seat-more" href="#seat" onclick="displaySeats()">查看详情</a>`);
+        $("#place-time").text(`下单时间：${data.placeDateString}`);         
+        $("#seat-num").html(`订购座位：${seatString} ${data.orderState === '已取消'?'':'<a id="seat-more" href="#seat" onclick="displaySeats()">查看详情</a>'}`);
         for (let i = 0; i < data.seatNameList.length; i = i + 1) {
             $("#seat-list").append(`<p class="seat-info"><span class="seat-name">${data.seatNameList[i]} </span><span class="seat-price">${data.seatPriceList[i]}元</span></p>`)
         }
@@ -26,7 +26,7 @@ $(function () {
             $("#cancel-btn").removeClass("layui-btn-disabled").css("display", "inline-block");
             $("#cancel-tip").css("display", "");
         }
-        if (data.orderState === "UN_PAID") {
+        if (data.orderState === "未支付") {
             $("#pay-btn").removeClass("layui-btn-disabled").css("display", "inline-block");
             lock = data.lock;
         }

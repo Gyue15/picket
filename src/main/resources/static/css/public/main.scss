@@ -316,6 +316,25 @@ blockquote.layui-elem-quote {
   color: $black-color;
 }
 
+#notification-float {  
+  display: none;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  top: 65vh;
+  right: 20px;
+  font-size: 1.8em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 0.5em;
+    color: rgb(232, 90, 79);
+  }
+  border-radius: 60px;
+  background: #f4f4f4;
+}
+
 .page-pointer {
   cursor: pointer;
   &:hover {
