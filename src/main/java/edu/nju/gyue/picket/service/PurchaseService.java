@@ -23,7 +23,7 @@ public interface PurchaseService {
 
     void payOrder(String orderId, PayMethod payMethod, String payId, String password, String email, Long voucherId);
 
-    void cancelPay(String orderId, String email);
+    int cancelPay(String orderId, String email);
 
     MemberPayModel getPayMessage(String email, String orderId);
 

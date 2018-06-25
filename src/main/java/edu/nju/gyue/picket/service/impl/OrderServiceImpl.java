@@ -7,6 +7,7 @@ import edu.nju.gyue.picket.exception.BadRequestException;
 import edu.nju.gyue.picket.model.OrderModel;
 import edu.nju.gyue.picket.repository.*;
 import edu.nju.gyue.picket.service.OrderService;
+import edu.nju.gyue.picket.service.SubscribeService;
 import edu.nju.gyue.picket.service.component.TransferComponent;
 import edu.nju.gyue.picket.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,12 @@ public class OrderServiceImpl implements OrderService {
 
     private final TransferComponent transferComponent;
 
+    private final SubscribeService subscribeService;
+
     @Autowired
     public OrderServiceImpl(OrderRepository orderRepository, TicketRepository ticketRepository, PayAccountRepository
             payAccountRepository, VenueRepository venueRepository, ManagerRepository managerRepository,
-                            SeatPriceRepository seatPriceRepository, TransferComponent transferComponent) {
+                            SeatPriceRepository seatPriceRepository, TransferComponent transferComponent, SubscribeService subscribeService) {
         this.orderRepository = orderRepository;
         this.ticketRepository = ticketRepository;
         this.payAccountRepository = payAccountRepository;
@@ -50,6 +53,7 @@ public class OrderServiceImpl implements OrderService {
         this.managerRepository = managerRepository;
         this.seatPriceRepository = seatPriceRepository;
         this.transferComponent = transferComponent;
+        this.subscribeService = subscribeService;
     }
 
 
@@ -102,7 +106,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void cancelOrder(String orderId) {
+    public int cancelOrder(String orderId) {
         // activityOrder
         ActivityOrder activityOrder = orderRepository.findOne(Long.parseLong(orderId));
         if (activityOrder == null || activityOrder.getOrderId() == null) {
@@ -112,6 +116,10 @@ public class OrderServiceImpl implements OrderService {
         if (!activityOrder.getOrderState().equals(OrderState.PAID_AND_UNMAIL)) {
             throw new BadRequestException("该订单无法退订");
         }
+
+
+        Long activityId = activityOrder.getActivity().getActivityId();
+        int oldUnSoldNum = seatPriceRepository.countByActivity_ActivityIdAndSold(activityId, false);
 
         activityOrder.setOrderState(OrderState.CANCELLED);
 //        activityOrder = orderRepository.saveAndFlush(activityOrder);
@@ -155,6 +163,15 @@ public class OrderServiceImpl implements OrderService {
         payAccountRepository.save(payAccount);
         venueRepository.save(venue);
         managerRepository.save(manager);
+
+
+        int newUnSoldNum = seatPriceRepository.countByActivity_ActivityIdAndSold(activityId, false);
+        System.out.println(oldUnSoldNum + " " + newUnSoldNum);
+        if ((oldUnSoldNum == 0) && (newUnSoldNum > 0)) {
+            return activityId.intValue();
+        } else {
+            return -1;
+        }
 
     }
 

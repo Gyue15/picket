@@ -5,7 +5,9 @@ import edu.nju.gyue.picket.configuration.param.OrderType;
 import edu.nju.gyue.picket.configuration.param.UserType;
 import edu.nju.gyue.picket.exception.BadRequestException;
 import edu.nju.gyue.picket.model.OrderModel;
+import edu.nju.gyue.picket.repository.SeatPriceRepository;
 import edu.nju.gyue.picket.service.OrderService;
+import edu.nju.gyue.picket.service.SubscribeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +21,15 @@ public class OrderController {
 
     private final OrderService orderService;
 
+    private final SubscribeService subscribeService;
+
+    private final SeatPriceRepository seatPriceRepository;
+
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, SeatPriceRepository seatPriceRepository, SubscribeService subscribeService) {
         this.orderService = orderService;
+        this.seatPriceRepository = seatPriceRepository;
+        this.subscribeService = subscribeService;
     }
 
     @PostMapping("/check")
@@ -71,7 +79,10 @@ public class OrderController {
     @PostMapping("/cancel")
     public void cancelOrder(String orderId) {
         System.out.println("orderId: " + orderId);
-        orderService.cancelOrder(orderId);
+        int result = orderService.cancelOrder(orderId);
+        if (result != -1) {
+            new Thread(() -> subscribeService.updateSubscribe(result)).start();
+        }
     }
 
 

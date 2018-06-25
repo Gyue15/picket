@@ -10,6 +10,7 @@ import edu.nju.gyue.picket.model.MemberPayModel;
 import edu.nju.gyue.picket.model.SeatPriceModel;
 import edu.nju.gyue.picket.service.ActivityService;
 import edu.nju.gyue.picket.service.PurchaseService;
+import edu.nju.gyue.picket.service.SubscribeService;
 import edu.nju.gyue.picket.util.FileUtil;
 import org.ansj.domain.Term;
 import org.ansj.splitWord.analysis.DicAnalysis;
@@ -28,9 +29,11 @@ public class ActivityController {
 
     private final ActivityService activityService;
 
+    private final SubscribeService subscribeService;
     @Autowired
-    public ActivityController(ActivityService activityService) {
+    public ActivityController(ActivityService activityService, SubscribeService subscribeService) {
         this.activityService = activityService;
+        this.subscribeService = subscribeService;
     }
 
     /**
@@ -250,13 +253,13 @@ public class ActivityController {
     }
 
     @PostMapping("/subscribe")
-    public void subscribe(Long activityId, String email) {
-        
+    public void subscribe(int activityId, String email) {
+        subscribeService.createSubscribe(email, activityId);
     }
 
     @PostMapping("/cancel-subscribe")
-    public void cancelSubscribe(Long activityId, String email) {
-
+    public void cancelSubscribe(int activityId, String email) {
+        subscribeService.cancelSubscribe(email, activityId);
     }
 
     /**
@@ -264,8 +267,9 @@ public class ActivityController {
      * @return  0:未订阅   1:已订阅
      */
     @PostMapping("/is-subscribe")
-    public Integer isSubscribe(Long activityId, String email) {
-        return 0;
+    public Integer isSubscribe(int activityId, String email) {
+        boolean result = subscribeService.isSubscribe(email, activityId);
+        return result?1:0;
     }
 
 }
