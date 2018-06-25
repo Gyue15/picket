@@ -51,6 +51,9 @@ function initActivityDetail(activityModel) {
             hasTicket = true;
         }
     }
+    if (keys.length === 0) {
+        priceMap += `<tr><td>暂时没票</td><td>暂时没票</td></tr>`;
+    }
 
     priceMap = priceMap + `</tbody></table>`;
 

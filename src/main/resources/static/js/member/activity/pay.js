@@ -106,7 +106,7 @@ let flag = false;
 function unPay() {
     $.post("/api/activities/pay-cancel", {
         orderId: getUrlParam("signature"),
-        email: localStorage.getItem("email")
+        email: localStorage.getItem("memberEmail")
     }).done(function () {
         flag = true;
         window.location.href = "/member/activity";
