@@ -21,6 +21,8 @@ public interface SeatPriceRepository extends JpaRepository<SeatPrice, String> {
 
     List<SeatPrice> findByActivity_ActivityIdAndSold(Long activityId, Boolean Sold);
 
+    Integer countByActivity_ActivityIdAndSold(Long activityId, Boolean Sold);
+
     @Modifying
     @Transactional
     @Query("update SeatPrice as sp set sp.sold = true where sp.seatPriceId in :seatPriceIds")

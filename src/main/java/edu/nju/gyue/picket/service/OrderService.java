@@ -19,7 +19,7 @@ public interface OrderService {
 
     Integer getVenuePageNum(String venueCode, Integer pageSize);
 
-    void cancelOrder(String orderId);
+    int cancelOrder(String orderId);
 
 
 }

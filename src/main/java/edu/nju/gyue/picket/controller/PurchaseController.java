@@ -2,9 +2,12 @@ package edu.nju.gyue.picket.controller;
 
 import com.alibaba.fastjson.JSON;
 import edu.nju.gyue.picket.configuration.param.PayMethod;
+import edu.nju.gyue.picket.entity.Subscribe;
 import edu.nju.gyue.picket.model.MemberPayModel;
 import edu.nju.gyue.picket.model.SeatPriceModel;
 import edu.nju.gyue.picket.service.PurchaseService;
+import edu.nju.gyue.picket.service.SubscribeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -18,8 +21,12 @@ public class PurchaseController {
 
     private final PurchaseService purchaseService;
 
-    public PurchaseController(PurchaseService purchaseService) {
+    private final SubscribeService subscribeService;
+
+    @Autowired
+    public PurchaseController(PurchaseService purchaseService, SubscribeService subscribeService) {
         this.purchaseService = purchaseService;
+        this.subscribeService = subscribeService;
     }
 
     /**
@@ -69,7 +76,11 @@ public class PurchaseController {
 
     @PostMapping("/pay-cancel")
     public void cancelPay(String orderId, String email) {
-        purchaseService.cancelPay(orderId, email);
+
+        int result = purchaseService.cancelPay(orderId, email);
+        if (result != -1) {
+            new Thread(() -> subscribeService.updateSubscribe(result)).start();
+        }
     }
 
     /**

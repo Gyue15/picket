@@ -7,6 +7,7 @@ import edu.nju.gyue.picket.model.MemberPayModel;
 import edu.nju.gyue.picket.model.SeatPriceModel;
 import edu.nju.gyue.picket.repository.*;
 import edu.nju.gyue.picket.service.PurchaseService;
+import edu.nju.gyue.picket.service.SubscribeService;
 import edu.nju.gyue.picket.service.component.TransferComponent;
 import edu.nju.gyue.picket.util.MemberUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +41,14 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     private final TransferComponent transferComponent;
 
+    private final SubscribeService subscribeService;
+
     @Autowired
     public PurchaseServiceImpl(SeatPriceRepository seatPriceRepository, OrderRepository orderRepository,
                                TicketRepository ticketRepository, MemberRepository memberRepository, VenueRepository
                                            venueRepository, ManagerRepository managerRepository, ActivityRepository
                                            activityRepository, VoucherRepository voucherRepository,
-                               PayAccountRepository payAccountRepository, TransferComponent transferComponent) {
+                               PayAccountRepository payAccountRepository, TransferComponent transferComponent, SubscribeService subscribeService) {
         this.seatPriceRepository = seatPriceRepository;
         this.orderRepository = orderRepository;
         this.ticketRepository = ticketRepository;
@@ -56,6 +59,7 @@ public class PurchaseServiceImpl implements PurchaseService {
         this.voucherRepository = voucherRepository;
         this.payAccountRepository = payAccountRepository;
         this.transferComponent = transferComponent;
+        this.subscribeService = subscribeService;
     }
 
     @Override
@@ -250,11 +254,15 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
-    public void cancelPay(String orderId, String email) {
+    public int cancelPay(String orderId, String email) {
         ActivityOrder activityOrder = findOrder(orderId);
         if (!activityOrder.getMember().getEmail().equals(email)) {
             throw new BadRequestException("订单与用户不符");
         }
+
+        Long activityId = activityOrder.getActivity().getActivityId();
+        int oldUnSoldNum = seatPriceRepository.countByActivity_ActivityIdAndSold(activityId, false);
+
         List<SeatPrice> seatPriceList = activityOrder.getSeatPriceList();
         seatPriceList.forEach(seatPrice -> {
             seatPrice.setSold(false);
@@ -265,6 +273,15 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         orderRepository.save(activityOrder);
         seatPriceRepository.save(seatPriceList);
+
+
+        int newUnSoldNum = seatPriceRepository.countByActivity_ActivityIdAndSold(activityId, false);
+        System.out.println(oldUnSoldNum + " " + newUnSoldNum);
+        if ((oldUnSoldNum == 0) && (newUnSoldNum > 0)) {
+            return activityId.intValue();
+        } else {
+            return -1;
+        }
     }
 
     @Override

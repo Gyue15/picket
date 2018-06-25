@@ -219,6 +219,14 @@ public class TransferComponent {
         return orderModel;
     }
 
+    public List<Notification> toNotificationList(List<Subscribe> subscribeList) {
+        List<Notification> notificationList = new ArrayList<>();
+        for (Subscribe subscribe: subscribeList) {
+            notificationList.add(new Notification(subscribe.getActivityId(), subscribe.getActivityName()));
+        }
+        return notificationList;
+    }
+
     public List<OrderModel> toOrderModelList(List<ActivityOrder> activityOrderList) {
         return activityOrderList.stream().map(this::toModel).collect(Collectors.toList());
     }
