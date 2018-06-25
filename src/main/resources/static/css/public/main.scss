@@ -13,13 +13,12 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 571657 */
-  src: url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.eot');
-  src: url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.woff') format('woff'),
-  url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_571657_0u3tcqze4zae.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_571657_svanlp8jhpd.eot');
+  src: url('//at.alicdn.com/t/font_571657_svanlp8jhpd.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_571657_svanlp8jhpd.woff') format('woff'),
+  url('//at.alicdn.com/t/font_571657_svanlp8jhpd.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_571657_svanlp8jhpd.svg#iconfont') format('svg');
 }
-
 
 a:link {
   text-decoration: none;
@@ -311,7 +310,7 @@ blockquote.layui-elem-quote {
 
 .header-item {
   font-size: 13px;
-  margin-top:5px;
+  margin-top: 5px;
   height: 24.5px;
   text-align: center;
   color: $black-color;
@@ -359,17 +358,123 @@ blockquote.layui-elem-quote {
   width: 80%;
   margin: 3% auto 1% auto;
   height: 60px;
+  position: relative;
 }
 
 #site-name {
-  font-size: 40px; 
-  width: 40%;
+  font-size: 40px;
+  width: 12%;
   float: left;
   font-weight: bold;
   // margin-top: 5px;
   a {
     color: $primary-color;
   }
+}
+
+#city {
+  float: left;
+  width: auto;
+  height: 40px;
+  text-align: left;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-top: 5px;
+  border-left: 1px solid $transparent-grey;
+  cursor: pointer;
+  &:hover {
+    color: $select-color;
+  }
+}
+
+#city-pane {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  height: 450px;
+  width: 700px;
+  border: 1px solid $transparent-grey;
+  background-color: $white-color;
+  z-index: 9999;
+}
+
+#inner-city-pane {
+  width: 90%;
+  margin: auto;
+  height: 170px;
+  //border: solid;
+  overflow: scroll;
+}
+
+.city-row {
+  width: 90%;
+  //height: 30px;
+  margin: 20px auto 10px auto;
+  overflow: auto;
+}
+
+.inner-city-row {
+  width: 90%;
+  float: right;
+  margin: auto;
+  overflow: auto;
+}
+
+.inner-city-row-container {
+  width: 100%;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+.letter-tip {
+  float: left;
+  width: 10px;
+  font-size: 16px;
+}
+
+.city-tip {
+  float: left;
+  width: 100px;
+  font-size: 16px;
+}
+
+.city-item {
+  float: left;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+    color: $select-color;
+  }
+  margin-bottom: 5px;
+}
+
+#now-city {
+  cursor: default;
+  &:hover {
+    color: black;
+  }
+}
+
+.city-letter {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: $white-color-deeper;
+  font-size: 16px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.xiala {
+  font-family: iconfont;
+  font-size: 10px;
+  font-style: normal;
+  margin-left: 5px;
 }
 
 #search-bar {
@@ -424,7 +529,7 @@ blockquote.layui-elem-quote {
   padding: 10px 30px 10px 0;
 }
 
-.header-item-select{
+.header-item-select {
   background-color: $primary-color-light;
 }
 
@@ -449,13 +554,13 @@ blockquote.layui-elem-quote {
   padding-bottom: 30%;
 }
 
-.sub-img{
+.sub-img {
   width: 14%;
   margin: 0 2% 2% 0;
   float: left;
 }
 
-.sub-activity{
+.sub-activity {
   width: 73%;
   margin-left: 1%;
   margin-top: 1%;
@@ -464,13 +569,13 @@ blockquote.layui-elem-quote {
   padding-bottom: 15%;
 }
 
-.sub-img-description{
+.sub-img-description {
   float: left;
   width: 14%;
   margin: 0 2% 2% 0;
 }
 
-.sub-row{
+.sub-row {
   width: 100%;
   height: 0;
   padding-bottom: 23%;
@@ -490,7 +595,7 @@ blockquote.layui-elem-quote {
 }
 
 #loginButton:hover, #registerButton:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 #loginPanel {
@@ -512,7 +617,7 @@ blockquote.layui-elem-quote {
   .input-group-addon {
     width: 80px;
   }
-} 
+}
 
 .label-bar {
   width: 100%;
@@ -533,4 +638,5 @@ blockquote.layui-elem-quote {
   font-size: 50px;
   font-style: normal;
 }
+
 

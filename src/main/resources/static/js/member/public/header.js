@@ -1,22 +1,23 @@
 let firstTimeRender = true;
 let notifications = [];
 
-$(function () {
+$.getScript("js/member/public/city.js", function() {
     addGlobalCSS();
     updateHeader();
-    setUpWebSocket();   
+    setUpWebSocket();
+    updateCity();
 });
 
 function addGlobalCSS() {
     // 为所有页面统一添加fontawesome的css支持
     let head = document.getElementsByTagName('head')[0];
     if (head) {
-      let styleLink = document.createElement('link');
-      styleLink.setAttribute('rel', 'stylesheet');
-      styleLink.setAttribute('href', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css');
-      styleLink.setAttribute('integrity', 'sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt');
-      styleLink.setAttribute('crossorigin', 'anonymous');
-      head.appendChild(styleLink);
+        let styleLink = document.createElement('link');
+        styleLink.setAttribute('rel', 'stylesheet');
+        styleLink.setAttribute('href', 'https://use.fontawesome.com/releases/v5.1.0/css/all.css');
+        styleLink.setAttribute('integrity', 'sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt');
+        styleLink.setAttribute('crossorigin', 'anonymous');
+        head.appendChild(styleLink);
     }
 }
 
@@ -48,6 +49,7 @@ function updateHeader() {
     let subHeader = `
     <div id="site-name-bar">
         <div id="site-name"><a href="/">Picket</a></div>
+        <div id="city" onclick="switchCity()"><div id="city-name" style="float: left">${cityName}</div><i id="down-icon" class="xiala">&#xe641;</i><i id="up-icon" class="xiala" style="display: none">&#xe798;</i></div>
         <div id="search-bar">
             <input id="search-bar-input" type="text"/>
             <button id="search-bar-button" onclick="searchActivity()">搜索</button>
@@ -67,29 +69,18 @@ function updateHeader() {
     $("#header").empty().append(header + subHeader);
     if (this.location.href.match('.*/member/order.*')) {
         $("#order-header").css("border-bottom", "3px solid #e98074");
-    } 
+    }
     else if (this.location.href.match('.*/member/person.*')) {
         $("#person-header").css("border-bottom", "3px solid #e98074");
     }
-    
+
     let searchBarInput = document.getElementById("search-bar-input");
-    searchBarInput.addEventListener("keyup", function(event) {
+    searchBarInput.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
             searchActivity();
         }
     });
-
-    // let href = this.location.href.split("?")[0];
-    // $("#header-menu").find("a").each(function () {
-    //     console.log(this.href);
-    //     if (this.href === href) {
-    //         $(this).addClass("header-item-select");
-    //     } else {
-    //         $(this).removeClass("header-item-select");
-    //
-    //     }
-    // });
 }
 
 /* 从服务器端取通知 */
@@ -98,7 +89,7 @@ function setUpWebSocket() {
     socket.addEventListener('open', function (event) {
         socket.send(localStorage.getItem('memberEmail'));
     });
-    
+
     // Listen for messages
     socket.addEventListener('message', function (event) {
         console.log('Message from server ', event.data);
@@ -110,7 +101,7 @@ function setUpWebSocket() {
         }
     });
 
-    window.addEventListener('close', function() {
+    window.addEventListener('close', function () {
         socket.close();
     })
 
@@ -132,12 +123,12 @@ function updateNotification(activityNameList) {
 }
 
 function member_login() {
-	layer.open({
+    layer.open({
         type: 0,
         title: '登录',
         area: ['400px', '280px'],
         content:
-        	`<div id="loginPanel">
+            `<div id="loginPanel">
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">邮箱</span>
 	                <input id="account_login_email" class="input" type="email" name="email" required autocomplete="email"/>
@@ -149,21 +140,21 @@ function member_login() {
             </div>`,
         btn: ['登录', '取消'],
         yes: function (index) {
-        	postLogin(index);
+            postLogin(index);
         },
         btn2: function (index) {
             layer.close(index);
         }
     });
-    var emailInput = document.getElementById("account_login_email");
-    emailInput.addEventListener("keyup", function(event) {
+    let emailInput = document.getElementById("account_login_email");
+    emailInput.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
             document.getElementsByClassName("layui-layer-btn0")[0].click();
         }
     });
-    var pwInput = document.getElementById("password_login");
-    pwInput.addEventListener("keyup", function(event) {
+    let pwInput = document.getElementById("password_login");
+    pwInput.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
             document.getElementsByClassName("layui-layer-btn0")[0].click();
@@ -175,7 +166,7 @@ function openNotification() {
     layer.open({
         type: 0,
         title: '我关注的活动',
-        content: `${(function(){
+        content: `${(function () {
             let result = '';
             let i;
             for (i = 0; i < notifications.length; i = i + 1) {
@@ -187,12 +178,12 @@ function openNotification() {
 }
 
 function member_register() {
-	layer.open({
+    layer.open({
         type: 0,
         title: '注册',
         area: ['400px', '280px'],
         content:
-        	`<div id="registerPanel">
+            `<div id="registerPanel">
 	            <div class='label-bar input-group'>
 	                <span class="input-group-addon">邮箱</span>
 	                <input id="account_register" class="input" type="email"/>
@@ -212,7 +203,7 @@ function member_register() {
             </div>`,
         btn: ['注册', '取消'],
         yes: function (index) {
-        	postRegister(index);
+            postRegister(index);
         },
         btn2: function (index) {
             layer.close(index);
@@ -221,7 +212,7 @@ function member_register() {
 }
 
 function postLogin(index) {
-	let email = $("#account_login_email").val();
+    let email = $("#account_login_email").val();
     let password = $("#password_login").val();
     $.post("/api/members/login", {
         "email": email,

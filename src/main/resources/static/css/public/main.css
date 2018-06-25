@@ -7,8 +7,8 @@
 @font-face {
   font-family: 'iconfont';
   /* project id 571657 */
-  src: url("//at.alicdn.com/t/font_571657_0u3tcqze4zae.eot");
-  src: url("//at.alicdn.com/t/font_571657_0u3tcqze4zae.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_571657_0u3tcqze4zae.woff") format("woff"), url("//at.alicdn.com/t/font_571657_0u3tcqze4zae.ttf") format("truetype"), url("//at.alicdn.com/t/font_571657_0u3tcqze4zae.svg#iconfont") format("svg"); }
+  src: url("//at.alicdn.com/t/font_571657_svanlp8jhpd.eot");
+  src: url("//at.alicdn.com/t/font_571657_svanlp8jhpd.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_571657_svanlp8jhpd.woff") format("woff"), url("//at.alicdn.com/t/font_571657_svanlp8jhpd.ttf") format("truetype"), url("//at.alicdn.com/t/font_571657_svanlp8jhpd.svg#iconfont") format("svg"); }
 a:link {
   text-decoration: none; }
 
@@ -289,15 +289,104 @@ blockquote.layui-elem-quote {
 #site-name-bar {
   width: 80%;
   margin: 3% auto 1% auto;
-  height: 60px; }
+  height: 60px;
+  position: relative; }
 
 #site-name {
   font-size: 40px;
-  width: 40%;
+  width: 12%;
   float: left;
   font-weight: bold; }
   #site-name a {
     color: #e85a4f; }
+
+#city {
+  float: left;
+  width: auto;
+  height: 40px;
+  text-align: left;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-top: 5px;
+  border-left: 1px solid rgba(62, 62, 62, 0.2);
+  cursor: pointer; }
+  #city:hover {
+    color: #ffc53d; }
+
+#city-pane {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  height: 450px;
+  width: 700px;
+  border: 1px solid rgba(62, 62, 62, 0.2);
+  background-color: white;
+  z-index: 9999; }
+
+#inner-city-pane {
+  width: 90%;
+  margin: auto;
+  height: 170px;
+  overflow: scroll; }
+
+.city-row {
+  width: 90%;
+  margin: 20px auto 10px auto;
+  overflow: auto; }
+
+.inner-city-row {
+  width: 90%;
+  float: right;
+  margin: auto;
+  overflow: auto; }
+
+.inner-city-row-container {
+  width: 100%;
+  overflow: auto;
+  margin-bottom: 10px; }
+
+.letter-tip {
+  float: left;
+  width: 10px;
+  font-size: 16px; }
+
+.city-tip {
+  float: left;
+  width: 100px;
+  font-size: 16px; }
+
+.city-item {
+  float: left;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 5px; }
+  .city-item:hover {
+    color: #ffc53d; }
+
+#now-city {
+  cursor: default; }
+  #now-city:hover {
+    color: black; }
+
+.city-letter {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #f4f7f6;
+  font-size: 16px;
+  padding-top: 10px;
+  cursor: pointer; }
+
+.xiala {
+  font-family: iconfont;
+  font-size: 10px;
+  font-style: normal;
+  margin-left: 5px; }
 
 #search-bar {
   float: right;
