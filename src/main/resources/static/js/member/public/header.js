@@ -1,7 +1,7 @@
 let firstTimeRender = true;
 let notifications = [];
 
-$.getScript("js/member/public/city.js", function() {
+$.getScript("/js/member/public/city.js", function() {
     addGlobalCSS();
     updateHeader();
     setUpWebSocket();
