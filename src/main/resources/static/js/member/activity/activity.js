@@ -77,7 +77,7 @@ function displayList(data) {
                 <p class="card-ticket-state">可选座</p>
             </div>
             <p class="card-text-date">${data[i].dateString}</p>
-            <div style="width: 100%; height: 10%;">
+            <div style="width: 100%; height: 15%;">
                 <p class="card-text-location">${data[i].venueName}</p>
                 <p class="card-sub-price">元起</p>
                 <p class="card-text-price">${data[i].minPrice}</p>

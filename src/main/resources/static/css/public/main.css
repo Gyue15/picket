@@ -81,7 +81,7 @@ ul {
 
 #left-nav {
   margin: 36px 30px 0px 20px;
-  border: 1.2px solid rgba(62, 62, 62, 0.2);
+  border: 1.2px solid rgba(62, 62, 62, 0.1);
   border-top: 3px solid #e85a4f;
   /*width: 90%;*/
   padding: 0;
@@ -139,7 +139,7 @@ ul {
 .right-part {
   min-height: 80vh;
   height: 80vh;
-  border: 0.8px solid rgba(62, 62, 62, 0.2); }
+  border: 0.8px solid rgba(62, 62, 62, 0.1); }
 
 #footer {
   height: 52px;
@@ -245,7 +245,7 @@ ul {
   overflow-y: hidden;
   overflow-x: auto;
   background-color: white;
-  border-bottom: 1px solid rgba(62, 62, 62, 0.2); }
+  border-bottom: 1px solid rgba(62, 62, 62, 0.1); }
 
 blockquote.layui-elem-quote {
   border-left-color: #e98074; }
@@ -309,7 +309,7 @@ blockquote.layui-elem-quote {
   padding-top: 10px;
   padding-left: 10px;
   margin-top: 5px;
-  border-left: 1px solid rgba(62, 62, 62, 0.2);
+  border-left: 1px solid rgba(62, 62, 62, 0.1);
   cursor: pointer; }
   #city:hover {
     color: #ffc53d; }
@@ -320,7 +320,7 @@ blockquote.layui-elem-quote {
   left: 100px;
   height: 450px;
   width: 700px;
-  border: 1px solid rgba(62, 62, 62, 0.2);
+  border: 1px solid rgba(62, 62, 62, 0.1);
   background-color: white;
   z-index: 9999; }
 
