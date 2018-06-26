@@ -12,6 +12,7 @@ import java.util.List;
 public class Subscribe {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "user_email")

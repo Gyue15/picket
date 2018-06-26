@@ -257,6 +257,23 @@ blockquote.layui-elem-quote {
   text-align: center;
   color: #2c3e50; }
 
+#notification-float {
+  display: none;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  top: 65vh;
+  right: 20px;
+  font-size: 1.8em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  background: #f4f4f4; }
+  #notification-float p {
+    font-size: 0.5em;
+    color: #e85a4f; }
+
 .page-pointer {
   cursor: pointer; }
   .page-pointer:hover {
