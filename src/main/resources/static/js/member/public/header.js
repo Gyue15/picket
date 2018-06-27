@@ -140,7 +140,7 @@ function updateNotification(activityNameList) {
 function member_login() {
     layer.open({
         type: 0,
-        title: '登录',
+        title: ' ',
         area: ['400px', '280px'],
         content:
             `<div id="loginPanel">
@@ -175,6 +175,13 @@ function member_login() {
             document.getElementsByClassName("layui-layer-btn0")[0].click();
         }
     });
+    var loginTitle = $("#loginPanel").parent().parent().children().first();
+    loginTitle.css("background-color", "#e85a4f");
+    loginTitle.css("color", "white");
+    loginTitle.append("<div class='glyphicon glyphicon-user'></div>");
+    var loginBtn = $("#loginPanel").parent().parent().children().eq(3).children().eq(0);
+    loginBtn.css("background-color", "#e85a4f");
+    loginBtn.css("border-color", "#e85a4f");
 }
 
 function openNotification() {
@@ -197,7 +204,7 @@ function openNotification() {
 function member_register() {
     layer.open({
         type: 0,
-        title: '注册',
+        title: ' ',
         area: ['400px', '280px'],
         content:
             `<div id="registerPanel">
@@ -226,6 +233,13 @@ function member_register() {
             layer.close(index);
         }
     });
+    var registerTitle = $("#registerPanel").parent().parent().children().first();
+    registerTitle.css("background-color", "#e85a4f");
+    registerTitle.css("color", "white");
+    registerTitle.append("<div class='glyphicon glyphicon-user'></div>");
+    var registerBtn = $("#registerPanel").parent().parent().children().eq(3).children().eq(0);
+    registerBtn.css("background-color", "#e85a4f");
+    registerBtn.css("border-color", "#e85a4f");
 }
 
 function postLogin(index) {
