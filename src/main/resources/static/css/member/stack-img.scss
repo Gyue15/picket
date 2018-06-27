@@ -103,12 +103,14 @@
   padding-top: 4px;
   cursor: pointer;
 }
-span{
+
+.stack-img-a span{
   display: block;
   width: 35px;
   height: 1px;
   background: $transparent-grey;
 }
+
 .blue{
   background: $primary-color;
 }

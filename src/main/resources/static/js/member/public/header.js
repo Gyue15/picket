@@ -193,10 +193,11 @@ function openNotification() {
                 let result = '';
                 let i;
                 for (i = 0; i < notifications.length; i = i + 1) {
-                    result = result + `<div class="notification-item">你关注的 <a href="/member/activity/detail?activityId=${notifications[i].id}">${notifications[i].name}</a> 现在有票啦！</div>`
+                    result = result + `<div class="notification-item"><a href="/member/activity/detail?activityId=${notifications[i].id}">你关注的"${notifications[i].name}"现在有票啦！戳我查看</a></div>`
                 }
                 return result;
-            })()}`
+            })()}`,
+            btn: ['等会儿再去看']
         })
     }
 }
