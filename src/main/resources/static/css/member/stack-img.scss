@@ -100,15 +100,23 @@
   display: inline-block;
   width: 35px;
   height: 5px;
-  padding-top: 4px;
+  padding-top: 12px;
+  padding-bottom: 6px;
   cursor: pointer;
+  &:hover {
+    span {
+      background: $primary-color-light;
+    }   
+  }
 }
-span{
+
+.stack-img-a span{
   display: block;
   width: 35px;
   height: 1px;
   background: $transparent-grey;
-}
-.blue{
-  background: $primary-color;
+  &.active {
+    background: $primary-color;
+    border-bottom: 0;
+  }
 }

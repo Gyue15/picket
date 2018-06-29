@@ -373,6 +373,14 @@ blockquote.layui-elem-quote {
   margin-left: 20px;
 }
 
+.notification-item {
+  background: rgb(245,245,240);
+  box-shadow: 0 1px 1px 0 rgba(121,146,185,.54);
+  margin-bottom: 10px;
+  padding: 24px 16px;
+  font-size: 1.1em;
+}
+
 #site-name-bar {
   width: 80%;
   margin: 3% auto 1% auto;
@@ -383,6 +391,7 @@ blockquote.layui-elem-quote {
 #site-name {
   font-size: 40px;
   width: 12%;
+  min-width: 122px;
   float: left;
   font-weight: bold;
   // margin-top: 5px;

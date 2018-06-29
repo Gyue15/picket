@@ -87,7 +87,7 @@ $a.each(function () {
 
 //改变底下按钮的背景色
 function show() {
-    $($s).eq(index).addClass("blue").parent().siblings().children().removeClass("blue");
+    $($s).eq(index).addClass("active").parent().siblings().children().removeClass("active");
 }
 
 //点击class为p2的元素触发上一张照片的函数
@@ -110,3 +110,4 @@ $(".box").mouseover(function () {
 
 //			进入页面自动开始定时器
 timer = setInterval(nextimg, 4000);
+show();
