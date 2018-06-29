@@ -380,15 +380,10 @@ blockquote.layui-elem-quote {
   }
 }
 
-.layui-layer-content {
-  overflow-y: scroll;
-
-}
-
 .notification-item { 
   font-size: 1em;
   a {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     padding: 18px 16px;
     box-shadow: 0 0 4px 0 rgba(121,146,185,.54);
     display: flex;
@@ -739,7 +734,19 @@ blockquote.layui-elem-quote {
 }
 
 .layui-layer-content {
-  overflow: hidden !important;
+  overflow-x: hidden !important;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+    background-color: white;
+    margin: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color-light; 
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
 }
 
 .sad-icon {
