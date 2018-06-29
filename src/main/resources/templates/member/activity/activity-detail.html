@@ -10,51 +10,41 @@
     <link rel="stylesheet" type="text/css" href="/css/member/activity-detail.css">
     <link rel="stylesheet" type="text/css" href="/css/member/activity-list.css">
     <link rel="stylesheet" type="text/css" href="/css/member/comment.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
 <div id="header"></div>
 
+<div id="activity-container"></div>
 
-<div class="row">
-    <div class="col-md-1"></div>
-    <div id="body" class="col-md-10">
-            <div class="row">
-                <div  id="activity-detail" class="col-md-9">
-                </div>
-
-                <div id="hot-activity" class="col-md-3">
-                    <h2 class="order-id">今日热门</h2>
-
-                </div>
-            </div>
-
-        <div class="col-md-9">
-            <div class="layui-form" style="height: 200px;margin-top:  5%;">
-                <hr>
-                <div class="fill-comment-tip">
-                    你可以在此填写评论
-                </div>
-                <textarea class="layui-textarea" id="comment-post" name="comment" placeholder="请输入内容" style="margin: 2% auto"></textarea>
-                <button class="layui-btn layui-btn-normal" onclick="postComment()" style="float: right">
-                    发表评论
-                </button>
-            </div>
-
-            <div class="comment-item">
-            	<hr style="width:0px;height:0px;">
-                <div class="comment-tips">
-                    以下为用户评论：
-                </div>
-                <hr>
-            </div>
-            <div id="comment"><div style="font-size: 16px;">暂时没有评论哦</div></div>
-            <div id="page"></div>
+<div id="lower-container">
+    <div id="description-container">
+        <div class="sub-title">
+            演出介绍
         </div>
-    </div>
-</div>
+        <div id="description-detail"> </div>
 
-<div id="footer"></div>
+        <div class="sub-title lower">
+            评论
+        </div>
+        <div id="no-comment" style="display: none">暂时没有评论哦～</div>
+        <div id="comment"></div>
+
+        <div class="layui-form" style="height: 200px;margin-top: 3%;">
+            <div class="fill-comment-tip">你可以在此填写评论</div>
+            <textarea class="layui-textarea" id="comment-post" name="comment" placeholder="请输入内容"
+                      style="margin: 1% auto"></textarea>
+            <button class="layui-btn layui-btn-normal" onclick="postComment()" style="float: right">
+                发表评论
+            </button>
+        </div>
+
+        <div id="page"></div>
+    </div>
+
+    <div id="hot-container"></div>
+</div>
 
 <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5E140F3B326bd43f881c00d152b90683"></script>
@@ -63,8 +53,8 @@
 <script type="text/javascript" src="/js/public/util.js"></script>
 <script type="text/javascript" src="/js/public/page.js"></script>
 <script type="text/javascript" src="/js/member/public/header.js"></script>
-<script type="text/javascript" src="/js/public/footer.js"></script>
-<script type="text/javascript" src="/js/member/activity/activityDetail.js"></script>
+<!--<script type="text/javascript" src="/js/public/footer.js"></script>-->
+<script type="text/javascript" src="/js/member/activity/activity-detail.js"></script>
 <script type="text/javascript" src="/js/member/activity/comment.js"></script>
 </body>
 </html>

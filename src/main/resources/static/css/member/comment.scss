@@ -1,37 +1,45 @@
+@import "../public/variables";
+
 .comment-tips {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 .comment-item {
-  margin: 1% auto; }
+  margin: 1% auto;
+}
 
 .username {
   float: left;
   width: 100px;
-  color: #e98074;
-  font-size: 17px; }
+  color: $primary-color-light;
+  font-size: 17px;
+}
 
 .comment-date {
   float: left;
   font-size: 14px;
   padding-top: 5px;
-  color: #8e8d8a; }
+  color: $grey-color;
+}
 
 .comment-bar {
   height: 30px;
-  width: 100%; }
+  width: 100%;
+}
 
 .comment {
   font-size: 15px;
   margin-top: 0.5%;
-  color: #2c3e50;
+  color: $black-color;
   line-height: 24px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+}
 
 .fill-comment-tip {
   font-size: 16px;
-  color: #e85a4f; }
+  color: $primary-color;
+}
 
 .layui-btn.layui-btn-normal {
-  background-color: #e85a4f; }
-
-/*# sourceMappingURL=comment.css.map */
+  background-color: $primary-color;
+}

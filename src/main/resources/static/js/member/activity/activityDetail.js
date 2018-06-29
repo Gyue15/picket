@@ -14,7 +14,7 @@ $(function () {
             alertWindow(e.responseText);
         });
     }
-    )
+    );
     let hotActivityList = $.get("/api/activities/homepage", {
         keyword: "最近热门",
         num: 5
@@ -65,7 +65,7 @@ function initActivityDetail(activityModel) {
     else if(isSubscribed) {
         priceMap = priceMap + `<div id="subscribe-container"><button class="layui-btn" id="subscribe" onclick="subscribe()" style="float:right;">已关注</button></div>`;
     }
-    var venueCodeStr = `${activityModel.venueCode}`;
+    let venueCodeStr = `${activityModel.venueCode}`;
     let newActivityDetail = `
                         <div class ="row"><div class="col-sm-4">
                             <div style="">
@@ -172,9 +172,9 @@ function openMap(venueName) {
         content: '<div id="map-container" style="width:500px;height:356px;"></div>',
         btn: []
     }); 
-    var map = new BMap.Map("map-container");    
+    let map = new BMap.Map("map-container");
     // 创建地址解析器实例     
-    var myGeo = new BMap.Geocoder();      
+    let myGeo = new BMap.Geocoder();
     // 将地址解析结果显示在地图上，并调整地图视野    
     myGeo.getPoint(venueName, function(point){      
         if (point) {      

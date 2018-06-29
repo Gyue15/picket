@@ -8,16 +8,17 @@ $(function () {
         "activity-id": getUrlParam("activityId"),
         "size": pageSize
     }).done(function (data) {
-        maxPage = data - 0;
-    }).done(function () {
+        maxPage = Math.max(data, 1);
         updateList();
         updatePageNum();
+    }).fail(function (e) {
+        alertWindow(e.responseText);
     });
 });
 
 function displayList(data) {
     if (data.length === 0) {
-        $("#comment").empty().append(`<div style="font-size: 16px; margin: 1% auto">暂时没有评论哦</div>`);
+        $("#no-comment").css("display", "");
         return;
     }
 
@@ -26,17 +27,13 @@ function displayList(data) {
         comment +=
             `<div class="comment-item">
                 <div class="comment-bar">
-                    <div class="username">
-                       ${data[i].username}
-                    </div>
-                    <div class="comment-date">
-                        ${data[i].dateString} 发表
-                    </div>
+                    <div class="username">${data[i].username}</div>
+                    <div class="comment-date"> ${data[i].dateString} 发表</div>
                 </div>
                 <div class="comment">
                     ${data[i].comment}
                 </div>
-                <hr>
+                <hr style="width: 100%">
             </div>`;
     }
     $("#comment").empty().append(comment);
@@ -55,13 +52,12 @@ function turnPage(turnNum) {
 function updateList() {
     $.get("/api/activities/comments", {
         "activity-id": getUrlParam("activityId"),
-        "page": nowPage,
+        "page": Math.min(nowPage, maxPage),
         "size": pageSize
     }).done(function (data) {
-        console.log(data);
         displayList(data);
-    }).fail(function (xhr, status) {
-        alertWindow(status);
+    }).fail(function (e) {
+        alertWindow(e.responseText);
     });
 }
 
@@ -69,19 +65,15 @@ function updatePageNum() {
     $("#pageNum").text(`${nowPage}/${maxPage}`);
 
     if (nowPage > 1) {
-        $("#before").addClass("page-active");
-        $("#before").removeClass("page-disactive");
+        $("#before").addClass("page-pointer").removeClass("dispointer");
     } else {
-        $("#before").addClass("page-disactive");
-        $("#before").removeClass("page-active");
+        $("#before").addClass("dispointer").removeClass("page-pointer");
     }
 
     if (nowPage < maxPage) {
-        $("#after").addClass("page-active");
-        $("#after").removeClass("page-disactive");
+        $("#after").addClass("page-pointer").removeClass("dispointer");
     } else {
-        $("#after").addClass("page-disactive");
-        $("#after").removeClass("page-active");
+        $("#after").addClass("dispointer").removeClass("page-pointer");
     }
 
 }
