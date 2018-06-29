@@ -49,7 +49,7 @@ function updatePage() {
 
 function noData() {
     $("#no-data-tip").css("display", "");
-
+    $("#photo-list").empty();
 }
 
 function displayList(data) {
