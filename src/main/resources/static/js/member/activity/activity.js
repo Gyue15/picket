@@ -65,6 +65,9 @@ function displayList(data) {
     for (i = 0; i < data.length; i++) {
         activity += `${i % 2 === 0 ? '<div class="card-container">' : ''}`;
         activity += `<div class="card ${i % 2 === 0 ? 'left' : 'right'}">
+        <div class="card-img-container">
+            <img class="card-img" src="/showpic/${data[i].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'"/>
+        </div>
         <div class="card-text" data-aid=${data[i].activityId}>
             <p class="card-text-title">${data[i].name}</p>
             <p class="card-text-description">
@@ -79,10 +82,7 @@ function displayList(data) {
                 <p class="card-sub-price">元起</p>
                 <p class="card-text-price">${data[i].minPrice}</p>
             </div>
-        </div>
-        <div class="card-img-container">
-            <img class="card-img" src="/showpic/${data[i].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'"/>
-        </div>
+        </div>        
     </div>`;
         activity += `${i % 2 === 0 ? '' : '</div>'}`;
     }
