@@ -304,12 +304,39 @@ blockquote.layui-elem-quote {
   float: right;
   margin-left: 20px; }
 
+.layui-layer-title .fa-question-circle:hover {
+  cursor: help; }
+
 .notification-item {
-  background: #f5f5f0;
-  box-shadow: 0 1px 1px 0 rgba(121, 146, 185, 0.54);
-  margin-bottom: 10px;
-  padding: 24px 16px;
-  font-size: 1.1em; }
+  font-size: 1em; }
+  .notification-item a {
+    margin-bottom: 30px;
+    padding: 18px 16px;
+    box-shadow: 0 0 4px 0 rgba(121, 146, 185, 0.54);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch; }
+    .notification-item a img {
+      margin-right: 16px; }
+    .notification-item a .notification-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .notification-item a .notification-text .title {
+        font-size: 1.28em;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: auto; }
+      .notification-item a .notification-text .content {
+        font-size: 1.05em;
+        color: #333; }
+    .notification-item a:hover {
+      box-shadow: 0 0 4px 0 rgba(230, 188, 182, 0.5);
+      color: black; }
+      .notification-item a:hover .content {
+        color: rgba(247, 67, 36, 0.5); }
 
 #site-name-bar {
   width: 80%;
@@ -407,6 +434,17 @@ blockquote.layui-elem-quote {
   font-size: 16px;
   padding-top: 10px;
   cursor: pointer; }
+
+#inner-city-pane {
+  overflow-x: hidden; }
+  #inner-city-pane::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    background-color: white; }
+  #inner-city-pane::-webkit-scrollbar-thumb {
+    background: #e98074; }
+  #inner-city-pane::-webkit-scrollbar-track {
+    background-color: #eee; }
 
 .xiala {
   font-family: iconfont;
@@ -563,7 +601,16 @@ blockquote.layui-elem-quote {
     margin-right: 20px; }
 
 .layui-layer-content {
-  overflow: hidden !important; }
+  overflow-x: hidden !important; }
+  .layui-layer-content::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+    background-color: white;
+    margin: 2px; }
+  .layui-layer-content::-webkit-scrollbar-thumb {
+    background: #e98074; }
+  .layui-layer-content::-webkit-scrollbar-track {
+    background-color: #eee; }
 
 .sad-icon {
   font-family: iconfont;

@@ -74,6 +74,7 @@ li.tab-title {
 }
 
 .layui-tab-title {
+  margin-left: 10px;
   border-bottom: 1px solid rgba(62, 62, 62, 0.1);
   height: 41px;
 }
@@ -96,7 +97,7 @@ li.tab-title {
   width: 16%;
   height: auto;
   float: left;
-  margin: 0 2%;
+  margin-right: 4%;
 }
 
 .display-img {
