@@ -25,3 +25,4 @@ nbdist/
 
 ### vscode plugin ###
 *.css.map
+src/main/resources/application.properties

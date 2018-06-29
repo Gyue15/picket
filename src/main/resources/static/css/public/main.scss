@@ -13,11 +13,11 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 571657 */
-  src: url('//at.alicdn.com/t/font_571657_svanlp8jhpd.eot');
-  src: url('//at.alicdn.com/t/font_571657_svanlp8jhpd.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_571657_svanlp8jhpd.woff') format('woff'),
-  url('//at.alicdn.com/t/font_571657_svanlp8jhpd.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_571657_svanlp8jhpd.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_571657_yglwfmdohgq.eot');
+  src: url('//at.alicdn.com/t/font_571657_yglwfmdohgq.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_571657_yglwfmdohgq.woff') format('woff'),
+  url('//at.alicdn.com/t/font_571657_yglwfmdohgq.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_571657_yglwfmdohgq.svg#iconfont') format('svg');
 }
 
 a:link {
@@ -321,7 +321,7 @@ blockquote.layui-elem-quote {
   z-index: 1000;
   width: 60px;
   height: 60px;
-  top: 65vh;
+  top: 67vh;
   right: 20px;
   font-size: 1.8em;
   flex-direction: column;
@@ -333,6 +333,7 @@ blockquote.layui-elem-quote {
   }
   border-radius: 60px;
   background: #f4f4f4;
+  box-shadow: 0 0 6px 0 hsla(203,6%,45%,.09);
 }
 
 .page-pointer {
@@ -626,25 +627,48 @@ blockquote.layui-elem-quote {
   cursor: pointer;
 }
 
-#loginPanel {
-  .label-bar {
-    margin: 30px;
-    margin-left: 80px;
-  }
-  .input-group-addon {
-    width: 20px;
-  }
+#loginPanel .label-bar {
+  margin: 40px;
+  margin-left: 50px;
 }
 
-#registerPanel {
-  margin-top: -20px;
-  .label-bar {
-    margin: 15px;
-    margin-left: 70px;
-  }
-  .input-group-addon {
-    width: 80px;
-  }
+#loginPanel .input-group-addon {
+	height: 26px;
+	width: 28px;
+	background-color: #e85a4f;
+	color: white;
+	font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei";
+	border: none;
+}
+
+#loginPanel .input {
+	margin-top: 1px;
+	padding-left: 8px;
+	border: 0px;
+    border-bottom: 1px solid #e85a4f;
+    width: 230px;
+}
+
+#registerPanel .label-bar {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
+#registerPanel .input-group-addon{
+  width: 80px;
+  background-color: #e85a4f;
+  color: white;
+  font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei";
+  border: none;
+}
+
+#registerPanel .input {
+	margin-top: 1px;
+	padding-left: 8px;
+    border: 0;
+    border-bottom: 1px solid #e85a4f;
+    width: 220px;
 }
 
 .label-bar {

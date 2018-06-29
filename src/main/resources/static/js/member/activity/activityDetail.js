@@ -65,6 +65,7 @@ function initActivityDetail(activityModel) {
     else if(isSubscribed) {
         priceMap = priceMap + `<div id="subscribe-container"><button class="layui-btn" id="subscribe" onclick="subscribe()" style="float:right;">已关注</button></div>`;
     }
+    var venueCodeStr = `${activityModel.venueCode}`;
     let newActivityDetail = `
                         <div class ="row"><div class="col-sm-4">
                             <div style="">
@@ -99,12 +100,11 @@ function initActivityDetail(activityModel) {
                             </div>
                             <div style="margin-top: 10%;">
                                 <button class="layui-btn layui-btn-normal" onclick="purchaseNow()" style="float: right">立即购买</button>
-                                <button class="layui-btn layui-btn-normal" onclick="{location.href='/member/activity/purchase?activityId=${activityId}&amp;venueCode=${activityModel.venueCode}'}" style="float: right; margin-right: 20px">选座购买</button>
+                                <button class="layui-btn layui-btn-normal" onclick="purchaseSelection(${activityId}, '` + venueCodeStr + `')" style="float: right; margin-right: 20px">选座购买</button>
                             </div>
 
                         </div>
                 </div>`;
-
     $("#activity-detail").append(newActivityDetail);
 
 
@@ -115,40 +115,53 @@ function initActivityDetail(activityModel) {
 }
 
 function purchaseNow() {
-    $.get("/api/activities/prices", {
-        activityId: getUrlParam("activityId")
-    }).done(function (data) {
-        let layerTip = "";
-        data.map(function (item) {
-            layerTip += `<option value=${item}>${item}元</option>`;
-        });
-        layer.open({
-            type: 0,
-            title: '填充信息',
-            area: ['400px', '240px'],
-            content:
-                `<div class="layer-bar">
-                <p class="layer-tip">填写购买张数</p>
-                <input id="num" class="layer-input" type="number"  min="1" max="20"/>
-            </div>
-            <div class="layer-bar">
-                <p class="layer-tip">选择价格区间</p>
-                <select id="price-type" name="price-type" class="layer-select">
-                    ${layerTip}
-                </select>
-            </div>`,
-            btn: ['确认购买', '取消'],
-            yes: function (index) {
-                buyNow();
-                layer.close(index);
-            },
-            btn2: function (index) {
-                layer.close(index);
-            }
-        });
-    }).fail(function (e) {
-        alertWindow(e.responseText)
-    });
+	if(localStorage.getItem("username")) {
+		$.get("/api/activities/prices", {
+			activityId: getUrlParam("activityId")
+		}).done(function (data) {
+			let layerTip = "";
+			data.map(function (item) {
+				layerTip += `<option value=${item}>${item}元</option>`;
+			});
+			layer.open({
+				type: 0,
+				title: '填充信息',
+				area: ['400px', '240px'],
+				content:
+					`<div class="layer-bar">
+					<p class="layer-tip">填写购买张数</p>
+					<input id="num" class="layer-input" type="number"  min="1" max="20"/>
+					</div>
+					<div class="layer-bar">
+					<p class="layer-tip">选择价格区间</p>
+					<select id="price-type" name="price-type" class="layer-select">
+					${layerTip}
+					</select>
+					</div>`,
+					btn: ['确认购买', '取消'],
+					yes: function (index) {
+						buyNow();
+						layer.close(index);
+					},
+					btn2: function (index) {
+						layer.close(index);
+					}
+			});
+		}).fail(function (e) {
+			alertWindow(e.responseText)
+		});
+	} else {
+		alertWindow("请先登录");
+	}
+}
+
+function purchaseSelection(activityId, venueCode) {
+	console.log(venueCode);
+	if(localStorage.getItem("username")) {
+		location.href="/member/activity/purchase?activityId=" + activityId + "&venueCode=" + venueCode;
+	} else {
+		alertWindow("请先登录");
+	}
 }
 
 function openMap(venueName) {
@@ -180,8 +193,9 @@ function buyNow() {
         alertWindow("不能购买超过20张！");
         return;
     }
-    if (num <= 0) {
+    if (num <= 0 || !num) {
         alertWindow("请至少购买1张！");
+        return;
     }
     $.post("/api/activities/place-order/un-select", {
         activityId: activityId,
