@@ -269,7 +269,8 @@ blockquote.layui-elem-quote {
   justify-content: center;
   align-items: center;
   border-radius: 60px;
-  background: #f4f4f4; }
+  background: #f4f4f4;
+  box-shadow: 0 0 6px 0 rgba(108, 116, 122, 0.09); }
   #notification-float p {
     font-size: 0.5em;
     color: #e85a4f; }

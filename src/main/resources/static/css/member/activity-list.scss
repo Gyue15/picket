@@ -263,6 +263,9 @@ hr {
 .card-img-container {
   width: 35%;
   float: left;
+  &:hover + div {
+    box-shadow: 0 0 15px 0 rgba(230, 188, 182, 0.5);
+  }
 }
 
 .card-img {
@@ -274,12 +277,17 @@ hr {
   opacity: 1;
   position: relative;
   box-shadow: 3px 4px 5px 0 #ccc;
+  &:hover {
+    & + div {
+      box-shadow: 3px 4px 5px 0 rgba(230, 188, 182, 0.5);
+    }
+  }
 }
 
 .card-text {
   width: 94%;
   height: 98%;
-  float: right;
+  float: right; 
   position: absolute;
   top: 10%;
   left: 6%;
