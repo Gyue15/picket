@@ -186,6 +186,11 @@ li.tab-title{
   //float: left;
 }
 
+.selector-tip {
+  color: #99a1aa;
+  font-size: 22px;
+}
+
 .main-activity {
   margin: 1%;
   width: 23%;
@@ -396,7 +401,4 @@ hr {
 .selector-active:hover {
   color: $primary-color;
 }
-
-
-
 
