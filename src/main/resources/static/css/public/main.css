@@ -636,26 +636,49 @@ blockquote.layui-elem-quote {
 }
 
 #loginPanel .label-bar {
-  margin: 30px;
-  margin-left: 80px;
+  margin: 40px;
+  margin-left: 50px;
 }
 
 #loginPanel .input-group-addon {
-  width: 20px;
+	height: 26px;
+	width: 28px;
+	background-color: #e85a4f;
+	color: white;
+	font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei";
+	border: none;
 }
 
-#registerPanel {
-  margin-top: -20px;
+#loginPanel .input {
+	margin-top: 1px;
+	padding-left: 8px;
+	border: 0px;
+    border-bottom: 1px solid #e85a4f;
+    width: 230px;
 }
 
 #registerPanel .label-bar {
-  margin: 15px;
-  margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-left: 30px;
 }
 
-#registerPanel .input-group-addon {
+#registerPanel .input-group-addon{
   width: 80px;
+  background-color: #e85a4f;
+  color: white;
+  font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei";
+  border: none;
 }
+
+#registerPanel .input {
+	margin-top: 1px;
+	padding-left: 8px;
+    border: 0;
+    border-bottom: 1px solid #e85a4f;
+    width: 220px;
+}
+
 
 .label-bar {
   width: 100%;

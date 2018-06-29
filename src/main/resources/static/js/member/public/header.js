@@ -206,7 +206,7 @@ function member_register() {
     layer.open({
         type: 0,
         title: ' ',
-        area: ['400px', '280px'],
+        area: ['400px', '400px'],
         content:
             `<div id="registerPanel">
 	            <div class='label-bar input-group'>
