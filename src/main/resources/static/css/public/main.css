@@ -384,13 +384,72 @@ blockquote.layui-elem-quote {
   margin-left: 20px;
 }
 
+.layui-layer-title .fa-question-circle:hover {
+  cursor: help;
+}
+
+.layui-layer-content {
+  overflow-y: scroll;
+}
+
 .notification-item {
-  background: #f5f5f0;
-  -webkit-box-shadow: 0 1px 1px 0 rgba(121, 146, 185, 0.54);
-          box-shadow: 0 1px 1px 0 rgba(121, 146, 185, 0.54);
+  font-size: 1em;
+}
+
+.notification-item a {
   margin-bottom: 10px;
-  padding: 24px 16px;
-  font-size: 1.1em;
+  padding: 18px 16px;
+  -webkit-box-shadow: 0 0 4px 0 rgba(121, 146, 185, 0.54);
+          box-shadow: 0 0 4px 0 rgba(121, 146, 185, 0.54);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.notification-item a img {
+  margin-right: 16px;
+}
+
+.notification-item a .notification-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.notification-item a .notification-text .title {
+  font-size: 1.28em;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: auto;
+}
+
+.notification-item a .notification-text .content {
+  font-size: 1.05em;
+  color: #333;
+}
+
+.notification-item a:hover {
+  -webkit-box-shadow: 0 0 4px 0 rgba(230, 188, 182, 0.5);
+          box-shadow: 0 0 4px 0 rgba(230, 188, 182, 0.5);
+  color: black;
+}
+
+.notification-item a:hover .content {
+  color: rgba(247, 67, 36, 0.5);
 }
 
 #site-name-bar {
