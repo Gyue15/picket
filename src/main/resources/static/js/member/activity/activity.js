@@ -65,10 +65,7 @@ function displayList(data) {
     for (i = 0; i < data.length; i++) {
         activity += `${i % 2 === 0 ? '<div class="card-container">' : ''}`;
         activity += `<div class="card ${i % 2 === 0 ? 'left' : 'right'}">
-        <div class="card-img-container">
-            <img class="card-img" src="/showpic/${data[i].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'"/>
-        </div>
-        <div class="card-text">
+        <div class="card-text" data-aid=${data[i].activityId}>
             <p class="card-text-title">${data[i].name}</p>
             <p class="card-text-description">
                 简介：${data[i].description.substring(0, 30)}...</p>
@@ -83,11 +80,18 @@ function displayList(data) {
                 <p class="card-text-price">${data[i].minPrice}</p>
             </div>
         </div>
+        <div class="card-img-container">
+            <img class="card-img" src="/showpic/${data[i].photo}" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'"/>
+        </div>
     </div>`;
         activity += `${i % 2 === 0 ? '' : '</div>'}`;
     }
 
     $("#photo-list").empty().append(activity);
+    $('.card-text').click(function() {
+        let id = $(this).data('aid');
+        window.location.href = `/member/activity/detail?activityId=${id}`;
+    });
 }
 
 function turnPage(turnNum) {

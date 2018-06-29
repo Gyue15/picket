@@ -236,7 +236,7 @@ hr {
 
 #photo-list {
   width: 80%;
-  overflow: auto;
+  overflow: hidden;
   margin: 2% auto;
 }
 
@@ -249,7 +249,7 @@ hr {
 
 .card-container {
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .left {
@@ -270,28 +270,37 @@ hr {
   height: auto;
   margin: 5px;
   cursor: pointer;
+  z-index: 1;
+  opacity: 1;
+  position: relative;
+  box-shadow: 3px 4px 5px 0 #ccc;
 }
 
 .card-text {
   width: 94%;
-  height: 95%;
+  height: 98%;
   float: right;
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 6%;
   padding-left: 26%;
   border: 1px solid $transparent-grey;
-  z-index: -1;
+  z-index: 0;
   border-radius: 4px;
-}
-
-.card-text-title {
-  width: 100%;
-  font-size: 20px;
-  margin: 5% 0 5% 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding-right: 5%;
+  box-shadow: 0 0 15px 0 hsla(203,6%,45%,.09);
+  .card-text-title {
+    width: 100%;
+    font-size: 20px;
+    margin: 5% 0 5% 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 5%;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px 0 rgba(230, 188, 182, 0.5);
+  }
 }
 
 .card-text-description {
@@ -313,7 +322,7 @@ hr {
 
 .card-text-date {
   color: $grey-color;
-  //margin-bottom: 1%;
+  margin-bottom: 1px;
 }
 
 .card-text-location {
