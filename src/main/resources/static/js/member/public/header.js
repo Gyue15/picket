@@ -8,6 +8,12 @@ $.getScript("/js/member/public/city.js", function() {
     updateCity();
 });
 
+if (Notification.permission === "default") {
+    Notification.requestPermission().then(function(result) {
+        console.log(result);
+    });
+}
+
 function addGlobalCSS() {
     // 为所有页面统一添加fontawesome和animate的css支持
     let head = document.getElementsByTagName('head')[0];
@@ -125,6 +131,12 @@ function updateNotification(activityNameList) {
         firstTimeRender = false;
     }
     if (notifications.length > 0) {
+        if (Notification.permission === "granted") {
+            let n = new Notification("Picket: 你关注的活动有票啦！");
+            n.onclick = function() { 
+                window.location.href = '/';
+            };
+        }
         document.styleSheets[0].insertRule(`#notification-header:after { content: "${notifications.length}"; color: #e85a4f; font-size: 5px; position: absolute; top: 2px;}`, 0);
         $("#notification-header").attr('tooltip', '');
         $("#notification-float").css({'display':'flex', 'position':'fixed'}).addClass("rubberBand");
