@@ -278,7 +278,38 @@ public class ActivityServiceImpl implements ActivityService {
                     list.retainAll(tempList);
                 }
             }
+
+            if (list == null) {
+                return new ArrayList<>();
+            }
+
+            if (filter.length() != 0) {
+                if (filter.equals("30")) {
+                    for (int i = 0; i < list.size(); ++i) {
+                        Activity activity = list.get(i);
+                        Date date = activity.getBeginDate();
+                        Date nowDate = new Date();
+                        System.out.println(date.getMonth() + " " + nowDate.getMonth());
+                        if (date.getMonth() != nowDate.getMonth()) {
+                            list.remove(activity);
+                            --i;
+                        }
+                    }
+                } else if (filter.equals("7")) {
+                    for (int i = 0; i < list.size(); ++i) {
+                        Activity activity = list.get(i);
+                        Date date = activity.getBeginDate();
+                        Date nowDate = new Date();
+                        if (!isSameWeek(date, nowDate)) {
+                            list.remove(activity);
+                            --i;
+                        }
+                    }
+                }
+            }
+
             List<ActivityModel> resultList = transferComponent.toActivityModelList(list);
+
             cacheMap.put(hashString, resultList);
             return resultList;
         }
@@ -307,5 +338,34 @@ public class ActivityServiceImpl implements ActivityService {
         System.out.println(seatPriceMap);
         return activityModel;
     }
+
+    public static boolean isSameWeek(Date d1, Date d2)
+    {
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal1.setFirstDayOfWeek(Calendar.MONDAY);//西方周日为一周的第一天，咱得将周一设为一周第一天
+        cal2.setFirstDayOfWeek(Calendar.MONDAY);
+        cal1.setTime(d1);
+        cal2.setTime(d2);
+        int subYear = cal1.get(Calendar.YEAR) - cal2.get(Calendar.YEAR);
+        if (subYear == 0)// subYear==0,说明是同一年
+        {
+            if (cal1.get(Calendar.WEEK_OF_YEAR) == cal2.get(Calendar.WEEK_OF_YEAR))
+                return true;
+        }
+        else if (subYear == 1 && cal2.get(Calendar.MONTH) == 11) //subYear==1,说明cal比cal2大一年;java的一月用"0"标识，那么12月用"11"
+        {
+            if (cal1.get(Calendar.WEEK_OF_YEAR) == cal2.get(Calendar.WEEK_OF_YEAR))
+                return true;
+        }
+        else if (subYear == -1 && cal1.get(Calendar.MONTH) == 11)//subYear==-1,说明cal比cal2小一年
+        {
+            if (cal1.get(Calendar.WEEK_OF_YEAR) == cal2.get(Calendar.WEEK_OF_YEAR))
+                return true;
+        }
+        return false;
+    }
+
+
 
 }
