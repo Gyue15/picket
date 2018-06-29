@@ -499,6 +499,21 @@ blockquote.layui-elem-quote {
   cursor: pointer;
 }
 
+#inner-city-pane {
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    background-color: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color-light; 
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+}
+
 .xiala {
   font-family: iconfont;
   font-size: 10px;
