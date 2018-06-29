@@ -43,6 +43,13 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     List<Activity> findByActivityTypeContaining(String activityType);
 
+
+    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a LEFT JOIN" +
+            "(SELECT MIN(s.price) as minprice, s.activity_id as act_id from seat_price as s GROUP BY s.activity_id) AS cc " +
+            " ON a.activity_id = cc.act_id" +
+            " ORDER BY cc.minprice")
+    List<Activity> findLowPriceActivity();
+
     @Query(nativeQuery = true, value = "SELECT * FROM activity AS a LEFT JOIN" +
             "(SELECT c.activity_id AS act_id, COUNT(*) AS com_num FROM comment AS c GROUP BY c.activity_id) AS cc " +
             " ON a.activity_id = cc.act_id" +
@@ -55,7 +62,7 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
             "ORDER BY oo.com_num DESC")
     List<Activity> findHotOrderActivity();
 
-    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.begin_date DESC")
+    @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.begin_date")
     List<Activity> findRecentActivity();
 
 

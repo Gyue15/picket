@@ -260,6 +260,9 @@ public class ActivityServiceImpl implements ActivityService {
             if (sort.equals("hot")) {
                 list = activityRepository.findHotCommentActivity();
             }
+            if (sort.equals("price")) {
+                list = activityRepository.findLowPriceActivity();
+            }
 
             if (keyWord.length() != 0) {
                 List<Activity> tempList = search(keyWord);
@@ -305,6 +308,8 @@ public class ActivityServiceImpl implements ActivityService {
                             --i;
                         }
                     }
+                } else if (filter.equals("weekend")) {
+                    list = new ArrayList<>();
                 }
             }
 
