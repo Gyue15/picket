@@ -197,6 +197,11 @@ function buyNow() {
 function subscribe() {
     // 订阅并修改订阅按钮状态
     if (!isSubscribed) {
+        if (Notification.permission === "default") {
+            Notification.requestPermission().then(function(result) {
+                console.log(result);
+            });
+        }
         $.post("/api/activities/subscribe", {activityId, email}).done(function () {
             $("#subscribe").css("display", "none");
             $("#un-subscribe").css("display", "");
