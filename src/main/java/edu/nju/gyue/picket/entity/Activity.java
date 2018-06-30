@@ -39,6 +39,16 @@ public class Activity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "activity", fetch = FetchType.LAZY)
     private List<Comment> commentList;
 
+    private String html;
+
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
+    }
+
     public Long getActivityId() {
         return activityId;
     }

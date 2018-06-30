@@ -25,6 +25,8 @@ public class ActivityModel {
 
     private Double minPrice;
 
+    private String html;
+
     /**
      * 这里应为剩余座位的对应表，可以不精确
      */
@@ -124,6 +126,14 @@ public class ActivityModel {
 
     public void setMinPrice(Double minPrice) {
         this.minPrice = minPrice;
+    }
+
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
     }
 
     @Override

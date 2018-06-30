@@ -138,6 +138,7 @@ public class TransferComponent {
         activityModel.setVenueName(activity.getVenue().getVenueName());
         activityModel.setLocation(activity.getVenue().getLocation());
         activityModel.setEmail(activity.getVenue().getEmail());
+        activityModel.setHtml(activity.getHtml());
         activityModel.setMinPrice(seatPriceRepository.findMinPrice(activity.getActivityId()));
         return activityModel;
     }
