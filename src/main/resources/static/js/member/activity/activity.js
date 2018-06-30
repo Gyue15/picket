@@ -4,12 +4,12 @@ let pageSize = 10;
 
 let activityDate;
 
-let keyword, type, sort, sorttype, filter;
+let keyword, sort, sorttype, filter;
 
 
 $(function () {
     keyword = getUrlParam("keyword") || "";
-    type = getUrlParam("type") || "";
+    type = getUrlParam("type") || "all";
     sort = getUrlParam("sort") || "hot";
     filter = getUrlParam("filter") || "all";
     nowPage = getUrlParam("page") || 1;

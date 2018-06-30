@@ -589,25 +589,27 @@ blockquote.layui-elem-quote {
 
 #header-menu {
   height: 48px;
-  width: 100%;
+  width: 80%;
   margin: auto;
-  background-color: $primary-color;
-  padding-left: 10%;
+  display: flex;
+  justify-content: space-between;
+  //background-color: $primary-color;
 }
 
 .header-menu-item {
   font-weight: lighter;
-  font-size: 18px;
-  float: left;
-  //margin-top: 10px;
-  //margin-right: 30px;
-  color: $white-color;
+  font-size: 20px;
+  color: $black-color;
   cursor: pointer;
   display: block;
   width: auto;
   height: 48px;
-  text-align: left;
-  padding: 10px 30px 10px 0;
+  text-align: center;
+  padding: 15px 6px 0 6px;
+  &:hover, &.active {
+    color: $primary-color;
+    border-bottom: 3px solid $primary-color;
+  }
 }
 
 .header-item-select {
