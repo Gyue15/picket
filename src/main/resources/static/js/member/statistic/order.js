@@ -33,7 +33,7 @@ function displayList(domElement, data) {
 			'vname' : `${data[i].venueName}`,
 			'date' : `${data[i].placeDateString}`,
 			'seats' : seatsAndPriceList,
-			'totalPrice' : `总额￥${data[i].orderValue}`,
+			'totalPrice' : `总额￥${data[i].orderValue.toFixed(2)}`,
 		});
 	}
 	$(domElement).bootstrapTable({

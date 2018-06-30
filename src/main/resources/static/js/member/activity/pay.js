@@ -44,7 +44,7 @@ $(function () {
                     ${orignMoney * memberDiscount - (discount.get(voucherId)?discount.get(voucherId):0)}元`);
             });
         });
-        $("#pay-value").text(`原价${data.money}元，优惠价：${data.money * data.memberDiscount}元`);
+        $("#pay-value").text(`原价${data.money}元，优惠价：${(data.money * data.memberDiscount).toFixed(2)}元`);
         console.log(data);
         orignMoney = data.money;
     });
