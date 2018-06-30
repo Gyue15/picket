@@ -42,9 +42,10 @@ public class ActivityController {
     }
 
     @GetMapping("/magic")
-    public void getPageNum(@RequestParam("activity-id") Long activityId) {
+    public String getPageNum(@RequestParam("activity-id") Long activityId) {
         activityRepository.magicActivity1(activityId);
         activityRepository.magicActivity2(activityId);
+        return "success";
     }
     /**
      * 获得活动的页码数
