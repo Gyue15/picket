@@ -62,11 +62,11 @@
 }
 
 .order-detail {
-    margin: 24px 15px;
-    margin: 2.5%;
     font-size: 16px;
     float: right;
-    border: 1px solid rgba(150, 150, 150, 0.5);
+    border: none;
+    padding: 10px;
+    color: blue;
 }
 
 #statistic-chart {
@@ -163,4 +163,49 @@
 .table td {
 	text-align: left;
 	vertical-align: middle !important;
+}
+
+#body .table tbody .panel .panel-heading {
+	padding: 0;
+}
+#body .table tbody .panel:first-child {
+	margin-top: 20px;
+}
+#body .table tbody tr td {
+	padding: 10px;
+}
+#body .table tbody .dateTag {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 5px;
+}
+#body .table tbody .idTag {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 5px;
+}
+#body .table tbody td {
+	border: none;
+	text-align: left;
+}
+#body .table tbody td:nth-child(1) {
+	width: 8%;
+}
+#body .table tbody td:nth-child(2) {
+	width: 20%;
+}
+#body .table tbody td:nth-child(3) {
+	width: 14%;
+}
+#body .table tbody td:nth-child(4) {
+	width: 38%;
+	text-align: center;
+}
+#body .table tbody td:nth-child(5) {
+	width: 10%;
+}
+#body .table tbody td:nth-child(6) {
+	width: 10%;
 }
