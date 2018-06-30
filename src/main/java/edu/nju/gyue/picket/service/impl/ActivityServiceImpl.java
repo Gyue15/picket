@@ -273,7 +273,7 @@ public class ActivityServiceImpl implements ActivityService {
                 }
             }
 
-            if (type.length() != 0) {
+            if (type.length() != 0 && (!type.equals("all"))) {
                 List<Activity> tempList = activityRepository.findByActivityTypeContaining(type);
                 if (list == null) {
                     list = tempList;
