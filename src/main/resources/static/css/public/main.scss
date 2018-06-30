@@ -13,11 +13,11 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 571657 */
-  src: url('//at.alicdn.com/t/font_571657_zc89vgm3uf8.eot');
-  src: url('//at.alicdn.com/t/font_571657_zc89vgm3uf8.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_571657_zc89vgm3uf8.woff') format('woff'),
-  url('//at.alicdn.com/t/font_571657_zc89vgm3uf8.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_571657_zc89vgm3uf8.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_571657_0gbhkd8htkxk.eot');
+  src: url('//at.alicdn.com/t/font_571657_0gbhkd8htkxk.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_571657_0gbhkd8htkxk.woff') format('woff'),
+  url('//at.alicdn.com/t/font_571657_0gbhkd8htkxk.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_571657_0gbhkd8htkxk.svg#iconfont') format('svg');
 }
 
 a:link {
@@ -374,12 +374,49 @@ blockquote.layui-elem-quote {
   margin-left: 20px;
 }
 
-.notification-item {
-  background: rgb(245,245,240);
-  box-shadow: 0 1px 1px 0 rgba(121,146,185,.54);
-  margin-bottom: 10px;
-  padding: 24px 16px;
-  font-size: 1.1em;
+.layui-layer-title .fa-question-circle {
+  &:hover {
+    cursor: help;
+  }
+}
+
+.notification-item { 
+  font-size: 1em;
+  a {
+    margin-bottom: 30px;
+    padding: 18px 16px;
+    box-shadow: 0 0 4px 0 rgba(121,146,185,.54);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    img {
+      margin-right: 16px;
+    }
+    .notification-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .title {
+        font-size: 1.28em;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: auto;
+      }
+      .content {
+        font-size: 1.05em;
+        color: #333;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0 4px 0 rgba(230, 188, 182, 0.5);
+      color: black;
+      .content {
+        color: rgba(247, 67, 36, 0.5);
+      }
+    }
+  }
 }
 
 #site-name-bar {
@@ -697,7 +734,19 @@ blockquote.layui-elem-quote {
 }
 
 .layui-layer-content {
-  overflow: hidden !important;
+  overflow-x: hidden !important;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+    background-color: white;
+    margin: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color-light; 
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
 }
 
 .sad-icon {

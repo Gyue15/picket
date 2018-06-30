@@ -8,6 +8,12 @@ $.getScript("/js/member/public/city.js", function() {
     updateCity();
 });
 
+if (Notification.permission === "default") {
+    Notification.requestPermission().then(function(result) {
+        console.log(result);
+    });
+}
+
 function addGlobalCSS() {
     // 为所有页面统一添加fontawesome和animate的css支持
     let head = document.getElementsByTagName('head')[0];
@@ -125,6 +131,12 @@ function updateNotification(activityNameList) {
         firstTimeRender = false;
     }
     if (notifications.length > 0) {
+        if (Notification.permission === "granted") {
+            let n = new Notification("Picket: 你关注的活动有票啦！");
+            n.onclick = function() { 
+                window.location.href = '/';
+            };
+        }
         document.styleSheets[0].insertRule(`#notification-header:after { content: "${notifications.length}"; color: #e85a4f; font-size: 5px; position: absolute; top: 2px;}`, 0);
         $("#notification-header").attr('tooltip', '');
         $("#notification-float").css({'display':'flex', 'position':'fixed'}).addClass("rubberBand");
@@ -188,12 +200,28 @@ function openNotification() {
     if (notifications.length > 0) {
         layer.open({
             type: 0,
-            title: '我关注的活动',
+            area: 'auto',
+            maxHeight: 400,
+            scrollbar: true,
+            title: '我关注的活动 <i class="far fa-question-circle" title="可以在活动详情页面取消关注"></i>',
             content: `${(function () {
                 let result = '';
                 let i;
                 for (i = 0; i < notifications.length; i = i + 1) {
-                    result = result + `<div class="notification-item"><a href="/member/activity/detail?activityId=${notifications[i].id}">你关注的"${notifications[i].name}"现在有票啦！戳我查看</a></div>`
+                    result = result + 
+                    `<div class="notification-item">
+                        <a href="/member/activity/detail?activityId=${notifications[i].id}">
+                            <img src="/showpic/${notifications[i].id}.jpg" width="56px" height="70px">
+                            <div class="notification-text">
+                                <p class="title">
+                                    ${notifications[i].name}
+                                </p>
+                                <p class="content">
+                                    已有余票，点击查看
+                                </p> 
+                            </div>
+                        </a>
+                    </div>`
                 }
                 return result;
             })()}`,
