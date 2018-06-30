@@ -35,7 +35,7 @@ function initActivityHeader(activityModel) {
 <div id="crumb">
   <a href="/">首页</a>
   >
-  <a href="/member/activity?type='${activityType}'">${activityType}</a>
+  <a href="/member/activity?type=${activityType}">${activityType}</a>
   >
   <a id="cite">${activityModel.name}</a>
 </div>`;
