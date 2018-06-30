@@ -3,7 +3,7 @@ let email = localStorage.getItem("memberEmail");
 let venueCode;
 let isSubscribed = false;
 let priceMap;
-let nowPrice;
+let nowPrice = 0;
 let priceNum = 1;
 
 $(function () {
