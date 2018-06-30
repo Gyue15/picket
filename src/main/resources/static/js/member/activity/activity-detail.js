@@ -104,7 +104,7 @@ function initActivityDetail(activityModel) {
     <div id="detail-text">
         <div id="detail-title">
             ${activityModel.name}
-            <button id="un-subscribe" onclick="subscribe()" style="display: ${isSubscribed ? 'block' : 'none'}">取消关注</button>
+            <button id="un-subscribe" onclick="subscribe()" style="display: ${isSubscribed ? '' : 'none'}">取消关注</button>
         </div>
         <div id="detail-info">
             <div class="detail-info-row">
