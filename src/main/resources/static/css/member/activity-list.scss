@@ -193,7 +193,7 @@ li.tab-title{
 }
 
 .main-activity {
-  margin: 1%;
+  margin: 1% 2% 1% 0;
   width: 23%;
   float: left;
   position: relative;
@@ -401,5 +401,11 @@ hr {
 
 .selector-active:hover {
   color: $primary-color;
+}
+
+.floor-container.right .sub-activity {
+  //overflow: hidden;
+  //height: auto;
+  margin-left: 0;
 }
 

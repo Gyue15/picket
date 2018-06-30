@@ -137,7 +137,7 @@ li.tab-title {
   font-size: 22px; }
 
 .main-activity {
-  margin: 1%;
+  margin: 1% 2% 1% 0;
   width: 23%;
   float: left;
   position: relative; }
@@ -309,5 +309,8 @@ hr {
 
 .selector-active:hover {
   color: #e85a4f; }
+
+.floor-container.right .sub-activity {
+  margin-left: 0; }
 
 /*# sourceMappingURL=activity-list.css.map */

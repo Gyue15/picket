@@ -29,6 +29,10 @@
   .detail-info-row.lower {
     margin-bottom: 18px;
     margin-top: 12px; }
+  .detail-info-row a {
+    margin: 9px 0 0 27px;
+    color: #8e8d8a;
+    display: inline-block; }
 
 .detail-tip {
   width: 50px;
@@ -102,8 +106,19 @@
     cursor: pointer; }
 
 #detail-sum {
+  color: #8e8d8a;
+  font-size: 16px;
+  width: auto;
+  float: left;
+  padding-top: 8px;
+  margin-right: 15px;
+  text-decoration: line-through; }
+
+#discount-sum {
   color: #e85a4f;
-  font-size: 24px; }
+  font-size: 24px;
+  width: auto;
+  float: left; }
 
 #btn-buy-now, #btn-buy-select {
   color: white;

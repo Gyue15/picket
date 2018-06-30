@@ -6,7 +6,7 @@ $(function () {
         <div class="row">
             <div class="col-md-8">
                 <div class="copyright" style="margin-top: 3%;">
-                    <p>Copyright © 2018.Company name All rights reserved.<a target="_blank" href="http://www.nju.edu.cn/" style="
+                    <p>Copyright © 2018.Sleipnir All rights reserved.<a target="_blank" href="http://www.nju.edu.cn/" style="
     color: CORNFLOWERBLUE;
 "> Nanjing university</a></p>
                 </div>

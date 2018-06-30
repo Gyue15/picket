@@ -298,6 +298,12 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
+    public double getDiscount(String email) {
+        Member member = findMember(email);
+        return MemberUtil.getMemberDiscount(member.getLevel());
+    }
+
+    @Override
     public Date getPlaceDate(String orderId) {
         ActivityOrder activityOrder = findOrder(orderId);
         return activityOrder.getPlaceDate();

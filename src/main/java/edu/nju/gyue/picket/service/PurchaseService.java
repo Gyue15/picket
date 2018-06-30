@@ -27,6 +27,8 @@ public interface PurchaseService {
 
     MemberPayModel getPayMessage(String email, String orderId);
 
+    double getDiscount(String email);
+
     Date getPlaceDate(String orderId);
 
 }

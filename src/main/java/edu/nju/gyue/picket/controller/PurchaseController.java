@@ -41,6 +41,11 @@ public class PurchaseController {
         return purchaseService.getPayMessage(email, signature);
     }
 
+    @GetMapping("/discount")
+    public double getDiscount(@RequestParam String email) {
+        return purchaseService.getDiscount(email);
+    }
+
 
     @PostMapping("/place-order/un-select")
     public Map<String, String> placeOrderUnselect(Long activityId, Double unitPrice, Integer num, String email,

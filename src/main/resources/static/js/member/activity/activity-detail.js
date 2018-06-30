@@ -5,6 +5,8 @@ let isSubscribed = false;
 let priceMap;
 let nowPrice = 0;
 let priceNum = 1;
+let discount = 1;
+let isLogin = false;
 
 $(function () {
     $.post("/api/activities/is-subscribe", {activityId, email}).done(function (data) {
@@ -26,7 +28,14 @@ $(function () {
     });
     $.when(hotActivityList).done(function (data) {
         updateHotActivity(data);
-    })
+    });
+
+    $.get("/api/activities/discount", {email: email}).done(function (data) {
+        discount = data;
+        isLogin = true;
+    }).fail(function () {
+        isLogin = false;
+    });
 });
 
 function initActivityHeader(activityModel) {
@@ -138,9 +147,16 @@ function initActivityDetail(activityModel) {
             </div>
             <div class="detail-info-row lower">
                 <div class="detail-tip lower">合计：</div>
-                <div id="detail-sum">
+                ${isLogin? `<div id="detail-sum">
                     ${nowPrice}元
                 </div>
+                <div id="discount-sum">
+                    ${(nowPrice * discount).toFixed(2)}元
+                </div>
+                <a href="/member/person">领取优惠券</a>
+                ` : `<div id="discount-sum">
+                    ${nowPrice}元
+                </div>`}
             </div>
         </div>
 
@@ -249,6 +265,7 @@ function changePriceNum(changeNum) {
     priceNum += changeNum;
     $("#num").text(priceNum);
     $("#detail-sum").text(`${nowPrice * priceNum}元`);
+    $("#discount-sum").text(`${(nowPrice * priceNum * discount).toFixed(2)}元`);
 }
 
 function changeNowPrice(liId, liNum, price) {
@@ -261,4 +278,5 @@ function changeNowPrice(liId, liNum, price) {
         }
     }
     $("#detail-sum").text(`${nowPrice * priceNum}元`);
+    $("#discount-sum").text(`${(nowPrice * priceNum * discount).toFixed(2)}元`);
 }
