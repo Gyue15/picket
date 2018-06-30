@@ -152,6 +152,14 @@ function initActivityDetail(activityModel) {
 
     $("#activity-container").append(activityDetail);
     $("#description-detail").html(activityModel.html);
+
+    for (let i in keys) {
+        let priceBlock = $(`#li-${i}`);
+        priceBlock.attr("title", `剩余${priceMap[keys[i]]}张`);
+        priceBlock.attr("data-toggle", "tooltip");
+        priceBlock.attr("data-placement", "top");
+        priceBlock.tooltip();
+    }
 }
 
 function openMap(venueName) {
