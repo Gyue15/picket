@@ -353,5 +353,5 @@ function searchActivity() {
         alertWindow("请输入关键词");
         return;
     }
-    window.location.href = `/member/activity?keyword=${keyword}`;
+    window.location.href = `/member/activity?keyword=${keyword}&type=${type}`;
 }
