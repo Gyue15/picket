@@ -219,7 +219,7 @@ function openNotification() {
     if (notifications.length > 0) {
         layer.open({
             type: 0,
-            area: 'auto',
+            area: ['500px'],
             maxHeight: 400,
             scrollbar: true,
             title: '我关注的活动 <i class="far fa-question-circle" title="可以在活动详情页面取消关注"></i>',
