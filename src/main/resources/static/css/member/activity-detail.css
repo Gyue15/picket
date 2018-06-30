@@ -33,6 +33,8 @@
     margin: 9px 0 0 27px;
     color: #8e8d8a;
     display: inline-block; }
+    .detail-info-row a:hover {
+      color: #ffc53d; }
 
 .detail-tip {
   width: 50px;

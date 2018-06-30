@@ -43,6 +43,9 @@
     margin: 9px 0 0 27px;
     color: #8e8d8a;
     display: inline-block;
+    &:hover {
+      color: $select-color;
+    }
   }
 }
 
