@@ -13,6 +13,7 @@ $(function () {
                 .done(function (activityModel) {
                     venueCode = activityModel.venueCode;
                     initActivityDetail(activityModel);
+                    initActivityHeader(activityModel);
                 }).fail(function (e) {
                 alertWindow(e.responseText);
             });
@@ -27,6 +28,19 @@ $(function () {
         updateHotActivity(data);
     })
 });
+
+function initActivityHeader(activityModel) {
+    let activityType = activityModel.activityType.split(",")[0];
+    let crumb = `
+<div id="crumb">
+  <a href="/">首页</a>
+  >
+  <a href="/member/activity?type='${activityType}'">${activityType}</a>
+  >
+  <a id="cite">${activityModel.name}</a>
+</div>`;
+    $("#header-menu").append(crumb);
+}
 
 function updateHotActivity(data) {
     let hot = `<div class="sub-title">
@@ -198,7 +212,7 @@ function subscribe() {
     // 订阅并修改订阅按钮状态
     if (!isSubscribed) {
         if (Notification.permission === "default") {
-            Notification.requestPermission().then(function(result) {
+            Notification.requestPermission().then(function (result) {
                 console.log(result);
             });
         }

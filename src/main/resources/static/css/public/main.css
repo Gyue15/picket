@@ -340,7 +340,7 @@ blockquote.layui-elem-quote {
 
 #site-name-bar {
   width: 80%;
-  margin: 3% auto 1% auto;
+  margin: 3% auto 0 auto;
   height: 60px;
   position: relative; }
 
@@ -455,7 +455,7 @@ blockquote.layui-elem-quote {
 #search-bar {
   float: right;
   width: 60%;
-  height: 100%; }
+  height: 90%; }
 
 #search-bar-input {
   height: 75%;
@@ -481,7 +481,7 @@ blockquote.layui-elem-quote {
 #header-menu {
   height: 48px;
   width: 80%;
-  margin: auto;
+  margin: 10px auto 0 auto;
   display: flex;
   justify-content: space-between; }
 
