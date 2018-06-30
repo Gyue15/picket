@@ -243,12 +243,14 @@ function subscribe() {
         $.post("/api/activities/subscribe", {activityId, email}).done(function () {
             $("#subscribe").css("display", "none");
             $("#un-subscribe").css("display", "");
+            isSubscribed = !isSubscribed;
         })
     } else {
         $.post("/api/activities/cancel-subscribe", {activityId, email}).done(function () {
             $("#subscribe").css("display", "");
             $("#un-subscribe").css("display", "none");
             alertWindow("已取消关注");
+            isSubscribed = !isSubscribed;
         })
     }
 }
