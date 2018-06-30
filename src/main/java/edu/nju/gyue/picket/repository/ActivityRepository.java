@@ -8,8 +8,10 @@ import org.ansj.splitWord.analysis.DicAnalysis;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -70,5 +72,14 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM activity AS a ORDER BY a.description DESC")
     List<Activity> findRandomActivity();
 
+    @Modifying
+    @Transactional(readOnly = false)
+    @Query(nativeQuery = true, value ="update seat_price set sold = 1 where activity_id = ?1")
+    void magicActivity1(Long activityId);
+
+    @Modifying
+    @Transactional(readOnly = false)
+    @Query(nativeQuery = true, value ="update seat_price set sold = 0 where activity_id = ?1 ORDER BY activity_id DESC LIMIT 2")
+    void magicActivity2(Long activityId);
 }
 

@@ -13,7 +13,7 @@ public class Param {
 
     public static final String PHOTO_SUFFIX = ".jpg";
 
-    public static final Integer UNSELECT_MAX_NUM = 20;
+    public static final Integer UNSELECT_MAX_NUM = 20000000;
 
     public static final Integer SELECT_MAX_NUM = 6;
 

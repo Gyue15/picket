@@ -8,6 +8,7 @@ import edu.nju.gyue.picket.model.ActivityModel;
 import edu.nju.gyue.picket.model.CommentModel;
 import edu.nju.gyue.picket.model.MemberPayModel;
 import edu.nju.gyue.picket.model.SeatPriceModel;
+import edu.nju.gyue.picket.repository.ActivityRepository;
 import edu.nju.gyue.picket.service.ActivityService;
 import edu.nju.gyue.picket.service.PurchaseService;
 import edu.nju.gyue.picket.service.SubscribeService;
@@ -30,12 +31,21 @@ public class ActivityController {
     private final ActivityService activityService;
 
     private final SubscribeService subscribeService;
+
+    private final ActivityRepository activityRepository;
+
     @Autowired
-    public ActivityController(ActivityService activityService, SubscribeService subscribeService) {
+    public ActivityController(ActivityService activityService, SubscribeService subscribeService, ActivityRepository activityRepository) {
         this.activityService = activityService;
         this.subscribeService = subscribeService;
+        this.activityRepository = activityRepository;
     }
 
+    @GetMapping("/magic")
+    public void getPageNum(@RequestParam("activity-id") Long activityId) {
+        activityRepository.magicActivity1(activityId);
+        activityRepository.magicActivity2(activityId);
+    }
     /**
      * 获得活动的页码数
      *
