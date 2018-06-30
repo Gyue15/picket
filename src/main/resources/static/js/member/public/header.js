@@ -8,12 +8,6 @@ $.getScript("/js/member/public/city.js", function() {
     updateCity();
 });
 
-if (Notification.permission === "default") {
-    Notification.requestPermission().then(function(result) {
-        console.log(result);
-    });
-}
-
 function addGlobalCSS() {
     // 为所有页面统一添加fontawesome和animate的css支持
     let head = document.getElementsByTagName('head')[0];
@@ -108,11 +102,18 @@ function setUpWebSocket() {
     // Listen for messages
     socket.addEventListener('message', function (event) {
         console.log('Message from server ', event.data);
-        if (JSON.parse(event.data)) {
-            updateNotification(JSON.parse(event.data));
-            console.log("update");
-        } else {
-            console.log(typeof event.data);
+        try {
+            if (JSON.parse(event.data)) {
+                if (Notification.permission === "default") {
+                    Notification.requestPermission().then(function(result) {
+                        console.log(result);
+                    });
+                }
+                updateNotification(JSON.parse(event.data));
+                console.log("update");
+            }
+        } catch (SyntaxError) {
+            // 
         }
     });
 
@@ -123,6 +124,9 @@ function setUpWebSocket() {
 }
 
 function updateNotification(activityNameList) {
+    if (JSON.stringify(localStorage.getItem("notifications")) === JSON.stringify(activityNameList)) {
+
+    }
     notifications = activityNameList;
     // TODO: 修改通知图标
     if (!firstTimeRender) {
@@ -131,11 +135,11 @@ function updateNotification(activityNameList) {
         firstTimeRender = false;
     }
     if (notifications.length > 0) {
-        if (Notification.permission === "granted") {
+        if (Notification.permission === "granted" && localStorage.getItem("notifications") !== JSON.stringify(activityNameList)) {
             let n = new Notification("Picket: 你关注的活动有票啦！");
-            n.onclick = function() { 
-                window.location.href = '/';
-            };
+            localStorage.setItem("notifications", JSON.stringify(activityNameList));
+        } else {
+            console.log("no update")
         }
         document.styleSheets[0].insertRule(`#notification-header:after { content: "${notifications.length}"; color: #e85a4f; font-size: 5px; position: absolute; top: 2px;}`, 0);
         $("#notification-header").attr('tooltip', '');
