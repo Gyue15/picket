@@ -3,7 +3,7 @@ let email = localStorage.getItem("memberEmail");
 let venueCode;
 let isSubscribed = false;
 let priceMap;
-let nowPrice;
+let nowPrice = 0;
 let priceNum = 1;
 
 $(function () {
@@ -104,7 +104,7 @@ function initActivityDetail(activityModel) {
     <div id="detail-text">
         <div id="detail-title">
             ${activityModel.name}
-            <button id="un-subscribe" onclick="subscribe()" style="display: ${isSubscribed ? 'block' : 'none'}">取消关注</button>
+            <button id="un-subscribe" onclick="subscribe()" style="display: ${isSubscribed ? '' : 'none'}">取消关注</button>
         </div>
         <div id="detail-info">
             <div class="detail-info-row">
@@ -152,6 +152,14 @@ function initActivityDetail(activityModel) {
 
     $("#activity-container").append(activityDetail);
     $("#description-detail").html(activityModel.html);
+
+    for (let i in keys) {
+        let priceBlock = $(`#li-${i}`);
+        priceBlock.attr("title", `剩余${priceMap[keys[i]]}张`);
+        priceBlock.attr("data-toggle", "tooltip");
+        priceBlock.attr("data-placement", "top");
+        priceBlock.tooltip();
+    }
 }
 
 function openMap(venueName) {
