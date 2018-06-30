@@ -177,4 +177,18 @@
   font-size: 16px;
   color: #2c3e50; }
 
+#crumb {
+  font-size: 15px;
+  padding-top: 20px; }
+  #crumb a {
+    color: #8e8d8a;
+    cursor: pointer; }
+    #crumb a:hover {
+      color: #e85a4f; }
+  #crumb #cite {
+    color: #2c3e50;
+    cursor: default; }
+    #crumb #cite:hover {
+      color: #2c3e50; }
+
 /*# sourceMappingURL=activity-detail.css.map */

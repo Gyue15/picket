@@ -1,6 +1,8 @@
 let firstTimeRender = true;
 let notifications = [];
 
+let type = 'all';
+
 $.getScript("/js/member/public/city.js", function() {
     addGlobalCSS();
     updateHeader();
@@ -27,6 +29,8 @@ function addGlobalCSS() {
 }
 
 function updateHeader() {
+    type = getUrlParam("type") || "all";
+    let isDetail = getUrlParam("activityId");
     let header = "";
     if (localStorage.getItem("memberIsLogin")) {
         header = `<div id="inner-header">
@@ -65,15 +69,22 @@ function updateHeader() {
         </div>
     </div>
 
+    <hr style="width: 100%">
     <div id="header-menu">
-        <a class="header-menu-item" href='/'>首页</a>
-        <a class="header-menu-item" href='/member/activity?type=演唱会'>演唱会</a>
-        <a class="header-menu-item" href='/member/activity?type=音乐会'>音乐会</a>
-        <a class="header-menu-item" href='/member/activity?type=话剧'>话剧</a>
-        <a class="header-menu-item" href='/member/activity?type=海外'>海外</a>
-        <a class="header-menu-item" href='/member/activity?type=乐团'>乐团</a>
-        <a class="header-menu-item" href='/member/activity?type=戏剧歌剧'>戏剧歌剧</a>
+    ${ !isDetail? 
+        `<a id="all" class="header-menu-item" href='/'>首页</a>
+        <a id="演唱会" class="header-menu-item" href='/member/activity?type=演唱会'>演唱会</a>
+        <a id="音乐会" class="header-menu-item" href='/member/activity?type=音乐会'>音乐会</a>
+        <a id="话剧" class="header-menu-item" href='/member/activity?type=话剧'>话剧</a>
+        <a id="海外" class="header-menu-item" href='/member/activity?type=海外'>海外</a>
+        <a id="乐团" class="header-menu-item" href='/member/activity?type=乐团'>乐团</a>
+        <a id="戏剧歌剧" class="header-menu-item" href='/member/activity?type=戏剧歌剧'>戏剧歌剧</a>
+        <a id="舞剧" class="header-menu-item" href='/member/activity?type=舞剧'>舞剧</a>
+        <a id="舞台剧" class="header-menu-item" href='/member/activity?type=舞台剧'>舞台剧</a>`
+        :''
+        }
     </div>`;
+
 
     $("#header").empty().append(header + subHeader);
     if (this.location.href.match('.*/member/order.*')) {
@@ -90,6 +101,10 @@ function updateHeader() {
             searchActivity();
         }
     });
+
+    $(`#${type}`).addClass("active");
+
+
 }
 
 /* 从服务器端取通知 */

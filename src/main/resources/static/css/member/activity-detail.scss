@@ -206,8 +206,8 @@
   margin-bottom: 3px;
 }
 
-#description-detail{
-  text-indent:35px;
+#description-detail {
+  text-indent: 35px;
   font-size: 15px;
   color: $black-color;
   line-height: 24px;
@@ -216,6 +216,27 @@
 #no-comment {
   font-size: 16px;
   color: $black-color;
+}
+
+#crumb {
+  font-size: 15px;
+  padding-top: 20px;
+  //color: $black-color;
+  a {
+    color: $grey-color;
+    cursor: pointer;
+    &:hover{
+      color: $primary-color;
+    }
+  }
+
+  #cite {
+    color: $black-color;
+    cursor: default;
+    &:hover {
+      color: $black-color;
+    }
+  }
 }
 
 
