@@ -151,7 +151,7 @@ function initActivityDetail(activityModel) {
     </div>`;
 
     $("#activity-container").append(activityDetail);
-    $("#description-detail").text(activityModel.description);
+    $("#description-detail").html(activityModel.html);
 }
 
 function openMap(venueName) {

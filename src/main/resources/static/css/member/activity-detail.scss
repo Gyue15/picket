@@ -207,10 +207,14 @@
 }
 
 #description-detail {
-  text-indent: 35px;
   font-size: 15px;
   color: $black-color;
   line-height: 24px;
+  img{
+    width: 80%;
+    height: auto;
+    margin: 2% auto;
+  }
 }
 
 #no-comment {

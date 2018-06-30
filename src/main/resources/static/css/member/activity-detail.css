@@ -168,10 +168,13 @@
   margin-bottom: 3px; }
 
 #description-detail {
-  text-indent: 35px;
   font-size: 15px;
   color: #2c3e50;
   line-height: 24px; }
+  #description-detail img {
+    width: 80%;
+    height: auto;
+    margin: 2% auto; }
 
 #no-comment {
   font-size: 16px;
