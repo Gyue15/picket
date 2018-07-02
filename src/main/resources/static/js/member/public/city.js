@@ -71,6 +71,8 @@ function updateCity() {
     ${cityList}
 </div>`;
     $("#site-name-bar").append(cityPane);
+    $("#city-pane").css("height", parseInt($("#city-pane").css("height")) + 20);
+    $("#city-pane").append("<div style='height:20px;'></div>");
 }
 
 function switchCity() {
