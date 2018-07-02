@@ -112,7 +112,7 @@ function cancelOrder(orderId) {
             "page": 0,
             "page-size": 0
         }).done(function (data) {
-            displayList($("#paid"), data, "PAID_AND_UNMAI");
+            displayList($("#paid"), data, "PAID_AND_UNMAIL");
             alertWindow("成功退订");
         }).fail(function (e) {
             alertWindow(e.responseText);
