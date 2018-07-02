@@ -152,6 +152,10 @@ function updateNotification(activityNameList) {
     if (notifications.length > 0) {
         if (Notification.permission === "granted" && localStorage.getItem("notifications") !== JSON.stringify(activityNameList)) {
             let n = new Notification("Picket: 你关注的活动有票啦！");
+            n.onclick = function(event) {
+                event.preventDefault();
+                window.open('http://localhost:8080', '_blank');
+              }
             localStorage.setItem("notifications", JSON.stringify(activityNameList));
         } else {
             console.log("no update")
