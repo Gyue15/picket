@@ -1,11 +1,13 @@
+let unpayData;
+
 $(function () {
-	updateList($("#paid"), "PAID_AND_UNMAIL");
-	updateList($("#unpaid"), "UN_PAID");
-	updateList($("#cancelled"), "CANCELLED");
+    updateList($("#paid"), "PAID_AND_UNMAIL");
+    updateList($("#unpaid"), "UN_PAID");
+    updateList($("#cancelled"), "CANCELLED");
 });
 
 function updateList(domElement, state) {
-	$("#page").css("display", "");
+    $("#page").css("display", "");
     $.get("/api/orders", {
         "user-type": "MEMBER",
         "id": localStorage.getItem("memberEmail"),
@@ -20,11 +22,6 @@ function updateList(domElement, state) {
 }
 
 function displayList(domElement, data, state) {
-    if (state === `UN_PAID`) {
-        console.log("===================");
-        console.log(data);
-        console.log("===================");
-    }
     if (data.length === 0) {
         domElement.append(`<div class="no-order">暂时没有订单哦～</div>`);
         return;
@@ -49,9 +46,9 @@ function displayList(domElement, data, state) {
                 <button class="order-detail-pointer" onclick="window.location.href='/member/order/detail?orderId=${obj.orderId}'">
                     查看详情
                 </button>`;
-        if (state === "PAID_AND_UNMAIL"){
-            button += `<button class="order-another-pointer" onclick="cancelOrder()">
-                    取消订单
+        if (state === "PAID_AND_UNMAIL" && obj.canCancel) {
+            button += `<button class="order-another-pointer" onclick="cancelOrder('${obj.orderId}')">
+                    退订订单
                 </button>`;
         } else if (state === 'UN_PAID') {
             button += `<button class="order-another-pointer" onclick="window.location.href='/member/activity/purchase/pay?signature=${obj.orderId}'">
@@ -100,9 +97,28 @@ function displayList(domElement, data, state) {
     //         <div id="${state}-pageNum" class="page-item page-num">1/10</div>
     //         <div id="${state}-after" class="page-item" onclick="turnPage(1)">下一页</div></div>`;
 
-    domElement.append(order);
+    domElement.empty().append(order);
 }
 
-function cancleOrder(orderId) {
+function cancelOrder(orderId) {
+    console.log(orderId);
+    $.post("/api/orders/cancel", {
+        orderId: orderId,
+    }).done(function () {
+        $.get("/api/orders", {
+            "user-type": "MEMBER",
+            "id": localStorage.getItem("memberEmail"),
+            "order-state": "PAID_AND_UNMAIL",
+            "page": 0,
+            "page-size": 0
+        }).done(function (data) {
+            displayList($("#paid"), data, "PAID_AND_UNMAI");
+            alertWindow("成功退订");
+        }).fail(function (e) {
+            alertWindow(e.responseText);
+        });
 
+    }).fail(function (e) {
+        alertWindow(e.responseText);
+    })
 }
