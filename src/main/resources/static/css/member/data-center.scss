@@ -180,10 +180,13 @@
   font-size: 22px;
   margin-bottom: 25px;
   color: $black-color;
+  height: auto;
 }
 
 .order-left-container {
-  float: left;
+  position: absolute;
+  bottom: 0;
+  left: 158px;
 }
 
 .order-info-item {
@@ -237,6 +240,23 @@
   font-size: 20px;
   color: $grey-color;
   text-align: center;
+}
+
+.order-seat-map, .order-seat-tip{
+  width: 260px;
+  overflow: hidden;
+  margin-left: 40px;
+  color: $black-color;
+}
+
+.order-seat-tip {
+  color: $grey-color;
+}
+
+.order-right-part{
+  position: absolute;
+  bottom: 0;
+  left: 400px;
 }
 
 

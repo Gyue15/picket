@@ -1,6 +1,7 @@
 let memberData;
 
 $(function () {
+    initPersonHeader();
     $.get("/api/members", {
         email: localStorage.getItem("memberEmail")
     }).done(function (data) {
@@ -9,6 +10,16 @@ $(function () {
         updateMemberData();
     });
 });
+
+function initPersonHeader() {
+    let crumb = `
+<div id="crumb">
+  <a href="/">首页</a>
+  >
+  <a id="cite">个人中心</a>
+</div>`;
+    $("#header-menu").append(crumb);
+}
 
 function updateMemberData() {
     let nextPoint = 0, discount;

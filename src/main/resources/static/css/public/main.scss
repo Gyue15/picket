@@ -38,6 +38,7 @@ a:active {
 }
 
 body {
+  //position: relative;
   overflow-x: hidden;
   background: $white-color;
   font-family: "Helvetica Neue", "PingFang SC", "HYQiHei", "Roobert", "Microsoft YaHei"
@@ -176,18 +177,6 @@ ul {
   height: 80vh;
 }
 
-#footer {
-  height: 52px;
-  width: 100%;
-  overflow: auto;
-}
-
-#copy-right {
-  text-align: center;
-  line-height: 52px;
-  font-family: Times-Roman;
-  font-size: 16px;
-}
 
 #page, #UN_PAID-page, #PAID_AND_UNMAIL-page, #CANCELLED-page{
   float: left;
@@ -638,7 +627,7 @@ blockquote.layui-elem-quote {
 }
 
 .sub-img {
-  width: 14%;
+  width: 14.6%;
   margin: 0 2% 2% 0;
   float: left;
 }
@@ -759,6 +748,41 @@ blockquote.layui-elem-quote {
 
 #footer {
   overflow: hidden;
+  height: 40px;
+  background-color: $black-color;
+  text-align: center;
+  padding-top: 12px;
+  color: $white-color;
+  a {
+    color: $white-color;
+    &:hover{
+      color: $select-color;
+    }
+  }
+  //position: absolute;
+  //bottom: 0;
+}
+
+
+#crumb {
+  font-size: 15px;
+  padding-top: 20px;
+  //color: $black-color;
+  a {
+    color: $grey-color;
+    cursor: pointer;
+    &:hover{
+      color: $primary-color;
+    }
+  }
+
+  #cite {
+    color: $black-color;
+    cursor: default;
+    &:hover {
+      color: $black-color;
+    }
+  }
 }
 
 

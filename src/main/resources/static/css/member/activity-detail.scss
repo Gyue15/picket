@@ -243,25 +243,4 @@
   color: $black-color;
 }
 
-#crumb {
-  font-size: 15px;
-  padding-top: 20px;
-  //color: $black-color;
-  a {
-    color: $grey-color;
-    cursor: pointer;
-    &:hover{
-      color: $primary-color;
-    }
-  }
-
-  #cite {
-    color: $black-color;
-    cursor: default;
-    &:hover {
-      color: $black-color;
-    }
-  }
-}
-
 

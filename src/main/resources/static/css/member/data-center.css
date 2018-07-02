@@ -146,10 +146,13 @@
 .order-title {
   font-size: 22px;
   margin-bottom: 25px;
-  color: #2c3e50; }
+  color: #2c3e50;
+  height: auto; }
 
 .order-left-container {
-  float: left; }
+  position: absolute;
+  bottom: 0;
+  left: 158px; }
 
 .order-info-item {
   width: auto;
@@ -195,5 +198,19 @@
   font-size: 20px;
   color: #8e8d8a;
   text-align: center; }
+
+.order-seat-map, .order-seat-tip {
+  width: 260px;
+  overflow: hidden;
+  margin-left: 40px;
+  color: #2c3e50; }
+
+.order-seat-tip {
+  color: #8e8d8a; }
+
+.order-right-part {
+  position: absolute;
+  bottom: 0;
+  left: 400px; }
 
 /*# sourceMappingURL=data-center.css.map */
