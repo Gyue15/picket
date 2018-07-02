@@ -101,7 +101,12 @@ function displayList(domElement, data, state) {
 }
 
 function cancelOrder(orderId) {
+    alertWindowCtrl("你确定要退订订单吗？", `javascript: cancelOrderClick(${orderId})`);
     console.log(orderId);
+
+}
+
+function cancelOrderClick(orderId) {
     $.post("/api/orders/cancel", {
         orderId: orderId,
     }).done(function () {
