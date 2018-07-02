@@ -1,33 +1,39 @@
+@import "../public/variables";
+
 .chart-item {
   text-align: center;
   font-size: 16px;
   color: #262626;
   margin-top: 3%;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .chart-active {
   font-size: 18px;
-  color: #0050B3; }
+  color: #0050B3;
+}
 
 .order-detail-title {
   font-size: 20px;
-  margin: 5% 15%; }
+  margin: 5% 15%;
+}
 
 .order-detail-item {
   font-size: 16px;
-  margin: 4% 15%; }
+  margin: 4% 15%;
+}
 
 .operation-bar {
   margin: 4% 15%;
-  height: 52px; }
+  height: 52px;
+}
 
 .operation-btn {
   float: left;
   margin-bottom: 5%;
   margin-right: 5%;
   width: 20%;
-  background-color: #0050B3;
-  /* Green */
+  background-color: #0050B3; /* Green */
   border: none;
   color: white;
   padding: 10px;
@@ -35,92 +41,115 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 .operation-tip {
   font-size: 14px;
   height: 52px;
   padding: 18px;
-  color: #0050B3; }
+  color: #0050B3;
+}
 
 .order-detail-title {
   font-size: 24px;
   margin: 4% auto;
   width: 60%;
-  /*text-align: center;*/ }
+  /*text-align: center;*/
+}
 
 .order-detail-item {
   font-size: 18px;
   margin: 4% auto;
   width: 60%;
-  /*text-align: center;*/ }
+  /*text-align: center;*/
+}
 
 .order-container {
   border: 1px solid #d9d9d9;
   width: 80%;
-  margin: 4% auto; }
+  margin: 4% auto;
+}
 
 .table {
-  display: table; }
+  display: table;
+}
 
 .table td {
   text-align: left;
-  vertical-align: middle !important; }
+  vertical-align: middle !important;
+}
 
 #body .table tbody .panel .panel-heading {
-  padding: 0; }
+  padding: 0;
+}
 
 #body .table tbody .panel:first-child {
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 #body .table tbody tr td {
-  padding: 10px; }
+  padding: 10px;
+}
 
 #body .table tbody .dateTag {
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 5px; }
+  font-size: 5px;
+}
 
 #body .table tbody .idTag {
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 5px; }
+  font-size: 5px;
+}
 
 #body .table tbody td {
   border: none;
-  text-align: left; }
+  text-align: left;
+}
 
 #body .table tbody td:nth-child(1) {
-  width: 7%; }
+  width: 7%;
+}
 
 #body .table tbody td:nth-child(2) {
-  width: 12%; }
+  width: 12%;
+}
 
 #body .table tbody td:nth-child(3) {
-  width: 18%; }
+  width: 18%;
+}
 
 #body .table tbody td:nth-child(4) {
   width: 38%;
-  text-align: center; }
+  text-align: center;
+}
 
 #body .table tbody td:nth-child(5) {
-  width: 8%; }
+  width: 8%;
+}
 
 #body .table tbody td:nth-child(6) {
-  width: 16%; }
+  width: 16%;
+}
 
+// new scss
 #table-pane {
   width: 80%;
-  margin: 50px auto; }
+  margin: 50px auto;
+}
 
 .layui-tab-title .layui-this {
-  background-color: #e85a4f;
-  color: white; }
+  background-color: $primary-color;
+  color: $white-color;
+}
 
 .layui-tab-title .layui-this:after {
-  border-style: none; }
+  border-style: none;
+}
 
 .order-item {
   width: 100%;
@@ -128,45 +157,54 @@
   overflow: hidden;
   position: relative;
   margin-bottom: 5px;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 .order-img-container {
   width: auto;
   height: auto;
   float: left;
-  margin-right: 20px; }
+  margin-right: 20px;
+}
 
 .order-img {
   width: 138px;
-  height: auto; }
+  height: auto;
+}
 
 .layui-tab-content {
-  padding: 10px 0; }
+  padding: 10px 0;
+}
 
 .order-title {
   font-size: 22px;
   margin-bottom: 25px;
-  color: #2c3e50; }
+  color: $black-color;
+}
 
 .order-left-container {
-  float: left; }
+  float: left;
+}
 
 .order-info-item {
   width: auto;
   height: 20px;
   overflow: hidden;
-  margin-top: 2px; }
+  margin-top: 2px;
+}
 
 .order-info-tip {
   font-size: 15px;
-  color: #8e8d8a;
+  color: $grey-color;
   float: left;
-  width: 80px; }
+  width: 80px;
+}
 
 .order-info {
   font-size: 15px;
-  color: #2c3e50;
-  float: left; }
+  color: $black-color;
+  float: left;
+}
 
 .order-detail-pointer, .order-another-pointer {
   position: absolute;
@@ -174,26 +212,33 @@
   color: white;
   font-size: 16px;
   padding: 8px 30px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .order-detail-pointer {
   right: 0;
   bottom: 0;
-  background-color: #e85a4f; }
+  background-color: $primary-color;
+}
 
 .order-another-pointer {
   right: 150px;
   bottom: 0;
-  background-color: #ffc53d; }
+  background-color: $select-color;
+}
 
 .layui-tab-content {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .no-order {
   width: auto;
   margin: auto;
   font-size: 20px;
-  color: #8e8d8a;
-  text-align: center; }
+  color: $grey-color;
+  text-align: center;
+}
 
-/*# sourceMappingURL=data-center.css.map */
+
+
+

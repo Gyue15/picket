@@ -1,58 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Picket-您的票务专家</title>
-<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/lib/bootstrap-table.min.css">
-<link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
-<link rel="stylesheet" type="text/css" href="/css/public/main.css">
-<link rel="stylesheet" type="text/css" href="/css/member/data-center.css">
-<link rel="stylesheet" type="text/css" href="/css/member/page.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Picket-您的票务专家</title>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/public/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/data-center.css">
+    <link rel="stylesheet" type="text/css" href="/css/member/page.css">
 </head>
 <body>
-	<div id="header"></div>
-
-	<div class="row">
-		<div class="col-md-2"></div>
-
-		<div id="body" class="col-md-8 right-part">
-
-			<ul class="nav nav-tabs" role="tablist" style="margin-top:10px">
-				<li role="presentation" class="active">
-					<a href="#paid" aria-controls="paid" role="tab" data-toggle="tab">已支付</a>
-				</li>
-				<li role="presentation">
-					<a href="#unpaid" aria-controls="unpaid" role="tab" data-toggle="tab">未支付</a>
-				</li>
-				<li role="presentation">
-					<a href="#cancelled" aria-controls="cancelled" role="tab" data-toggle="tab">已取消</a>
-				</li>
-			</ul>
-
-			<!-- Tab panes -->
-			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="paid"><div id="paid-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="unpaid"><div id="unpaid-table"></div></div>
-				<div role="tabpanel" class="tab-pane" id="cancelled"><div id="cancelled-table"></div></div>
-			</div>
-
-		</div>
-	</div>
+<div id="header"></div>
 
 
-	<script type="text/javascript"
-		src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-	<script type='text/javascript'
-		src='/webjars/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-	<script type="text/javascript" src="/js/lib/bootstrap-table.min.js"></script>
-	<script type="text/javascript" src="/js/lib/bootstrap-table-zh-CN.min.js"></script>
-	<script type='text/javascript' src='/layui/layui.all.js'></script>
-	<script type="text/javascript" src="/js/public/util.js"></script>
-	<script type="text/javascript" src="/js/member/public/header.js"></script>
-	<script type="text/javascript"
-		src="/js/member/public/ticketsLeftNavigation.js"></script>
-	<script type="text/javascript" src="/js/member/statistic/order.js"></script>
+<div id="table-pane" class="layui-tab">
+
+    <ul class="layui-tab-title">
+        <li class="layui-this">已支付</li>
+        <li>未支付</li>
+        <li>已取消</li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show" id="paid">
+        </div>
+        <div class="layui-tab-item" id="unpaid">
+        </div>
+        <div class="layui-tab-item" id="cancelled">
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/layui/layui.all.js'></script>
+<script type="text/javascript" src="/js/public/util.js"></script>
+<script type="text/javascript" src="/js/member/public/header.js"></script>
+<script type="text/javascript" src="/js/member/public/ticketsLeftNavigation.js"></script>
+<script type="text/javascript" src="/js/member/statistic/order.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 $(function () {
-	updateList($("#paid-table"), "PAID_AND_UNMAIL");
-	updateList($("#unpaid-table"), "UN_PAID");
-	updateList($("#cancelled-table"), "CANCELLED");
+	updateList($("#paid"), "PAID_AND_UNMAIL");
+	updateList($("#unpaid"), "UN_PAID");
+	updateList($("#cancelled"), "CANCELLED");
 });
 
 function updateList(domElement, state) {
@@ -13,80 +13,96 @@ function updateList(domElement, state) {
         "page": 0,
         "page-size": 0
     }).done(function (data) {
-        displayList(domElement, data);
+        displayList(domElement, data, state);
     }).fail(function (xhr) {
         console.log(xhr.responseText);
     });
 }
 
-function displayList(domElement, data) {
-	var formatData = new Array();
-	for (var i=0; i<data.length; i++) {
-		var seatsAndPriceList = new Array();
-		for (var j=0; j<`${data[i].seatNameList.length}`; j++) {
-			seatsAndPriceList.push(`${data[i].seatNameList[j]}` + "(单价" + `${data[i].seatPriceList[j]}` + ")");
-		}
-		formatData.push({
-			'id' : `${data[i].orderId}`,
-			'pic': `<img src="/showpic/${data[i].activityId}.jpg" height="80" width="60"/>`,
-			'aname' : `${data[i].activityName}`,
-			'vname' : `${data[i].venueName}`,
-			'date' : `${data[i].placeDateString}`,
-			'seats' : seatsAndPriceList,
-			'totalPrice' : `总额￥${data[i].orderValue.toFixed(2)}`,
-		});
-	}
-	$(domElement).bootstrapTable({
-    	showHeader : false,
-    	showFooter : false,
-    	pagination : true,
-    	pageSize : 5,
-    	pageList : [5],
-    	buttonsAlign : "right",
-    	classes : "table table-no-bordered table-hover",
-    	columns : [{
-    		field : 'id',
-    		visible : false
-    	}, {
-			field: 'pic'
-		}, {
-    		field : 'aname'
-    	}, {
-    		field : 'vname'
-    	}, {
-    		field : 'date',
-    		visible: false
-    	}, {
-    		field: 'seats',
-    		formatter : function formatter(value, row, index) {
-    			var htmlstr = "";
-    			if (value.length <=3 ){
-    				for (var i=0; i<value.length; i++) {
-    					htmlstr += "<div>" + value[i] + "</div>";
-    				}
-    			} else {
-    				for (var i=0; i<value.length; i+=2) {
-    					htmlstr += "<div>" + value[i] + "&emsp;" + ((i+1>=value.length)?"":value[i+1]) + "</div>";
-    				}
-    			}
-    			return htmlstr;
-    		}
-    	}, {
-    		field : 'totalPrice'
-    	}, {
-    		field : 'detail',
-    		formatter : function formatter(value, row, index) {
-    			return "<a class='order-detail' href='/member/order/detail?orderId=" + row.id + "'>查看详情&gt;&gt;</a>";
-    		}
-    	}],
-    	data : formatData
-    });
-    $("#tab-content .active");
-    $(domElement).find("tbody tr").wrap("<div class='panel panel-default'></div>");
-    $(domElement).find("tbody tr").before("<div class='panel-heading'></div>");
-    $(domElement).find("tbody .panel .panel-heading").each(function(index, element) {
-    	$(element).append("<div class='dateTag'>" + $(domElement).bootstrapTable("getData")[index].date + "</div>");
-    	$(element).append("<div class='idTag'>订单号:" + $(domElement).bootstrapTable("getData")[index].id + "</div>");
-    });
-    
+function displayList(domElement, data, state) {
+    if (state === `UN_PAID`) {
+        console.log("===================");
+        console.log(data);
+        console.log("===================");
+    }
+    if (data.length === 0) {
+        domElement.append(`<div class="no-order">暂时没有订单哦～</div>`);
+        return;
+    }
+    let order = ``;
+    let temp = [];
+    for (let i in data) {
+        let obj = data[i];
+        let unitPrice = ``;
+        for (let j in obj.seatPriceList) {
+            if (temp.indexOf(obj.seatPriceList[j]) !== -1) {
+                continue;
+            }
+            temp.push(obj.seatPriceList[j]);
+            if (j > 0) {
+                unitPrice += ', ';
+            }
+            unitPrice += `${obj.seatPriceList[j]}元`;
+
+        }
+        let button = `
+                <button class="order-detail-pointer" onclick="window.location.href='/member/order/detail?orderId=${obj.orderId}'">
+                    查看详情
+                </button>`;
+        if (state === "PAID_AND_UNMAIL"){
+            button += `<button class="order-another-pointer" onclick="cancelOrder()">
+                    取消订单
+                </button>`;
+        } else if (state === 'UN_PAID') {
+            button += `<button class="order-another-pointer" onclick="window.location.href='/member/activity/purchase/pay?signature=${obj.orderId}'">
+                    现在支付
+                </button>`;
+        }
+        order += `<div class="order-item">
+                <div class="order-img-container">
+                    <img class="order-img" src="/showpic/${obj.activityId}.jpg"/>
+                </div>
+                <div class="order-left-container">
+                    <div class="order-title">
+                        ${obj.activityName}
+                    </div>
+                    <div class="order-info-item">
+                        <div class="order-info-tip">订单号：</div>
+                        <div class="order-info"> ${obj.orderId}</div>
+                    </div>
+                    <div class="order-info-item">
+                        <div class="order-info-tip">下单时间：</div>
+                        <div class="order-info"> ${obj.placeDateString}</div>
+                    </div>
+                    <div class="order-info-item">
+                        <div class="order-info-tip">门票数量：</div>
+                        <div class="order-info"> ${obj.seats}张</div>
+                    </div>
+                    <div class="order-info-item">
+                        <div class="order-info-tip">门票单价：</div>
+                        <div class="order-info">${unitPrice}</div>
+                    </div>
+                    <div class="order-info-item">
+                        <div class="order-info-tip">演出场馆：</div>
+                        <div class="order-info">${obj.venueName}</div>
+                    </div>
+                    <div class="order-info-item">
+                        <div class="order-info-tip">订单总额：</div>
+                        <div class="order-info">${obj.orderValue}元</div>
+                    </div>
+                </div>
+                ${button}
+            </div>
+            <hr style="width: 100%">`;
+    }
+
+    // let page = `<div id="${state}-page"><div id="${state}-before" class="page-item" onclick="turnPage(-1)">上一页</div>
+    //         <div id="${state}-pageNum" class="page-item page-num">1/10</div>
+    //         <div id="${state}-after" class="page-item" onclick="turnPage(1)">下一页</div></div>`;
+
+    domElement.append(order);
+}
+
+function cancleOrder(orderId) {
+
 }

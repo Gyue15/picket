@@ -174,7 +174,6 @@ ul {
 .right-part {
   min-height: 80vh;
   height: 80vh;
-  border: 0.8px solid $transparent-grey;
 }
 
 #footer {
@@ -190,7 +189,7 @@ ul {
   font-size: 16px;
 }
 
-#page {
+#page, #UN_PAID-page, #PAID_AND_UNMAIL-page, #CANCELLED-page{
   float: left;
   clear: left;
   position: relative;
@@ -463,6 +462,7 @@ blockquote.layui-elem-quote {
   border: 1px solid $transparent-grey;
   background-color: $white-color;
   z-index: 9999;
+  padding-bottom: 10px;
 }
 
 #inner-city-pane {
@@ -471,6 +471,7 @@ blockquote.layui-elem-quote {
   height: 170px;
   //border: solid;
   overflow: scroll;
+  padding-bottom: 10px;
 }
 
 .city-row {
@@ -603,7 +604,6 @@ blockquote.layui-elem-quote {
   cursor: pointer;
   display: block;
   width: auto;
-  height: 48px;
   text-align: center;
   padding: 15px 6px 0 6px;
   &:hover, &.active {
