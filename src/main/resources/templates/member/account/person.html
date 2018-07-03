@@ -27,14 +27,14 @@
                     <p class="item-content">
                     <p class="before-text">昵称：</p>
                     <div class="step-bar-item" style="float: left; margin-right: 5px; display: none">
-                        <input type="text" id="username-input" name="username" required lay-verify="required"
+                        <input type="text" id="name-input" name="username" required lay-verify="required"
                                autocomplete="off" class="layui-input"/>
                     </div>
                     <p class="after-text" id="name"></p>
-                    <a id="edit-name" class="after-text" style="cursor: pointer"
-                       onclick="editInfo('username', 'username-input', this, 'name')">
+                    <a id="name-edit-button" class="after-text" style="cursor: pointer" onclick="editUserName()">
                         <img class="edit-img" src="/image/edit.png"/>
                     </a>
+                    <button id="name-submit-button" class="layui-btn layui-btn-normal" style="display: none" onclick="submitUserName()">确认修改</button>
                 </div>
 
                 <div class="body-item">
@@ -59,9 +59,6 @@
                     <button class="layui-btn layui-btn-normal" style="float: left" onclick="getVoucher()">兑换优惠券</button>
                     <button class="layui-btn layui-btn-normal" onclick="changePassword()">修改密码</button>
                     <button class="layui-btn layui-btn-danger" style="float: right" onclick="abolish()">停止账号</button>
-                    <button id="confirm-btn" class="layui-btn layui-btn-normal layui-btn-disabled" style="float: right"
-                            onclick="confirmEdit()">确认修改
-                    </button>
                 </div>
                 <!--</div>-->
             </div>

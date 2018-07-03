@@ -55,25 +55,43 @@ function updateMemberData() {
     pointParent.tooltip();
 }
 
-function editInfo(attr, inputId, obj, beforeId) {
-    $(obj).css("display", "none");
-    $(`#${beforeId}`).css("display", "none");
-    $(`#${inputId}`).keypress(function () {
+function editUserName() {
+    $('#name-edit-button').css("display", "none");
+    $('#name').css("display", "none");
+    $('#name-submit-button').css("display", "");
+    $('#name-input').keypress(function () {
         onEnter(attr, inputId, obj, beforeId);
     }).parent().css("display", "");
     // venueData[attr] = $(`#${id}`).val();
 }
 
-function onEnter(attr, inputId, obj, beforeId) {
+function submitUserName() {
+    console.log(memberData);
+    if ($('#name-input').val()) {
+        $('#name-edit-button').css("display", "");
+        $('#name').css("display", "");
+        $('#name-submit-button').css("display", "none");
+        $('#name-input').parent().css("display", "none");
+        memberData['username'] = $('#name-input').val();
+        console.log(memberData);
+        updateMemberData();
+        confirmEdit();
+    }
+
+}
+
+function onEnter() {
     console.log(memberData);
     let e = event || window.event;
-    if (e.keyCode === 13 && $(`#${inputId}`).val()) {
-        $(obj).css("display", "");
-        $(`#${beforeId}`).css("display", "");
-        $(`#${inputId}`).parent().css("display", "none");
-        memberData[attr] = $(`#${inputId}`).val();
-        $("#confirm-btn").removeClass("layui-btn-disabled");
+    if (e.keyCode === 13 && $('#name-input').val()) {
+        $('#name-edit-button').css("display", "");
+        $('#name').css("display", "");
+        $('#name-submit-button').css("display", "none");
+        $('#name-input').parent().css("display", "none");
+        memberData['username'] = $('#name-input').val();
+        console.log(memberData);
         updateMemberData();
+        confirmEdit();
     }
 }
 
