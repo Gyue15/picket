@@ -89,7 +89,9 @@ function postComment() {
         email: localStorage.getItem("memberEmail"),
         comment: comment
     }).done(function () {
-        alertWindowCtrl("发布成功", `/member/activity/detail?activityId=${activityId}`);
+        alertWindow("发布成功");
+
+        setTimeout(function(){window.location.href = `/member/activity/detail?activityId=${activityId}`;}, 1000);
     }).fail(function (e) {
         alertWindow(e.responseText);
     })

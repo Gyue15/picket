@@ -44,7 +44,22 @@ function updateHeader() {
         <a id="舞台剧" class="header-menu-item" href='/member/activity?type=舞台剧'>舞台剧</a>`;
     }
 
-    let header = "";
+    if (window.location.href.match('.*/member/order.*')) {
+        headerMenu = `<div id="crumb">
+                        <a href="/">首页</a>
+                        >
+                        <a id="cite">我的订单</a>
+                       </div>`;
+    }
+    if (window.location.href.match('.*/member/person.*')) {
+        headerMenu = `<div id="crumb">
+                        <a href="/">首页</a>
+                        >
+                        <a id="cite">个人中心</a>
+                       </div>`;
+    }
+
+        let header = "";
     if (localStorage.getItem("memberIsLogin")) {
         header = `<div id="inner-header">
         <div class="left-header-container">

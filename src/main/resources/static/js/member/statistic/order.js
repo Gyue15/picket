@@ -3,7 +3,7 @@ $(function () {
     updateList($("#paid"), "PAID_AND_UNMAIL");
     updateList($("#unpaid"), "UN_PAID");
     updateList($("#cancelled"), "CANCELLED");
-    initOrderHeader();
+    //initOrderHeader();
 });
 
 function initOrderHeader() {
@@ -128,7 +128,7 @@ function cancelOrderClick(orderId) {
             "page-size": 0
         }).done(function (data) {
             displayList($("#paid"), data, "PAID_AND_UNMAIL");
-            alertWindow("成功退订");
+            alertWindow("退订成功");
         }).fail(function (e) {
             alertWindow(e.responseText);
         });

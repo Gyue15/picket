@@ -1,7 +1,7 @@
 let memberData;
 
 $(function () {
-    initPersonHeader();
+    //initPersonHeader();
     $.get("/api/members", {
         email: localStorage.getItem("memberEmail")
     }).done(function (data) {
@@ -79,7 +79,9 @@ function onEnter(attr, inputId, obj, beforeId) {
 
 function confirmEdit() {
     $.post("/api/members/modify", memberData).done(function () {
-        alertWindowCtrl("修改成功！", "/member/person");
+        alertWindow("修改成功！");
+        setTimeout(function(){window.location.href = "/member/person";}, 1000);
+
     }).fail(function (e) {
         alertWindow(e.responseText);
     })
@@ -146,7 +148,8 @@ function changeVoucher() {
         voucherTypeId: voucherTypeId,
         num: num
     }).done(function () {
-        alertWindowCtrl("兑换成功", "/member/person");
+        alertWindow("兑换成功");
+        setTimeout(function(){window.location.href = "/member/person";}, 1000);
     }).fail(function (e) {
         alertWindow(e.responseText);
     });
@@ -223,7 +226,8 @@ function postChangePassword(index) {
         oldPassword: old
     }).done(function () {
         layer.close(index);
-        alertWindowCtrl("修改成功", "/member/person");
+        alertWindow("修改成功");
+        setTimeout(function(){window.location.href = "/member/person";}, 1000);
     }).fail(function (e) {
         alertWindow(e.responseText);
     });

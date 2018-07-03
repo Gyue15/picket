@@ -94,7 +94,9 @@ function pay() {
             email: localStorage.getItem("memberEmail"),
             voucherId: voucherId
         }).done(function () {
-            alertWindowCtrl("购买成功", "/member/order")
+            alertWindow("购买成功，正在跳转到订单页面");
+            setTimeout(function(){window.location.href = "/member/order";}, 1500);
+
         }).fail(function (e) {
             alertWindow(e.responseText);
         })
@@ -109,7 +111,8 @@ function unPay() {
         email: localStorage.getItem("memberEmail")
     }).done(function () {
         flag = true;
-        window.location.href = "/member/activity";
+        alertWindow("已取消支付，正在跳转到演出页面");
+        setTimeout(function(){window.location.href = "/member/activity";}, 1500);
     }).fail(function (e) {
         alertWindow(e.responseText);
     })
