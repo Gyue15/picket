@@ -148,7 +148,7 @@ function cancelPayClick(orderId) {
         orderId: orderId,
         email: localStorage.getItem("memberEmail")
     }).done(function (data) {
-        displayList($("#unpaid"), data, "UN_PAID");
+        updateList($("#unpaid"), "UN_PAID");
         alertWindow("已取消支付");
     }).fail(function (e) {
         alertWindow(e.responseText);
