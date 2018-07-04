@@ -184,7 +184,8 @@ function initActivityDetail(activityModel) {
     if (activityModel.name === "WE LOST THE SEA 2018巡演") {
         imgCSS.background = `url(https://f4.bcbits.com/img/0005216613_130.jpg) no-repeat center fixed`;
     }
-    $('.img').css(imgCSS);
+
+    $('#img').css(imgCSS);
 
     //magic
     $(window).scroll(function() {
@@ -193,13 +194,13 @@ function initActivityDetail(activityModel) {
         var height = $(window).scrollTop();
         let boxShadow = {'box-shadow': '1px 1px 10px 5px rgba(100, 100, 100, 0.2)'};
         if (height >= start - 50) {
-            $('.color').fadeIn();
-            $('.img').fadeIn();
+            // $('.color').fadeIn();
+            $('#img').fadeIn();
             $('#description-container').css(boxShadow);
             $('.hot-show').css(boxShadow);           
         } else {
-            $('.img').fadeOut();
-            $('.color').fadeOut();
+            $('#img').fadeOut();
+            // $('.color').fadeOut();
             $('#description-container').css({
                 'box-shadow': 'none',
             }); 
