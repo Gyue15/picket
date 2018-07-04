@@ -171,8 +171,8 @@ function setUpWebSocket() {
 }
 
 function updateNotification(activityNameList) {
-    if (JSON.stringify(localStorage.getItem("notifications")) === JSON.stringify(activityNameList)) {
-
+    if (localStorage.getItem("notifications") === JSON.stringify(activityNameList)) {
+        return;
     }
     notifications = activityNameList;
     // TODO: 修改通知图标
