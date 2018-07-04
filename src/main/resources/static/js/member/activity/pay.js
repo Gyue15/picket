@@ -57,7 +57,7 @@ $(function () {
       >
       <a href="/member/activity?type=${activityType}">${activityType}</a>
       >
-      <a href="/member/activity?detail?activityId=${activityId}">${activityName}</a>
+      <a href="/member/activity/detail?activityId=${activityId}">${activityName}</a>
       >支付
     </div>`;
         $("#header-menu").after(crumb);
