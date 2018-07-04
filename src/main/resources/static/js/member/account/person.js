@@ -59,8 +59,13 @@ function editUserName() {
     $('#name-edit-button').css("display", "none");
     $('#name').css("display", "none");
     $('#name-submit-button').css("display", "");
+
+    let xxxx = document.getElementById('name').innerHTML;
+    console.log(xxxx);
+    $('#name-input').val(xxxx);
+
     $('#name-input').keypress(function () {
-        onEnter(attr, inputId, obj, beforeId);
+        onEnter();
     }).parent().css("display", "");
     // venueData[attr] = $(`#${id}`).val();
 }
