@@ -1,16 +1,27 @@
 @import "../public/variables";
 
+body {
+  background-color: #eee;
+}
+
 #activity-container {
-  width: 80%;
-  margin: 3% auto 5% auto;
+  width: 100%;
+  height: 65vh;
+  padding: 30px 20px 20px 150px;
   display: flex;
   align-items: stretch;
+  background-color: white;
+
+}
+
+#header {
+  background: white;
 }
 
 #detail-img-container {
-  width: 30%;
+  width: 26%;
   height: auto;
-  overflow: auto;
+  overflow: hidden;
   float: left;
 }
 
@@ -182,33 +193,67 @@
   margin: 2% auto;
   height: auto;
   overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 .sub-title {
+  padding-top: 30px;
+  background: white;
+  padding-left: 20px;
   color: $primary-color;
   font-size: 20px;
   margin-bottom: 15px;
   &.lower {
     margin-top: 40px;
+    padding-left: 30px;
+  }
+  &.hot {
+    margin-bottom: 0;
+    padding-bottom: 25px;
   }
 }
 
 #description-container {
   width: 78%;
-  float: left;
   height: auto;
+  z-index: 2;
+  position: relative;  
+  transition: padding 0.5s ease;
+  background: white;
+  .layui-form {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 #hot-container {
-  float: right;
-  width: 18%;
+  margin-left: 56px;
+  width: calc(22% - 56px);
   height: auto;
+  z-index: 2;
+  p {
+    padding-left: 20px;
+    padding-right:20px;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  .hot-show {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background: white;
+  }
+  .blank-line {
+    height: 20px;
+  }
 }
 
 .hot-img {
   width: 100%;
   height: auto;
   cursor: pointer;
+  margin-bottom: 7px;
 }
 
 .hot-show-title {
@@ -219,6 +264,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
   cursor: pointer;
+  background: white;
 }
 
 .hot-sub-bar {
@@ -227,21 +273,75 @@
   margin-bottom: 3px;
 }
 
+.img {
+  display: none;
+  position: fixed;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;  
+}
+
+.color {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(240,240,240,0.8);
+  opacity: 0.1;
+}
+
 #description-detail {
-  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
   color: $black-color;
   line-height: 24px;
   img{
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: 2% auto;
+    padding: none;
   }
+  iframe {
+    overflow: hidden;
+  }
+  .artist__head {
+    width: 100%;
+    height: 200px;
+    overflow: hidden; 
+    img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+  }
+  p {
+    padding: 20px 30px 20px;
+  }
+  z-index: 2;
 }
 
 #no-comment {
   font-size: 16px;
   color: $black-color;
+  padding-left: 30px;
+  padding-right: 30px;
 }
+
+#comment {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
 
 #crumb {
   font-size: 15px;
@@ -260,6 +360,19 @@
     cursor: default;
     &:hover {
       color: $black-color;
+    }
+  }
+}
+
+#description-container {
+  #page {
+    float: none;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    .page-item {
+      position: relative;
+      display: block;
     }
   }
 }

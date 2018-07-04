@@ -46,6 +46,7 @@ function updateHeader() {
             </tooltip>
             <a class="header-item right-item pointer" href="javascript:void(0);" id="notification-header" onclick="openNotification()"><i class="far fa-bell"></i></a>
             <a href="javascript:void(0);" id="notification-float" class="animated" onclick="openNotification()"><i class="far fa-bell"></i><p id="notification-float-number"></p></a>
+            <a href="javascript:void(0);" id="go-top" onclick="goTop()" style="display:none;"><i class="glyphicon glyphicon-arrow-up"></i><p>顶部</p></a>
         </div>
     </div>`;
     } else {
@@ -104,6 +105,20 @@ function updateHeader() {
 
     $(`#${type}`).addClass("active");
 
+    // go-to-top
+    $(window).scroll(function() {
+        var height = $(window).scrollTop();
+        if (height > 600) {
+            $('#go-top').fadeIn();
+        } else {
+            $('#go-top').fadeOut();
+        }
+    });    
+    $("#go-top").click(function(event) {
+        event.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });   
 
 }
 

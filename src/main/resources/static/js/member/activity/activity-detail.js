@@ -52,23 +52,23 @@ function initActivityHeader(activityModel) {
 }
 
 function updateHotActivity(data) {
-    let hot = `<div class="sub-title">
-            热门演出
-        </div>
+    let hot = `
         <div class="hot-show">
+            <div class="sub-title hot">
+                热门演出
+            </div>
             <img class="hot-img" onclick="window.location.href='/member/activity/detail?activityId=${data[0].activityId}'" src="/showpic/${data[0].photo}" />
-            <div class="hot-show-title" onclick="window.location.href='/member/activity/detail?activityId=${data[0].activityId}'">${data[0].name}</div>
-            <div class="hot-sub-bar">${data[0].dateString}</div>
-            <div class="hot-sub-bar"><i class="icon-map small" onclick="openMap('${data[0].venueName}')">&#xe6bb;</i>${data[0].venueName}</div>
-        </div>
-        <hr style="width: 100%; margin-bottom: 20px">`;
+            <p class="hot-show-title" onclick="window.location.href='/member/activity/detail?activityId=${data[0].activityId}'">${data[0].name}</p>
+            <p class="hot-sub-bar">${data[0].dateString}</p>
+            <p class="hot-sub-bar"><i class="icon-map small" onclick="openMap('${data[0].venueName}')">&#xe6bb;</i>${data[0].venueName}</p>
+        </div>`;
     for (let i = 1; i < data.length; i++) {
-        hot += `<div class="hot-show">
-            <div class="hot-show-title" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'">${data[i].name}</div>
-            <div class="hot-sub-bar">${data[i].dateString}</div>
-            <div class="hot-sub-bar"><i class="icon-map small" onclick="openMap('${data[i].venueName}')">&#xe6bb;</i>${data[i].venueName}</div>
-        </div>
-        <hr style="width: 100%; margin-bottom: 20px">`;
+        hot += `<div class="blank-line"></div><div class="hot-show">
+            <img class="hot-img" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'" src="/showpic/${data[i].photo}" />
+            <p class="hot-show-title" onclick="window.location.href='/member/activity/detail?activityId=${data[i].activityId}'">${data[i].name}</p>
+            <p class="hot-sub-bar">${data[i].dateString}</p>
+            <p class="hot-sub-bar"><i class="icon-map small" onclick="openMap('${data[i].venueName}')">&#xe6bb;</i>${data[i].venueName}</p>
+        </div>`;
     }
     $("#hot-container").append(hot);
 }
@@ -176,6 +176,38 @@ function initActivityDetail(activityModel) {
         priceBlock.attr("data-placement", "top");
         priceBlock.tooltip();
     }
+
+    let imgCSS = {
+        "background": `url(/showpic/${activityModel.photo}) no-repeat center fixed`,
+        "background-size": "cover"
+    }
+    if (activityModel.name === "WE LOST THE SEA 2018巡演") {
+        imgCSS.background = `url(https://f4.bcbits.com/img/0005216613_130.jpg) no-repeat center fixed`;
+    }
+    $('.img').css(imgCSS);
+
+    //magic
+    $(window).scroll(function() {
+        const start = $("#description-container").offset().top;
+        const end = $("#comment").offset().top;
+        var height = $(window).scrollTop();
+        let boxShadow = {'box-shadow': '1px 1px 15px 5px rgba(120, 120, 120, 0.3)'};
+        if (height >= start - 50) {
+            $('.color').fadeIn();
+            $('.img').fadeIn();
+            $('#description-container').css(boxShadow);
+            $('.hot-show').css(boxShadow);           
+        } else {
+            $('.img').fadeOut();
+            $('.color').fadeOut();
+            $('#description-container').css({
+                'box-shadow': 'none',
+            }); 
+            $('#hot-show').css({
+                'box-shadow': 'none',
+            });
+        }
+    });
 }
 
 function openMap(venueName) {
