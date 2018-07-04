@@ -7,6 +7,7 @@ let nowPrice = 0;
 let priceNum = 1;
 let discount = 1;
 let isLogin = false;
+let aModel = undefined;
 
 $(function () {
     $.post("/api/activities/is-subscribe", {activityId, email}).done(function (data) {
@@ -16,6 +17,7 @@ $(function () {
                     venueCode = activityModel.venueCode;
                     initActivityDetail(activityModel);
                     initActivityHeader(activityModel);
+                    aModel = activityModel;
                 }).fail(function (e) {
                 alertWindow(e.responseText);
             });
@@ -256,7 +258,8 @@ function buyNow() {
         venueCode: venueCode
     }).done(function (data) {
         if (data.orderId !== "wrong") {
-            window.location.href = `/member/activity/purchase/pay?lock=false&signature=${data.orderId}`;
+        	let atype = aModel.activityType.split(",")[0];
+            window.location.href = `/member/activity/purchase/pay?lock=false&signature=${data.orderId}&atype=${atype}&aname=${aModel.name}&aid=${activityId}`;
         } else {
             alertWindow("余座不足");
         }
