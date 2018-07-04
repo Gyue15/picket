@@ -779,7 +779,10 @@ blockquote.layui-elem-quote {
   text-align: center;
   padding-top: 12px;
   color: $white-color;
+  position: relative;
   margin-top: 30px;
+  bottom: 0;
+  width: 100%;
   a {
     color: $white-color;
     &:hover{
