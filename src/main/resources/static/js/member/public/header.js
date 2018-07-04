@@ -90,8 +90,8 @@ function updateHeader() {
     }
     let subHeader = `
     <div id="site-name-bar">
-        <div id="site-name"><a href="/">Picket</a></div>
-        <div id="city" onclick="switchCity()"><div id="city-name" style="float: left">${cityName}</div><i id="down-icon" class="xiala">&#xe641;</i><i id="up-icon" class="xiala" style="display: none">&#xe798;</i></div>
+        <div id="site-name"><a href="/"><img src="/logo.png" style="width: auto;height: 100px;margin-left: -20%;margin-top: -16%;"/></a></div>
+        <div id="city" onclick="switchCity()" style="margin-left: 8%;"><div id="city-name" style="float: left">${cityName}</div><i id="down-icon" class="xiala">&#xe641;</i><i id="up-icon" class="xiala" style="display: none">&#xe798;</i></div>
         <div id="search-bar">
             <input id="search-bar-input" type="text"/>
             <button id="search-bar-button" onclick="searchActivity()">搜索</button>
