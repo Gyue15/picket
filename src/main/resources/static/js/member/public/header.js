@@ -106,10 +106,10 @@ function updateHeader() {
 
     $("#header").empty().append(header + subHeader);
     if (this.location.href.match('.*/member/order.*')) {
-        $("#order-header").css("border-bottom", "3px solid #e98074");
+        $("#order-header").css("border-bottom", "1px solid #e98074");
     }
     else if (this.location.href.match('.*/member/person.*')) {
-        $("#person-header").css("border-bottom", "3px solid #e98074");
+        $("#person-header").css("border-bottom", "1px solid #e98074");
     }
 
     let searchBarInput = document.getElementById("search-bar-input");
