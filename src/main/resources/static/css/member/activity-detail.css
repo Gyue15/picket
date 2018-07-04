@@ -36,9 +36,15 @@ body {
   float: right;
 }
 
+@media screen and (max-width: 1400px) {
+  #detail-text {
+    padding-left: 20px;
+  }
+}
+
 #detail-title {
   font-size: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   width: auto;
 }
 

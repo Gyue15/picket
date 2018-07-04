@@ -178,11 +178,8 @@ function initActivityDetail(activityModel) {
     }
 
     let imgCSS = {
-        "background": `url(/showpic/${activityModel.photo}) no-repeat center fixed`,
+        "background": `url(/showimg/${activityId}.jpg) no-repeat center fixed`,
         "background-size": "cover"
-    }
-    if (activityModel.name === "WE LOST THE SEA 2018巡演") {
-        imgCSS.background = `url(https://f4.bcbits.com/img/0005216613_130.jpg) no-repeat center fixed`;
     }
 
     $('#img').css(imgCSS);
