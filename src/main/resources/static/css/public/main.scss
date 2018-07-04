@@ -299,7 +299,12 @@ blockquote.layui-elem-quote {
 .header-item {
   font-size: 13px;
   margin-top: 5px;
-  height: 24.5px;
+  &#person-header {
+    height: 24.5px;
+  }
+  &#order-header {
+    height: 22px;
+  }
   text-align: center;
   color: $black-color;
 }

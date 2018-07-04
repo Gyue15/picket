@@ -176,19 +176,6 @@ ul {
   height: 80vh;
 }
 
-#footer {
-  height: 52px;
-  width: 100%;
-  overflow: auto;
-}
-
-#copy-right {
-  text-align: center;
-  line-height: 52px;
-  font-family: Times-Roman;
-  font-size: 16px;
-}
-
 #page, #UN_PAID-page, #PAID_AND_UNMAIL-page, #CANCELLED-page {
   float: left;
   clear: left;
@@ -309,9 +296,16 @@ blockquote.layui-elem-quote {
 .header-item {
   font-size: 13px;
   margin-top: 5px;
-  height: 24.5px;
   text-align: center;
   color: #2c3e50;
+}
+
+.header-item#person-header {
+  height: 24.5px;
+}
+
+.header-item#order-header {
+  height: 22px;
 }
 
 #notification-float {
@@ -836,24 +830,37 @@ blockquote.layui-elem-quote {
   background-color: #2c3e50;
   text-align: center;
   padding-top: 12px;
-  color: white; }
-  #footer a {
-    color: white; }
-    #footer a:hover {
-      color: #ffc53d; }
+  color: white;
+}
+
+#footer a {
+  color: white;
+}
+
+#footer a:hover {
+  color: #ffc53d;
+}
 
 #crumb {
   font-size: 15px;
-  padding-top: 20px; }
-  #crumb a {
-    color: #8e8d8a;
-    cursor: pointer; }
-    #crumb a:hover {
-      color: #e85a4f; }
-  #crumb #cite {
-    color: #2c3e50;
-    cursor: default; }
-    #crumb #cite:hover {
-      color: #2c3e50; }
+  padding-top: 20px;
+}
 
+#crumb a {
+  color: #8e8d8a;
+  cursor: pointer;
+}
+
+#crumb a:hover {
+  color: #e85a4f;
+}
+
+#crumb #cite {
+  color: #2c3e50;
+  cursor: default;
+}
+
+#crumb #cite:hover {
+  color: #2c3e50;
+}
 /*# sourceMappingURL=main.css.map */

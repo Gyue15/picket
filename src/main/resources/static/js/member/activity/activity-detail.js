@@ -191,7 +191,7 @@ function initActivityDetail(activityModel) {
         const start = $("#description-container").offset().top;
         const end = $("#comment").offset().top;
         var height = $(window).scrollTop();
-        let boxShadow = {'box-shadow': '1px 1px 15px 5px rgba(120, 120, 120, 0.3)'};
+        let boxShadow = {'box-shadow': '1px 1px 10px 5px rgba(100, 100, 100, 0.2)'};
         if (height >= start - 50) {
             $('.color').fadeIn();
             $('.img').fadeIn();
@@ -203,7 +203,7 @@ function initActivityDetail(activityModel) {
             $('#description-container').css({
                 'box-shadow': 'none',
             }); 
-            $('#hot-show').css({
+            $('.hot-show').css({
                 'box-shadow': 'none',
             });
         }
