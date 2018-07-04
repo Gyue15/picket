@@ -47,6 +47,32 @@ $(function () {
         $("#pay-value").text(`原价${data.money}元，优惠价：${(data.money * data.memberDiscount).toFixed(2)}元`);
         console.log(data);
         orignMoney = data.money;
+        
+        let activityType = getUrlParam("atype");
+        let activityName = getUrlParam("aname");
+        let activityId = getUrlParam("aid");
+        let crumb = `
+    <div id="crumb" style="margin:10px auto 0 auto;display:flex;width:80%;padding:20px 0 0 5px;">
+      <a href="/">首页</a>
+      >
+      <a href="/member/activity?type=${activityType}">${activityType}</a>
+      >
+      <a href="/member/activity?detail?activityId=${activityId}">${activityName}</a>
+      >支付
+    </div>`;
+        $("#header-menu").after(crumb);
+        
+        $.get("/api/orders/" + getUrlParam("signature"))
+        .done(function (orderModel) {
+        	$("#pay-ticket-info").append(`<div class="pay-item-container"><label class='layui-form-label larger'>演出名称</label><div class='layui-input-block'><div class='pay-value'>${orderModel.activityName}</div></div></div>`);
+        	$("#pay-ticket-info").append(`<div class="pay-item-container"><label class='layui-form-label larger'>演出场馆</label><div class='layui-input-block'><div class='pay-value'>${orderModel.venueName}</div></div></div>`);
+        	$("#pay-ticket-info").append(`<div class="pay-item-container"><label class='layui-form-label larger'>开始时间</label><div class='layui-input-block'><div class='pay-value'>${orderModel.beginDateString}</div></div></div>`);
+        	$("#pay-ticket-info").append(`<div class="pay-item-container"><label class='layui-form-label larger'>座位</label><div class='layui-input-block'><div class='pay-value'>${orderModel.seatNameList}</div></div></div>`);
+        	console.log(orderModel);
+        }).fail(function (e) {
+        	alertWindow(e.responseText);
+        });
+        
     });
 });
 
